@@ -6,7 +6,20 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="text-2xl font-bold text-blue-400 mb-4">Abubakri Faaruq</h3>
+            <div className="flex items-center gap-2 mb-4">
+                <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {/* Laptop body */}
+                  <rect x="2" y="3" width="20" height="14" rx="2" strokeWidth="2"/>
+                  {/* Laptop screen */}
+                  <rect x="4" y="5" width="16" height="8" rx="1" strokeWidth="2" fill="currentColor" className="text-blue-100 dark:text-blue-900"/>
+                  {/* Screen text AFA */}
+                  <text x="12" y="11" textAnchor="middle" fontSize="4" fontWeight="bold" fill="currentColor" className="text-blue-600 dark:text-blue-400">AFA</text>
+                  {/* Laptop base */}
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 17h14"/>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 21h8"/>
+                </svg>
+                <span className="text-2xl font-bold text-blue-400">Abubakri Faaruq</span>
+              </div>
             <p className="text-gray-400">
               IT Professional, Network Engineer, Cybersecurity Specialist, Cloud Engineer, and Vibecoder.
             </p>
