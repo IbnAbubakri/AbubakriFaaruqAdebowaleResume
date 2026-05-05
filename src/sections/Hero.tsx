@@ -14,16 +14,16 @@ interface ScatterPosition {
 
 export default function Hero() {
   const scatterPositions: ScatterPosition[] = [
-    { x: -450, y: -280, rotate: -45 },
-    { x: 520, y: -350, rotate: 30 },
-    { x: -380, y: 420, rotate: -60 },
-    { x: 600, y: 250, rotate: 45 },
-    { x: -500, y: -180, rotate: 60 },
-    { x: 450, y: 380, rotate: -30 },
-    { x: -280, y: 500, rotate: 50 },
-    { x: 700, y: -420, rotate: -40 },
-    { x: 350, y: 300, rotate: 25 },
-    { x: -600, y: -400, rotate: 70 },
+    { x: -200, y: -150, rotate: -30 },
+    { x: 250, y: -200, rotate: 20 },
+    { x: -200, y: 250, rotate: -40 },
+    { x: 300, y: 150, rotate: 30 },
+    { x: -250, y: -100, rotate: 40 },
+    { x: 200, y: 200, rotate: -20 },
+    { x: -150, y: 300, rotate: 30 },
+    { x: 350, y: -250, rotate: -30 },
+    { x: 180, y: 180, rotate: 15 },
+    { x: -300, y: -200, rotate: 50 },
   ];
 
   const scatterAnimation = (index: number) => ({
@@ -53,10 +53,10 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1 text-center md:text-left">
-            <motion.h1
-              {...scatterAnimation(0)}
-              className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6"
-            >
+              <motion.h1
+                {...scatterAnimation(0)}
+                className="text-3xl sm:text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6 break-words"
+              >
               Abubakri{' '}
               <span className="text-blue-600 dark:text-blue-400">Faaruq</span>{' '}
               Adebowale
@@ -113,13 +113,13 @@ export default function Hero() {
             </div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1.5, duration: 0.8 }}
-            className="flex-shrink-0"
-          >
-            <div className="w-96 h-96 md:w-[600px] md:h-[600px] rounded-full bg-gradient-to-br from-blue-100 to-blue-200 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center shadow-2xl border-4 border-white dark:border-gray-800 overflow-hidden">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1.5, duration: 0.8 }}
+              className="flex-shrink-0 w-full max-w-[600px] mx-auto md:mx-0"
+            >
+              <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-[600px] md:h-[600px] rounded-full bg-gradient-to-br from-blue-100 to-blue-200 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center shadow-2xl border-4 border-white dark:border-gray-800 overflow-hidden mx-auto">
               <img
                 src="/professional-photo.jpg"
                 alt="Abubakri Faaruq Adebowale"
