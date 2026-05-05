@@ -1,14 +1,14 @@
 'use client'
 
 import Navbar from '@/components/Navbar'
-import Hero from '@/sections/Hero'
+import Skills from '@/sections/Skills'
 import Footer from '@/components/Footer'
 
-export default function Home() {
+export default function SkillsPage() {
   return (
     <main className="min-h-screen bg-white dark:bg-gray-900">
       <Navbar />
-      <Hero />
+      <Skills />
       <Footer />
     </main>
   )

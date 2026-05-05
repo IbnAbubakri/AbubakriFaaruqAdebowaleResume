@@ -1,0 +1,6 @@
+To add the certificate image:
+1. Open the PDF: Abubakri Faaruq Adebowale__N+_FIX.pdf
+2. Take a screenshot of the certificate (or use Snipping Tool on Windows)
+3. Save it as: CompTIA_Network+_Certificate.jpg or .png
+4. Place it in this public folder
+5. The website will automatically show the image on the certification card
