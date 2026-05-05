@@ -62,18 +62,18 @@ export default function Experience() {
         </motion.div>
 
         <div className="relative">
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-200 dark:bg-blue-800"></div>
+          <div className="absolute left-4 md:left-1/2 md:transform md:-translate-x-1/2 h-full w-1 bg-blue-200 dark:bg-blue-800"></div>
 
           {experiences.map((exp, index) => (
             <motion.div
               key={exp.title}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -60 : 60 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className={`relative mb-12 flex ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}
+              className="relative mb-12 pl-8 md:pl-0"
             >
-              <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
+              <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-8 md:text-right md:ml-0 md:mr-auto' : 'md:pl-8 md:text-left md:ml-auto md:mr-0'}`}>
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg"
@@ -94,7 +94,7 @@ export default function Experience() {
                   </div>
                 </motion.div>
               </div>
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full mt-6"></div>
+              <div className="absolute left-4 md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full mt-6"></div>
             </motion.div>
           ))}
         </div>
