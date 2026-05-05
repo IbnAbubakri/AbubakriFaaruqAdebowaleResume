@@ -27,23 +27,22 @@ export default function Footer() {
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
-            <div className="flex gap-4">
-              {[
-                { label: 'LinkedIn', href: 'https://linkedin.com/in/faaruq-abubakri' },
-{ label: 'GitHub', href: 'https://github.com/IbnAbubakri' },
-                { label: 'Email', href: 'mailto:faruqsuzay@gmail.com' },
-                { label: 'WhatsApp', href: 'https://wa.me/qr/BSDWHYAVN7HBD1' },
-              ].map((social) => (
-                <motion.a
-                  key={social.label}
-                  whileHover={{ scale: 1.1 }}
-                  href={social.href}
-                  className="px-4 py-2 bg-gray-800 rounded-lg text-sm hover:bg-blue-600 transition-colors"
-                >
-                  {social.label}
-                </motion.a>
-              ))}
-            </div>
+              <div className="flex gap-4">
+                {[
+                  { label: 'GitHub', href: 'https://github.com/IbnAbubakri' },
+                  { label: 'Email', href: 'mailto:faruqsuzay@gmail.com' },
+                  { label: 'WhatsApp', href: 'https://wa.me/qr/BSDWHYAVN7HBD1' },
+                ].map((social) => (
+                  <motion.a
+                    key={social.label}
+                    whileHover={{ scale: 1.1 }}
+                    href={social.href}
+                    className="px-4 py-2 bg-gray-800 rounded-lg text-sm hover:bg-blue-600 transition-colors"
+                  >
+                    {social.label}
+                  </motion.a>
+                ))}
+              </div>
           </div>
         </div>
         <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
