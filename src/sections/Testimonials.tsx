@@ -8,6 +8,15 @@ const fadeInUp = {
   transition: { duration: 0.6 }
 }
 
+const testimonials = [
+  {
+    name: 'John Olawoye',
+    role: 'Networking Student, HIIT PLC',
+    content: 'Under Mr. Faruq Abubakri\'s guidance, I successfully configured 802.1Q trunking, VTP server/client mode, inter-VLAN routing on a Layer 3 switch with SVIs, and verified broadcast isolation and extended ping tests. He systematically debugs using debug trunk events and monitor session. He is a true practitioner.',
+    rating: 5,
+  },
+]
+
 export default function Testimonials() {
   return (
     <section id="testimonials" className="py-20 bg-gray-50 dark:bg-gray-800">
@@ -22,26 +31,35 @@ export default function Testimonials() {
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Testimonials & Recommendations</h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
           <p className="mt-6 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Placeholder for future employer, client, and student reviews. Recommendations will be added as they become available.
+            Hear from students, colleagues, and clients about their experience working with me.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {[1, 2, 3].map((item) => (
+        <div className="grid md:grid-cols-1 gap-8 max-w-4xl mx-auto">
+          {testimonials.map((testimonial, index) => (
             <motion.div
-              key={item}
+              key={testimonial.name}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: item * 0.1 }}
-              className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg text-center"
+              transition={{ delay: index * 0.1 }}
+              className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg text-center relative overflow-hidden"
             >
-              <div className="w-16 h-16 bg-gray-300 dark:bg-gray-700 rounded-full mx-auto mb-4"></div>
-              <div className="text-gray-400 dark:text-gray-500 mb-4">
-                "Recommendation placeholder - will be updated with actual testimonials from employers, clients, and students."
+              <div className="text-6xl text-blue-100 dark:text-blue-900 absolute top-4 left-4">"</div>
+              <div className="relative z-10">
+                <div className="text-gray-700 dark:text-gray-300 mb-6 italic text-lg">
+                  "{testimonial.content}"
+                </div>
+                <div className="flex items-center justify-center gap-4">
+                  <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold text-xl">
+                    {testimonial.name.charAt(0)}
+                  </div>
+                  <div className="text-left">
+                    <p className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">{testimonial.role}</p>
+                  </div>
+                </div>
               </div>
-              <p className="font-semibold text-gray-900 dark:text-white">Name</p>
-              <p className="text-sm text-gray-500 dark:text-gray-400">Title, Company</p>
             </motion.div>
           ))}
         </div>
