@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <rect x="2" y="3" width="20" height="14" rx="2" fill="none" stroke="#2563eb" stroke-width="2"/>
+  <rect x="4" y="5" width="16" height="8" rx="1" fill="#eff6ff"/>
+  <text x="12" y="11" text-anchor="middle" font-size="5" font-weight="bold" fill="#2563eb" font-family="sans-serif">AFA</text>
+  <line x1="5" y1="17" x2="19" y2="17" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+  <line x1="8" y1="21" x2="16" y2="21" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+</svg>
