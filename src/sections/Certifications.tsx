@@ -16,6 +16,7 @@ const certifications = [
     date: '2024',
     description: 'Comprehensive networking certification covering routing, switching, security, and automation.',
     distinction: true,
+    certLink: '/certifications/ccna',
   },
   {
     title: 'CompTIA Network+',
