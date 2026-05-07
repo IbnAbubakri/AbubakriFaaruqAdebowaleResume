@@ -22,6 +22,12 @@ const testimonials = [
     content: 'Great learning experience with hands-on projects and some supportive guidance through you. Working under his guidance helped me build both technical skills and confidence. I\'m grateful for the opportunity.',
     rating: 5,
   },
+  {
+    name: 'Nelson Olokodana',
+    role: 'Student, USA 🇺🇸',
+    content: 'Mr. Faaruq is a kind, patient, and hardworking teacher who teaches me very well and helps me understand my lessons easily. He always encourages me to work hard, behave well, and do my best in school. He is caring, supportive, and always ready to help whenever I have difficulties. He makes learning enjoyable and inspires me to become a better student. I am very grateful for his guidance, dedication, and support, and I pray that God blesses him always.',
+    rating: 5,
+  },
 ]
 
 export default function Testimonials() {
