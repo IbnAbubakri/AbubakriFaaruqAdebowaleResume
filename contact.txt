@@ -1,4 +1,4 @@
-Under Mr. Faruq Abubakri's guidance, I successfully configured 802.1Q trunking, VTP server/client mode, inter-VLAN routing on a Layer 3 switch with SVIs, and verified broadcast isolation and extended ping tests. He systematically debugs using debug trunk events and monitor session' — "He is a true practitioner."
+Great learning experience with hands-on projects and some supportive guidance through you.
+Working under his guidance helped me build both technical skills and confidence. I’m grateful for the opportunity.
 
-  John Olawoye (Osun State University)
-     Networking Student, HIIT PLC
+Rayyan A. Akindele | Intern | HiiT Plc

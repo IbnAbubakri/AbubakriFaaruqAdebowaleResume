@@ -17,9 +17,9 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: 'Student Name',
-    role: 'Future Testimonial',
-    content: 'More testimonials will be added here. Please share your experience working with me!',
+    name: 'Rayyan A. Akindele',
+    role: 'Intern, HIIT PLC',
+    content: 'Great learning experience with hands-on projects and some supportive guidance through you. Working under his guidance helped me build both technical skills and confidence. I\'m grateful for the opportunity.',
     rating: 5,
   },
 ]
