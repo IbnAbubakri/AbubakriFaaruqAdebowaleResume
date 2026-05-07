@@ -24,7 +24,7 @@ const testimonials = [
   },
   {
     name: 'Nelson Olokodana',
-    role: 'Student, USA 🇺🇸',
+    role: 'Student, USA',
     content: 'Mr. Faaruq is a kind, patient, and hardworking teacher who teaches me very well and helps me understand my lessons easily. He always encourages me to work hard, behave well, and do my best in school. He is caring, supportive, and always ready to help whenever I have difficulties. He makes learning enjoyable and inspires me to become a better student. I am very grateful for his guidance, dedication, and support, and I pray that God blesses him always.',
     rating: 5,
   },
