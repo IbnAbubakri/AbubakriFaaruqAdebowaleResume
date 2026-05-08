@@ -1,60 +1,87 @@
 'use client'
 
-import { motion, useAnimationControls } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
+import { useEffect, useState, useCallback } from 'react'
 
-const emojis = ['🐱', '🐈', '😺', '🐈‍⬛', '🐭', '🐁', '🐀', '🧀']
-
-function randomPos() {
+function randPos(pad = 60) {
+  const w = typeof window !== 'undefined' ? window.innerWidth : 1200
+  const h = typeof window !== 'undefined' ? window.innerHeight : 800
   return {
-    x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth - 80 : 500),
-    y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight - 80 : 500),
+    x: Math.random() * (w - pad * 2) + pad,
+    y: Math.random() * (h - pad * 2) + pad,
   }
 }
 
-function randomDelay() {
-  return Math.random() * 2 + 1
-}
-
-function randomDuration() {
-  return Math.random() * 3 + 2
+function dist(a: { x: number; y: number }, b: { x: number; y: number }) {
+  return Math.hypot(a.x - b.x, a.y - b.y)
 }
 
 export default function CatAndRat() {
-  const [cat, setCat] = useState({ x: 100, y: 100 })
-  const [rat, setRat] = useState({ x: 300, y: 200 })
-  const [catEmoji] = useState(() => emojis[Math.floor(Math.random() * 4)])
-  const [ratEmoji] = useState(() => emojis[Math.floor(Math.random() * 4) + 4])
+  const [ratPos, setRatPos] = useState(() => randPos())
+  const [catPos, setCatPos] = useState(() => randPos())
+  const [ratTarget, setRatTarget] = useState(() => randPos())
+
+  const moveRat = useCallback(() => {
+    setRatTarget(randPos())
+  }, [])
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const newRat = randomPos()
-      setRat(newRat)
-      setTimeout(() => {
-        setCat(newRat)
-      }, 600)
-    }, 3000)
-
+    const interval = setInterval(moveRat, 2500)
     return () => clearInterval(interval)
-  }, [])
+  }, [moveRat])
+
+  // Cat continuously chases rat's current position
+  useEffect(() => {
+    const chase = setInterval(() => {
+      setCatPos(prev => {
+        const gap = dist(prev, ratPos)
+        // Cat speeds up when close (pounce), slows when far (stalk)
+        const speed = gap < 150 ? 3.5 : gap < 300 ? 2.5 : 1.2
+        const dx = ratPos.x - prev.x
+        const dy = ratPos.y - prev.y
+        const d = Math.hypot(dx, dy)
+        if (d < 10) return prev
+        return {
+          x: prev.x + (dx / d) * Math.min(speed, d),
+          y: prev.y + (dy / d) * Math.min(speed, d),
+        }
+      })
+    }, 50)
+    return () => clearInterval(chase)
+  }, [ratPos])
+
+  // Rat flees faster when cat is near
+  useEffect(() => {
+    const flee = setInterval(() => {
+      const gap = dist(ratPos, catPos)
+      if (gap < 120) {
+        // Rat sprints away
+        setRatPos(randPos())
+        setRatTarget(randPos())
+      }
+    }, 200)
+    return () => clearInterval(flee)
+  }, [ratPos, catPos])
+
+  // Cat flips sprite toward rat
+  const catFlip = catPos.x < ratPos.x ? 1 : -1
+  const ratFlip = ratPos.x < ratTarget.x ? 1 : -1
 
   return (
     <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
       <motion.div
-        key="cat"
-        className="absolute text-2xl"
-        animate={{ x: cat.x, y: cat.y }}
-        transition={{ type: 'spring', stiffness: 100, damping: 15 }}
+        className="absolute text-2xl select-none"
+        animate={{ x: catPos.x, y: catPos.y, scaleX: catFlip }}
+        transition={{ type: 'spring', stiffness: 60, damping: 12 }}
       >
-        {catEmoji}
+        🐱
       </motion.div>
       <motion.div
-        key="rat"
-        className="absolute text-xl"
-        animate={{ x: rat.x, y: rat.y }}
-        transition={{ type: 'spring', stiffness: 80, damping: 12, delay: 0.3 }}
+        className="absolute text-xl select-none"
+        animate={{ x: ratPos.x, y: ratPos.y, scaleX: ratFlip }}
+        transition={{ type: 'spring', stiffness: 50, damping: 10 }}
       >
-        {ratEmoji}
+        🐭
       </motion.div>
     </div>
   )
