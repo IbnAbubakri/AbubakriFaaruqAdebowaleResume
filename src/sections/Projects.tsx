@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations'
 
 const FileIcon = () => (
   <svg className="w-24 h-24 text-white opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -36,12 +37,6 @@ const projects = [
   },
 ]
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 60 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
-}
-
 export default function Projects() {
   return (
     <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-800">
@@ -57,15 +52,19 @@ export default function Projects() {
           <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <motion.div
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-2 gap-8"
+        >
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              variants={staggerItem}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
               className="bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden"
             >
               <div className="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">

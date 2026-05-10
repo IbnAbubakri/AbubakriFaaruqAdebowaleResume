@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations'
 
 const education = [
   {
@@ -23,12 +24,6 @@ const education = [
   },
 ]
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 60 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
-}
-
 export default function Education() {
   return (
     <section id="education" className="py-20 bg-white dark:bg-gray-900">
@@ -44,15 +39,19 @@ export default function Education() {
           <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <motion.div
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+        >
           {education.map((edu, index) => (
             <motion.div
               key={edu.degree}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              variants={staggerItem}
               transition={{ delay: index * 0.2 }}
-              whileHover={{ y: -5 }}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
               className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-lg"
             >
               <div className="text-3xl mb-4" aria-hidden="true">🎓</div>

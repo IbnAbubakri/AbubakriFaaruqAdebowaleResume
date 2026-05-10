@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { fadeInUp } from '@/lib/animations'
 
 const experiences = [
   {
@@ -39,12 +40,6 @@ const experiences = [
     technologies: ['React', 'Node.js', 'Python', 'Database Design'],
   },
 ]
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 60 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
-}
 
 export default function Experience() {
   return (

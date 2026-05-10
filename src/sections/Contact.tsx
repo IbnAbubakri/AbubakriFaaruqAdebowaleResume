@@ -2,12 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 60 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
-}
+import { fadeInUp } from '@/lib/animations'
 
 const EmailIcon = () => (
   <svg aria-hidden="true" className="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">

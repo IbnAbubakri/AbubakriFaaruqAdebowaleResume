@@ -1,12 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 60 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
-}
+import AnimatedCounter from '@/components/AnimatedCounter'
+import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem } from '@/lib/animations'
 
 const TargetIcon = () => (
   <svg aria-hidden="true" className="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -60,23 +56,30 @@ export default function About() {
             <p className="text-gray-600 dark:text-gray-300 mb-6">
               I combine my networking and security expertise with vibecoding skills to build comprehensive, secure, and scalable solutions. Whether it's designing enterprise networks, implementing security protocols, or developing web applications, I bring a holistic approach to technology.
             </p>
-            <div className="grid grid-cols-2 gap-4">
+            <motion.div
+              variants={staggerContainer}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              className="grid grid-cols-2 gap-4"
+            >
               {[
-                { label: 'Experience', value: '5+ Years' },
-                { label: 'Projects', value: '50+' },
-                { label: 'Certifications', value: '3+' },
-                { label: 'Clients', value: '30+' },
+                { label: 'Experience', value: 5, suffix: '+ Years' },
+                { label: 'Projects', value: 50, suffix: '+' },
+                { label: 'Certifications', value: 4, suffix: '+' },
+                { label: 'Clients', value: 30, suffix: '+' },
               ].map((stat) => (
                 <motion.div
                   key={stat.label}
+                  variants={staggerItem}
                   whileHover={{ scale: 1.05 }}
                   className="p-4 bg-blue-50 dark:bg-gray-800 rounded-lg text-center"
                 >
-                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">{stat.value}</div>
+                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                   <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
 
           <motion.div
