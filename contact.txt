@@ -1,0 +1,50 @@
+2026-05-10T09:41:53.492806776Z ==> Docs on specifying a Node.js version: https://render.com/docs/node-version
+2026-05-10T09:41:53.598610003Z ==> Running build command 'npm install; npm run build'...
+2026-05-10T09:42:17.279063283Z 
+2026-05-10T09:42:17.279091115Z added 330 packages, and audited 331 packages in 24s
+2026-05-10T09:42:17.279103626Z 
+2026-05-10T09:42:17.279228073Z 137 packages are looking for funding
+2026-05-10T09:42:17.279324898Z   run `npm fund` for details
+2026-05-10T09:42:17.304325484Z 
+2026-05-10T09:42:17.304351076Z 2 moderate severity vulnerabilities
+2026-05-10T09:42:17.304355606Z 
+2026-05-10T09:42:17.304360346Z To address all issues (including breaking changes), run:
+2026-05-10T09:42:17.304364946Z   npm audit fix --force
+2026-05-10T09:42:17.304368937Z 
+2026-05-10T09:42:17.304373417Z Run `npm audit` for details.
+2026-05-10T09:42:17.549038539Z 
+2026-05-10T09:42:17.54906243Z > web-cv-fresh@0.1.0 build
+2026-05-10T09:42:17.54906705Z > next build
+2026-05-10T09:42:17.549070221Z 
+2026-05-10T09:42:18.282248739Z ⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
+2026-05-10T09:42:18.367133914Z    ▲ Next.js 15.5.18
+2026-05-10T09:42:18.367205369Z 
+2026-05-10T09:42:18.392202274Z    Creating an optimized production build ...
+2026-05-10T09:42:29.266486599Z  ✓ Compiled successfully in 8.5s
+2026-05-10T09:42:29.268083671Z    Linting and checking validity of types ...
+2026-05-10T09:42:29.479385167Z  ⨯ ESLint: Cannot find module '/opt/render/project/src/node_modules/eslint-config-next/core-web-vitals' imported from /opt/render/project/src/eslint.config.mjs Did you mean to import "eslint-config-next/core-web-vitals.js"?
+2026-05-10T09:42:29.537368227Z 
+2026-05-10T09:42:29.537568328Z    We detected TypeScript in your project and reconfigured your tsconfig.json file for you.
+2026-05-10T09:42:29.537576549Z    The following mandatory changes were made to your tsconfig.json:
+2026-05-10T09:42:29.537579939Z 
+2026-05-10T09:42:29.537583989Z    	- jsx was set to preserve (next.js implements its own optimized jsx transform)
+2026-05-10T09:42:29.53776963Z 
+2026-05-10T09:42:31.675338938Z    Collecting page data ...
+2026-05-10T09:42:35.222273731Z    Generating static pages (0/11) ...
+2026-05-10T09:42:36.099781979Z    Generating static pages (2/11) 
+2026-05-10T09:42:36.099831112Z    Generating static pages (5/11) 
+2026-05-10T09:42:36.101045682Z    Generating static pages (8/11) 
+2026-05-10T09:42:36.16074034Z Error occurred prerendering page "/certifications/ccna". Read more: https://nextjs.org/docs/messages/prerender-error
+2026-05-10T09:42:36.160769132Z Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+2026-05-10T09:42:36.160774342Z     at <unknown> (.next/server/chunks/280.js:1:165294)
+2026-05-10T09:42:36.160778662Z     at Object.get (.next/server/chunks/280.js:1:147559)
+2026-05-10T09:42:36.160797783Z     at <unknown> (.next/server/chunks/818.js:11:2745)
+2026-05-10T09:42:36.160801043Z     at Array.map (<anonymous>)
+2026-05-10T09:42:36.160804064Z     at f (.next/server/chunks/818.js:11:2724)
+2026-05-10T09:42:36.160806474Z     at stringify (<anonymous>) {
+2026-05-10T09:42:36.160809814Z   digest: '1011402526'
+2026-05-10T09:42:36.160812334Z }
+2026-05-10T09:42:36.160815404Z Export encountered an error on /certifications/ccna/page: /certifications/ccna, exiting the build.
+2026-05-10T09:42:36.180315964Z  ⨯ Next.js build worker exited with code: 1 and signal: null
+2026-05-10T09:42:36.361803948Z ==> Build failed 😞
+2026-05-10T09:42:36.361818479Z ==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys

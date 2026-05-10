@@ -1,19 +1,20 @@
+'use client'
+
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import type { Metadata } from 'next'
-
-export const metadata: Metadata = {
-  title: "DevOps Certificate | Abubakri Faaruq Adebowale",
-  description: "DevOps certification from Udemy covering CI/CD, Docker, Kubernetes, and cloud deployment strategies.",
-}
+import { motion } from 'framer-motion'
 
 export default function DevOpsCertificate() {
   return (
     <main className="min-h-screen bg-white dark:bg-gray-900">
       <Navbar />
-      <section className="py-20 animate-fade-in">
+      <section className="py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 animate-slide-up">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center mb-12"
+          >
             <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
               DevOps Certificate
             </h1>
@@ -30,9 +31,14 @@ export default function DevOpsCertificate() {
             >
               Download Certificate
             </a>
-          </div>
+          </motion.div>
 
-          <div className="animate-slide-up-delayed bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden shadow-2xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden shadow-2xl"
+          >
             <img
               src="/certificate-devops.jpg"
               alt="DevOps Certificate"
@@ -54,7 +60,7 @@ export default function DevOpsCertificate() {
                 }
               }}
             />
-          </div>
+          </motion.div>
         </div>
       </section>
       <Footer />
