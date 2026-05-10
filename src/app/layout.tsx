@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import ScrollProgress from '@/components/ScrollProgress';
 import BackToTop from '@/components/BackToTop';
+import LiveClock from '@/components/LiveClock';
 import "./globals.css";
 
 const geistSans = Geist({
@@ -66,6 +67,7 @@ export default function RootLayout({
         <ThemeProvider>
           <ScrollProgress />
           <BackToTop />
+          <LiveClock />
           {children}
         </ThemeProvider>
       </body>
