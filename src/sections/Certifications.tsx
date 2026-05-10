@@ -30,9 +30,11 @@ const certifications = [
   {
     title: 'AWS Cloud Computing',
     issuer: 'Amazon Web Services',
+    trainingProvider: 'ThinkCloudly',
     date: '2025',
     description: 'Cloud architecture, deployment, and management certification.',
     distinction: false,
+    certLink: '/certifications/aws',
   },
   {
     title: 'DevOps Certification',
