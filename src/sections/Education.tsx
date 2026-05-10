@@ -61,7 +61,7 @@ export default function Education() {
               <p className="text-gray-600 dark:text-gray-300">{edu.description}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

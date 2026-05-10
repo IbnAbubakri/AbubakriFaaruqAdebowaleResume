@@ -99,7 +99,7 @@ export default function Certifications() {
               )}
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

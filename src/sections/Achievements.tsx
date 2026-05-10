@@ -107,7 +107,7 @@ export default function Achievements() {
               <p className="text-gray-600 dark:text-gray-400">{achievement.description}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
