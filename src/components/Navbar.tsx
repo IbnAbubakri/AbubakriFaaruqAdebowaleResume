@@ -7,15 +7,15 @@ import ThemeToggle from './ThemeToggle'
 
 const navItems = [
   { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  { name: 'Skills', href: '/skills' },
-  { name: 'Certifications', href: '/certifications' },
-  { name: 'Experience', href: '/experience' },
-  { name: 'Education', href: '/education' },
-  { name: 'Projects', href: '/projects' },
-  { name: 'Achievements', href: '/achievements' },
-  { name: 'Testimonials', href: '/testimonials' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'About', href: '/#about' },
+  { name: 'Skills', href: '/#skills' },
+  { name: 'Certifications', href: '/#certifications' },
+  { name: 'Experience', href: '/#experience' },
+  { name: 'Education', href: '/#education' },
+  { name: 'Projects', href: '/#projects' },
+  { name: 'Achievements', href: '/#achievements' },
+  { name: 'Testimonials', href: '/#testimonials' },
+  { name: 'Contact', href: '/#contact' },
 ]
 
 export default function Navbar() {

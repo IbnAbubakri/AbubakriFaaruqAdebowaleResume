@@ -1,15 +1,5 @@
-'use client'
-
-import Navbar from '@/components/Navbar'
-import Hero from '@/sections/Hero'
-import Footer from '@/components/Footer'
+import ClientWrapper from '@/components/ClientWrapper'
 
 export default function Home() {
-  return (
-    <main className="min-h-screen bg-white dark:bg-gray-900">
-      <Navbar />
-      <Hero />
-      <Footer />
-    </main>
-  )
+  return <ClientWrapper />
 }

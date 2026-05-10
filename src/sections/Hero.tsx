@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { useEffect } from 'react'
 
 const titles = ['IT Administrator', 'Network Engineer', 'Cybersecurity Specialist', 'Cloud Engineer', 'Vibecoder'];
 
@@ -120,23 +119,9 @@ export default function Hero() {
               className="flex-shrink-0 w-full max-w-[600px] mx-auto md:mx-0"
             >
               <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-[600px] md:h-[600px] rounded-full bg-gradient-to-br from-blue-100 to-blue-200 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center shadow-2xl border-4 border-white dark:border-gray-800 overflow-hidden mx-auto">
-              <img
-                src="/professional-photo.jpg"
-                alt="Abubakri Faaruq Adebowale"
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                  const parent = target.parentElement;
-                  if (parent) {
-                    parent.innerHTML = `
-                      <svg class="w-24 h-24 text-blue-400 dark:text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                      </svg>
-                    `;
-                  }
-                }}
-              />
+                <svg className="w-24 h-24 text-blue-400 dark:text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg>
             </div>
           </motion.div>
         </div>

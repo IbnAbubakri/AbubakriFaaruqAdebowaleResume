@@ -47,13 +47,23 @@ export default function Contact() {
     subject: '',
     message: '',
   })
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    const mailtoLink = `mailto:faruqsuzay@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
-    )}`
-    window.location.href = mailtoLink
+    setStatus('sending')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+      if (!res.ok) throw new Error('Failed')
+      setStatus('sent')
+      setFormData({ name: '', email: '', subject: '', message: '' })
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -88,15 +98,25 @@ export default function Contact() {
                 { icon: LocationIcon, label: 'Location', value: 'Lagos, Nigeria', href: '#' },
                 { icon: GitHubIcon, label: 'GitHub', value: 'github.com/IbnAbubakri', href: 'https://github.com/IbnAbubakri' },
                 { icon: WhatsAppIcon, label: 'WhatsApp', value: 'Chat on WhatsApp', href: 'https://wa.me/qr/BSDWHYAVN7HBD1' },
-              ].map((item) => (
-                <a key={item.label} href={item.href} className="flex items-center gap-4 hover:opacity-80 transition-opacity">
-                  <item.icon />
-                  <div>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{item.label}</p>
-                    <p className="text-gray-700 dark:text-gray-300">{item.value}</p>
+              ].map((item) =>
+                item.label === 'Location' ? (
+                  <div key={item.label} className="flex items-center gap-4">
+                    <item.icon />
+                    <div>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">{item.label}</p>
+                      <p className="text-gray-700 dark:text-gray-300">{item.value}</p>
+                    </div>
                   </div>
-                </a>
-              ))}
+                ) : (
+                  <a key={item.label} href={item.href} className="flex items-center gap-4 hover:opacity-80 transition-opacity">
+                    <item.icon />
+                    <div>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">{item.label}</p>
+                      <p className="text-gray-700 dark:text-gray-300">{item.value}</p>
+                    </div>
+                  </a>
+                )
+              )}
             </div>
           </motion.div>
 
@@ -152,9 +172,10 @@ export default function Contact() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               type="submit"
-              className="w-full py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              disabled={status === 'sending'}
+              className="w-full py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50"
             >
-              Send Message
+              {status === 'sending' ? 'Sending...' : status === 'sent' ? 'Message Sent!' : status === 'error' ? 'Failed. Try Again' : 'Send Message'}
             </motion.button>
           </motion.form>
         </div>

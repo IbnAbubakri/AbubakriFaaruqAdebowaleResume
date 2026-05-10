@@ -28,13 +28,13 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <div className="space-y-2">
               {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((link) => (
-                <button
+                <a
                   key={link}
-                  onClick={() => document.querySelector(`#${link.toLowerCase() === 'home' ? 'hero' : link.toLowerCase()}`)?.scrollIntoView({ behavior: 'smooth' })}
+                  href={link === 'Home' ? '/' : `/#${link.toLowerCase()}`}
                   className="block text-gray-400 hover:text-blue-400 transition-colors"
                 >
                   {link}
-                </button>
+                </a>
               ))}
             </div>
           </div>

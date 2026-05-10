@@ -11,6 +11,25 @@
   }
 }
 
+@keyframes rainFall {
+  0% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes cloudDrift1 {
+  0% { transform: translateX(-300px); }
+  100% { transform: translateX(calc(100vw + 300px)); }
+}
+
+@keyframes cloudDrift2 {
+  0% { transform: translateX(-200px); }
+  100% { transform: translateX(calc(100vw + 200px)); }
+}
+
 .animate-scroll {
   animation: scroll 30s linear infinite;
 }
