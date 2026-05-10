@@ -55,7 +55,7 @@ export default function Education() {
               whileHover={{ y: -5 }}
               className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-lg"
             >
-              <div className="text-3xl mb-4">🎓</div>
+              <div className="text-3xl mb-4" aria-hidden="true">🎓</div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{edu.degree}</h3>
               <p className="text-blue-600 dark:text-blue-400 mb-2">{edu.institution}</p>
               <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{edu.period}</p>

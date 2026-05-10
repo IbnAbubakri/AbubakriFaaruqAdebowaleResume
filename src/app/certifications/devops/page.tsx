@@ -1,20 +1,19 @@
-'use client'
-
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import { motion } from 'framer-motion'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: "DevOps Certificate | Abubakri Faaruq Adebowale",
+  description: "DevOps certification from Udemy covering CI/CD, Docker, Kubernetes, and cloud deployment strategies.",
+}
 
 export default function DevOpsCertificate() {
   return (
     <main className="min-h-screen bg-white dark:bg-gray-900">
       <Navbar />
-      <section className="py-20">
+      <section className="py-20 animate-fade-in">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-12"
-          >
+          <div className="text-center mb-12 animate-slide-up">
             <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
               DevOps Certificate
             </h1>
@@ -25,22 +24,17 @@ export default function DevOpsCertificate() {
               Training Provider: Udemy
             </p>
             <a
-              href="/CERTIFICATE DEVOPS.JPG"
+              href="/certificate-devops.jpg"
               download
               className="inline-block mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               Download Certificate
             </a>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden shadow-2xl"
-          >
+          <div className="animate-slide-up-delayed bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden shadow-2xl">
             <img
-              src="/CERTIFICATE DEVOPS.JPG"
+              src="/certificate-devops.jpg"
               alt="DevOps Certificate"
               className="w-full h-auto"
               onError={(e) => {
@@ -54,13 +48,13 @@ export default function DevOpsCertificate() {
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                       </svg>
                       <p class="text-lg font-semibold">Certificate image not found</p>
-                      <p class="text-sm mt-2">Please place "CERTIFICATE DEVOPS.JPG" in the public folder</p>
+                      <p class="text-sm mt-2">Please place the certificate image in the public folder</p>
                     </div>
                   `;
                 }
               }}
             />
-          </motion.div>
+          </div>
         </div>
       </section>
       <Footer />

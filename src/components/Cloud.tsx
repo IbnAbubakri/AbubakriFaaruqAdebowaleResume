@@ -10,6 +10,7 @@ export default function Cloud() {
       {clouds.map((c, i) => (
         <div
           key={i}
+          aria-hidden="true"
           className={`absolute ${c.size} ${c.opacity}`}
           style={{ top: c.top, animation: c.speed, animationDelay: `${-i * 20}s` }}
         >

@@ -94,7 +94,7 @@ export default function Hero() {
                 {...scatterAnimation(8)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="/Abubakri_Faaruq_Adebowale_CV.pdf"
+                href="/abubakri-faaruq-adebowale-cv.pdf"
                 download
                 className="px-8 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-colors"
               >
@@ -119,7 +119,7 @@ export default function Hero() {
               className="flex-shrink-0 w-full max-w-[600px] mx-auto md:mx-0"
             >
               <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-[600px] md:h-[600px] rounded-full bg-gradient-to-br from-blue-100 to-blue-200 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center shadow-2xl border-4 border-white dark:border-gray-800 overflow-hidden mx-auto">
-                <svg className="w-24 h-24 text-blue-400 dark:text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" className="w-24 h-24 text-blue-400 dark:text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                 </svg>
             </div>

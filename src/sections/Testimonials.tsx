@@ -50,28 +50,54 @@ export default function Testimonials() {
 
         <div className="relative w-full overflow-hidden">
           <div className="flex gap-6 animate-scroll">
-            {[...testimonials, ...testimonials].map((testimonial, index) => (
-              <motion.div
-                key={`${testimonial.name}-${index}`}
-                className="min-w-[350px] md:min-w-[450px] max-w-[450px] bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg relative"
-              >
-                <div className="text-6xl text-blue-100 dark:text-blue-900 absolute top-4 left-4">"</div>
-                <div className="relative z-10">
-                  <p className="text-gray-700 dark:text-gray-300 mb-6 italic text-sm">
-                    "{testimonial.content}"
-                  </p>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold text-xl">
-                      {testimonial.name.charAt(0)}
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</p>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">{testimonial.role}</p>
+            <div role="list">
+              {testimonials.map((testimonial, index) => (
+                <motion.div
+                  key={testimonial.name}
+                  className="min-w-[350px] md:min-w-[450px] max-w-[450px] bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg relative"
+                >
+                  <div className="text-6xl text-blue-100 dark:text-blue-900 absolute top-4 left-4" aria-hidden="true">"</div>
+                  <div className="relative z-10">
+                    <p className="text-gray-700 dark:text-gray-300 mb-6 italic text-sm">
+                      "{testimonial.content}"
+                    </p>
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold text-xl">
+                        {testimonial.name.charAt(0)}
+                      </div>
+                      <div>
+                        <p className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">{testimonial.role}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
+            <div aria-hidden="true">
+              {testimonials.map((testimonial, index) => (
+                <motion.div
+                  key={testimonial.name}
+                  className="min-w-[350px] md:min-w-[450px] max-w-[450px] bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg relative"
+                >
+                  <div className="text-6xl text-blue-100 dark:text-blue-900 absolute top-4 left-4" aria-hidden="true">"</div>
+                  <div className="relative z-10">
+                    <p className="text-gray-700 dark:text-gray-300 mb-6 italic text-sm">
+                      "{testimonial.content}"
+                    </p>
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold text-xl">
+                        {testimonial.name.charAt(0)}
+                      </div>
+                      <div>
+                        <p className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">{testimonial.role}</p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

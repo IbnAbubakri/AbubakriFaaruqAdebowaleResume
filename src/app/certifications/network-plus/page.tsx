@@ -1,20 +1,19 @@
-'use client'
-
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import { motion } from 'framer-motion'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: "CompTIA Network+ Certificate | Abubakri Faaruq Adebowale",
+  description: "CompTIA Network+ certification - vendor-neutral networking certification covering network technologies, installation, and configuration.",
+}
 
 export default function NetworkPlusCertificate() {
   return (
     <main className="min-h-screen bg-white dark:bg-gray-900">
       <Navbar />
-      <section className="py-20">
+      <section className="py-20 animate-fade-in">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-12"
-          >
+          <div className="text-center mb-12 animate-slide-up">
             <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
               CompTIA Network+ Certificate
             </h1>
@@ -25,26 +24,21 @@ export default function NetworkPlusCertificate() {
               Training Provider: HIIT Plc
             </p>
             <a
-              href="/CompTIA_Network+_Certificate.pdf"
+              href="/comptia-network-plus-certificate.pdf"
               download
               className="inline-block mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               Download Certificate
             </a>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden shadow-2xl"
-          >
+          <div className="animate-slide-up-delayed bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden shadow-2xl">
             <iframe
-              src="/CompTIA_Network+_Certificate.pdf"
+              src="/comptia-network-plus-certificate.pdf"
               className="w-full h-screen"
               title="CompTIA Network+ Certificate"
             />
-          </motion.div>
+          </div>
         </div>
       </section>
       <Footer />

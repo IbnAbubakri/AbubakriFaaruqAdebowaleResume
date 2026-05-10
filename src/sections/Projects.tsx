@@ -14,7 +14,6 @@ const projects = [
     description: 'Designed and developed scalable fintech platform for digital payment services. Built frontend and backend infrastructures for secure financial transactions. Applied full-stack engineering, API development, and deployment strategies.',
     techStack: ['React', 'Node.js', 'API Development', 'Full-Stack', 'Deployment'],
     github: 'https://github.com/IbnAbubakri/billxpress-frontend.git',
-    image: '/project1.jpg',
   },
   {
     title: 'Weather Forecast Application',
@@ -22,7 +21,6 @@ const projects = [
     techStack: ['Next.js', 'TypeScript', 'Weather API', 'Tailwind CSS', 'Netlify'],
     liveDemo: 'https://weatherbyibnabubakri.netlify.app/',
     github: 'https://github.com/IbnAbubakri/WeatherForecast.git',
-    image: '/project2.jpg',
   },
   {
     title: 'Hospital Management System',
@@ -30,14 +28,11 @@ const projects = [
     techStack: ['React', 'Frontend Development', 'Healthcare UI', 'Render'],
     liveDemo: 'https://hospital-system-management.onrender.com/',
     github: 'https://github.com/IbnAbubakri/Hospital-System-Management.git',
-    image: '/project3.jpg',
   },
   {
     title: 'Enterprise Networking Labs',
     description: 'Built enterprise-grade VLAN infrastructures. Configured dynamic routing protocols. Applied network security controls. Implemented redundancy, failover, and troubleshooting systems. Developed practical Packet Tracer and GNS3 simulations.',
     techStack: ['Cisco Packet Tracer', 'GNS3', 'VLANs', 'OSPF', 'EIGRP', 'Network Security'],
-    github: '#',
-    image: '/project4.jpg',
   },
 ]
 
@@ -99,13 +94,15 @@ export default function Projects() {
                       Live Demo
                     </motion.a>
                   )}
-                  <motion.a
-                    whileHover={{ scale: 1.05 }}
-                    href={project.github}
-                    className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium hover:border-blue-600 hover:text-blue-600 transition-colors"
-                  >
-                    GitHub
-                  </motion.a>
+                  {project.github && (
+                    <motion.a
+                      whileHover={{ scale: 1.05 }}
+                      href={project.github}
+                      className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium hover:border-blue-600 hover:text-blue-600 transition-colors"
+                    >
+                      GitHub
+                    </motion.a>
+                  )}
                 </div>
               </div>
             </motion.div>

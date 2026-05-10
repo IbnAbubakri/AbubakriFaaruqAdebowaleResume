@@ -14,3 +14,5 @@ services:
         value: linux
       - key: NPM_CONFIG_ARCH
         value: x64
+      - key: RESEND_API_KEY
+        sync: false
