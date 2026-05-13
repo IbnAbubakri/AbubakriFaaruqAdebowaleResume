@@ -83,7 +83,7 @@ export default function Achievements() {
           variants={fadeInUp}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Achievements</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Achievements</h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
         </motion.div>
 
@@ -92,7 +92,7 @@ export default function Achievements() {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {achievements.map((achievement, index) => (
             <motion.div

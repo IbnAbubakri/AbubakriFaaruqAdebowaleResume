@@ -35,7 +35,7 @@ export default function Education() {
           variants={fadeInUp}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Education</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Education</h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
         </motion.div>
 
@@ -55,10 +55,10 @@ export default function Education() {
               className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-lg"
             >
               <div className="text-3xl mb-4" aria-hidden="true">🎓</div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{edu.degree}</h3>
-              <p className="text-blue-600 dark:text-blue-400 mb-2">{edu.institution}</p>
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-2">{edu.degree}</h3>
+              <p className="text-sm sm:text-base text-blue-600 dark:text-blue-400 mb-2 break-words">{edu.institution}</p>
               <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{edu.period}</p>
-              <p className="text-gray-600 dark:text-gray-300">{edu.description}</p>
+              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">{edu.description}</p>
             </motion.div>
           ))}
         </motion.div>

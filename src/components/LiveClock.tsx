@@ -25,6 +25,7 @@ export default function LiveClock() {
   return (
     <div
       className="fixed z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm px-3 py-2 rounded-lg shadow-lg text-sm select-none transition-all duration-700 ease-in-out"
+      aria-live="off"
       style={pos}
     >
       <p className="text-gray-700 dark:text-gray-300 font-medium">

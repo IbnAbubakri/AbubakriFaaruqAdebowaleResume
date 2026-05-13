@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import AnimatedCounter from '@/components/AnimatedCounter'
-import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem } from '@/lib/animations'
+import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations'
 
 const TargetIcon = () => (
   <svg aria-hidden="true" className="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -33,7 +33,7 @@ export default function About() {
           variants={fadeInUp}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">About Me</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">About Me</h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
         </motion.div>
 
@@ -61,7 +61,7 @@ export default function About() {
               initial="initial"
               whileInView="animate"
               viewport={{ once: true }}
-              className="grid grid-cols-2 gap-4"
+              className="grid grid-cols-2 sm:grid-cols-4 gap-4"
             >
               {[
                 { label: 'Experience', value: 5, suffix: '+ Years' },
@@ -105,7 +105,7 @@ export default function About() {
                   className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg"
                 >
                   <item.icon />
-                  <div>
+                  <div className="min-w-0">
                     <h4 className="font-semibold text-gray-900 dark:text-white">{item.title}</h4>
                     <p className="text-sm text-gray-600 dark:text-gray-400">{item.desc}</p>
                   </div>

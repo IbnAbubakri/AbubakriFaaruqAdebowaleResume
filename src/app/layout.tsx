@@ -44,9 +44,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -64,6 +63,12 @@ export default function RootLayout({
         />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg"
+        >
+          Skip to main content
+        </a>
         <ThemeProvider>
           <ScrollProgress />
           <BackToTop />

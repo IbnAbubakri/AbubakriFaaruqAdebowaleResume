@@ -36,7 +36,7 @@ export default function Testimonials() {
           variants={fadeInUp}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Testimonials & Recommendations</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Testimonials & Recommendations</h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
           <p className="mt-6 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Hear from students, colleagues, and clients about their experience working with me.
@@ -45,48 +45,48 @@ export default function Testimonials() {
 
         <div className="relative w-full overflow-hidden">
           <div className="flex gap-6 animate-scroll">
-            <div role="list">
+            <div role="list" className="flex flex-col gap-6">
               {testimonials.map((testimonial, index) => (
                 <motion.div
                   key={testimonial.name}
-                  className="min-w-[350px] md:min-w-[450px] max-w-[450px] bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg relative"
+                  className="min-w-[260px] sm:min-w-[350px] md:min-w-[450px] max-w-[450px] bg-white dark:bg-gray-900 p-4 sm:p-6 rounded-xl shadow-lg relative shrink-0"
                 >
-                  <div className="text-6xl text-blue-100 dark:text-blue-900 absolute top-4 left-4" aria-hidden="true">"</div>
+                  <div className="text-5xl sm:text-6xl text-blue-100 dark:text-blue-900 absolute top-4 left-4" aria-hidden="true">"</div>
                   <div className="relative z-10">
-                    <p className="text-gray-700 dark:text-gray-300 mb-6 italic text-sm">
-                      "{testimonial.content}"
+                    <p className="text-gray-700 dark:text-gray-300 mb-4 sm:mb-6 italic text-xs sm:text-sm">
+                      &ldquo;{testimonial.content}&rdquo;
                     </p>
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold text-xl">
+                    <div className="flex items-center gap-3 sm:gap-4">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold text-lg sm:text-xl flex-shrink-0">
                         {testimonial.name.charAt(0)}
                       </div>
-                      <div>
-                        <p className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</p>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">{testimonial.role}</p>
+                      <div className="min-w-0">
+                        <p className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">{testimonial.name}</p>
+                        <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">{testimonial.role}</p>
                       </div>
                     </div>
                   </div>
                 </motion.div>
               ))}
             </div>
-            <div aria-hidden="true">
+            <div aria-hidden="true" className="flex flex-col gap-6">
               {testimonials.map((testimonial, index) => (
                 <motion.div
                   key={testimonial.name}
-                  className="min-w-[350px] md:min-w-[450px] max-w-[450px] bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg relative"
+                  className="min-w-[260px] sm:min-w-[350px] md:min-w-[450px] max-w-[450px] bg-white dark:bg-gray-900 p-4 sm:p-6 rounded-xl shadow-lg relative shrink-0"
                 >
-                  <div className="text-6xl text-blue-100 dark:text-blue-900 absolute top-4 left-4" aria-hidden="true">"</div>
+                  <div className="text-5xl sm:text-6xl text-blue-100 dark:text-blue-900 absolute top-4 left-4" aria-hidden="true">"</div>
                   <div className="relative z-10">
-                    <p className="text-gray-700 dark:text-gray-300 mb-6 italic text-sm">
-                      "{testimonial.content}"
+                    <p className="text-gray-700 dark:text-gray-300 mb-4 sm:mb-6 italic text-xs sm:text-sm">
+                      &ldquo;{testimonial.content}&rdquo;
                     </p>
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold text-xl">
+                    <div className="flex items-center gap-3 sm:gap-4">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold text-lg sm:text-xl flex-shrink-0">
                         {testimonial.name.charAt(0)}
                       </div>
-                      <div>
-                        <p className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</p>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">{testimonial.role}</p>
+                      <div className="min-w-0">
+                        <p className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">{testimonial.name}</p>
+                        <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">{testimonial.role}</p>
                       </div>
                     </div>
                   </div>

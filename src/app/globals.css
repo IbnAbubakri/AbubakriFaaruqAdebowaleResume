@@ -1,5 +1,29 @@
 @import "tailwindcss";
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-wrap: break-word;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+img, video, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+iframe {
+  max-width: 100%;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @keyframes scroll {

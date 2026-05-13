@@ -42,10 +42,24 @@ export default function Contact() {
     subject: '',
     message: '',
   })
+  const [errors, setErrors] = useState<Record<string, string>>({})
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
+
+  const validate = () => {
+    const errs: Record<string, string> = {}
+    if (!formData.name.trim() || formData.name.trim().length < 2) errs.name = 'Name must be at least 2 characters'
+    if (!formData.email.trim()) errs.email = 'Email is required'
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) errs.email = 'Please enter a valid email address'
+    if (!formData.subject.trim() || formData.subject.trim().length < 3) errs.subject = 'Subject must be at least 3 characters'
+    if (!formData.message.trim() || formData.message.trim().length < 10) errs.message = 'Message must be at least 10 characters'
+    return errs
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    const errs = validate()
+    setErrors(errs)
+    if (Object.keys(errs).length > 0) return
     setStatus('sending')
     try {
       const res = await fetch('/api/contact', {
@@ -56,6 +70,7 @@ export default function Contact() {
       if (!res.ok) throw new Error('Failed')
       setStatus('sent')
       setFormData({ name: '', email: '', subject: '', message: '' })
+      setErrors({})
     } catch {
       setStatus('error')
     }
@@ -71,7 +86,7 @@ export default function Contact() {
           variants={fadeInUp}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Get In Touch</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Get In Touch</h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
           <p className="mt-6 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Feel free to reach out for collaboration, opportunities, or just to say hello!
@@ -97,17 +112,17 @@ export default function Contact() {
                 item.label === 'Location' ? (
                   <div key={item.label} className="flex items-center gap-4">
                     <item.icon />
-                    <div>
+                    <div className="min-w-0">
                       <p className="text-sm text-gray-500 dark:text-gray-400">{item.label}</p>
-                      <p className="text-gray-700 dark:text-gray-300">{item.value}</p>
+                      <p className="text-gray-700 dark:text-gray-300 break-words">{item.value}</p>
                     </div>
                   </div>
                 ) : (
-                  <a key={item.label} href={item.href} className="flex items-center gap-4 hover:opacity-80 transition-opacity">
+                  <a key={item.label} href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined} className="flex items-center gap-4 hover:opacity-80 transition-opacity">
                     <item.icon />
-                    <div>
+                    <div className="min-w-0">
                       <p className="text-sm text-gray-500 dark:text-gray-400">{item.label}</p>
-                      <p className="text-gray-700 dark:text-gray-300">{item.value}</p>
+                      <p className="text-gray-700 dark:text-gray-300 break-words">{item.value}</p>
                     </div>
                   </a>
                 )
@@ -130,10 +145,13 @@ export default function Contact() {
                 type="text"
                 placeholder="Your Name"
                 required
+                aria-invalid={!!errors.name}
+                aria-describedby={errors.name ? 'contact-name-error' : undefined}
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-600 outline-none"
               />
+              {errors.name && <p id="contact-name-error" className="text-red-500 text-sm mt-1">{errors.name}</p>}
             </div>
             <div>
               <label htmlFor="contact-email" className="sr-only">Your Email</label>
@@ -142,10 +160,13 @@ export default function Contact() {
                 type="email"
                 placeholder="Your Email"
                 required
+                aria-invalid={!!errors.email}
+                aria-describedby={errors.email ? 'contact-email-error' : undefined}
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-600 outline-none"
               />
+              {errors.email && <p id="contact-email-error" className="text-red-500 text-sm mt-1">{errors.email}</p>}
             </div>
             <div>
               <label htmlFor="contact-subject" className="sr-only">Subject</label>
@@ -154,10 +175,13 @@ export default function Contact() {
                 type="text"
                 placeholder="Subject"
                 required
+                aria-invalid={!!errors.subject}
+                aria-describedby={errors.subject ? 'contact-subject-error' : undefined}
                 value={formData.subject}
                 onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                 className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-600 outline-none"
               />
+              {errors.subject && <p id="contact-subject-error" className="text-red-500 text-sm mt-1">{errors.subject}</p>}
             </div>
             <div>
               <label htmlFor="contact-message" className="sr-only">Your Message</label>
@@ -166,10 +190,13 @@ export default function Contact() {
                 placeholder="Your Message"
                 required
                 rows={5}
+                aria-invalid={!!errors.message}
+                aria-describedby={errors.message ? 'contact-message-error' : undefined}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-600 outline-none resize-none"
               ></textarea>
+              {errors.message && <p id="contact-message-error" className="text-red-500 text-sm mt-1">{errors.message}</p>}
             </div>
             <motion.button
               whileHover={{ scale: 1.02 }}

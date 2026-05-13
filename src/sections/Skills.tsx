@@ -29,15 +29,13 @@ const LinuxIcon = () => (
 
 const DevOpsIcon = () => (
   <svg aria-hidden="true" className="w-12 h-12 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.132-.396.277-.83.408-1.298.076-.357.186-.378.257-.595.257-.232 0-.398-.165-.398-.165l-1.398 2.557" />
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 6.5a3 3 0 11-5.714 1.286 2.25 2.25 0 104.928 0 3 3 0 013.75-3.75" />
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6.803 17.5a3 3 0 11-3.75-3.75 3 3 0 013.75 3.75z" />
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182" />
   </svg>
 )
 
 const FrontendIcon = () => (
   <svg aria-hidden="true" className="w-12 h-12 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 3.343l-6.364 6.364a2 2 0 000 2.828l6.364 6.364a2 2 0 002.828 0 .364-6.364a2 2 0 000-2.828L13.828 3.343a2 2 0 00-2.828 0z" />
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7.5 21h9M12 17.25V21m0 0H5.25A2.25 2.25 0 013 18.75V4.5A2.25 2.25 0 015.25 2.25h13.5A2.25 2.25 0 0121 4.5v14.25A2.25 2.25 0 0118.75 21H12z" />
   </svg>
 )
 
@@ -49,7 +47,7 @@ const BackendIcon = () => (
 
 const ToolsIcon = () => (
   <svg aria-hidden="true" className="w-12 h-12 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.132-.396.277-.83.408-1.298.076-.357.186-.378.257-.595.257-.232 0-.398-.165-.398-.165l-1.398 2.557" />
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.42 15.17l-5.25 5.25a2.25 2.25 0 01-3.18-3.18l5.25-5.25m3.18 3.18l5.25-5.25a2.25 2.25 0 013.18 3.18l-5.25 5.25" />
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 6.5a3 3 0 11-5.714 1.286 2.25 2.25 0 104.928 0 3 3 0 013.75-3.75" />
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6.803 17.5a3 3 0 11-3.75-3.75 3 3 0 013.75 3.75z" />
   </svg>
@@ -109,7 +107,7 @@ export default function Skills() {
           variants={fadeInUp}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Skills & Expertise</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Skills & Expertise</h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
         </motion.div>
 
@@ -118,7 +116,7 @@ export default function Skills() {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {skillCategories.map((category, index) => (
             <motion.div

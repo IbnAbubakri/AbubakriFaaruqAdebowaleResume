@@ -27,7 +27,7 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <div className="space-y-2">
-              {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((link) => (
+              {['Home', 'About', 'Skills', 'Certifications', 'Experience', 'Education', 'Projects', 'Achievements', 'Testimonials', 'Contact'].map((link) => (
                 <a
                   key={link}
                   href={link === 'Home' ? '/' : `/#${link.toLowerCase()}`}
@@ -40,7 +40,7 @@ export default function Footer() {
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-4">
                 {[
                   { label: 'GitHub', href: 'https://github.com/IbnAbubakri' },
                   { label: 'Email', href: 'mailto:faruqsuzay@gmail.com' },
@@ -50,6 +50,8 @@ export default function Footer() {
                     key={social.label}
                     whileHover={{ scale: 1.1 }}
                     href={social.href}
+                    target={social.href.startsWith('http') ? '_blank' : undefined}
+                    rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                     className="px-4 py-2 bg-gray-800 rounded-lg text-sm hover:bg-blue-600 transition-colors"
                   >
                     {social.label}

@@ -52,7 +52,7 @@ export default function Experience() {
           variants={fadeInUp}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Work Experience</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Work Experience</h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
         </motion.div>
 
@@ -71,12 +71,12 @@ export default function Experience() {
               <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-8 md:text-right md:ml-0 md:mr-auto' : 'md:pl-8 md:text-left md:ml-auto md:mr-0'}`}>
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg"
+                  className="bg-white dark:bg-gray-900 p-4 sm:p-6 rounded-xl shadow-lg"
                 >
-                  <div className="text-sm text-blue-600 dark:text-blue-400 mb-2">{exp.period}</div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">{exp.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-3">{exp.company}</p>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">{exp.description}</p>
+                  <div className="text-xs sm:text-sm text-blue-600 dark:text-blue-400 mb-2">{exp.period}</div>
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-1">{exp.title}</h3>
+                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-3">{exp.company}</p>
+                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4">{exp.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((tech) => (
                       <span

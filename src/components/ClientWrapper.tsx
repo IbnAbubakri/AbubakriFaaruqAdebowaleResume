@@ -17,7 +17,7 @@ import Footer from '@/components/Footer'
 
 export default function ClientWrapper() {
   return (
-    <main className="min-h-screen bg-white dark:bg-gray-900">
+    <main id="main-content" className="min-h-screen bg-white dark:bg-gray-900">
       <Rain />
       <Cloud />
       <Navbar />

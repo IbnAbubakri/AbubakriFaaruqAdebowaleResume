@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations'
 
 const FileIcon = () => (
-  <svg className="w-24 h-24 text-white opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <svg aria-hidden="true" className="w-24 h-24 text-white opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
   </svg>
 )
@@ -48,7 +48,7 @@ export default function Projects() {
           variants={fadeInUp}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Projects Portfolio</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Projects Portfolio</h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
         </motion.div>
 
@@ -70,9 +70,9 @@ export default function Projects() {
               <div className="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
                 <FileIcon />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">{project.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
+              <div className="p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-3">{project.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm sm:text-base">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.techStack.map((tech) => (
                     <span
@@ -83,12 +83,14 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
-                <div className="flex gap-4">
+                <div className="flex flex-wrap gap-4">
                   {project.liveDemo && (
                     <motion.a
                       whileHover={{ scale: 1.05 }}
                       href={project.liveDemo}
-                      className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors text-center"
                     >
                       Live Demo
                     </motion.a>
@@ -97,7 +99,9 @@ export default function Projects() {
                     <motion.a
                       whileHover={{ scale: 1.05 }}
                       href={project.github}
-                      className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium hover:border-blue-600 hover:text-blue-600 transition-colors"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium hover:border-blue-600 hover:text-blue-600 transition-colors text-center"
                     >
                       GitHub
                     </motion.a>
