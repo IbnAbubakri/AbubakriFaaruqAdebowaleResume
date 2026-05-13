@@ -105,24 +105,24 @@ export default function Contact() {
               {[
                 { icon: EmailIcon, label: 'Email', value: 'faruqsuzay@gmail.com', href: 'mailto:faruqsuzay@gmail.com' },
                 { icon: PhoneIcon, label: 'Phone', value: '+2349061345507', href: 'tel:+2349061345507' },
-                { icon: LocationIcon, label: 'Location', value: 'Lagos, Nigeria' },
+                { icon: LocationIcon, label: 'Location', value: 'Lagos, Nigeria', href: '' },
                 { icon: GitHubIcon, label: 'GitHub', value: 'github.com/IbnAbubakri', href: 'https://github.com/IbnAbubakri' },
                 { icon: WhatsAppIcon, label: 'WhatsApp', value: 'Chat on WhatsApp', href: 'https://wa.me/qr/BSDWHYAVN7HBD1' },
               ].map((item) =>
                 item.label === 'Location' ? (
                   <div key={item.label} className="flex items-center gap-4">
                     <item.icon />
-                    <div className="min-w-0">
+                    <div>
                       <p className="text-sm text-gray-500 dark:text-gray-400">{item.label}</p>
-                      <p className="text-gray-700 dark:text-gray-300 break-words">{item.value}</p>
+                      <p className="text-gray-700 dark:text-gray-300">{item.value}</p>
                     </div>
                   </div>
                 ) : (
                   <a key={item.label} href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined} className="flex items-center gap-4 hover:opacity-80 transition-opacity">
                     <item.icon />
-                    <div className="min-w-0">
+                    <div className="min-w-0 break-words">
                       <p className="text-sm text-gray-500 dark:text-gray-400">{item.label}</p>
-                      <p className="text-gray-700 dark:text-gray-300 break-words">{item.value}</p>
+                      <p className="text-gray-700 dark:text-gray-300">{item.value}</p>
                     </div>
                   </a>
                 )
