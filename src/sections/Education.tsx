@@ -57,8 +57,8 @@ export default function Education() {
               <div className="text-3xl mb-4" aria-hidden="true">🎓</div>
               <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-2">{edu.degree}</h3>
               <p className="text-sm sm:text-base text-blue-600 dark:text-blue-400 mb-2 break-words">{edu.institution}</p>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{edu.period}</p>
-              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">{edu.description}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">{edu.period}</p>
+              <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300">{edu.description}</p>
             </motion.div>
           ))}
         </motion.div>

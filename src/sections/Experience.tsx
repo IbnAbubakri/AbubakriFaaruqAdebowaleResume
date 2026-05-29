@@ -75,8 +75,8 @@ export default function Experience() {
                 >
                   <div className="text-xs sm:text-sm text-blue-600 dark:text-blue-400 mb-2">{exp.period}</div>
                   <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-1">{exp.title}</h3>
-                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-3">{exp.company}</p>
-                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4">{exp.description}</p>
+                  <p className="text-sm sm:text-base text-gray-700 dark:text-gray-400 mb-3">{exp.company}</p>
+                  <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-4">{exp.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((tech) => (
                       <span

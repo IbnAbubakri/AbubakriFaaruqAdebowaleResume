@@ -92,7 +92,7 @@ export default function Hero() {
 
             <motion.p
               {...scatterAnimation(6)}
-              className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mb-10"
+              className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mb-10"
             >
               Dedicated IT professional with expertise in network engineering, cybersecurity, cloud computing, and vibecoding. Passionate about building secure, scalable solutions for enterprise environments.
             </motion.p>
@@ -103,7 +103,7 @@ export default function Hero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="/#contact"
-                className="px-6 sm:px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-block text-center"
+                className="px-6 sm:px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-block text-center cursor-pointer"
               >
                 Hire Me
               </motion.a>
@@ -113,7 +113,7 @@ export default function Hero() {
                 whileTap={{ scale: 0.95 }}
                 href="/abubakri-faaruq-adebowale-cv.pdf"
                 download
-                className="px-6 sm:px-8 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-colors"
+                className="px-6 sm:px-8 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-colors cursor-pointer"
               >
                 Download CV
               </motion.a>
@@ -122,7 +122,7 @@ export default function Hero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="/#projects"
-                className="px-6 sm:px-8 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg font-semibold hover:border-blue-600 hover:text-blue-600 transition-colors inline-block text-center"
+                className="px-6 sm:px-8 py-3 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg font-semibold hover:border-blue-600 hover:text-blue-600 transition-colors inline-block text-center cursor-pointer"
               >
                 View Projects
               </motion.a>

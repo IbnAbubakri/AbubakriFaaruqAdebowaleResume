@@ -47,13 +47,13 @@ export default function About() {
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
               IT Professional & Vibecoder
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
+            <p className="text-gray-700 dark:text-gray-300 mb-4">
               I am a dedicated IT professional with a strong foundation in network engineering, cybersecurity, cloud computing, and software development. My journey in technology began with a passion for understanding how systems communicate and has evolved into expertise across multiple domains.
             </p>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
+            <p className="text-gray-700 dark:text-gray-300 mb-4">
               As an IT Administrator at 1791 LLC, I manage enterprise infrastructure, ensuring optimal performance and security. My experience as a CompTIA Network+ Instructor at HIIT Plc has honed my ability to communicate complex technical concepts effectively.
             </p>
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
+            <p className="text-gray-700 dark:text-gray-300 mb-6">
               I combine my networking and security expertise with vibecoding skills to build comprehensive, secure, and scalable solutions. Whether it's designing enterprise networks, implementing security protocols, or developing web applications, I bring a holistic approach to technology.
             </p>
             <motion.div
@@ -76,7 +76,7 @@ export default function About() {
                   className="p-4 bg-blue-50 dark:bg-gray-800 rounded-lg text-center"
                 >
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                  <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
+                  <div className="text-sm text-gray-700 dark:text-gray-400">{stat.label}</div>
                 </motion.div>
               ))}
             </motion.div>
@@ -90,7 +90,7 @@ export default function About() {
             className="space-y-6"
           >
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">My Mission</h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
+            <p className="text-gray-700 dark:text-gray-300 mb-4">
               To leverage technology in solving complex business challenges while maintaining the highest standards of security and efficiency.
             </p>
             <div className="space-y-4">
@@ -107,7 +107,7 @@ export default function About() {
                   <item.icon />
                   <div className="min-w-0">
                     <h4 className="font-semibold text-gray-900 dark:text-white">{item.title}</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">{item.desc}</p>
+                    <p className="text-sm text-gray-700 dark:text-gray-400">{item.desc}</p>
                   </div>
                 </motion.div>
               ))}

@@ -104,7 +104,7 @@ export default function Achievements() {
             >
               <div className="mb-4"><achievement.icon /></div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{achievement.title}</h3>
-              <p className="text-gray-600 dark:text-gray-400">{achievement.description}</p>
+              <p className="text-gray-700 dark:text-gray-400">{achievement.description}</p>
             </motion.div>
           ))}
         </motion.div>

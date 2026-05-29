@@ -72,7 +72,7 @@ export default function Projects() {
               </div>
               <div className="p-4 sm:p-6">
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-3">{project.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm sm:text-base">{project.description}</p>
+                <p className="text-gray-700 dark:text-gray-300 mb-4 text-sm sm:text-base">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.techStack.map((tech) => (
                     <span
@@ -90,7 +90,7 @@ export default function Projects() {
                       href={project.liveDemo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors text-center"
+                      className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors text-center cursor-pointer"
                     >
                       Live Demo
                     </motion.a>
@@ -101,7 +101,7 @@ export default function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium hover:border-blue-600 hover:text-blue-600 transition-colors text-center"
+                      className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium hover:border-blue-600 hover:text-blue-600 transition-colors text-center cursor-pointer"
                     >
                       GitHub
                     </motion.a>

@@ -91,7 +91,7 @@ export default function Navbar() {
               >
                 <Link
                   href={item.href}
-                  className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
@@ -105,7 +105,7 @@ export default function Navbar() {
             <ThemeToggle />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-700 dark:text-gray-300"
+              className="text-gray-700 dark:text-gray-300 cursor-pointer"
               aria-label="Toggle navigation"
               aria-expanded={isMobileMenuOpen}
             >
@@ -134,7 +134,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="block w-full text-left px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 text-sm sm:text-base"
+                className="block w-full text-left px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 text-sm sm:text-base cursor-pointer"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}

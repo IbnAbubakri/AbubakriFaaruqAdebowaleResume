@@ -86,13 +86,13 @@ export default function Certifications() {
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{cert.title}</h3>
                <p className="text-sm text-blue-600 dark:text-blue-400 mb-2">{cert.issuer} • {cert.date}</p>
                {cert.trainingProvider && (
-                 <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">Trained at: {cert.trainingProvider}</p>
+                 <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">Trained at: {cert.trainingProvider}</p>
                )}
                <p className="text-sm text-gray-600 dark:text-gray-400">{cert.description}</p>
               {cert.certLink && (
                 <a
                   href={cert.certLink}
-                  className="mt-4 text-sm text-blue-600 dark:text-blue-400 inline-block hover:underline"
+                  className="mt-4 text-sm text-blue-600 dark:text-blue-400 inline-block hover:underline cursor-pointer"
                 >
                   View Certificate →
                 </a>

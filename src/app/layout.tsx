@@ -1,19 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Archivo, Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from '@/contexts/ThemeContext';
+import { MotionConfig } from 'framer-motion';
 import ScrollProgress from '@/components/ScrollProgress';
 import BackToTop from '@/components/BackToTop';
 import LiveClock from '@/components/LiveClock';
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -62,18 +65,20 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}>
+      <body className={`${archivo.variable} ${spaceGrotesk.variable} antialiased overflow-x-hidden bg-slate-950 text-slate-100`}>
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-green-500 focus:text-white focus:rounded-lg"
         >
           Skip to main content
         </a>
         <ThemeProvider>
-          <ScrollProgress />
-          <BackToTop />
-          <LiveClock />
-          {children}
+          <MotionConfig reducedMotion="user">
+            <ScrollProgress />
+            <BackToTop />
+            <LiveClock />
+            {children}
+          </MotionConfig>
         </ThemeProvider>
       </body>
     </html>

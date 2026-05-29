@@ -21,7 +21,7 @@ export default function BackToTop() {
       initial={{ opacity: 0, scale: 0 }}
       animate={{ opacity: visible ? 1 : 0, scale: visible ? 1 : 0 }}
       transition={{ duration: 0.3 }}
-      className="fixed bottom-8 right-8 z-50 p-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-colors"
+      className="fixed bottom-8 right-8 z-50 p-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-colors cursor-pointer"
       aria-label="Back to top"
     >
       <svg aria-hidden="true" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

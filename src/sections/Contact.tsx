@@ -88,7 +88,7 @@ export default function Contact() {
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Get In Touch</h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
-          <p className="mt-6 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="mt-6 text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
             Feel free to reach out for collaboration, opportunities, or just to say hello!
           </p>
         </motion.div>
@@ -113,15 +113,15 @@ export default function Contact() {
                   <div key={item.label} className="flex items-center gap-4">
                     <item.icon />
                     <div>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">{item.label}</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">{item.label}</p>
                       <p className="text-gray-700 dark:text-gray-300">{item.value}</p>
                     </div>
                   </div>
                 ) : (
-                  <a key={item.label} href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined} className="flex items-center gap-4 hover:opacity-80 transition-opacity">
+                  <a key={item.label} href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined} className="flex items-center gap-4 hover:opacity-80 transition-opacity cursor-pointer">
                     <item.icon />
                     <div className="min-w-0 break-words">
-                      <p className="text-sm text-gray-500 dark:text-gray-400">{item.label}</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">{item.label}</p>
                       <p className="text-gray-700 dark:text-gray-300">{item.value}</p>
                     </div>
                   </a>
@@ -149,7 +149,7 @@ export default function Contact() {
                 aria-describedby={errors.name ? 'contact-name-error' : undefined}
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-600 outline-none"
+                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder:text-gray-600 dark:placeholder:text-gray-400 focus:ring-2 focus:ring-blue-600 outline-none"
               />
               {errors.name && <p id="contact-name-error" className="text-red-500 text-sm mt-1">{errors.name}</p>}
             </div>
@@ -164,7 +164,7 @@ export default function Contact() {
                 aria-describedby={errors.email ? 'contact-email-error' : undefined}
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-600 outline-none"
+                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder:text-gray-600 dark:placeholder:text-gray-400 focus:ring-2 focus:ring-blue-600 outline-none"
               />
               {errors.email && <p id="contact-email-error" className="text-red-500 text-sm mt-1">{errors.email}</p>}
             </div>
@@ -179,7 +179,7 @@ export default function Contact() {
                 aria-describedby={errors.subject ? 'contact-subject-error' : undefined}
                 value={formData.subject}
                 onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-600 outline-none"
+                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder:text-gray-600 dark:placeholder:text-gray-400 focus:ring-2 focus:ring-blue-600 outline-none"
               />
               {errors.subject && <p id="contact-subject-error" className="text-red-500 text-sm mt-1">{errors.subject}</p>}
             </div>
@@ -194,7 +194,7 @@ export default function Contact() {
                 aria-describedby={errors.message ? 'contact-message-error' : undefined}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-600 outline-none resize-none"
+                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder:text-gray-600 dark:placeholder:text-gray-400 focus:ring-2 focus:ring-blue-600 outline-none resize-none"
               ></textarea>
               {errors.message && <p id="contact-message-error" className="text-red-500 text-sm mt-1">{errors.message}</p>}
             </div>
@@ -203,7 +203,7 @@ export default function Contact() {
               whileTap={{ scale: 0.98 }}
               type="submit"
               disabled={status === 'sending'}
-              className="w-full py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50"
+              className="w-full py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 cursor-pointer"
             >
               {status === 'sending' ? 'Sending...' : status === 'sent' ? 'Message Sent!' : status === 'error' ? 'Failed. Try Again' : 'Send Message'}
             </motion.button>
