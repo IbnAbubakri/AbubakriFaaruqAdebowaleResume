@@ -85,7 +85,7 @@ export default function About() {
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg text-center"
+                  className="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg text-center hover:scale-[1.02] transition-[colors,transform] duration-200 cursor-pointer"
                 >
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                   <div className="text-sm text-gray-500 dark:text-gray-500 mt-1">
@@ -103,8 +103,8 @@ export default function About() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <div className="p-6 bg-gray-50 dark:bg-gray-900 rounded-2xl">
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+              <div className="p-6 bg-gray-50 dark:bg-gray-900 rounded-2xl hover:scale-[1.02] transition-[colors,transform] duration-200 cursor-pointer">
+                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                 My Mission
               </h4>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
@@ -118,7 +118,7 @@ export default function About() {
               {highlights.map((item) => (
                 <div
                   key={item.title}
-                  className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-900 rounded-xl"
+                  className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-900 rounded-xl hover:scale-[1.02] transition-[colors,transform] duration-200 cursor-pointer"
                 >
                   <div className="mt-0.5 p-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg shrink-0">
                     {item.icon}

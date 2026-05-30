@@ -155,6 +155,7 @@ export default function Contact() {
                 type="text"
                 placeholder="Your Name"
                 required
+                autoComplete="name"
                 aria-invalid={!!errors.name}
                 aria-describedby={errors.name ? 'contact-name-error' : undefined}
                 value={formData.name}
@@ -170,6 +171,7 @@ export default function Contact() {
                 type="email"
                 placeholder="Your Email"
                 required
+                autoComplete="email"
                 aria-invalid={!!errors.email}
                 aria-describedby={errors.email ? 'contact-email-error' : undefined}
                 value={formData.email}
@@ -185,6 +187,7 @@ export default function Contact() {
                 type="text"
                 placeholder="Subject"
                 required
+                autoComplete="subject"
                 aria-invalid={!!errors.subject}
                 aria-describedby={errors.subject ? 'contact-subject-error' : undefined}
                 value={formData.subject}
@@ -211,9 +214,24 @@ export default function Contact() {
             <button
               type="submit"
               disabled={status === 'sending'}
-              className="w-full py-2.5 bg-blue-600 text-white rounded-lg font-medium text-sm hover:bg-blue-700 transition-colors disabled:opacity-50 cursor-pointer"
+              className="w-full py-2.5 bg-blue-600 text-white rounded-lg font-medium text-sm hover:bg-blue-700 active:scale-95 transition-[colors,transform] duration-200 disabled:opacity-50 cursor-pointer"
             >
-              {status === 'sending' ? 'Sending...' : status === 'sent' ? 'Message Sent!' : status === 'error' ? 'Failed. Try Again' : 'Send Message'}
+              {status === 'sending' ? (
+                <span className="inline-flex items-center gap-2">
+                  <svg aria-hidden="true" className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                  </svg>
+                  Sending...
+                </span>
+              ) : status === 'sent' ? (
+                <span className="inline-flex items-center gap-2">
+                  <svg aria-hidden="true" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Message Sent!
+                </span>
+              ) : status === 'error' ? 'Failed. Try Again' : 'Send Message'}
             </button>
           </motion.form>
         </div>
