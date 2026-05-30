@@ -1,100 +1,79 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { fadeInUp } from '@/lib/animations'
+import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations'
 
 const testimonials = [
   {
     name: 'John Olawoye',
     role: 'Networking Student, HIIT PLC',
-    institution: 'Osun State University',
-    content: 'Under Mr. Faruq Abubakri\'s guidance, I successfully configured 802.1Q trunking, VTP server/client mode, inter-VLAN routing on a Layer 3 switch with SVIs, and verified broadcast isolation and extended ping tests. He systematically debugs using debug trunk events and monitor session. He is a true practitioner.',
+    content: 'Under Mr. Faruq Abubakri\'s guidance, I successfully configured 802.1Q trunking, VTP server/client mode, inter-VLAN routing on a Layer 3 switch with SVIs, and verified broadcast isolation. He is a true practitioner.',
     rating: 5,
   },
   {
     name: 'Rayyan A. Akindele',
     role: 'Intern, HIIT PLC',
-    content: 'Great learning experience with hands-on projects and some supportive guidance through you. Working under his guidance helped me build both technical skills and confidence. I\'m grateful for the opportunity.',
+    content: 'Great learning experience with hands-on projects and supportive guidance. Working under his guidance helped me build both technical skills and confidence.',
     rating: 5,
   },
   {
     name: 'Nelson Olokodana',
     role: 'Student, USA',
-    content: 'Mr. Faaruq is a kind, patient, and hardworking teacher who teaches me very well and helps me understand my lessons easily. He always encourages me to work hard, behave well, and do my best in school. He is caring, supportive, and always ready to help whenever I have difficulties. He makes learning enjoyable and inspires me to become a better student. I am very grateful for his guidance, dedication, and support, and I pray that God blesses him always.',
+    content: 'Mr. Faaruq is a kind, patient, and hardworking teacher who teaches me very well and helps me understand my lessons easily. He makes learning enjoyable and inspires me to become a better student.',
     rating: 5,
   },
 ]
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-20 bg-gray-50 dark:bg-gray-800 overflow-hidden">
+    <section id="testimonials" className="py-24 bg-white dark:bg-gray-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
+          variants={fadeInUp}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
-          variants={fadeInUp}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Testimonials & Recommendations</h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
-          <p className="mt-6 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Hear from students, colleagues, and clients about their experience working with me.
+          <p className="text-sm font-medium text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-3">
+            Testimonials
           </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+            What People Say
+          </h2>
         </motion.div>
 
-        <div className="relative w-full overflow-hidden">
-          <div className="flex gap-6 animate-scroll">
-            <div role="list" className="flex flex-col gap-6">
-              {testimonials.map((testimonial, index) => (
-                <motion.div
-                  key={testimonial.name}
-                  className="min-w-[260px] sm:min-w-[350px] md:min-w-[450px] max-w-[450px] bg-white dark:bg-gray-900 p-4 sm:p-6 rounded-xl shadow-lg relative shrink-0"
-                >
-                  <div className="text-5xl sm:text-6xl text-blue-100 dark:text-blue-900 absolute top-4 left-4" aria-hidden="true">"</div>
-                  <div className="relative z-10">
-                    <p className="text-gray-700 dark:text-gray-300 mb-4 sm:mb-6 italic text-xs sm:text-sm">
-                      &ldquo;{testimonial.content}&rdquo;
-                    </p>
-                    <div className="flex items-center gap-3 sm:gap-4">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold text-lg sm:text-xl flex-shrink-0">
-                        {testimonial.name.charAt(0)}
-                      </div>
-                      <div className="min-w-0">
-                        <p className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">{testimonial.name}</p>
-                        <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{testimonial.role}</p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-            <div aria-hidden="true" className="flex flex-col gap-6">
-              {testimonials.map((testimonial, index) => (
-                <motion.div
-                  key={testimonial.name}
-                  className="min-w-[260px] sm:min-w-[350px] md:min-w-[450px] max-w-[450px] bg-white dark:bg-gray-900 p-4 sm:p-6 rounded-xl shadow-lg relative shrink-0"
-                >
-                  <div className="text-5xl sm:text-6xl text-blue-100 dark:text-blue-900 absolute top-4 left-4" aria-hidden="true">"</div>
-                  <div className="relative z-10">
-                    <p className="text-gray-700 dark:text-gray-300 mb-4 sm:mb-6 italic text-xs sm:text-sm">
-                      &ldquo;{testimonial.content}&rdquo;
-                    </p>
-                    <div className="flex items-center gap-3 sm:gap-4">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold text-lg sm:text-xl flex-shrink-0">
-                        {testimonial.name.charAt(0)}
-                      </div>
-                      <div className="min-w-0">
-                        <p className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">{testimonial.name}</p>
-                        <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{testimonial.role}</p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <motion.div
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto"
+        >
+          {testimonials.map((t) => (
+            <motion.div
+              key={t.name}
+              variants={staggerItem}
+              className="p-6 bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800"
+            >
+              <svg aria-hidden="true" className="w-8 h-8 text-blue-200 dark:text-blue-900 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+              </svg>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed italic">
+                &ldquo;{t.content}&rdquo;
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold text-sm shrink-0">
+                  {t.name.charAt(0)}
+                </div>
+                <div>
+                  <p className="font-medium text-gray-900 dark:text-white text-sm">{t.name}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-500">{t.role}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   )

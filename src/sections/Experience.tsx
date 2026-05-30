@@ -15,7 +15,7 @@ const experiences = [
     title: 'CompTIA Network+ & A+ Instructor',
     company: 'HIIT Plc',
     period: '2025 - Present',
-    description: 'Delivering comprehensive training on CompTIA Network+ and A+ certifications. Covering network fundamentals, hardware, software, and security. Achieved distinction in student performance.',
+    description: 'Delivering comprehensive training on CompTIA Network+ and A+ certifications. Covering network fundamentals, hardware, software, and security.',
     technologies: ['Teaching', 'Network+', 'A+', 'Curriculum Development'],
   },
   {
@@ -43,53 +43,60 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="experience" className="py-24 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
+          variants={fadeInUp}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
-          variants={fadeInUp}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Work Experience</h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
+          <p className="text-sm font-medium text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-3">
+            Career
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+            Work Experience
+          </h2>
         </motion.div>
 
-        <div className="relative">
-          <div className="absolute left-4 md:left-1/2 md:transform md:-translate-x-1/2 h-full w-1 bg-blue-200 dark:bg-blue-800"></div>
-
+        <div className="max-w-3xl mx-auto space-y-6">
           {experiences.map((exp, index) => (
             <motion.div
               key={exp.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative mb-12 pl-8 md:pl-0"
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className="relative pl-8 border-l-2 border-gray-200 dark:border-gray-800"
             >
-              <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:pr-8 md:text-right md:ml-0 md:mr-auto' : 'md:pl-8 md:text-left md:ml-auto md:mr-0'}`}>
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="bg-white dark:bg-gray-900 p-4 sm:p-6 rounded-xl shadow-lg"
-                >
-                  <div className="text-xs sm:text-sm text-blue-600 dark:text-blue-400 mb-2">{exp.period}</div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-1">{exp.title}</h3>
-                  <p className="text-sm sm:text-base text-gray-700 dark:text-gray-400 mb-3">{exp.company}</p>
-                  <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-4">{exp.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {exp.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
+              <div className="absolute left-0 top-1 w-3 h-3 -translate-x-[7px] rounded-full bg-blue-600 dark:bg-blue-400" />
+              <div className="p-5 bg-white dark:bg-gray-950 rounded-xl border border-gray-200 dark:border-gray-800">
+                <div className="flex flex-wrap items-baseline gap-2 mb-1">
+                  <h3 className="font-semibold text-gray-900 dark:text-white">
+                    {exp.title}
+                  </h3>
+                  <span className="text-sm text-blue-600 dark:text-blue-400">
+                    {exp.company}
+                  </span>
+                </div>
+                <p className="text-xs text-gray-500 dark:text-gray-500 mb-3">
+                  {exp.period}
+                </p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-3 leading-relaxed">
+                  {exp.description}
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {exp.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2.5 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-md text-xs font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div className="absolute left-4 md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full mt-6"></div>
             </motion.div>
           ))}
         </div>

@@ -3,12 +3,6 @@
 import { motion } from 'framer-motion'
 import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations'
 
-const TrophyIcon = () => (
-  <svg aria-hidden="true" className="w-12 h-12 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-  </svg>
-)
-
 const certifications = [
   {
     title: 'Cisco Certified Network Associate (CCNA)',
@@ -49,17 +43,21 @@ const certifications = [
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="py-20 bg-white dark:bg-gray-900">
+    <section id="certifications" className="py-24 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
+          variants={fadeInUp}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
-          variants={fadeInUp}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Certifications</h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
+          <p className="text-sm font-medium text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-3">
+            Credentials
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+            Certifications
+          </h2>
         </motion.div>
 
         <motion.div
@@ -67,34 +65,46 @@ export default function Certifications() {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"
         >
-          {certifications.map((cert, index) => (
+          {certifications.map((cert) => (
             <motion.div
               key={cert.title}
               variants={staggerItem}
-              transition={{ delay: index * 0.05 }}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow relative overflow-hidden"
+              className="p-5 bg-white dark:bg-gray-950 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-blue-200 dark:hover:border-blue-800 transition-colors"
             >
-              {cert.distinction && (
-                <div className="absolute top-4 right-4 bg-yellow-400 text-yellow-900 px-2 py-1 rounded text-xs font-bold">
-                  Distinction
+              <div className="flex items-start justify-between mb-4">
+                <div className="p-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg">
+                  <svg aria-hidden="true" className="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
                 </div>
+                {cert.distinction && (
+                  <span className="px-2 py-0.5 bg-yellow-50 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 rounded text-xs font-medium">
+                    Distinction
+                  </span>
+                )}
+              </div>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-1 text-sm">
+                {cert.title}
+              </h3>
+              <p className="text-xs text-blue-600 dark:text-blue-400 mb-1">
+                {cert.issuer} &bull; {cert.date}
+              </p>
+              {cert.trainingProvider && (
+                <p className="text-xs text-gray-500 dark:text-gray-500 mb-2">
+                  Trained at: {cert.trainingProvider}
+                </p>
               )}
-              <div className="mb-4"><TrophyIcon /></div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{cert.title}</h3>
-               <p className="text-sm text-blue-600 dark:text-blue-400 mb-2">{cert.issuer} • {cert.date}</p>
-               {cert.trainingProvider && (
-                 <p className="text-xs text-gray-600 dark:text-gray-400 mb-2">Trained at: {cert.trainingProvider}</p>
-               )}
-               <p className="text-sm text-gray-600 dark:text-gray-400">{cert.description}</p>
+              <p className="text-xs text-gray-600 dark:text-gray-400 mb-3 leading-relaxed">
+                {cert.description}
+              </p>
               {cert.certLink && (
                 <a
                   href={cert.certLink}
-                  className="mt-4 text-sm text-blue-600 dark:text-blue-400 inline-block hover:underline cursor-pointer"
+                  className="text-xs font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors cursor-pointer"
                 >
-                  View Certificate →
+                  View Certificate &rarr;
                 </a>
               )}
             </motion.div>

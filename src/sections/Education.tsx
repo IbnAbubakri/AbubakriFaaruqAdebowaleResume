@@ -26,17 +26,21 @@ const education = [
 
 export default function Education() {
   return (
-    <section id="education" className="py-20 bg-white dark:bg-gray-900">
+    <section id="education" className="py-24 bg-white dark:bg-gray-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
+          variants={fadeInUp}
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
-          variants={fadeInUp}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Education</h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
+          <p className="text-sm font-medium text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-3">
+            Academic
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+            Education
+          </h2>
         </motion.div>
 
         <motion.div
@@ -44,21 +48,32 @@ export default function Education() {
           initial="initial"
           whileInView="animate"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+          className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto"
         >
-          {education.map((edu, index) => (
+          {education.map((edu) => (
             <motion.div
               key={edu.degree}
               variants={staggerItem}
-              transition={{ delay: index * 0.2 }}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
-              className="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-lg"
+              className="p-6 bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800"
             >
-              <div className="text-3xl mb-4" aria-hidden="true">🎓</div>
-              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-2">{edu.degree}</h3>
-              <p className="text-sm sm:text-base text-blue-600 dark:text-blue-400 mb-2 break-words">{edu.institution}</p>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">{edu.period}</p>
-              <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300">{edu.description}</p>
+              <div className="p-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg w-fit mb-4">
+                <svg aria-hidden="true" className="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                </svg>
+              </div>
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+                {edu.degree}
+              </h3>
+              <p className="text-sm text-blue-600 dark:text-blue-400 mb-1">
+                {edu.institution}
+              </p>
+              <p className="text-xs text-gray-500 dark:text-gray-500 mb-3">
+                {edu.period}
+              </p>
+              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                {edu.description}
+              </p>
             </motion.div>
           ))}
         </motion.div>

@@ -1,8 +1,6 @@
 'use client'
 
 import Navbar from '@/components/Navbar'
-import Cloud from '@/components/Cloud'
-import Rain from '@/components/Rain'
 import Hero from '@/sections/Hero'
 import About from '@/sections/About'
 import Skills from '@/sections/Skills'
@@ -17,9 +15,7 @@ import Footer from '@/components/Footer'
 
 export default function ClientWrapper() {
   return (
-    <main id="main-content" className="min-h-screen bg-white dark:bg-gray-900">
-      <Rain />
-      <Cloud />
+    <main id="main-content">
       <Navbar />
       <Hero />
       <About />

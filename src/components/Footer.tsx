@@ -1,37 +1,26 @@
-import { motion } from 'framer-motion'
-
 export default function Footer() {
+  const year = new Date().getFullYear()
+
   return (
-    <footer className="bg-gray-900 dark:bg-gray-950 text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-white dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <div className="flex items-center gap-2 mb-4">
-                <svg aria-hidden="true" className="w-12 h-12 md:w-16 md:h-16 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  {/* Laptop body */}
-                  <rect x="2" y="3" width="20" height="14" rx="2" strokeWidth="2"/>
-                  {/* Laptop screen */}
-                  <rect x="4" y="5" width="16" height="8" rx="1" strokeWidth="2" fill="currentColor" className="text-blue-100 dark:text-blue-900"/>
-                  {/* Screen text AFA */}
-                  <text x="12" y="11" textAnchor="middle" fontSize="5" fontWeight="bold" fill="currentColor" className="text-blue-600 dark:text-blue-400">AFA</text>
-                  {/* Laptop base */}
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 17h14"/>
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 21h8"/>
-                </svg>
-                <span className="text-2xl font-bold text-blue-400">Abubakri Faaruq</span>
-              </div>
-            <p className="text-gray-400">
+            <span className="text-lg font-bold text-gray-900 dark:text-white">
+              AF<span className="text-blue-600 dark:text-blue-400">.</span>
+            </span>
+            <p className="mt-3 text-sm text-gray-500 dark:text-gray-500 max-w-xs">
               IT Professional, Network Engineer, Cybersecurity Specialist, Cloud Engineer, and Vibecoder.
             </p>
           </div>
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">Quick Links</h4>
             <div className="space-y-2">
-              {['Home', 'About', 'Skills', 'Certifications', 'Experience', 'Education', 'Projects', 'Achievements', 'Testimonials', 'Contact'].map((link) => (
+              {['About', 'Skills', 'Experience', 'Projects', 'Contact'].map((link) => (
                 <a
                   key={link}
-                  href={link === 'Home' ? '/' : `/#${link.toLowerCase()}`}
-                  className="block text-gray-400 hover:text-blue-400 transition-colors"
+                  href={`/#${link.toLowerCase()}`}
+                  className="block text-sm text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors"
                 >
                   {link}
                 </a>
@@ -39,29 +28,30 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h4 className="text-lg font-semibold mb-4">Connect</h4>
-              <div className="flex flex-wrap gap-4">
-                {[
-                  { label: 'GitHub', href: 'https://github.com/IbnAbubakri' },
-                  { label: 'Email', href: 'mailto:faruqsuzay@gmail.com' },
-                  { label: 'WhatsApp', href: 'https://wa.me/qr/BSDWHYAVN7HBD1' },
-                ].map((social) => (
-                  <motion.a
-                    key={social.label}
-                    whileHover={{ scale: 1.1 }}
-                    href={social.href}
-                    target={social.href.startsWith('http') ? '_blank' : undefined}
-                    rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="px-4 py-2 bg-gray-800 rounded-lg text-sm hover:bg-blue-600 transition-colors"
-                  >
-                    {social.label}
-                  </motion.a>
-                ))}
-              </div>
+            <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">Connect</h4>
+            <div className="flex gap-3">
+              {[
+                { label: 'GitHub', href: 'https://github.com/IbnAbubakri' },
+                { label: 'Email', href: 'mailto:faruqsuzay@gmail.com' },
+                { label: 'WhatsApp', href: 'https://wa.me/qr/BSDWHYAVN7HBD1' },
+              ].map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1.5 text-sm text-gray-500 dark:text-gray-500 bg-gray-100 dark:bg-gray-900 rounded-md hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+                >
+                  {social.label}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
-        <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Abubakri Faaruq Adebowale. All rights reserved.</p>
+        <div className="border-t border-gray-200 dark:border-gray-800 pt-8 text-center">
+          <p className="text-sm text-gray-500 dark:text-gray-500">
+            &copy; {year} Abubakri Faaruq Adebowale. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
