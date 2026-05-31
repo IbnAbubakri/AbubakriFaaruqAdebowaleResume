@@ -31,13 +31,13 @@ export const metadata: Metadata = {
     siteName: "Abubakri Faaruq Adebowale",
     locale: "en_US",
     type: "website",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    images: [{ url: "/profile.jpeg", width: 1200, height: 1200 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Abubakri Faaruq Adebowale | IT Professional & Network Engineer",
     description: "IT Administrator, Network Engineer, Cybersecurity Specialist, and Cloud Engineer.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    images: [{ url: "/profile.jpeg", width: 1200, height: 1200 }],
   },
   alternates: {
     canonical: "https://abubakrifaaruqadebowaleresume.onrender.com",

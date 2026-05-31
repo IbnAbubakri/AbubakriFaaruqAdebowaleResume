@@ -61,7 +61,7 @@ export default function Projects() {
             <motion.div
               key={project.title}
               variants={staggerItem}
-              className="group p-6 bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-blue-200 dark:hover:border-blue-800 hover:scale-[1.02] transition-[colors,transform] duration-200 cursor-pointer"
+              className="group p-6 bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-blue-200 dark:hover:border-blue-800 hover:scale-[1.02] transition-[colors,transform] duration-200"
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="p-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg">

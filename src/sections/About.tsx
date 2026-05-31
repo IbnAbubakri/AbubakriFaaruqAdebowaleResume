@@ -92,7 +92,7 @@ export default function About() {
                 <motion.div
                   key={stat.label}
                   variants={staggerItem}
-                  className="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg text-center hover:scale-[1.02] transition-[colors,transform] duration-200 cursor-pointer"
+                  className="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg text-center hover:scale-[1.02] transition-[colors,transform] duration-200"
                 >
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                   <div className="text-sm text-gray-500 dark:text-gray-500 mt-1">
@@ -115,7 +115,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: 0.1 }}
-              className="p-6 bg-gray-50 dark:bg-gray-900 rounded-2xl hover:scale-[1.02] transition-[colors,transform] duration-200 cursor-pointer"
+              className="p-6 bg-gray-50 dark:bg-gray-900 rounded-2xl hover:scale-[1.02] transition-[colors,transform] duration-200"
             >
               <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                 My Mission
@@ -138,7 +138,7 @@ export default function About() {
                 <motion.div
                   key={item.title}
                   variants={staggerItem}
-                  className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-900 rounded-xl hover:scale-[1.02] transition-[colors,transform] duration-200 cursor-pointer"
+                  className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-900 rounded-xl hover:scale-[1.02] transition-[colors,transform] duration-200"
                 >
                   <div className="mt-0.5 p-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg shrink-0">
                     {item.icon}

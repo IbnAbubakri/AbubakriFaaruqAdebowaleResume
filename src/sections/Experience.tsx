@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { fadeInUp, pulse } from '@/lib/animations'
 
 const experiences = [
@@ -42,6 +42,12 @@ const experiences = [
 ]
 
 export default function Experience() {
+  const prefersReducedMotion = useReducedMotion()
+
+  const pulseVariant = prefersReducedMotion
+    ? { initial: { scale: 1, opacity: 1 }, animate: {} }
+    : pulse
+
   return (
     <section id="experience" className="py-24 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -71,12 +77,12 @@ export default function Experience() {
               className="relative pl-8 border-l-2 border-gray-200 dark:border-gray-800"
             >
               <motion.div
-                variants={pulse}
+                variants={pulseVariant}
                 initial="initial"
                 animate="animate"
                 className="absolute left-0 top-1 w-3 h-3 -translate-x-[7px] rounded-full bg-blue-600 dark:bg-blue-400"
               />
-              <div className="p-5 bg-white dark:bg-gray-950 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-blue-200 dark:hover:border-blue-800 hover:scale-[1.02] transition-[colors,transform] duration-200 cursor-pointer">
+              <div className="p-5 bg-white dark:bg-gray-950 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-blue-200 dark:hover:border-blue-800 hover:scale-[1.02] transition-[colors,transform] duration-200">
                 <div className="flex flex-wrap items-baseline gap-2 mb-1">
                   <h3 className="font-semibold text-gray-900 dark:text-white">
                     {exp.title}

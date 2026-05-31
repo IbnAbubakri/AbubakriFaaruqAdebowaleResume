@@ -4,23 +4,21 @@ Professional portfolio website built with Next.js, TypeScript, and Tailwind CSS.
 
 ## Tech Stack
 
-- **Framework:** Next.js 15 (App Router)
+- **Framework:** Next.js 15 (App Router, static export)
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS 4
 - **Animations:** Framer Motion 12
-- **Deployment:** Render
+- **Deployment:** Render (Static Site)
 
 ## Features
 
 - Single-page portfolio with all sections (About, Skills, Certifications, Experience, Education, Projects, Achievements, Testimonials, Contact)
 - Dark/Light mode toggle with system preference detection
 - Responsive design (mobile, tablet, desktop)
-- Scrolling testimonials carousel
-- Rain and cloud ambient effects (respects prefers-reduced-motion)
-- Certificate viewer pages for CCNA, Network+, and DevOps
-- PDF/image download for certificates and CV
-- Contact form with API endpoint (Resend-ready)
+- Certificate viewer pages for CCNA, Network+, AWS, and DevOps
+- Certificate PDF/image downloads
 - SEO-optimized with Open Graph, Twitter cards, sitemap, robots.txt
+- Motion animations with reduced-motion support
 
 ## Running Locally
 
@@ -31,12 +29,14 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Environment Variables
+## Build
 
-| Variable | Description |
-|----------|-------------|
-| `RESEND_API_KEY` | Optional — enables email delivery for contact form |
+```bash
+npm run build
+```
+
+Outputs static site to the `out/` directory.
 
 ## Deployment
 
-Deployed on Render. Build: `npm install && npm run build`. Start: `npm start`.
+Deployed as a Render Static Site. Build command: `npm install && npm run build`. Publish directory: `out`.

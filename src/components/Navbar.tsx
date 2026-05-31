@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import ThemeToggle from './ThemeToggle'
@@ -17,12 +17,48 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
+  const menuRef = useRef<HTMLDivElement>(null)
+  const toggleRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50)
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) return
+
+    const menu = menuRef.current
+    if (!menu) return
+
+    const focusable = menu.querySelectorAll<HTMLElement>('a, button')
+    const first = focusable[0]
+    const last = focusable[focusable.length - 1]
+
+    first?.focus()
+
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === 'Escape') {
+        setIsMobileMenuOpen(false)
+        toggleRef.current?.focus()
+        return
+      }
+
+      if (e.key === 'Tab') {
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault()
+          last?.focus()
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault()
+          first?.focus()
+        }
+      }
+    }
+
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
+  }, [isMobileMenuOpen])
 
   useEffect(() => {
     if (typeof IntersectionObserver === 'undefined') return
@@ -78,6 +114,7 @@ export default function Navbar() {
           <div className="md:hidden flex items-center gap-3">
             <ThemeToggle />
             <button
+              ref={toggleRef}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-gray-600 dark:text-gray-400 cursor-pointer"
               aria-label="Toggle navigation"
@@ -98,6 +135,7 @@ export default function Navbar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
+            ref={menuRef}
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
