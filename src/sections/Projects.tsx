@@ -14,7 +14,7 @@ const projects = [
     title: 'Weather Forecast Application',
     description: 'Developed and deployed weather forecasting web application with live API integration. Built responsive user interfaces and optimized user experience.',
     techStack: ['Next.js', 'TypeScript', 'Weather API', 'Tailwind CSS'],
-    liveDemo: 'https://weatherbyibnabubakri.netlify.app/',
+    liveDemo: 'https://weatherbyibnabubakri.onrender.com/',
     github: 'https://github.com/IbnAbubakri/WeatherForecast.git',
   },
   {
