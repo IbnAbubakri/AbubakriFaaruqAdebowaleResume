@@ -77,10 +77,12 @@ export default function Hero() {
             transition={{ duration: 0.3, delay: 0.15, ease: 'easeOut' }}
             className="flex-shrink-0"
           >
-            <div className="w-56 h-56 sm:w-72 sm:h-72 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-700 flex items-center justify-center shadow-lg border border-gray-200 dark:border-gray-700">
-              <svg aria-hidden="true" className="w-32 h-32 text-blue-400 dark:text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
+            <div className="w-56 h-56 sm:w-72 sm:h-72 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+              <img
+                src="/profile.jpeg"
+                alt="Abubakri Faaruq Adebowale"
+                className="w-full h-full object-cover"
+              />
             </div>
           </motion.div>
         </div>
