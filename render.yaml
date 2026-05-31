@@ -1,18 +1,10 @@
 services:
-  - type: web
+  - type: static
     name: web-cv-fresh
-    env: node
-    plan: starter
     buildCommand: npm install && npm run build
-    startCommand: npm run start
+    publishPath: out
     envVars:
       - key: NODE_ENV
         value: production
       - key: NEXT_TELEMETRY_DISABLED
         value: 1
-      - key: NPM_CONFIG_PLATFORM
-        value: linux
-      - key: NPM_CONFIG_ARCH
-        value: x64
-      - key: RESEND_API_KEY
-        sync: false

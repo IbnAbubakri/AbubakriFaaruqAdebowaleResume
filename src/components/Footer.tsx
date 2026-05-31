@@ -1,5 +1,3 @@
-import ViewCounter from './ViewCounter'
-
 export default function Footer() {
   const year = new Date().getFullYear()
 
@@ -50,11 +48,10 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="border-t border-gray-200 dark:border-gray-800 pt-8 text-center space-y-2">
+        <div className="border-t border-gray-200 dark:border-gray-800 pt-8 text-center">
           <p className="text-sm text-gray-500 dark:text-gray-500">
             &copy; {year} Abubakri Faaruq Adebowale. All rights reserved.
           </p>
-          <ViewCounter />
         </div>
       </div>
     </footer>

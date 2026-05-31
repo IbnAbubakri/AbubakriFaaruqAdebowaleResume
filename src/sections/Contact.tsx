@@ -1,8 +1,7 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
-import { fadeInLeft, fadeInRight, staggerContainer, staggerItem } from '@/lib/animations'
+import { motion } from 'framer-motion'
+import { fadeInLeft, staggerContainer, staggerItem } from '@/lib/animations'
 
 const contactInfo = [
   {
@@ -48,46 +47,6 @@ const contactInfo = [
 ]
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  })
-  const [errors, setErrors] = useState<Record<string, string>>({})
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
-
-  const validate = () => {
-    const errs: Record<string, string> = {}
-    if (!formData.name.trim() || formData.name.trim().length < 2) errs.name = 'Name must be at least 2 characters'
-    if (!formData.email.trim()) errs.email = 'Email is required'
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) errs.email = 'Please enter a valid email address'
-    if (!formData.subject.trim() || formData.subject.trim().length < 3) errs.subject = 'Subject must be at least 3 characters'
-    if (!formData.message.trim() || formData.message.trim().length < 10) errs.message = 'Message must be at least 10 characters'
-    return errs
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    const errs = validate()
-    setErrors(errs)
-    if (Object.keys(errs).length > 0) return
-    setStatus('sending')
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      })
-      if (!res.ok) throw new Error('Failed')
-      setStatus('sent')
-      setFormData({ name: '', email: '', subject: '', message: '' })
-      setErrors({})
-    } catch {
-      setStatus('error')
-    }
-  }
-
   return (
     <section id="contact" className="py-24 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -109,148 +68,32 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-          <motion.div
-            variants={fadeInLeft}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">
-              Contact Information
-            </h3>
-            <motion.div
-              variants={staggerContainer}
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-              className="space-y-4"
+        <motion.div
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto"
+        >
+          {contactInfo.map((item) => (
+            <motion.a
+              key={item.label}
+              variants={staggerItem}
+              href={item.href}
+              target={item.href.startsWith('http') ? '_blank' : undefined}
+              rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              className="flex items-center gap-4 p-4 bg-white dark:bg-gray-950 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-blue-200 dark:hover:border-blue-800 hover:scale-[1.02] transition-[colors,transform] duration-200 cursor-pointer"
             >
-              {contactInfo.map((item) => (
-                <motion.a
-                  key={item.label}
-                  variants={staggerItem}
-                  href={item.href}
-                  target={item.href.startsWith('http') ? '_blank' : undefined}
-                  rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="flex items-center gap-4 p-3 bg-white dark:bg-gray-950 rounded-lg border border-gray-200 dark:border-gray-800 hover:border-blue-200 dark:hover:border-blue-800 transition-colors cursor-pointer"
-                >
-                  <div className="p-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg shrink-0">
-                    {item.icon}
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-xs text-gray-500 dark:text-gray-500">{item.label}</p>
-                    <p className="text-sm text-gray-900 dark:text-white">{item.value}</p>
-                  </div>
-                </motion.a>
-              ))}
-            </motion.div>
-          </motion.div>
-
-          <motion.form
-            variants={fadeInRight}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            onSubmit={handleSubmit}
-            className="space-y-4"
-          >
-            <div>
-              <label htmlFor="contact-name" className="sr-only">Your Name</label>
-              <input
-                id="contact-name"
-                type="text"
-                placeholder="Your Name"
-                required
-                autoComplete="name"
-                aria-invalid={!!errors.name}
-                aria-describedby={errors.name ? 'contact-name-error' : undefined}
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-4 py-2.5 bg-white dark:bg-gray-950 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-400 text-sm"
-              />
-              {errors.name && <p id="contact-name-error" className="text-red-500 text-xs mt-1">{errors.name}</p>}
-            </div>
-            <div>
-              <label htmlFor="contact-email" className="sr-only">Your Email</label>
-              <input
-                id="contact-email"
-                type="email"
-                placeholder="Your Email"
-                required
-                autoComplete="email"
-                aria-invalid={!!errors.email}
-                aria-describedby={errors.email ? 'contact-email-error' : undefined}
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-4 py-2.5 bg-white dark:bg-gray-950 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-400 text-sm"
-              />
-              {errors.email && <p id="contact-email-error" className="text-red-500 text-xs mt-1">{errors.email}</p>}
-            </div>
-            <div>
-              <label htmlFor="contact-subject" className="sr-only">Subject</label>
-              <input
-                id="contact-subject"
-                type="text"
-                placeholder="Subject"
-                required
-                autoComplete="subject"
-                aria-invalid={!!errors.subject}
-                aria-describedby={errors.subject ? 'contact-subject-error' : undefined}
-                value={formData.subject}
-                onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                className="w-full px-4 py-2.5 bg-white dark:bg-gray-950 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-400 text-sm"
-              />
-              {errors.subject && <p id="contact-subject-error" className="text-red-500 text-xs mt-1">{errors.subject}</p>}
-            </div>
-            <div>
-              <label htmlFor="contact-message" className="sr-only">Your Message</label>
-              <textarea
-                id="contact-message"
-                placeholder="Your Message"
-                required
-                rows={4}
-                aria-invalid={!!errors.message}
-                aria-describedby={errors.message ? 'contact-message-error' : undefined}
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-4 py-2.5 bg-white dark:bg-gray-950 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-400 text-sm resize-none"
-              />
-              {errors.message && <p id="contact-message-error" className="text-red-500 text-xs mt-1">{errors.message}</p>}
-            </div>
-            <motion.button
-              type="submit"
-              disabled={status === 'sending'}
-              whileTap={{ scale: 0.95 }}
-              animate={
-                status === 'sent'
-                  ? { scale: [1, 1.04, 1] }
-                  : status === 'error'
-                    ? { x: [0, -4, 4, -2, 2, 0] }
-                    : {}
-              }
-              transition={{ duration: 0.4 }}
-              className="w-full py-2.5 bg-blue-600 text-white rounded-lg font-medium text-sm hover:bg-blue-700 disabled:opacity-50 cursor-pointer"
-            >
-              {status === 'sending' ? (
-                <span className="inline-flex items-center gap-2">
-                  <svg aria-hidden="true" className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                  </svg>
-                  Sending...
-                </span>
-              ) : status === 'sent' ? (
-                <span className="inline-flex items-center gap-2">
-                  <svg aria-hidden="true" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Message Sent!
-                </span>
-              ) : status === 'error' ? 'Failed. Try Again' : 'Send Message'}
-            </motion.button>
-          </motion.form>
-        </div>
+              <div className="p-2.5 bg-blue-50 dark:bg-blue-900/30 rounded-lg shrink-0">
+                {item.icon}
+              </div>
+              <div className="min-w-0">
+                <p className="text-xs text-gray-500 dark:text-gray-500">{item.label}</p>
+                <p className="text-sm text-gray-900 dark:text-white truncate">{item.value}</p>
+              </div>
+            </motion.a>
+          ))}
+        </motion.div>
       </div>
     </section>
   )
