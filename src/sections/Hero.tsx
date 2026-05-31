@@ -77,7 +77,7 @@ export default function Hero() {
             transition={{ duration: 0.3, delay: 0.15, ease: 'easeOut' }}
             className="flex-shrink-0"
           >
-            <div className="w-72 h-72 sm:w-96 sm:h-96 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+            <div className="w-72 h-72 sm:w-80 sm:h-80 md:w-[26rem] md:h-[26rem] rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
               <img
                 src="/profile.jpeg"
                 alt="Abubakri Faaruq Adebowale"
