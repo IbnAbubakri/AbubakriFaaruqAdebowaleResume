@@ -98,7 +98,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-sm transition-colors ${
+                className={`text-sm transition-colors cursor-pointer ${
                   activeSection === item.id
                     ? 'text-amber-500 font-medium'
                     : 'text-muted-foreground hover:text-foreground'
@@ -161,7 +161,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={item.href}
-                    className={`block px-6 py-3 text-sm transition-colors ${
+                    className={`block px-6 py-3 text-sm transition-colors cursor-pointer ${
                       activeSection === item.id
                         ? 'text-amber-500 bg-amber-500/10 font-medium'
                         : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'

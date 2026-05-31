@@ -70,7 +70,7 @@ export default function Education() {
                 <h3 className="font-semibold text-surface-900 dark:text-white mb-1">
                   {edu.degree}
                 </h3>
-                <p className="text-sm text-primary mb-1">
+                <p className="text-sm text-accent mb-1">
                   {edu.institution}
                 </p>
                 <p className="text-xs text-surface-500 mb-3 font-mono">

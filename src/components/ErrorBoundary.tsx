@@ -29,17 +29,17 @@ export default class ErrorBoundary extends Component<Props, State> {
     if (this.state.hasError) {
       return (
         this.props.fallback || (
-          <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-950">
+          <div className="min-h-screen flex items-center justify-center bg-background">
             <div className="text-center p-8">
-              <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              <h1 className="text-2xl font-bold text-foreground mb-4">
                 Something went wrong
               </h1>
-              <p className="text-gray-500 dark:text-gray-400 mb-6">
+              <p className="text-muted-foreground mb-6">
                 Please try refreshing the page.
               </p>
               <button
                 onClick={() => window.location.reload()}
-                className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors cursor-pointer"
+                className="px-6 py-2 bg-accent text-accent-foreground rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
               >
                 Refresh Page
               </button>

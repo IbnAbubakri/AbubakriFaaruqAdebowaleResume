@@ -72,7 +72,7 @@ export default function Certifications() {
             <motion.div
               key={cert.title}
               variants={staggerItemLeft}
-              className="relative p-5 bg-white dark:bg-surface-950 rounded-xl border border-surface-200 dark:border-surface-800 card-depth overflow-hidden"
+              className="relative p-5 bg-surface-50 dark:bg-surface-950 rounded-xl border border-surface-200 dark:border-surface-800 card-depth overflow-hidden"
             >
               <div className="absolute top-0 left-0 bottom-0 w-0.5 bg-cyan-500" />
               <div className="pl-3">
@@ -91,7 +91,7 @@ export default function Certifications() {
                 <h3 className="font-semibold text-surface-900 dark:text-white mb-1 text-sm">
                   {cert.title}
                 </h3>
-                <p className="text-xs text-primary mb-1">
+                <p className="text-xs text-accent mb-1">
                   {cert.issuer} &bull; {cert.date}
                 </p>
                 {cert.trainingProvider && (
@@ -105,7 +105,7 @@ export default function Certifications() {
                 {cert.certLink && (
                   <a
                     href={cert.certLink}
-                    className="text-xs font-medium text-primary hover:text-blue-700 transition-colors"
+                    className="text-xs font-medium text-accent hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
                   >
                     View Certificate &rarr;
                   </a>

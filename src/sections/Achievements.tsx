@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { fadeInUp, staggerContainer, staggerItemScale } from '@/lib/animations'
 
 const achievementIconColors = [
-  'text-accent', 'text-accent', 'text-primary', 'text-cyan-500', 'text-accent', 'text-primary',
+  'text-accent', 'text-accent', 'text-accent', 'text-accent', 'text-accent', 'text-accent',
 ]
 
 const achievements = [

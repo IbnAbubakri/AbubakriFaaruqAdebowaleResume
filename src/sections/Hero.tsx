@@ -24,7 +24,7 @@ export default function Hero() {
             animate="animate"
             className="flex-1 text-center md:text-left"
           >
-            <motion.p variants={heroItem} className="text-sm font-medium text-amber-500 uppercase tracking-[0.2em] mb-4 font-mono">
+            <motion.p variants={heroItem} className="text-sm font-medium text-accent uppercase tracking-[0.2em] mb-4 font-mono">
               IT Professional
             </motion.p>
 
@@ -54,20 +54,20 @@ export default function Hero() {
             <motion.div variants={heroItem} className="flex flex-wrap justify-center md:justify-start gap-4 mt-8">
               <a
                 href="/#contact"
-                className="px-6 py-3 bg-amber-500 text-white rounded-lg font-medium hover:bg-amber-600 active:scale-95 transition-[colors,transform] duration-200"
+                className="px-6 py-3 bg-accent text-accent-foreground rounded-lg font-medium hover:opacity-90 active:scale-95 transition-[colors,transform] duration-200 cursor-pointer"
               >
                 Hire Me
               </a>
               <a
                 href="/abubakri-faaruq-adebowale-cv.pdf"
                 download
-                className="px-6 py-3 border border-surface-300 dark:border-surface-700 text-surface-700 dark:text-surface-300 rounded-lg font-medium hover:border-amber-500 hover:text-amber-500 dark:hover:border-amber-500 dark:hover:text-amber-500 active:scale-95 transition-[colors,transform] duration-200"
+                className="px-6 py-3 border border-surface-300 dark:border-surface-700 text-surface-700 dark:text-surface-300 rounded-lg font-medium hover:border-accent hover:text-accent dark:hover:border-accent dark:hover:text-accent active:scale-95 transition-[colors,transform] duration-200 cursor-pointer"
               >
                 Download CV
               </a>
               <a
                 href="/#projects"
-                className="px-6 py-3 text-surface-500 font-medium hover:text-surface-900 dark:hover:text-surface-300 active:scale-95 transition-[colors,transform] duration-200"
+                className="px-6 py-3 text-surface-500 font-medium hover:text-surface-900 dark:hover:text-surface-300 active:scale-95 transition-[colors,transform] duration-200 cursor-pointer"
               >
                 View Projects &rarr;
               </a>

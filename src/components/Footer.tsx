@@ -20,7 +20,7 @@ export default function Footer() {
                 <a
                   key={link}
                   href={`/#${link.toLowerCase()}`}
-                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
                   {link}
                 </a>
@@ -40,7 +40,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1.5 text-sm text-muted-foreground bg-muted rounded-md hover:text-foreground hover:bg-accent transition-colors"
+                  className="px-3 py-1.5 text-sm text-muted-foreground bg-muted rounded-md hover:text-foreground hover:bg-accent transition-colors cursor-pointer"
                 >
                   {social.label}
                 </a>

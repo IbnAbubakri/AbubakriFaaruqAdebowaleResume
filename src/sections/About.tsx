@@ -126,7 +126,7 @@ export default function About() {
                   variants={staggerItem}
                   className="relative p-4 bg-surface-100 dark:bg-surface-900 rounded-xl overflow-hidden card-depth-sm"
                 >
-                  <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-cyan-500" />
+                  <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-accent" />
                   <div className="pl-4">
                     <h4 className="font-medium text-surface-900 dark:text-white">
                       {item.title}
