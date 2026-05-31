@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import AnimatedCounter from '@/components/AnimatedCounter'
-import { fadeInLeft, fadeInRight } from '@/lib/animations'
+import { fadeInLeft, fadeInRight, staggerContainer, staggerItem } from '@/lib/animations'
 
 export default function About() {
   const highlights = [
@@ -81,19 +81,26 @@ export default function About() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10">
+            <motion.div
+              variants={staggerContainer}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10"
+            >
               {stats.map((stat) => (
-                <div
+                <motion.div
                   key={stat.label}
+                  variants={staggerItem}
                   className="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg text-center hover:scale-[1.02] transition-[colors,transform] duration-200 cursor-pointer"
                 >
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                   <div className="text-sm text-gray-500 dark:text-gray-500 mt-1">
                     {stat.label}
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
 
           <motion.div
@@ -103,8 +110,14 @@ export default function About() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-              <div className="p-6 bg-gray-50 dark:bg-gray-900 rounded-2xl hover:scale-[1.02] transition-[colors,transform] duration-200 cursor-pointer">
-                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+              className="p-6 bg-gray-50 dark:bg-gray-900 rounded-2xl hover:scale-[1.02] transition-[colors,transform] duration-200 cursor-pointer"
+            >
+              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
                 My Mission
               </h4>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
@@ -112,12 +125,19 @@ export default function About() {
                 while maintaining the highest standards of security and
                 efficiency.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="space-y-3">
+            <motion.div
+              variants={staggerContainer}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              className="space-y-3"
+            >
               {highlights.map((item) => (
-                <div
+                <motion.div
                   key={item.title}
+                  variants={staggerItem}
                   className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-900 rounded-xl hover:scale-[1.02] transition-[colors,transform] duration-200 cursor-pointer"
                 >
                   <div className="mt-0.5 p-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg shrink-0">
@@ -131,9 +151,9 @@ export default function About() {
                       {item.desc}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

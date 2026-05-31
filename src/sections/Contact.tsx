@@ -1,8 +1,8 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
-import { fadeInLeft, fadeInRight } from '@/lib/animations'
+import { fadeInLeft, fadeInRight, staggerContainer, staggerItem } from '@/lib/animations'
 
 const contactInfo = [
   {
@@ -119,10 +119,17 @@ export default function Contact() {
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">
               Contact Information
             </h3>
-            <div className="space-y-4">
+            <motion.div
+              variants={staggerContainer}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              className="space-y-4"
+            >
               {contactInfo.map((item) => (
-                <a
+                <motion.a
                   key={item.label}
+                  variants={staggerItem}
                   href={item.href}
                   target={item.href.startsWith('http') ? '_blank' : undefined}
                   rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
@@ -135,9 +142,9 @@ export default function Contact() {
                     <p className="text-xs text-gray-500 dark:text-gray-500">{item.label}</p>
                     <p className="text-sm text-gray-900 dark:text-white">{item.value}</p>
                   </div>
-                </a>
+                </motion.a>
               ))}
-            </div>
+            </motion.div>
           </motion.div>
 
           <motion.form
@@ -211,10 +218,19 @@ export default function Contact() {
               />
               {errors.message && <p id="contact-message-error" className="text-red-500 text-xs mt-1">{errors.message}</p>}
             </div>
-            <button
+            <motion.button
               type="submit"
               disabled={status === 'sending'}
-              className="w-full py-2.5 bg-blue-600 text-white rounded-lg font-medium text-sm hover:bg-blue-700 active:scale-95 transition-[colors,transform] duration-200 disabled:opacity-50 cursor-pointer"
+              whileTap={{ scale: 0.95 }}
+              animate={
+                status === 'sent'
+                  ? { scale: [1, 1.04, 1] }
+                  : status === 'error'
+                    ? { x: [0, -4, 4, -2, 2, 0] }
+                    : {}
+              }
+              transition={{ duration: 0.4 }}
+              className="w-full py-2.5 bg-blue-600 text-white rounded-lg font-medium text-sm hover:bg-blue-700 disabled:opacity-50 cursor-pointer"
             >
               {status === 'sending' ? (
                 <span className="inline-flex items-center gap-2">
@@ -232,7 +248,7 @@ export default function Contact() {
                   Message Sent!
                 </span>
               ) : status === 'error' ? 'Failed. Try Again' : 'Send Message'}
-            </button>
+            </motion.button>
           </motion.form>
         </div>
       </div>

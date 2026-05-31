@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { scaleIn, heroStagger, heroItem } from '@/lib/animations'
 
 const titles = [
   'IT Administrator',
@@ -16,22 +17,22 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
         <div className="flex flex-col md:flex-row items-center gap-16">
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
+            variants={heroStagger}
+            initial="initial"
+            animate="animate"
             className="flex-1 text-center md:text-left"
           >
-            <p className="text-sm font-medium text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-4">
+            <motion.p variants={heroItem} className="text-sm font-medium text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-4">
               IT Professional
-            </p>
+            </motion.p>
 
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-gray-900 dark:text-white leading-tight">
+            <motion.h1 variants={heroItem} className="text-4xl sm:text-5xl md:text-7xl font-bold text-gray-900 dark:text-white leading-tight">
               Abubakri{' '}
               <span className="text-blue-600 dark:text-blue-400">Faaruq</span>{' '}
               Adebowale
-            </h1>
+            </motion.h1>
 
-            <div className="flex flex-wrap justify-center md:justify-start gap-2 mt-6">
+            <motion.div variants={heroItem} className="flex flex-wrap justify-center md:justify-start gap-2 mt-6">
               {titles.map((title) => (
                 <span
                   key={title}
@@ -40,15 +41,15 @@ export default function Hero() {
                   {title}
                 </span>
               ))}
-            </div>
+            </motion.div>
 
-            <p className="mt-6 text-lg text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed">
+            <motion.p variants={heroItem} className="mt-6 text-lg text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed">
               Dedicated IT professional with expertise in network engineering,
               cybersecurity, cloud computing, and software development. Passionate
               about building secure, scalable solutions for enterprise environments.
-            </p>
+            </motion.p>
 
-            <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-8">
+            <motion.div variants={heroItem} className="flex flex-wrap justify-center md:justify-start gap-4 mt-8">
               <a
                 href="/#contact"
                 className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 active:scale-95 transition-[colors,transform] duration-200 cursor-pointer"
@@ -68,13 +69,13 @@ export default function Hero() {
               >
                 View Projects &rarr;
               </a>
-            </div>
+            </motion.div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3, delay: 0.15, ease: 'easeOut' }}
+            variants={scaleIn}
+            initial="initial"
+            animate="animate"
             className="flex-shrink-0"
           >
             <div className="w-72 h-72 sm:w-80 sm:h-80 md:w-[26rem] md:h-[26rem] rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
