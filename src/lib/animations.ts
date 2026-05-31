@@ -59,7 +59,4 @@ export const pulse: Variants = {
   },
 }
 
-export const slideUp: Variants = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.25, ease: 'easeOut' } },
-}
+

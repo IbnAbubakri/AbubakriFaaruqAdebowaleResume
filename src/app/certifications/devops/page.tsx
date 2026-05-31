@@ -4,6 +4,7 @@ import CertificateViewer from '@/components/CertificateViewer'
 export const metadata: Metadata = {
   title: 'DevOps Certificate | Abubakri Faaruq Adebowale',
   description: 'DevOps professional certificate covering CI/CD, containerization, and infrastructure automation.',
+  alternates: { canonical: 'https://abubakrifaaruqadebowaleresume.onrender.com/certifications/devops' },
 }
 
 export default function DevOpsCertificate() {
@@ -12,7 +13,7 @@ export default function DevOpsCertificate() {
       <CertificateViewer
         title="DevOps Certificate"
         subtitle="DevOps Engineering - CI/CD, Containerization, and Automation"
-        downloadUrl="/devops-certificate.jpg"
+        downloadUrl="/certificate-devops.jpg"
         imgAlt="DevOps Certificate"
       />
     </>

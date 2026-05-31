@@ -4,6 +4,7 @@ import CertificateViewer from '@/components/CertificateViewer'
 export const metadata: Metadata = {
   title: 'CompTIA Network+ Certificate | Abubakri Faaruq Adebowale',
   description: 'CompTIA Network+ certification covering networking concepts, infrastructure, and troubleshooting.',
+  alternates: { canonical: 'https://abubakrifaaruqadebowaleresume.onrender.com/certifications/network-plus' },
 }
 
 export default function NetworkPlusCertificate() {
@@ -12,8 +13,8 @@ export default function NetworkPlusCertificate() {
       <CertificateViewer
         title="CompTIA Network+ Certificate"
         subtitle="CompTIA Network+ - Networking Concepts and Infrastructure"
-        downloadUrl="/network-plus-certificate.jpg"
-        imgAlt="CompTIA Network+ Certificate"
+        downloadUrl="/comptia-network-plus-certificate.pdf"
+        isPdf
       />
     </>
   )
