@@ -1,6 +1,6 @@
 # Abubakri Faaruq Adebowale — Portfolio
 
-Professional portfolio website built with Next.js, TypeScript, and Tailwind CSS.
+Professional portfolio website built with Next.js, TypeScript, and Tailwind CSS. Deployed on Render.
 
 ## Tech Stack
 
@@ -8,17 +8,34 @@ Professional portfolio website built with Next.js, TypeScript, and Tailwind CSS.
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS 4
 - **Animations:** Framer Motion 12
+- **Linting:** ESLint 9 (flat config) with `@next/eslint-plugin-next`
 - **Deployment:** Render (Static Site)
+
+## Sections
+
+- Hero (profile photo, tagline, CV download, social links)
+- About (highlights, stats, mission statement)
+- Skills (technical categories with tags)
+- Certifications (grid with links to dedicated viewer pages)
+- Experience (timeline with animated indicators)
+- Education (institution cards)
+- Projects (project cards)
+- Achievements (award cards)
+- Testimonials (quote cards)
+- Contact (Email, Phone, GitHub, WhatsApp links)
 
 ## Features
 
-- Single-page portfolio with all sections (About, Skills, Certifications, Experience, Education, Projects, Achievements, Testimonials, Contact)
-- Dark/Light mode toggle with system preference detection
+- Dark/Light mode toggle with system preference detection and localStorage persistence
 - Responsive design (mobile, tablet, desktop)
-- Certificate viewer pages for CCNA, Network+, AWS, and DevOps
-- Certificate PDF/image downloads
-- SEO-optimized with Open Graph, Twitter cards, sitemap, robots.txt
-- Motion animations with reduced-motion support
+- Certificate viewer pages for CCNA, Network+, AWS, and DevOps (PDF/image download)
+- Custom 404 page
+- Error boundary wrapping the full app
+- Scroll progress bar and back-to-top button
+- Mobile menu with keyboard focus trap
+- SEO-optimized: per-page metadata, canonical URLs, Open Graph, Twitter cards, sitemap, robots.txt
+- Animations with `prefers-reduced-motion` support
+- Skip-to-content link for keyboard users
 
 ## Running Locally
 
@@ -28,6 +45,12 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
+
+## Lint
+
+```bash
+npx eslint .
+```
 
 ## Build
 
