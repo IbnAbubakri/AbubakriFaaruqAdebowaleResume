@@ -7,28 +7,60 @@ export default function ViewCounter() {
   const counted = useRef(false)
 
   useEffect(() => {
-    if (!counted.current && !sessionStorage.getItem('viewed')) {
+    if (!counted.current) {
       counted.current = true
-      sessionStorage.setItem('viewed', 'true')
-      fetch('/api/views', { method: 'POST' }).catch(() => {})
+
+      let alreadyViewed = false
+      try {
+        alreadyViewed = !!sessionStorage.getItem('viewed')
+        if (!alreadyViewed) sessionStorage.setItem('viewed', 'true')
+      } catch {}
+
+      if (!alreadyViewed) {
+        fetch('/api/views', { method: 'POST' }).catch(() => {})
+      }
+    }
+
+    if (typeof EventSource === 'undefined') {
+      let pollTimer: ReturnType<typeof setInterval> | null = null
+      pollTimer = setInterval(async () => {
+        try {
+          const res = await fetch('/api/views')
+          const data = await res.json()
+          setCount(data.count)
+        } catch {}
+      }, 10000)
+      return () => { if (pollTimer) clearInterval(pollTimer) }
     }
 
     let eventSource: EventSource | null = null
     let pollTimer: ReturnType<typeof setInterval> | null = null
 
     function connectSSE() {
-      eventSource = new EventSource('/api/views')
+      try {
+        eventSource = new EventSource('/api/views')
 
-      eventSource.onmessage = (event) => {
-        try {
-          const data = JSON.parse(event.data)
-          setCount(data.count)
-        } catch {}
-      }
+        eventSource.onmessage = (event) => {
+          try {
+            const data = JSON.parse(event.data)
+            setCount(data.count)
+          } catch {}
+        }
 
-      eventSource.onerror = () => {
-        eventSource?.close()
+        eventSource.onerror = () => {
+          eventSource?.close()
 
+          if (!pollTimer) {
+            pollTimer = setInterval(async () => {
+              try {
+                const res = await fetch('/api/views')
+                const data = await res.json()
+                setCount(data.count)
+              } catch {}
+            }, 10000)
+          }
+        }
+      } catch {
         if (!pollTimer) {
           pollTimer = setInterval(async () => {
             try {

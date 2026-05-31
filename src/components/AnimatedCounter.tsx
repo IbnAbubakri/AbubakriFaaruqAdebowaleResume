@@ -11,6 +11,11 @@ export default function AnimatedCounter({ value, suffix = '', duration = 2000 }:
     const el = ref.current
     if (!el) return
 
+    if (typeof IntersectionObserver === 'undefined') {
+      setCount(value)
+      return
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !counted.current) {

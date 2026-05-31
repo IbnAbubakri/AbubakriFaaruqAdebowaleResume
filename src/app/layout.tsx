@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Archivo, Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import { MotionConfig } from 'framer-motion';
+import ErrorBoundary from '@/components/ErrorBoundary';
 import ScrollProgress from '@/components/ScrollProgress';
 import BackToTop from '@/components/BackToTop';
 import "./globals.css";
@@ -72,9 +73,11 @@ export default function RootLayout({
         </a>
         <ThemeProvider>
           <MotionConfig reducedMotion="user">
-            <ScrollProgress />
-            <BackToTop />
-            {children}
+            <ErrorBoundary>
+              <ScrollProgress />
+              <BackToTop />
+              {children}
+            </ErrorBoundary>
           </MotionConfig>
         </ThemeProvider>
       </body>

@@ -25,6 +25,8 @@ export default function Navbar() {
   }, [])
 
   useEffect(() => {
+    if (typeof IntersectionObserver === 'undefined') return
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
