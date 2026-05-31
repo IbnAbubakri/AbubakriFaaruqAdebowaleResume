@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Archivo, Space_Grotesk } from "next/font/google";
+import { Archivo, Sora, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import { MotionConfig } from 'framer-motion';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import ScrollProgress from '@/components/ScrollProgress';
 import BackToTop from '@/components/BackToTop';
+import { Toaster } from '@/components/ui/sonner';
 import "./globals.css";
 
 const archivo = Archivo({
@@ -13,8 +14,14 @@ const archivo = Archivo({
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const sora = Sora({
+  variable: "--font-sora",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
   display: "swap",
 });
@@ -64,10 +71,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${archivo.variable} ${spaceGrotesk.variable} font-sans antialiased bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100`}>
+      <body className={`${archivo.variable} ${sora.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded focus:outline-none"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded focus:outline-none"
         >
           Skip to main content
         </a>
@@ -77,6 +84,7 @@ export default function RootLayout({
               <ScrollProgress />
               <BackToTop />
               {children}
+              <Toaster />
             </ErrorBoundary>
           </MotionConfig>
         </ThemeProvider>

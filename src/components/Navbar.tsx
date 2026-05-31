@@ -8,7 +8,6 @@ import ThemeToggle from './ThemeToggle'
 const navItems = [
   { name: 'About', href: '/#about', id: 'about' },
   { name: 'Skills', href: '/#skills', id: 'skills' },
-  { name: 'Experience', href: '/#experience', id: 'experience' },
   { name: 'Projects', href: '/#projects', id: 'projects' },
   { name: 'Contact', href: '/#contact', id: 'contact' },
 ]
@@ -82,15 +81,15 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'top-3 left-3 right-3 bg-white/80 dark:bg-gray-950/80 backdrop-blur-lg border border-gray-200 dark:border-gray-800 rounded-2xl shadow-sm'
+          ? 'top-3 left-3 right-3 bg-background/80 dark:bg-surface-950/80 backdrop-blur-lg border border-border rounded-2xl shadow-sm'
           : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-14">
           <Link href="/" className="flex items-center gap-2 shrink-0">
-            <span className="font-bold text-lg text-gray-900 dark:text-white">
-              AF<span className="text-blue-600 dark:text-blue-400">.</span>
+            <span className="font-bold text-lg text-foreground font-display">
+              AF<span className="text-amber-500">.</span>
             </span>
           </Link>
 
@@ -99,10 +98,10 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-sm transition-colors cursor-pointer ${
+                className={`text-sm transition-colors ${
                   activeSection === item.id
-                    ? 'text-blue-600 dark:text-blue-400 font-medium'
-                    : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                    ? 'text-amber-500 font-medium'
+                    : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
                 {item.name}
@@ -116,7 +115,7 @@ export default function Navbar() {
             <button
               ref={toggleRef}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-600 dark:text-gray-400 cursor-pointer"
+              className="text-muted-foreground"
               aria-label="Toggle navigation"
               aria-expanded={isMobileMenuOpen}
             >
@@ -140,7 +139,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="md:hidden border-t border-gray-200 dark:border-gray-800 overflow-hidden"
+            className="md:hidden border-t border-border overflow-hidden"
           >
             <motion.div
               initial="closed"
@@ -162,10 +161,10 @@ export default function Navbar() {
                 >
                   <Link
                     href={item.href}
-                    className={`block px-6 py-3 text-sm transition-colors cursor-pointer ${
+                    className={`block px-6 py-3 text-sm transition-colors ${
                       activeSection === item.id
-                        ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 font-medium'
-                        : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900 hover:text-gray-900 dark:hover:text-white'
+                        ? 'text-amber-500 bg-amber-500/10 font-medium'
+                        : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >

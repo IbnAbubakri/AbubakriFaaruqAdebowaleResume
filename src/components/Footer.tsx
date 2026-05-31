@@ -2,25 +2,25 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-white dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800">
+    <footer className="bg-card border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <span className="text-lg font-bold text-gray-900 dark:text-white">
-              AF<span className="text-blue-600 dark:text-blue-400">.</span>
+            <span className="text-lg font-bold text-foreground font-display">
+              AF<span className="text-amber-500">.</span>
             </span>
-            <p className="mt-3 text-sm text-gray-500 dark:text-gray-500 max-w-xs">
+            <p className="mt-3 text-sm text-muted-foreground max-w-xs">
               IT Professional, Network Engineer, Cybersecurity Specialist, Cloud Engineer, and Vibecoder.
             </p>
           </div>
           <div>
-            <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">Quick Links</h4>
+            <h4 className="text-sm font-semibold text-foreground mb-4">Quick Links</h4>
             <div className="space-y-2">
-              {['About', 'Skills', 'Experience', 'Projects', 'Contact'].map((link) => (
+              {['About', 'Skills', 'Projects', 'Contact'].map((link) => (
                 <a
                   key={link}
                   href={`/#${link.toLowerCase()}`}
-                  className="block text-sm text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors"
+                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {link}
                 </a>
@@ -28,7 +28,7 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">Connect</h4>
+            <h4 className="text-sm font-semibold text-foreground mb-4">Connect</h4>
             <div className="flex gap-3">
               {[
                 { label: 'GitHub', href: 'https://github.com/IbnAbubakri' },
@@ -40,7 +40,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1.5 text-sm text-gray-500 dark:text-gray-500 bg-gray-100 dark:bg-gray-900 rounded-md hover:text-gray-900 dark:hover:text-white hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors"
+                  className="px-3 py-1.5 text-sm text-muted-foreground bg-muted rounded-md hover:text-foreground hover:bg-accent transition-colors"
                 >
                   {social.label}
                 </a>
@@ -48,8 +48,8 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="border-t border-gray-200 dark:border-gray-800 pt-8 text-center">
-          <p className="text-sm text-gray-500 dark:text-gray-500">
+        <div className="border-t border-border pt-8 text-center">
+          <p className="text-sm text-muted-foreground">
             &copy; {year} Abubakri Faaruq Adebowale. All rights reserved.
           </p>
         </div>

@@ -26,7 +26,7 @@ const education = [
 
 export default function Education() {
   return (
-    <section id="education" className="py-24 bg-white dark:bg-gray-950">
+    <section id="education" className="py-24 bg-white dark:bg-surface-950 relative section-cyan">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeInUp}
@@ -35,10 +35,10 @@ export default function Education() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-3">
+          <p className="text-sm font-medium text-accent uppercase tracking-[0.2em] mb-3 font-mono">
             Academic
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-surface-900 dark:text-white tracking-tight">
             Education
           </h2>
         </motion.div>
@@ -54,24 +54,25 @@ export default function Education() {
             <motion.div
               key={edu.degree}
               variants={staggerItem}
-              className="p-6 bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-blue-200 dark:hover:border-blue-800 hover:scale-[1.02] transition-[colors,transform] duration-200"
+              className="relative p-6 bg-surface-50 dark:bg-surface-900 rounded-xl border border-surface-200 dark:border-surface-800 hover:scale-[1.02] transition-transform duration-200 overflow-hidden"
             >
-              <div className="p-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg w-fit mb-4">
-                <svg aria-hidden="true" className="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-cyan-500" />
+              <div className="p-2 bg-cyan-500/10 dark:bg-cyan-500/20 rounded-lg w-fit mb-4">
+                <svg aria-hidden="true" className="w-5 h-5 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
                 </svg>
               </div>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+              <h3 className="font-semibold text-surface-900 dark:text-white mb-1">
                 {edu.degree}
               </h3>
-              <p className="text-sm text-blue-600 dark:text-blue-400 mb-1">
+              <p className="text-sm text-primary mb-1">
                 {edu.institution}
               </p>
-              <p className="text-xs text-gray-500 dark:text-gray-500 mb-3">
+              <p className="text-xs text-surface-500 mb-3">
                 {edu.period}
               </p>
-              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="text-sm text-surface-600 dark:text-surface-400 leading-relaxed">
                 {edu.description}
               </p>
             </motion.div>

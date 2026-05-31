@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations'
+import { fadeInUp, staggerContainer, staggerItemRight } from '@/lib/animations'
 
 const projects = [
   {
@@ -33,7 +33,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 bg-white dark:bg-gray-950">
+    <section id="projects" className="py-24 bg-white dark:bg-surface-950 relative section-cyan">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeInUp}
@@ -42,10 +42,10 @@ export default function Projects() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-3">
+          <p className="text-sm font-medium text-accent uppercase tracking-[0.2em] mb-3 font-mono">
             Portfolio
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-surface-900 dark:text-white tracking-tight">
             Projects
           </h2>
         </motion.div>
@@ -60,53 +60,56 @@ export default function Projects() {
           {projects.map((project) => (
             <motion.div
               key={project.title}
-              variants={staggerItem}
-              className="group p-6 bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-blue-200 dark:hover:border-blue-800 hover:scale-[1.02] transition-[colors,transform] duration-200"
+              variants={staggerItemRight}
+              className="relative p-6 bg-surface-50 dark:bg-surface-900 rounded-xl border border-surface-200 dark:border-surface-800 hover:scale-[1.02] transition-transform duration-200 overflow-hidden"
             >
-              <div className="flex items-start justify-between mb-4">
-                <div className="p-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg">
-                  <svg aria-hidden="true" className="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                  </svg>
+              <div className="absolute top-0 left-0 bottom-0 w-1 bg-accent" />
+              <div className="pl-4">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="p-2 bg-accent/10 dark:bg-accent/20 rounded-lg">
+                    <svg aria-hidden="true" className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+                    </svg>
+                  </div>
                 </div>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                {project.title}
-              </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-                {project.description}
-              </p>
-              <div className="flex flex-wrap gap-1.5 mb-4">
-                {project.techStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-2.5 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-md text-xs font-medium"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <div className="flex gap-3">
-                {project.liveDemo && (
-                  <a
-                    href={project.liveDemo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors cursor-pointer"
-                  >
-                    Live Demo &rarr;
-                  </a>
-                )}
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-medium text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-gray-300 transition-colors cursor-pointer"
-                  >
-                    GitHub &rarr;
-                  </a>
-                )}
+                <h3 className="text-lg font-semibold text-surface-900 dark:text-white mb-2">
+                  {project.title}
+                </h3>
+                <p className="text-sm text-surface-600 dark:text-surface-400 mb-4 leading-relaxed">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.techStack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2.5 py-1 bg-surface-100 dark:bg-surface-800 text-surface-600 dark:text-surface-400 rounded-md text-xs font-mono"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex gap-4">
+                  {project.liveDemo && (
+                    <a
+                      href={project.liveDemo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-medium text-accent hover:text-accent-dark transition-colors"
+                    >
+                      Live Demo &rarr;
+                    </a>
+                  )}
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-medium text-surface-500 hover:text-surface-900 dark:hover:text-surface-300 transition-colors"
+                    >
+                      GitHub &rarr;
+                    </a>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}

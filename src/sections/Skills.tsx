@@ -1,13 +1,24 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations'
+import { fadeInUp, staggerContainer, staggerItemScale } from '@/lib/animations'
+
+const accentMap = [
+  '#f59e0b',
+  '#2563eb',
+  '#06b6d4',
+  '#10b981',
+  '#f59e0b',
+  '#2563eb',
+  '#06b6d4',
+  '#64748b',
+]
 
 const skillCategories = [
   {
     title: 'Networking',
     icon: (
-      <svg aria-hidden="true" className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg aria-hidden="true" className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c0 4.97-1.343 9-3 9m0-18c1.657 0 3 4.03 3 9s-1.343 9-3 9M3 12c0 4.97 1.343 9 3 9s3-4.03 3-9-1.343-9-3-9-3 4.03-3 9z" />
       </svg>
     ),
@@ -16,7 +27,7 @@ const skillCategories = [
   {
     title: 'Cybersecurity',
     icon: (
-      <svg aria-hidden="true" className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg aria-hidden="true" className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
       </svg>
     ),
@@ -25,7 +36,7 @@ const skillCategories = [
   {
     title: 'Cloud Computing',
     icon: (
-      <svg aria-hidden="true" className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg aria-hidden="true" className="w-5 h-5 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 00-9.78 2.096A4.002 4.002 0 003 15z" />
       </svg>
     ),
@@ -34,7 +45,7 @@ const skillCategories = [
   {
     title: 'Linux Administration',
     icon: (
-      <svg aria-hidden="true" className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg aria-hidden="true" className="w-5 h-5 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2z" />
       </svg>
     ),
@@ -43,25 +54,25 @@ const skillCategories = [
   {
     title: 'DevOps',
     icon: (
-      <svg aria-hidden="true" className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg aria-hidden="true" className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182" />
       </svg>
     ),
     skills: ['CI/CD', 'Docker', 'Git/GitHub', 'Automation', 'Infrastructure as Code'],
   },
   {
-    title: 'Frontend Development',
+    title: 'Frontend',
     icon: (
-      <svg aria-hidden="true" className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg aria-hidden="true" className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7.5 21h9M12 17.25V21m0 0H5.25A2.25 2.25 0 013 18.75V4.5A2.25 2.25 0 015.25 2.25h13.5A2.25 2.25 0 0121 4.5v14.25A2.25 2.25 0 0118.75 21H12z" />
       </svg>
     ),
     skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'HTML5', 'CSS3', 'JavaScript'],
   },
   {
-    title: 'Backend Development',
+    title: 'Backend',
     icon: (
-      <svg aria-hidden="true" className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg aria-hidden="true" className="w-5 h-5 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
       </svg>
     ),
@@ -70,7 +81,7 @@ const skillCategories = [
   {
     title: 'Tools & Platforms',
     icon: (
-      <svg aria-hidden="true" className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg aria-hidden="true" className="w-5 h-5 text-surface-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.42 15.17l-5.25 5.25a2.25 2.25 0 01-3.18-3.18l5.25-5.25m3.18 3.18l5.25-5.25a2.25 2.25 0 013.18 3.18l-5.25 5.25" />
       </svg>
     ),
@@ -80,7 +91,7 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 bg-gray-50 dark:bg-gray-900">
+    <section id="skills" className="py-24 bg-surface-50 dark:bg-surface-900 relative section-amber">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeInUp}
@@ -89,10 +100,10 @@ export default function Skills() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-3">
+          <p className="text-sm font-medium text-accent uppercase tracking-[0.2em] mb-3 font-mono">
             Expertise
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-surface-900 dark:text-white tracking-tight">
             Skills &amp; Expertise
           </h2>
         </motion.div>
@@ -104,23 +115,27 @@ export default function Skills() {
           viewport={{ once: true }}
           className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"
         >
-          {skillCategories.map((category) => (
+          {skillCategories.map((category, i) => (
             <motion.div
               key={category.title}
-              variants={staggerItem}
-              className="p-5 bg-white dark:bg-gray-950 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-blue-200 dark:hover:border-blue-800 hover:scale-[1.02] transition-[colors,transform] duration-200"
+              variants={staggerItemScale}
+              className="relative p-5 bg-white dark:bg-surface-950 rounded-xl border border-surface-200 dark:border-surface-800 hover:scale-[1.02] transition-transform duration-200 overflow-hidden"
             >
-              <div className="p-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg w-fit mb-4">
+              <div
+                className="absolute top-0 left-0 right-0 h-1 rounded-t-xl"
+                style={{ backgroundColor: accentMap[i] }}
+              />
+              <div className="p-2 bg-surface-100 dark:bg-surface-800 rounded-lg w-fit mb-4">
                 {category.icon}
               </div>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-3">
+              <h3 className="font-semibold text-surface-900 dark:text-white mb-3">
                 {category.title}
               </h3>
-              <div className="flex flex-wrap gap-1.5">
+              <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-2.5 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md text-xs font-medium"
+                    className="px-2.5 py-1 bg-surface-100 dark:bg-surface-800 text-surface-600 dark:text-surface-400 rounded-md text-xs font-mono"
                   >
                     {skill}
                   </span>

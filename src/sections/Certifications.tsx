@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations'
+import { fadeInUp, staggerContainer, staggerItemLeft } from '@/lib/animations'
 
 const certifications = [
   {
@@ -43,7 +43,7 @@ const certifications = [
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="py-24 bg-gray-50 dark:bg-gray-900">
+    <section id="certifications" className="py-24 bg-surface-50 dark:bg-surface-900 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeInUp}
@@ -52,10 +52,10 @@ export default function Certifications() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-3">
+          <p className="text-sm font-medium text-accent uppercase tracking-[0.2em] mb-3 font-mono">
             Credentials
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-surface-900 dark:text-white tracking-tight">
             Certifications
           </h2>
         </motion.div>
@@ -70,43 +70,46 @@ export default function Certifications() {
           {certifications.map((cert) => (
             <motion.div
               key={cert.title}
-              variants={staggerItem}
-              className="p-5 bg-white dark:bg-gray-950 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-blue-200 dark:hover:border-blue-800 hover:scale-[1.02] transition-[colors,transform] duration-200"
+              variants={staggerItemLeft}
+              className="relative p-5 bg-white dark:bg-surface-950 rounded-xl border border-surface-200 dark:border-surface-800 hover:scale-[1.02] transition-transform duration-200 overflow-hidden"
             >
-              <div className="flex items-start justify-between mb-4">
-                <div className="p-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg">
-                  <svg aria-hidden="true" className="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+              <div className="absolute top-0 left-0 bottom-0 w-0.5 bg-cyan-500" />
+              <div className="pl-3">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="p-2 bg-cyan-500/10 dark:bg-cyan-500/20 rounded-lg">
+                    <svg aria-hidden="true" className="w-5 h-5 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  {cert.distinction && (
+                    <span className="px-2 py-0.5 bg-accent/10 dark:bg-accent/20 text-accent-dark dark:text-accent-light rounded text-xs font-mono">
+                      Distinction
+                    </span>
+                  )}
                 </div>
-                {cert.distinction && (
-                  <span className="px-2 py-0.5 bg-yellow-50 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 rounded text-xs font-medium">
-                    Distinction
-                  </span>
+                <h3 className="font-semibold text-surface-900 dark:text-white mb-1 text-sm">
+                  {cert.title}
+                </h3>
+                <p className="text-xs text-primary mb-1">
+                  {cert.issuer} &bull; {cert.date}
+                </p>
+                {cert.trainingProvider && (
+                  <p className="text-xs text-surface-500 mb-2">
+                    Trained at: {cert.trainingProvider}
+                  </p>
+                )}
+                <p className="text-xs text-surface-600 dark:text-surface-400 mb-3 leading-relaxed">
+                  {cert.description}
+                </p>
+                {cert.certLink && (
+                  <a
+                    href={cert.certLink}
+                    className="text-xs font-medium text-primary hover:text-blue-700 transition-colors"
+                  >
+                    View Certificate &rarr;
+                  </a>
                 )}
               </div>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-1 text-sm">
-                {cert.title}
-              </h3>
-              <p className="text-xs text-blue-600 dark:text-blue-400 mb-1">
-                {cert.issuer} &bull; {cert.date}
-              </p>
-              {cert.trainingProvider && (
-                <p className="text-xs text-gray-500 dark:text-gray-500 mb-2">
-                  Trained at: {cert.trainingProvider}
-                </p>
-              )}
-              <p className="text-xs text-gray-600 dark:text-gray-400 mb-3 leading-relaxed">
-                {cert.description}
-              </p>
-              {cert.certLink && (
-                <a
-                  href={cert.certLink}
-                  className="text-xs font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors cursor-pointer"
-                >
-                  View Certificate &rarr;
-                </a>
-              )}
             </motion.div>
           ))}
         </motion.div>

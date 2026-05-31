@@ -26,7 +26,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 bg-white dark:bg-gray-950">
+    <section id="testimonials" className="py-24 bg-white dark:bg-surface-950 relative section-cyan">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeInUp}
@@ -35,10 +35,10 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-blue-600 dark:text-blue-400 uppercase tracking-widest mb-3">
+          <p className="text-sm font-medium text-accent uppercase tracking-[0.2em] mb-3 font-mono">
             Testimonials
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-surface-900 dark:text-white tracking-tight">
             What People Say
           </h2>
         </motion.div>
@@ -54,21 +54,24 @@ export default function Testimonials() {
             <motion.div
               key={t.name}
               variants={staggerItem}
-              className="p-6 bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 hover:border-blue-200 dark:hover:border-blue-800 hover:scale-[1.02] transition-[colors,transform] duration-200"
+              className="relative p-6 bg-surface-50 dark:bg-surface-900 rounded-xl border border-surface-200 dark:border-surface-800 hover:scale-[1.02] transition-transform duration-200 overflow-hidden"
             >
-              <svg aria-hidden="true" className="w-8 h-8 text-blue-200 dark:text-blue-900 mb-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-              </svg>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed italic">
-                &ldquo;{t.content}&rdquo;
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold text-sm shrink-0">
-                  {t.name.charAt(0)}
-                </div>
-                <div>
-                  <p className="font-medium text-gray-900 dark:text-white text-sm">{t.name}</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-500">{t.role}</p>
+              <div className="absolute top-0 left-0 bottom-0 w-0.5 bg-accent" />
+              <div className="pl-4">
+                <svg aria-hidden="true" className="w-8 h-8 text-accent/20 dark:text-accent/10 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+                <p className="text-sm text-surface-600 dark:text-surface-400 mb-6 leading-relaxed italic">
+                  &ldquo;{t.content}&rdquo;
+                </p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-accent/10 dark:bg-accent/20 flex items-center justify-center text-accent-dark dark:text-accent-light font-bold text-sm ring-2 ring-accent/20 shrink-0">
+                    {t.name.charAt(0)}
+                  </div>
+                  <div>
+                    <p className="font-medium text-surface-900 dark:text-white text-sm">{t.name}</p>
+                    <p className="text-xs text-surface-500">{t.role}</p>
+                  </div>
                 </div>
               </div>
             </motion.div>
