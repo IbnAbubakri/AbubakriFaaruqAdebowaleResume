@@ -3,7 +3,7 @@ import { MetadataRoute } from 'next'
 export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = 'https://abubakrifaaruq.onrender.com'
+  const base = 'https://abubakrifaaruqadebowaleresume.onrender.com'
 
   return [
     { url: base, lastModified: new Date(), changeFrequency: 'monthly', priority: 1.0 },

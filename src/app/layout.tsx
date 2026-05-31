@@ -20,14 +20,14 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://abubakrifaaruq.onrender.com"),
+  metadataBase: new URL("https://abubakrifaaruqadebowaleresume.onrender.com"),
   title: "Abubakri Faaruq Adebowale | IT Professional & Network Engineer",
   description: "Portfolio of Abubakri Faaruq Adebowale — IT Administrator, Network Engineer, Cybersecurity Specialist, and Cloud Engineer.",
   keywords: ["IT Professional", "Network Engineer", "Cybersecurity", "Cloud Engineer", "Portfolio", "Abubakri Faaruq"],
   openGraph: {
     title: "Abubakri Faaruq Adebowale | IT Professional & Network Engineer",
     description: "IT Administrator, Network Engineer, Cybersecurity Specialist, and Cloud Engineer.",
-    url: "https://abubakrifaaruq.onrender.com",
+    url: "https://abubakrifaaruqadebowaleresume.onrender.com",
     siteName: "Abubakri Faaruq Adebowale",
     locale: "en_US",
     type: "website",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   alternates: {
-    canonical: "https://abubakrifaaruq.onrender.com",
+    canonical: "https://abubakrifaaruqadebowaleresume.onrender.com",
   },
 };
 
