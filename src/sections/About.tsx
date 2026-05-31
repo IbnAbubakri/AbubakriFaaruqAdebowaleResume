@@ -28,7 +28,7 @@ export default function About() {
   ]
 
   return (
-    <section id="about" className="py-24 bg-surface-50 dark:bg-surface-950 relative">
+    <section id="about" className="py-24 bg-surface-50 dark:bg-surface-950 relative noise-overlay">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-16 items-start">
           <motion.div
@@ -77,7 +77,7 @@ export default function About() {
                 <motion.div
                   key={stat.label}
                   variants={staggerItem}
-                  className="p-4 bg-surface-100 dark:bg-surface-900 rounded-xl hover:scale-[1.02] transition-transform duration-200"
+                  className="p-4 bg-surface-100 dark:bg-surface-900 rounded-xl card-depth-sm"
                 >
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                   <div className="text-sm text-surface-500 mt-1">
@@ -100,7 +100,7 @@ export default function About() {
               initial="initial"
               whileInView="animate"
               viewport={{ once: true }}
-              className="relative p-6 bg-surface-100 dark:bg-surface-900 rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform duration-200"
+              className="relative p-6 bg-surface-100 dark:bg-surface-900 rounded-2xl overflow-hidden card-depth-sm"
             >
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-accent" />
               <h4 className="text-lg font-semibold text-surface-900 dark:text-white mb-4 pl-4">
@@ -124,7 +124,7 @@ export default function About() {
                 <motion.div
                   key={item.title}
                   variants={staggerItem}
-                  className="relative p-4 bg-surface-100 dark:bg-surface-900 rounded-xl overflow-hidden hover:scale-[1.02] transition-transform duration-200"
+                  className="relative p-4 bg-surface-100 dark:bg-surface-900 rounded-xl overflow-hidden card-depth-sm"
                 >
                   <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-cyan-500" />
                   <div className="pl-4">

@@ -15,6 +15,7 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden hero-gradient">
       <div className="absolute inset-0 grid-dots pointer-events-none" />
+      <div className="absolute inset-0 scan-lines pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
           <motion.div
@@ -53,20 +54,20 @@ export default function Hero() {
             <motion.div variants={heroItem} className="flex flex-wrap justify-center md:justify-start gap-4 mt-8">
               <a
                 href="/#contact"
-                className="px-6 py-3 bg-amber-500 text-white rounded-lg font-medium hover:bg-amber-600 active:scale-95 transition-[colors,transform] duration-200 cursor-pointer"
+                className="px-6 py-3 bg-amber-500 text-white rounded-lg font-medium hover:bg-amber-600 active:scale-95 transition-[colors,transform] duration-200"
               >
                 Hire Me
               </a>
               <a
                 href="/abubakri-faaruq-adebowale-cv.pdf"
                 download
-                className="px-6 py-3 border border-surface-300 dark:border-surface-700 text-surface-700 dark:text-surface-300 rounded-lg font-medium hover:border-amber-500 hover:text-amber-500 dark:hover:border-amber-500 dark:hover:text-amber-500 active:scale-95 transition-[colors,transform] duration-200 cursor-pointer"
+                className="px-6 py-3 border border-surface-300 dark:border-surface-700 text-surface-700 dark:text-surface-300 rounded-lg font-medium hover:border-amber-500 hover:text-amber-500 dark:hover:border-amber-500 dark:hover:text-amber-500 active:scale-95 transition-[colors,transform] duration-200"
               >
                 Download CV
               </a>
               <a
                 href="/#projects"
-                className="px-6 py-3 text-surface-500 font-medium hover:text-surface-900 dark:hover:text-surface-300 active:scale-95 transition-[colors,transform] duration-200 cursor-pointer"
+                className="px-6 py-3 text-surface-500 font-medium hover:text-surface-900 dark:hover:text-surface-300 active:scale-95 transition-[colors,transform] duration-200"
               >
                 View Projects &rarr;
               </a>
@@ -79,12 +80,18 @@ export default function Hero() {
             animate="animate"
             className="flex-shrink-0"
           >
-            <div className="w-72 h-72 sm:w-80 sm:h-80 md:w-[26rem] md:h-[26rem] rounded-2xl border-2 border-amber-500/20 dark:border-amber-500/10 shadow-xl shadow-amber-500/5 overflow-hidden">
-              <img
-                src="/profile.jpeg"
-                alt="Abubakri Faaruq Adebowale"
-                className="w-full h-full object-cover"
-              />
+            <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-[26rem] md:h-[26rem] rounded-2xl overflow-hidden group">
+              <div className="absolute inset-0 rounded-2xl ring-1 ring-amber-500/20 dark:ring-amber-500/10 z-10 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/10 via-transparent to-transparent z-10 pointer-events-none" />
+              <div className="absolute -inset-4 bg-amber-500/5 dark:bg-amber-500/10 rounded-[2rem] blur-2xl -z-10 signal-pulse" />
+              <div className="w-full h-full scan-lines-heavy rounded-2xl">
+                <img
+                  src="/profile.jpeg"
+                  alt="Abubakri Faaruq Adebowale"
+                  className="w-full h-full object-cover rounded-2xl"
+                />
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-amber-500/5 to-transparent z-10 pointer-events-none" />
             </div>
           </motion.div>
         </div>

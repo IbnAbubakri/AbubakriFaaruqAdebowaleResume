@@ -54,18 +54,23 @@ export default function Testimonials() {
             <motion.div
               key={t.name}
               variants={staggerItem}
-              className="relative p-6 bg-surface-50 dark:bg-surface-900 rounded-xl border border-surface-200 dark:border-surface-800 hover:scale-[1.02] transition-transform duration-200 overflow-hidden"
+              className="relative p-6 bg-surface-50 dark:bg-surface-900 rounded-xl border border-surface-200 dark:border-surface-800 card-depth overflow-hidden"
             >
               <div className="absolute top-0 left-0 bottom-0 w-0.5 bg-accent" />
               <div className="pl-4">
-                <svg aria-hidden="true" className="w-8 h-8 text-accent/20 dark:text-accent/10 mb-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
+                <div className="relative">
+                  <svg aria-hidden="true" className="w-8 h-8 text-accent/20 dark:text-accent/10 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                  <span className="absolute top-0 right-0 text-2xl text-accent/5 font-display font-bold leading-none select-none pointer-events-none">
+                    &rdquo;
+                  </span>
+                </div>
                 <p className="text-sm text-surface-600 dark:text-surface-400 mb-6 leading-relaxed italic">
                   &ldquo;{t.content}&rdquo;
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-accent/10 dark:bg-accent/20 flex items-center justify-center text-accent-dark dark:text-accent-light font-bold text-sm ring-2 ring-accent/20 shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-accent/10 dark:bg-accent/20 flex items-center justify-center text-amber-700 dark:text-amber-300 font-bold text-sm ring-2 ring-accent/20 shrink-0">
                     {t.name.charAt(0)}
                   </div>
                   <div>

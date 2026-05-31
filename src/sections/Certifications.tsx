@@ -43,8 +43,9 @@ const certifications = [
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="py-24 bg-surface-50 dark:bg-surface-900 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="certifications" className="py-24 bg-surface-50 dark:bg-surface-900 relative noise-overlay">
+      <div className="absolute inset-0 scan-lines-heavy pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           variants={fadeInUp}
           initial="initial"
@@ -71,7 +72,7 @@ export default function Certifications() {
             <motion.div
               key={cert.title}
               variants={staggerItemLeft}
-              className="relative p-5 bg-white dark:bg-surface-950 rounded-xl border border-surface-200 dark:border-surface-800 hover:scale-[1.02] transition-transform duration-200 overflow-hidden"
+              className="relative p-5 bg-white dark:bg-surface-950 rounded-xl border border-surface-200 dark:border-surface-800 card-depth overflow-hidden"
             >
               <div className="absolute top-0 left-0 bottom-0 w-0.5 bg-cyan-500" />
               <div className="pl-3">
@@ -82,7 +83,7 @@ export default function Certifications() {
                     </svg>
                   </div>
                   {cert.distinction && (
-                    <span className="px-2 py-0.5 bg-accent/10 dark:bg-accent/20 text-accent-dark dark:text-accent-light rounded text-xs font-mono">
+                    <span className="px-2 py-0.5 bg-accent/10 dark:bg-accent/20 text-amber-700 dark:text-amber-300 rounded text-xs font-mono">
                       Distinction
                     </span>
                   )}

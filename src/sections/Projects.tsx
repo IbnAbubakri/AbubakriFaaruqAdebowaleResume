@@ -33,8 +33,8 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 bg-white dark:bg-surface-950 relative section-cyan">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-24 bg-white dark:bg-surface-950 relative section-cyan noise-overlay">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           variants={fadeInUp}
           initial="initial"
@@ -57,11 +57,11 @@ export default function Projects() {
           viewport={{ once: true }}
           className="grid md:grid-cols-2 gap-6"
         >
-          {projects.map((project) => (
+          {projects.map((project, i) => (
             <motion.div
               key={project.title}
               variants={staggerItemRight}
-              className="relative p-6 bg-surface-50 dark:bg-surface-900 rounded-xl border border-surface-200 dark:border-surface-800 hover:scale-[1.02] transition-transform duration-200 overflow-hidden"
+              className="relative p-6 bg-surface-50 dark:bg-surface-900 rounded-xl border border-surface-200 dark:border-surface-800 card-depth overflow-hidden"
             >
               <div className="absolute top-0 left-0 bottom-0 w-1 bg-accent" />
               <div className="pl-4">
@@ -71,6 +71,9 @@ export default function Projects() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
                     </svg>
                   </div>
+                  <span className="text-xs font-mono text-surface-400">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
                 </div>
                 <h3 className="text-lg font-semibold text-surface-900 dark:text-white mb-2">
                   {project.title}
@@ -94,7 +97,7 @@ export default function Projects() {
                       href={project.liveDemo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-medium text-accent hover:text-accent-dark transition-colors"
+                      className="text-sm font-medium text-accent hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
                     >
                       Live Demo &rarr;
                     </a>

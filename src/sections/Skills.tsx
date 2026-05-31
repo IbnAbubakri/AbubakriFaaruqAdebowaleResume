@@ -92,7 +92,8 @@ const skillCategories = [
 export default function Skills() {
   return (
     <section id="skills" className="py-24 bg-surface-50 dark:bg-surface-900 relative section-amber">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="absolute inset-0 scan-lines pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           variants={fadeInUp}
           initial="initial"
@@ -119,7 +120,7 @@ export default function Skills() {
             <motion.div
               key={category.title}
               variants={staggerItemScale}
-              className="relative p-5 bg-white dark:bg-surface-950 rounded-xl border border-surface-200 dark:border-surface-800 hover:scale-[1.02] transition-transform duration-200 overflow-hidden"
+              className="relative p-5 bg-white dark:bg-surface-950 rounded-xl border border-surface-200 dark:border-surface-800 card-depth overflow-hidden"
             >
               <div
                 className="absolute top-0 left-0 right-0 h-1 rounded-t-xl"
