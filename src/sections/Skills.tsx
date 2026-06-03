@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import TiltCard from '@/components/TiltCard'
 import { fadeInUp, staggerContainer, staggerItemScale } from '@/lib/animations'
 
 const accentMap = [
@@ -120,8 +121,8 @@ export default function Skills() {
             <motion.div
               key={category.title}
               variants={staggerItemScale}
-              className="relative p-5 bg-white dark:bg-surface-950 rounded-xl border border-surface-200 dark:border-surface-800 card-depth overflow-hidden"
             >
+              <TiltCard tiltDegree={6} glare={false} className="relative p-5 bg-white dark:bg-surface-950 rounded-xl border border-surface-200 dark:border-surface-800 card-depth overflow-hidden">
               <div
                 className="absolute top-0 left-0 right-0 h-1 rounded-t-xl"
                 style={{ backgroundColor: accentMap[i] }}
@@ -142,6 +143,7 @@ export default function Skills() {
                   </span>
                 ))}
               </div>
+              </TiltCard>
             </motion.div>
           ))}
         </motion.div>

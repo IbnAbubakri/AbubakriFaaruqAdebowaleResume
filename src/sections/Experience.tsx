@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import TiltCard from '@/components/TiltCard'
 import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations'
 
 const experiences = [
@@ -74,7 +75,7 @@ export default function Experience() {
               className="relative pl-8 border-l-2 border-surface-200 dark:border-surface-700"
             >
               <div className="absolute left-0 top-1 w-3 h-3 -translate-x-[7px] rounded-full bg-accent signal-dot" />
-              <div className="p-5 bg-white dark:bg-surface-950 rounded-xl border border-surface-200 dark:border-surface-800 card-depth">
+              <TiltCard tiltDegree={5} glare={false} className="p-5 bg-white dark:bg-surface-950 rounded-xl border border-surface-200 dark:border-surface-800 card-depth">
                 <div className="flex flex-wrap items-baseline gap-2 mb-1">
                   <h3 className="font-semibold text-surface-900 dark:text-white">
                     {exp.title}
@@ -99,7 +100,7 @@ export default function Experience() {
                     </span>
                   ))}
                 </div>
-              </div>
+              </TiltCard>
             </motion.div>
           ))}
         </motion.div>

@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import TiltCard from '@/components/TiltCard'
 import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations'
 
 const education = [
@@ -57,10 +58,10 @@ export default function Education() {
               <motion.div
                 key={edu.degree}
                 variants={staggerItem}
-                className="relative p-6 bg-surface-50 dark:bg-surface-900 rounded-xl border border-surface-200 dark:border-surface-800 card-depth overflow-hidden"
               >
+                <TiltCard tiltDegree={6} glare={false} className="relative p-6 bg-surface-50 dark:bg-surface-900 rounded-xl border border-surface-200 dark:border-surface-800 card-depth overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-1 bg-cyan-500" />
-                <div className="hidden md:block absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-cyan-500/20 border-2 border-cyan-500/40 z-10 signal-dot" />
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-cyan-500/20 border-2 border-cyan-500/40 z-10 signal-dot hidden md:block" />
                 <div className="p-2 bg-cyan-500/10 dark:bg-cyan-500/20 rounded-lg w-fit mb-4">
                   <svg aria-hidden="true" className="w-5 h-5 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
@@ -79,7 +80,8 @@ export default function Education() {
                 <p className="text-sm text-surface-600 dark:text-surface-400 leading-relaxed">
                   {edu.description}
                 </p>
-              </motion.div>
+              </TiltCard>
+            </motion.div>
             ))}
           </motion.div>
         </div>

@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import TiltCard from '@/components/TiltCard'
 import { fadeInUp, staggerContainer, staggerItemLeft } from '@/lib/animations'
 
 const certifications = [
@@ -72,8 +73,8 @@ export default function Certifications() {
             <motion.div
               key={cert.title}
               variants={staggerItemLeft}
-              className="relative p-5 bg-surface-50 dark:bg-surface-950 rounded-xl border border-surface-200 dark:border-surface-800 card-depth overflow-hidden"
             >
+              <TiltCard tiltDegree={7} glare={true} className="relative p-5 bg-surface-50 dark:bg-surface-950 rounded-xl border border-surface-200 dark:border-surface-800 card-depth overflow-hidden">
               <div className="absolute top-0 left-0 bottom-0 w-0.5 bg-cyan-500" />
               <div className="pl-3">
                 <div className="flex items-start justify-between mb-4">
@@ -111,6 +112,7 @@ export default function Certifications() {
                   </a>
                 )}
               </div>
+              </TiltCard>
             </motion.div>
           ))}
         </motion.div>

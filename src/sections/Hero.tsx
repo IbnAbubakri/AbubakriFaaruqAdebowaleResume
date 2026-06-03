@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { scaleIn, heroStagger, heroItem } from '@/lib/animations'
+import FloatingElement from '@/components/FloatingElement'
+import ParallaxLayer from '@/components/ParallaxLayer'
 
 const titles = [
   'IT Administrator',
@@ -14,8 +16,12 @@ const titles = [
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden hero-gradient">
-      <div className="absolute inset-0 grid-dots pointer-events-none" />
-      <div className="absolute inset-0 scan-lines pointer-events-none" />
+      <ParallaxLayer speed={0.15} className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 grid-dots" />
+      </ParallaxLayer>
+      <ParallaxLayer speed={0.3} className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 scan-lines" />
+      </ParallaxLayer>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
           <motion.div
@@ -80,7 +86,8 @@ export default function Hero() {
             animate="animate"
             className="flex-shrink-0"
           >
-            <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-[26rem] md:h-[26rem] rounded-2xl overflow-hidden group">
+            <FloatingElement amplitude={10} duration={5} rotate={1.5}>
+              <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-[26rem] md:h-[26rem] rounded-2xl overflow-hidden group">
               <div className="absolute inset-0 rounded-2xl ring-1 ring-amber-500/20 dark:ring-amber-500/10 z-10 pointer-events-none" />
               <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/10 via-transparent to-transparent z-10 pointer-events-none" />
               <div className="absolute -inset-4 bg-amber-500/5 dark:bg-amber-500/10 rounded-[2rem] blur-2xl -z-10 signal-pulse" />
@@ -93,6 +100,7 @@ export default function Hero() {
               </div>
               <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-amber-500/5 to-transparent z-10 pointer-events-none" />
             </div>
+            </FloatingElement>
           </motion.div>
         </div>
       </div>

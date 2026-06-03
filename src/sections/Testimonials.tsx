@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import TiltCard from '@/components/TiltCard'
 import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations'
 
 const testimonials = [
@@ -54,8 +55,8 @@ export default function Testimonials() {
             <motion.div
               key={t.name}
               variants={staggerItem}
-              className="relative p-6 bg-surface-50 dark:bg-surface-900 rounded-xl border border-surface-200 dark:border-surface-800 card-depth overflow-hidden"
             >
+              <TiltCard tiltDegree={4} glare={false} className="relative p-6 bg-surface-50 dark:bg-surface-900 rounded-xl border border-surface-200 dark:border-surface-800 card-depth overflow-hidden">
               <div className="absolute top-0 left-0 bottom-0 w-0.5 bg-accent" />
               <div className="pl-4">
                 <div className="relative">
@@ -79,6 +80,7 @@ export default function Testimonials() {
                   </div>
                 </div>
               </div>
+              </TiltCard>
             </motion.div>
           ))}
         </motion.div>

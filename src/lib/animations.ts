@@ -98,3 +98,33 @@ export const pulse: Variants = {
     transition: { duration: 2, repeat: Infinity, ease: 'easeInOut' },
   },
 }
+
+export const sectionFlip: Variants = {
+  initial: { opacity: 0, rotateX: -10, y: 40, perspective: 1000 },
+  animate: {
+    opacity: 1,
+    rotateX: 0,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
+  },
+}
+
+export const sectionFlipFast: Variants = {
+  initial: { opacity: 0, rotateY: -8, x: -20, perspective: 1000 },
+  animate: {
+    opacity: 1,
+    rotateY: 0,
+    x: 0,
+    transition: { duration: 0.45, ease: 'easeOut' },
+  },
+}
+
+export const floatIdle = {
+  y: [0, -8, 0, 8, 0],
+  rotate: [0, -1, 0, 1, 0],
+  transition: {
+    duration: 5,
+    repeat: Infinity,
+    ease: 'easeInOut',
+  },
+}

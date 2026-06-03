@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { toast } from 'sonner'
 import { motion } from 'framer-motion'
+import ParallaxLayer from '@/components/ParallaxLayer'
 import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -68,7 +69,10 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-24 bg-surface-50 dark:bg-surface-900 relative section-amber noise-overlay">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ParallaxLayer speed={0.2} className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 50%, rgba(245,158,11,0.06) 0%, transparent 60%)' }} />
+      </ParallaxLayer>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial="initial"
           whileInView="animate"

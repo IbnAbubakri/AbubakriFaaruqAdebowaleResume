@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import AnimatedCounter from '@/components/AnimatedCounter'
+import TiltCard from '@/components/TiltCard'
 import { fadeInLeft, fadeInRight, scaleInLight, staggerContainer, staggerItem } from '@/lib/animations'
 
 export default function About() {
@@ -77,12 +78,13 @@ export default function About() {
                 <motion.div
                   key={stat.label}
                   variants={staggerItem}
-                  className="p-4 bg-surface-100 dark:bg-surface-900 rounded-xl card-depth-sm"
                 >
-                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                  <div className="text-sm text-surface-500 mt-1">
-                    {stat.label}
-                  </div>
+                  <TiltCard tiltDegree={5} glare={false} className="p-4 bg-surface-100 dark:bg-surface-900 rounded-xl card-depth-sm">
+                    <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                    <div className="text-sm text-surface-500 mt-1">
+                      {stat.label}
+                    </div>
+                  </TiltCard>
                 </motion.div>
               ))}
             </motion.div>
@@ -124,17 +126,18 @@ export default function About() {
                 <motion.div
                   key={item.title}
                   variants={staggerItem}
-                  className="relative p-4 bg-surface-100 dark:bg-surface-900 rounded-xl overflow-hidden card-depth-sm"
                 >
-                  <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-accent" />
-                  <div className="pl-4">
-                    <h4 className="font-medium text-surface-900 dark:text-white">
-                      {item.title}
-                    </h4>
-                    <p className="text-sm text-surface-500">
-                      {item.desc}
-                    </p>
-                  </div>
+                  <TiltCard tiltDegree={4} glare={false} className="relative p-4 bg-surface-100 dark:bg-surface-900 rounded-xl overflow-hidden card-depth-sm">
+                    <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-accent" />
+                    <div className="pl-4">
+                      <h4 className="font-medium text-surface-900 dark:text-white">
+                        {item.title}
+                      </h4>
+                      <p className="text-sm text-surface-500">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </TiltCard>
                 </motion.div>
               ))}
             </motion.div>

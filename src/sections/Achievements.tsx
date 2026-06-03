@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import TiltCard from '@/components/TiltCard'
 import { fadeInUp, staggerContainer, staggerItemScale } from '@/lib/animations'
 
 const achievementIconColors = [
@@ -94,8 +95,8 @@ export default function Achievements() {
             <motion.div
               key={achievement.title}
               variants={staggerItemScale}
-              className="relative p-5 bg-white dark:bg-surface-950 rounded-xl border border-surface-200 dark:border-surface-800 card-depth overflow-hidden"
             >
+              <TiltCard tiltDegree={5} glare={false} className="relative p-5 bg-white dark:bg-surface-950 rounded-xl border border-surface-200 dark:border-surface-800 card-depth overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-1 bg-accent rounded-t-xl" />
               <div className={`p-2 bg-accent/10 dark:bg-accent/20 rounded-lg w-fit mb-4 ${achievementIconColors[i]}`}>
                 {achievement.icon}
@@ -106,6 +107,7 @@ export default function Achievements() {
               <p className="text-sm text-surface-600 dark:text-surface-400 leading-relaxed">
                 {achievement.description}
               </p>
+              </TiltCard>
             </motion.div>
           ))}
         </motion.div>
