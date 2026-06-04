@@ -215,6 +215,7 @@
 
 .card-depth {
   transition: all 0.25s ease;
+  cursor: pointer;
 }
 .card-depth:hover {
   translate: 0 -2px;
@@ -228,6 +229,7 @@
 
 .card-depth-sm {
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 .card-depth-sm:hover {
   translate: 0 -1px;
@@ -266,12 +268,27 @@
   animation: terminal-blink 1s step-end infinite;
 }
 
+.node-pulse {
+  animation: node-pulse 3s ease-in-out infinite;
+}
+
+.network-node {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.network-line {
+  position: absolute;
+  pointer-events: none;
+}
+
 .data-flow-bar {
   animation: data-flow 3s ease-in-out infinite;
 }
 
 .signal-dot {
-  animation: signal-pulse 2s ease-in-out infinite;
+  animation: signal-pulse 2s ease-in-out 3;
 }
 
 @media (prefers-reduced-motion: reduce) {

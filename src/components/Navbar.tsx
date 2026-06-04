@@ -12,9 +12,7 @@ const navItems = [
   { name: 'Contact', href: '/#contact', id: 'contact' },
 ]
 
-const highlightItems = [
-  { name: 'Showreel', href: '/showreel', id: 'showreel' },
-]
+const highlightItems: { name: string; href: string; id: string }[] = []
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -150,13 +148,25 @@ export default function Navbar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            ref={menuRef}
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="md:hidden border-t border-border overflow-hidden"
+            key="mobile-menu"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden"
           >
+            <div
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[-1]"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            <motion.div
+              ref={menuRef}
+              initial={{ opacity: 1, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              className="border-t border-border overflow-hidden"
+            >
             <motion.div
               initial="closed"
               animate="open"
@@ -211,6 +221,7 @@ export default function Navbar() {
                   </Link>
                 </motion.div>
               ))}
+              </motion.div>
             </motion.div>
           </motion.div>
         )}

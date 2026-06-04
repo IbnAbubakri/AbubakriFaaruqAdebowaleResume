@@ -88,6 +88,15 @@ export default function Hero() {
           >
             <FloatingElement amplitude={10} duration={5} rotate={1.5}>
               <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-[26rem] md:h-[26rem] rounded-2xl overflow-hidden group">
+              <div className="absolute -inset-8 opacity-30 pointer-events-none">
+                <div className="network-node top-1/4 left-0 w-2 h-2 bg-amber-500 node-pulse" style={{ animationDelay: '0s' }} />
+                <div className="network-node top-3/4 left-[10%] w-1.5 h-1.5 bg-blue-500 node-pulse" style={{ animationDelay: '0.5s' }} />
+                <div className="network-node top-1/2 right-0 w-2 h-2 bg-cyan-500 node-pulse" style={{ animationDelay: '1s' }} />
+                <div className="network-node top-1/5 right-[15%] w-1.5 h-1.5 bg-emerald-500 node-pulse" style={{ animationDelay: '1.5s' }} />
+                <div className="network-line top-1/4 left-0 right-[60%] h-px bg-gradient-to-r from-amber-500/40 to-transparent data-flow-bar" style={{ animationDelay: '0.2s' }} />
+                <div className="network-line top-3/4 left-[10%] right-0 h-px bg-gradient-to-l from-blue-500/40 to-transparent data-flow-bar" style={{ animationDelay: '0.7s' }} />
+                <div className="network-line top-1/2 left-[30%] right-0 h-px bg-gradient-to-l from-cyan-500/40 to-transparent data-flow-bar" style={{ animationDelay: '1.2s' }} />
+              </div>
               <div className="absolute inset-0 rounded-2xl ring-1 ring-amber-500/20 dark:ring-amber-500/10 z-10 pointer-events-none" />
               <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/10 via-transparent to-transparent z-10 pointer-events-none" />
               <div className="absolute -inset-4 bg-amber-500/5 dark:bg-amber-500/10 rounded-[2rem] blur-2xl -z-10 signal-pulse" />
