@@ -6,17 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "remotion:studio": "remotion studio src/remotion/index.ts",
-    "remotion:render": "remotion render src/remotion/index.ts",
-    "remotion:frame": "remotion still Showreel --frame=0 --scale=0.25"
+    "lint": "eslint"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",
     "@hookform/resolvers": "^5.4.0",
     "@radix-ui/react-label": "^2.1.8",
-    "@remotion/player": "^4.0.472",
-    "@remotion/transitions": "4.0.472",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.38.0",
@@ -26,7 +21,6 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.77.0",
-    "remotion": "^4.0.472",
     "shadcn": "^4.9.0",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.6.0",
@@ -35,7 +29,6 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^16.2.6",
-    "@remotion/cli": "^4.0.472",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
