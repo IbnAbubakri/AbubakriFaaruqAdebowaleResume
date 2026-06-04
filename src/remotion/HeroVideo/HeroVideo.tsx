@@ -1,7 +1,6 @@
 import { AbsoluteFill, useCurrentFrame, interpolate, Easing, Img, staticFile } from "remotion";
 import { AccentBar } from "../components/AccentBar";
 import { GridDots } from "../components/GridDots";
-import { getSansFont, getMonoFont } from "../fonts";
 
 const titles = [
   "IT Administrator",
@@ -15,8 +14,6 @@ const titleColors = ["#f59e0b", "#2563eb", "#06b6d4", "#10b981", "#f59e0b"];
 
 export const HeroVideo = () => {
   const frame = useCurrentFrame();
-  const sansFontFamily = getSansFont();
-  const monoFontFamily = getMonoFont();
 
   const nameOpacity = interpolate(frame, [0, 20], [0, 1], {
     extrapolateRight: "clamp",
@@ -105,7 +102,7 @@ export const HeroVideo = () => {
           style={{
             opacity: nameOpacity,
             transform: `translateY(${nameY}px)`,
-            fontFamily: sansFontFamily,
+            fontFamily: "sans-serif",
             fontSize: 72,
             fontWeight: 700,
             color: "#ffffff",
@@ -121,7 +118,7 @@ export const HeroVideo = () => {
         <div
           style={{
             opacity: subtitleOpacity,
-            fontFamily: monoFontFamily,
+            fontFamily: "monospace",
             fontSize: 14,
             color: "#f59e0b",
             letterSpacing: "0.2em",
@@ -160,7 +157,7 @@ export const HeroVideo = () => {
                   borderRadius: 6,
                   color: "#94a3b8",
                   fontSize: 13,
-                  fontFamily: monoFontFamily,
+                  fontFamily: "monospace",
                 }}
               >
                 {title}
@@ -215,7 +212,7 @@ export const HeroVideo = () => {
           left: 0,
           right: 0,
           textAlign: "center",
-          fontFamily: monoFontFamily,
+          fontFamily: "monospace",
           fontSize: 11,
           color: "rgba(148,163,184,0.3)",
           letterSpacing: "0.1em",

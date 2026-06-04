@@ -1,6 +1,5 @@
 import { AbsoluteFill, useCurrentFrame, interpolate, Easing } from "remotion";
 import { GridDots } from "../components/GridDots";
-import { getSansFont, getMonoFont } from "../fonts";
 
 const skillCategories = [
   { title: "Networking", color: "#f59e0b", skills: ["CCNA", "Network+", "Routing & Switching", "VLANs", "OSPF", "EIGRP", "Network Security"] },
@@ -17,8 +16,6 @@ const ITEMS_PER_CATEGORY = 30;
 
 export const SkillsShowreel = () => {
   const frame = useCurrentFrame();
-  const sansFontFamily = getSansFont();
-  const monoFontFamily = getMonoFont();
   const totalCategories = skillCategories.length;
   const currentCategoryIndex = Math.min(
     Math.floor(frame / ITEMS_PER_CATEGORY),
@@ -81,7 +78,7 @@ export const SkillsShowreel = () => {
         <div
           style={{
             opacity: titleOpacity,
-            fontFamily: monoFontFamily,
+            fontFamily: "monospace",
             fontSize: 13,
             color: category.color,
             letterSpacing: "0.3em",
@@ -95,7 +92,7 @@ export const SkillsShowreel = () => {
         <div
           style={{
             opacity: titleOpacity,
-            fontFamily: sansFontFamily,
+            fontFamily: "sans-serif",
             fontSize: 56,
             fontWeight: 700,
             color: "#ffffff",
@@ -132,7 +129,7 @@ export const SkillsShowreel = () => {
                   borderRadius: 8,
                   color: "#e2e8f0",
                   fontSize: 16,
-                  fontFamily: monoFontFamily,
+                  fontFamily: "monospace",
                 }}
               >
                 {skill}
@@ -149,7 +146,7 @@ export const SkillsShowreel = () => {
           left: 0,
           right: 0,
           textAlign: "center",
-          fontFamily: monoFontFamily,
+          fontFamily: "monospace",
           fontSize: 11,
           color: "rgba(148,163,184,0.2)",
         }}
