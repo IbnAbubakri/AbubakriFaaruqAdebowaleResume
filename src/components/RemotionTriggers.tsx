@@ -1,48 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { RemotionModal, registerComposition } from "@/components/RemotionModal";
+import { RemotionModal } from "@/components/RemotionModal";
 import { HeroVideo } from "@/remotion/HeroVideo/HeroVideo";
 import { SkillsShowreel } from "@/remotion/SkillsShowreel/SkillsShowreel";
 import { ProjectsShowreel } from "@/remotion/ProjectsShowreel/ProjectsShowreel";
 import { CertificationsHighlight } from "@/remotion/CertificationsHighlight/CertificationsHighlight";
-
-const heroId = "HeroVideo";
-const skillsId = "SkillsShowreel";
-const projectsId = "ProjectsShowreel";
-const certsId = "CertificationsHighlight";
-
-registerComposition(heroId, {
-  component: HeroVideo,
-  durationInFrames: 150,
-  fps: 30,
-  width: 1920,
-  height: 1080,
-});
-
-registerComposition(skillsId, {
-  component: SkillsShowreel,
-  durationInFrames: 240,
-  fps: 30,
-  width: 1920,
-  height: 1080,
-});
-
-registerComposition(projectsId, {
-  component: ProjectsShowreel,
-  durationInFrames: 300,
-  fps: 30,
-  width: 1920,
-  height: 1080,
-});
-
-registerComposition(certsId, {
-  component: CertificationsHighlight,
-  durationInFrames: 180,
-  fps: 30,
-  width: 1920,
-  height: 1080,
-});
 
 const triggerBase =
   "inline-flex items-center gap-2 px-4 py-2 text-sm font-mono rounded-lg border transition-all duration-200 active:scale-95 cursor-pointer";
@@ -62,7 +25,11 @@ export function HeroPlayerTrigger() {
       </button>
       {open && (
         <RemotionModal
-          compositionId={heroId}
+          component={HeroVideo}
+          durationInFrames={150}
+          fps={30}
+          width={1920}
+          height={1080}
           onClose={() => setOpen(false)}
           title="Hero Intro Video"
         />
@@ -86,7 +53,11 @@ export function SkillsPlayerTrigger() {
       </button>
       {open && (
         <RemotionModal
-          compositionId={skillsId}
+          component={SkillsShowreel}
+          durationInFrames={240}
+          fps={30}
+          width={1920}
+          height={1080}
           onClose={() => setOpen(false)}
           title="Skills Showreel"
         />
@@ -110,7 +81,11 @@ export function ProjectsPlayerTrigger() {
       </button>
       {open && (
         <RemotionModal
-          compositionId={projectsId}
+          component={ProjectsShowreel}
+          durationInFrames={300}
+          fps={30}
+          width={1920}
+          height={1080}
           onClose={() => setOpen(false)}
           title="Projects Showreel"
         />
@@ -134,7 +109,11 @@ export function CertsPlayerTrigger() {
       </button>
       {open && (
         <RemotionModal
-          compositionId={certsId}
+          component={CertificationsHighlight}
+          durationInFrames={180}
+          fps={30}
+          width={1920}
+          height={1080}
           onClose={() => setOpen(false)}
           title="Certifications Highlight"
         />

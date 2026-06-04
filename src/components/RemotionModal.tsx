@@ -8,34 +8,24 @@ const Player = dynamic(
   { ssr: false }
 );
 
-type CompositionConfig = {
-  component: React.ComponentType;
-  durationInFrames: number;
-  fps: number;
-  width: number;
-  height: number;
-};
-
-const compositions: Record<string, CompositionConfig> = {};
-
-export function registerComposition(
-  id: string,
-  config: CompositionConfig
-) {
-  compositions[id] = config;
-}
-
 export function RemotionModal({
-  compositionId,
+  component: Comp,
+  durationInFrames,
+  fps = 30,
+  width = 1920,
+  height = 1080,
   onClose,
   title,
 }: {
-  compositionId: string;
+  component: React.ComponentType;
+  durationInFrames: number;
+  fps?: number;
+  width?: number;
+  height?: number;
   onClose: () => void;
   title?: string;
 }) {
   const overlayRef = useRef<HTMLDivElement>(null);
-  const config = compositions[compositionId];
 
   const onKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -52,8 +42,6 @@ export function RemotionModal({
       document.body.style.overflow = "";
     };
   }, [onKeyDown]);
-
-  if (!config) return null;
 
   return (
     <div
@@ -78,11 +66,11 @@ export function RemotionModal({
           <div className="text-white/80 text-sm font-mono mb-2">{title}</div>
         )}
         <Player
-          component={config.component}
-          durationInFrames={config.durationInFrames}
-          fps={config.fps}
-          compositionWidth={config.width}
-          compositionHeight={config.height}
+          component={Comp}
+          durationInFrames={durationInFrames}
+          fps={fps}
+          compositionWidth={width}
+          compositionHeight={height}
           controls
           loop
           autoPlay
