@@ -2,10 +2,14 @@
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { Showreel } from "@/remotion/Showreel/Showreel";
 
 const Player = dynamic(
   () => import("@remotion/player").then((mod) => mod.Player),
+  { ssr: false }
+);
+
+const Showreel = dynamic(
+  () => import("@/remotion/Showreel/Showreel").then((mod) => mod.Showreel),
   { ssr: false }
 );
 

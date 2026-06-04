@@ -1,11 +1,25 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { RemotionModal } from "@/components/RemotionModal";
-import { HeroVideo } from "@/remotion/HeroVideo/HeroVideo";
-import { SkillsShowreel } from "@/remotion/SkillsShowreel/SkillsShowreel";
-import { ProjectsShowreel } from "@/remotion/ProjectsShowreel/ProjectsShowreel";
-import { CertificationsHighlight } from "@/remotion/CertificationsHighlight/CertificationsHighlight";
+
+const HeroVideo = dynamic(
+  () => import("@/remotion/HeroVideo/HeroVideo").then((mod) => mod.HeroVideo),
+  { ssr: false }
+);
+const SkillsShowreel = dynamic(
+  () => import("@/remotion/SkillsShowreel/SkillsShowreel").then((mod) => mod.SkillsShowreel),
+  { ssr: false }
+);
+const ProjectsShowreel = dynamic(
+  () => import("@/remotion/ProjectsShowreel/ProjectsShowreel").then((mod) => mod.ProjectsShowreel),
+  { ssr: false }
+);
+const CertificationsHighlight = dynamic(
+  () => import("@/remotion/CertificationsHighlight/CertificationsHighlight").then((mod) => mod.CertificationsHighlight),
+  { ssr: false }
+);
 
 const triggerBase =
   "inline-flex items-center gap-2 px-4 py-2 text-sm font-mono rounded-lg border transition-all duration-200 active:scale-95 cursor-pointer";
