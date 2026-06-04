@@ -1,6 +1,9 @@
 import { AbsoluteFill, useCurrentFrame, interpolate, Easing } from "remotion";
 import { GridDots } from "../components/GridDots";
-import { sansFontFamily, monoFontFamily } from "../fonts";
+import { getSansFont, getMonoFont } from "../fonts";
+
+const sansFontFamily = getSansFont();
+const monoFontFamily = getMonoFont();
 
 const projects = [
   {

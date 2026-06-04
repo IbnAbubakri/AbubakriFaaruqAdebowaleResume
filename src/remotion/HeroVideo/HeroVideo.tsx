@@ -1,7 +1,10 @@
 import { AbsoluteFill, useCurrentFrame, interpolate, Easing, Img, staticFile } from "remotion";
 import { AccentBar } from "../components/AccentBar";
 import { GridDots } from "../components/GridDots";
-import { sansFontFamily, monoFontFamily } from "../fonts";
+import { getSansFont, getMonoFont } from "../fonts";
+
+const sansFontFamily = getSansFont();
+const monoFontFamily = getMonoFont();
 
 const titles = [
   "IT Administrator",

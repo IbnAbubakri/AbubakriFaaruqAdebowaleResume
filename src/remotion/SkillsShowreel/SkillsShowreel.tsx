@@ -1,6 +1,9 @@
 import { AbsoluteFill, useCurrentFrame, interpolate, Easing } from "remotion";
 import { GridDots } from "../components/GridDots";
-import { sansFontFamily, monoFontFamily } from "../fonts";
+import { getSansFont, getMonoFont } from "../fonts";
+
+const sansFontFamily = getSansFont();
+const monoFontFamily = getMonoFont();
 
 const skillCategories = [
   { title: "Networking", color: "#f59e0b", skills: ["CCNA", "Network+", "Routing & Switching", "VLANs", "OSPF", "EIGRP", "Network Security"] },
