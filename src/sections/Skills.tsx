@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import TiltCard from '@/components/TiltCard'
 import { fadeInUp, staggerContainer, staggerItemScale } from '@/lib/animations'
+import { SkillsPlayerTrigger } from '@/components/RemotionTriggers'
 
 const accentMap = [
   '#f59e0b',
@@ -108,6 +109,9 @@ export default function Skills() {
           <h2 className="text-3xl md:text-4xl font-display font-bold text-surface-900 dark:text-white tracking-tight">
             Skills &amp; Expertise
           </h2>
+          <div className="mt-4 flex justify-center">
+            <SkillsPlayerTrigger />
+          </div>
         </motion.div>
 
         <motion.div

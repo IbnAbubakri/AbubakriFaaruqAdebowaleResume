@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { scaleIn, heroStagger, heroItem } from '@/lib/animations'
 import FloatingElement from '@/components/FloatingElement'
 import ParallaxLayer from '@/components/ParallaxLayer'
+import { HeroPlayerTrigger } from '@/components/RemotionTriggers'
 
 const titles = [
   'IT Administrator',
@@ -77,6 +78,7 @@ export default function Hero() {
               >
                 View Projects &rarr;
               </a>
+              <HeroPlayerTrigger />
             </motion.div>
           </motion.div>
 
