@@ -2,9 +2,6 @@ import { AbsoluteFill, useCurrentFrame, interpolate, Easing } from "remotion";
 import { GridDots } from "../components/GridDots";
 import { getSansFont, getMonoFont } from "../fonts";
 
-const sansFontFamily = getSansFont();
-const monoFontFamily = getMonoFont();
-
 const skillCategories = [
   { title: "Networking", color: "#f59e0b", skills: ["CCNA", "Network+", "Routing & Switching", "VLANs", "OSPF", "EIGRP", "Network Security"] },
   { title: "Cybersecurity", color: "#2563eb", skills: ["Network Security", "Firewall Config", "Penetration Testing", "Security Protocols", "Risk Assessment"] },
@@ -20,6 +17,8 @@ const ITEMS_PER_CATEGORY = 30;
 
 export const SkillsShowreel = () => {
   const frame = useCurrentFrame();
+  const sansFontFamily = getSansFont();
+  const monoFontFamily = getMonoFont();
   const totalCategories = skillCategories.length;
   const currentCategoryIndex = Math.min(
     Math.floor(frame / ITEMS_PER_CATEGORY),

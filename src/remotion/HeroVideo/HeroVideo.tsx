@@ -3,9 +3,6 @@ import { AccentBar } from "../components/AccentBar";
 import { GridDots } from "../components/GridDots";
 import { getSansFont, getMonoFont } from "../fonts";
 
-const sansFontFamily = getSansFont();
-const monoFontFamily = getMonoFont();
-
 const titles = [
   "IT Administrator",
   "Network Engineer",
@@ -18,6 +15,8 @@ const titleColors = ["#f59e0b", "#2563eb", "#06b6d4", "#10b981", "#f59e0b"];
 
 export const HeroVideo = () => {
   const frame = useCurrentFrame();
+  const sansFontFamily = getSansFont();
+  const monoFontFamily = getMonoFont();
 
   const nameOpacity = interpolate(frame, [0, 20], [0, 1], {
     extrapolateRight: "clamp",

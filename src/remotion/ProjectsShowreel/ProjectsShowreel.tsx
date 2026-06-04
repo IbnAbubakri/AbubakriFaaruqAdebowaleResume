@@ -2,9 +2,6 @@ import { AbsoluteFill, useCurrentFrame, interpolate, Easing } from "remotion";
 import { GridDots } from "../components/GridDots";
 import { getSansFont, getMonoFont } from "../fonts";
 
-const sansFontFamily = getSansFont();
-const monoFontFamily = getMonoFont();
-
 const projects = [
   {
     title: "FinTech Application (BillXpress)",
@@ -32,6 +29,8 @@ const FRAMES_PER_PROJECT = 75;
 
 export const ProjectsShowreel = () => {
   const frame = useCurrentFrame();
+  const sansFontFamily = getSansFont();
+  const monoFontFamily = getMonoFont();
   const currentIndex = Math.min(Math.floor(frame / FRAMES_PER_PROJECT), projects.length - 1);
   const localFrame = frame - currentIndex * FRAMES_PER_PROJECT;
   const project = projects[currentIndex];
