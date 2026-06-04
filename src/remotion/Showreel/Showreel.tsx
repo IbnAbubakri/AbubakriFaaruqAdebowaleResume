@@ -1,76 +1,42 @@
-import { AbsoluteFill, useCurrentFrame, interpolate, Easing, Sequence } from "remotion";
+import { AbsoluteFill } from "remotion";
+import { TransitionSeries, linearTiming } from "@remotion/transitions";
+import { fade } from "@remotion/transitions/fade";
 import { HeroVideo } from "../HeroVideo/HeroVideo";
 import { SkillsShowreel } from "../SkillsShowreel/SkillsShowreel";
 import { ProjectsShowreel } from "../ProjectsShowreel/ProjectsShowreel";
 import { CertificationsHighlight } from "../CertificationsHighlight/CertificationsHighlight";
 
+const TRANSITION_DURATION = 15;
+
 export const Showreel = () => {
   return (
     <AbsoluteFill>
-      <Sequence from={0} durationInFrames={150}>
-        <HeroVideo />
-      </Sequence>
-      <Sequence from={150} durationInFrames={30}>
-        <Transition label="Skills & Expertise" color="#f59e0b" />
-      </Sequence>
-      <Sequence from={180} durationInFrames={240}>
-        <SkillsShowreel />
-      </Sequence>
-      <Sequence from={420} durationInFrames={30}>
-        <Transition label="Projects" color="#06b6d4" />
-      </Sequence>
-    </AbsoluteFill>
-  );
-};
-
-const Transition = ({ label, color }: { label: string; color: string }) => {
-  const frame = useCurrentFrame();
-
-  const opacity = interpolate(frame, [0, 10, 20, 30], [0, 1, 1, 0], {
-    extrapolateRight: "clamp",
-    extrapolateLeft: "clamp",
-    easing: Easing.bezier(0.16, 1, 0.3, 1),
-  });
-
-  const scale = interpolate(frame, [0, 10, 20, 30], [0.9, 1, 1, 0.9], {
-    extrapolateRight: "clamp",
-    extrapolateLeft: "clamp",
-  });
-
-  return (
-    <AbsoluteFill
-      style={{
-        backgroundColor: "#020617",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <div
-        style={{
-          opacity,
-          transform: `scale(${scale})`,
-          fontFamily: "sans-serif",
-          fontSize: 64,
-          fontWeight: 700,
-          color: "#ffffff",
-          textAlign: "center",
-        }}
-      >
-        <div
-          style={{
-            fontFamily: "monospace",
-            fontSize: 13,
-            color,
-            letterSpacing: "0.3em",
-            textTransform: "uppercase",
-            marginBottom: 16,
-          }}
-        >
-          Next Section
-        </div>
-        {label}
-      </div>
+      <TransitionSeries>
+        <TransitionSeries.Sequence durationInFrames={150}>
+          <HeroVideo />
+        </TransitionSeries.Sequence>
+        <TransitionSeries.Transition
+          presentation={fade()}
+          timing={linearTiming({ durationInFrames: TRANSITION_DURATION })}
+        />
+        <TransitionSeries.Sequence durationInFrames={180}>
+          <CertificationsHighlight />
+        </TransitionSeries.Sequence>
+        <TransitionSeries.Transition
+          presentation={fade()}
+          timing={linearTiming({ durationInFrames: TRANSITION_DURATION })}
+        />
+        <TransitionSeries.Sequence durationInFrames={240}>
+          <SkillsShowreel />
+        </TransitionSeries.Sequence>
+        <TransitionSeries.Transition
+          presentation={fade()}
+          timing={linearTiming({ durationInFrames: TRANSITION_DURATION })}
+        />
+        <TransitionSeries.Sequence durationInFrames={300}>
+          <ProjectsShowreel />
+        </TransitionSeries.Sequence>
+      </TransitionSeries>
     </AbsoluteFill>
   );
 };

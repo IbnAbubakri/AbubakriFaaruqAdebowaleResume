@@ -1,5 +1,6 @@
 import { AbsoluteFill, useCurrentFrame, interpolate, Easing } from "remotion";
 import { GridDots } from "../components/GridDots";
+import { sansFontFamily, monoFontFamily } from "../fonts";
 
 const projects = [
   {
@@ -84,7 +85,7 @@ export const ProjectsShowreel = () => {
         <div
           style={{
             opacity: fadeIn,
-            fontFamily: "monospace",
+            fontFamily: monoFontFamily,
             fontSize: 13,
             color: "#06b6d4",
             letterSpacing: "0.3em",
@@ -101,7 +102,7 @@ export const ProjectsShowreel = () => {
             position: "absolute",
             top: 80,
             right: 80,
-            fontFamily: "monospace",
+            fontFamily: monoFontFamily,
             fontSize: 48,
             fontWeight: 700,
             color: "rgba(6,182,212,0.1)",
@@ -113,7 +114,7 @@ export const ProjectsShowreel = () => {
         <div
           style={{
             opacity: fadeIn,
-            fontFamily: "sans-serif",
+            fontFamily: sansFontFamily,
             fontSize: 48,
             fontWeight: 700,
             color: "#ffffff",
@@ -138,7 +139,7 @@ export const ProjectsShowreel = () => {
         <div
           style={{
             opacity: descFadeIn,
-            fontFamily: "sans-serif",
+            fontFamily: sansFontFamily,
             fontSize: 18,
             color: "#94a3b8",
             textAlign: "center",
@@ -169,7 +170,7 @@ export const ProjectsShowreel = () => {
                 borderRadius: 6,
                 color: "#06b6d4",
                 fontSize: 13,
-                fontFamily: "monospace",
+                  fontFamily: monoFontFamily,
               }}
             >
               {tag}
@@ -185,7 +186,7 @@ export const ProjectsShowreel = () => {
           left: 0,
           right: 0,
           textAlign: "center",
-          fontFamily: "monospace",
+          fontFamily: monoFontFamily,
           fontSize: 11,
           color: "rgba(148,163,184,0.2)",
         }}

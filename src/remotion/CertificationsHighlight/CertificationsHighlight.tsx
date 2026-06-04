@@ -1,5 +1,6 @@
 import { AbsoluteFill, useCurrentFrame, interpolate, Easing } from "remotion";
 import { GridDots } from "../components/GridDots";
+import { sansFontFamily, monoFontFamily } from "../fonts";
 
 const certifications = [
   {
@@ -85,7 +86,7 @@ export const CertificationsHighlight = () => {
         <div
           style={{
             opacity: fadeIn,
-            fontFamily: "monospace",
+            fontFamily: monoFontFamily,
             fontSize: 13,
             color: "#f59e0b",
             letterSpacing: "0.3em",
@@ -99,7 +100,7 @@ export const CertificationsHighlight = () => {
         <div
           style={{
             opacity: fadeIn,
-            fontFamily: "sans-serif",
+            fontFamily: sansFontFamily,
             fontSize: 32,
             fontWeight: 700,
             color: "#ffffff",
@@ -114,7 +115,7 @@ export const CertificationsHighlight = () => {
           <div
             style={{
               opacity: fadeIn * 0.6,
-              fontFamily: "monospace",
+              fontFamily: monoFontFamily,
               fontSize: 16,
               color: "#f59e0b",
               letterSpacing: "0.15em",
@@ -156,24 +157,24 @@ export const CertificationsHighlight = () => {
         >
           <div style={{ textAlign: "center" }}>
             <div style={{
-              fontFamily: "monospace", fontSize: 11, color: "rgba(148,163,184,0.5)",
+              fontFamily: monoFontFamily, fontSize: 11, color: "rgba(148,163,184,0.5)",
               textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 4,
             }}>
               Issuer
             </div>
-            <div style={{ fontFamily: "sans-serif", fontSize: 16, color: "#e2e8f0" }}>
+            <div style={{               fontFamily: sansFontFamily, fontSize: 16, color: "#e2e8f0" }}>
               {cert.issuer}
             </div>
           </div>
           <div style={{ width: 1, backgroundColor: "rgba(148,163,184,0.2)" }} />
           <div style={{ textAlign: "center" }}>
             <div style={{
-              fontFamily: "monospace", fontSize: 11, color: "rgba(148,163,184,0.5)",
+              fontFamily: monoFontFamily, fontSize: 11, color: "rgba(148,163,184,0.5)",
               textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 4,
             }}>
               Date
             </div>
-            <div style={{ fontFamily: "sans-serif", fontSize: 16, color: "#e2e8f0" }}>
+            <div style={{               fontFamily: sansFontFamily, fontSize: 16, color: "#e2e8f0" }}>
               {cert.date}
             </div>
           </div>
@@ -187,7 +188,7 @@ export const CertificationsHighlight = () => {
               backgroundColor: "rgba(245,158,11,0.15)",
               border: "1px solid rgba(245,158,11,0.3)",
               borderRadius: 20,
-              fontFamily: "monospace",
+              fontFamily: monoFontFamily,
               fontSize: 12,
               color: "#f59e0b",
             }}
@@ -204,7 +205,7 @@ export const CertificationsHighlight = () => {
           left: 0,
           right: 0,
           textAlign: "center",
-          fontFamily: "monospace",
+          fontFamily: monoFontFamily,
           fontSize: 11,
           color: "rgba(148,163,184,0.2)",
         }}

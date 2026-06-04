@@ -1,6 +1,7 @@
 import { AbsoluteFill, useCurrentFrame, interpolate, Easing, Img, staticFile } from "remotion";
 import { AccentBar } from "../components/AccentBar";
 import { GridDots } from "../components/GridDots";
+import { sansFontFamily, monoFontFamily } from "../fonts";
 
 const titles = [
   "IT Administrator",
@@ -102,7 +103,7 @@ export const HeroVideo = () => {
           style={{
             opacity: nameOpacity,
             transform: `translateY(${nameY}px)`,
-            fontFamily: "sans-serif",
+            fontFamily: sansFontFamily,
             fontSize: 72,
             fontWeight: 700,
             color: "#ffffff",
@@ -118,7 +119,7 @@ export const HeroVideo = () => {
         <div
           style={{
             opacity: subtitleOpacity,
-            fontFamily: "monospace",
+            fontFamily: monoFontFamily,
             fontSize: 14,
             color: "#f59e0b",
             letterSpacing: "0.2em",
@@ -157,7 +158,7 @@ export const HeroVideo = () => {
                   borderRadius: 6,
                   color: "#94a3b8",
                   fontSize: 13,
-                  fontFamily: "monospace",
+                  fontFamily: monoFontFamily,
                 }}
               >
                 {title}
@@ -212,7 +213,7 @@ export const HeroVideo = () => {
           left: 0,
           right: 0,
           textAlign: "center",
-          fontFamily: "monospace",
+          fontFamily: monoFontFamily,
           fontSize: 11,
           color: "rgba(148,163,184,0.3)",
           letterSpacing: "0.1em",

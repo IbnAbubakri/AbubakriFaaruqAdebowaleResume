@@ -20,14 +20,14 @@ export default function ShowreelPage() {
           &larr; Back to Portfolio
         </Link>
         <span className="text-white/40 text-xs font-mono">
-          Showreel &middot; 15s
+          Showreel &middot; 27.5s
         </span>
       </nav>
       <div className="flex-1 flex items-center justify-center p-4">
         <div className="w-full max-w-5xl">
           <Player
             component={Showreel}
-            durationInFrames={450}
+            durationInFrames={825}
             fps={30}
             compositionWidth={1920}
             compositionHeight={1080}

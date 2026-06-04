@@ -1,5 +1,6 @@
 import { AbsoluteFill, useCurrentFrame, interpolate, Easing } from "remotion";
 import { GridDots } from "../components/GridDots";
+import { sansFontFamily, monoFontFamily } from "../fonts";
 
 const skillCategories = [
   { title: "Networking", color: "#f59e0b", skills: ["CCNA", "Network+", "Routing & Switching", "VLANs", "OSPF", "EIGRP", "Network Security"] },
@@ -78,7 +79,7 @@ export const SkillsShowreel = () => {
         <div
           style={{
             opacity: titleOpacity,
-            fontFamily: "monospace",
+            fontFamily: monoFontFamily,
             fontSize: 13,
             color: category.color,
             letterSpacing: "0.3em",
@@ -92,7 +93,7 @@ export const SkillsShowreel = () => {
         <div
           style={{
             opacity: titleOpacity,
-            fontFamily: "sans-serif",
+            fontFamily: sansFontFamily,
             fontSize: 56,
             fontWeight: 700,
             color: "#ffffff",
@@ -129,7 +130,7 @@ export const SkillsShowreel = () => {
                   borderRadius: 8,
                   color: "#e2e8f0",
                   fontSize: 16,
-                  fontFamily: "monospace",
+                  fontFamily: monoFontFamily,
                 }}
               >
                 {skill}
@@ -146,7 +147,7 @@ export const SkillsShowreel = () => {
           left: 0,
           right: 0,
           textAlign: "center",
-          fontFamily: "monospace",
+          fontFamily: monoFontFamily,
           fontSize: 11,
           color: "rgba(148,163,184,0.2)",
         }}
