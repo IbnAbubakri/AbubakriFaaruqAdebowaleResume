@@ -34,6 +34,7 @@ const projects = [
     title: 'FlowDesk AI — WhatsApp Business OS',
     description: 'Built an AI-powered WhatsApp Business OS with a Next.js dashboard and FastAPI backend. Integrated Gemini AI for smart replies and a Node.js WhatsApp bridge for real-time messaging.',
     techStack: ['Next.js', 'TypeScript', 'FastAPI', 'Gemini AI', 'Tailwind CSS', 'WhatsApp API'],
+    liveDemo: 'https://flowdeskapp.onrender.com/',
     github: 'https://github.com/IbnAbubakri/Flowdesk.git',
     backend: 'https://github.com/IbnAbubakri/Flowdesk-backend.git',
   },
