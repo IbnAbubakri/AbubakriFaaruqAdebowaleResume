@@ -30,6 +30,13 @@ const projects = [
     description: 'Built enterprise-grade VLAN infrastructures with dynamic routing protocols, network security controls, redundancy, and failover systems.',
     techStack: ['Cisco Packet Tracer', 'GNS3', 'VLANs', 'OSPF', 'EIGRP', 'Network Security'],
   },
+  {
+    title: 'FlowDesk AI — WhatsApp Business OS',
+    description: 'Built an AI-powered WhatsApp Business OS with a Next.js dashboard and FastAPI backend. Integrated Gemini AI for smart replies and a Node.js WhatsApp bridge for real-time messaging.',
+    techStack: ['Next.js', 'TypeScript', 'FastAPI', 'Gemini AI', 'Tailwind CSS', 'WhatsApp API'],
+    github: 'https://github.com/IbnAbubakri/Flowdesk.git',
+    backend: 'https://github.com/IbnAbubakri/Flowdesk-backend.git',
+  },
 ]
 
 export default function Projects() {
@@ -111,6 +118,16 @@ export default function Projects() {
                       className="text-sm font-medium text-surface-500 hover:text-surface-900 dark:hover:text-surface-300 transition-colors"
                     >
                       GitHub &rarr;
+                    </a>
+                  )}
+                  {project.backend && (
+                    <a
+                      href={project.backend}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-medium text-surface-500 hover:text-surface-900 dark:hover:text-surface-300 transition-colors"
+                    >
+                      Backend &rarr;
                     </a>
                   )}
                 </div>
