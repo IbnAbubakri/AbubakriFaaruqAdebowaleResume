@@ -9,7 +9,7 @@ const projects = [
     title: 'Vault — Secure Login System',
     description: 'A production-grade secure authentication system with React frontend and Node.js/Express backend. Features JWT rotation, MFA (TOTP), CSRF protection, rate limiting, account lockout, email verification, password reset, session management, and structured logging.',
     techStack: ['React', 'Node.js', 'Express', 'JWT', 'MFA/TOTP', 'CSRF'],
-    liveDemo: 'https://vault.onrender.com/',
+    liveDemo: 'https://secure-login-system-f4os.onrender.com/',
     github: 'https://github.com/IbnAbubakri/secure-login-system.git',
   },
   {
