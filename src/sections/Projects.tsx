@@ -6,10 +6,11 @@ import { fadeInUp, staggerContainer, staggerItemRight } from '@/lib/animations'
 
 const projects = [
   {
-    title: 'FinTech Application (BillXpress)',
-    description: 'Designed and developed scalable fintech platform for digital payment services. Built frontend and backend infrastructures for secure financial transactions.',
-    techStack: ['React', 'Node.js', 'API Development', 'Full-Stack'],
-    github: 'https://github.com/IbnAbubakri/billxpress-frontend.git',
+    title: 'Vault — Secure Login System',
+    description: 'A production-grade secure authentication system with React frontend and Node.js/Express backend. Features JWT rotation, MFA (TOTP), CSRF protection, rate limiting, account lockout, email verification, password reset, session management, and structured logging.',
+    techStack: ['React', 'Node.js', 'Express', 'JWT', 'MFA/TOTP', 'CSRF'],
+    liveDemo: 'https://vault.onrender.com/',
+    github: 'https://github.com/IbnAbubakri/secure-login-system.git',
   },
   {
     title: 'Weather Forecast Application',
@@ -17,13 +18,6 @@ const projects = [
     techStack: ['Next.js', 'TypeScript', 'Weather API', 'Tailwind CSS'],
     liveDemo: 'https://weatherbyibnabubakri.onrender.com/',
     github: 'https://github.com/IbnAbubakri/WeatherForecast.git',
-  },
-  {
-    title: 'Hospital Management System',
-    description: 'Designed scalable hospital management platform frontend. Developed healthcare workflow interfaces for operational management.',
-    techStack: ['React', 'Frontend Development', 'Healthcare UI'],
-    liveDemo: 'https://hospital-system-management.onrender.com/',
-    github: 'https://github.com/IbnAbubakri/Hospital-System-Management.git',
   },
   {
     title: 'Enterprise Networking Labs',
