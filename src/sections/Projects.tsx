@@ -9,7 +9,7 @@ const projects = [
     title: 'BillXpress — Fintech Dashboard',
     description: 'A full-stack fintech platform for bill payments, airtime/data purchases, wallet management, and transaction tracking. Features secure auth with JWT rotation, MFA, CSRF protection, account lockout, and real-time balance updates. Demo: demo@billxpress.com / DemoXy7!kqmn92',
     techStack: ['React', 'Node.js', 'Express', 'Tailwind CSS', 'JWT', 'MFA/TOTP', 'Vercel'],
-    liveDemo: 'https://billxpress-eta.vercel.app/',
+    liveDemo: 'https://billxpress1.vercel.app/',
     github: 'https://github.com/IbnAbubakri/billxpress',
   },
   {
