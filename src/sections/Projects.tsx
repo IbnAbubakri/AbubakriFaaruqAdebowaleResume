@@ -6,6 +6,13 @@ import { fadeInUp, staggerContainer, staggerItemRight } from '@/lib/animations'
 
 const projects = [
   {
+    title: 'BillXpress — Fintech Dashboard',
+    description: 'A full-stack fintech platform for bill payments, airtime/data purchases, wallet management, and transaction tracking. Features secure auth with JWT rotation, MFA, CSRF protection, account lockout, and real-time balance updates. Demo: demo@billxpress.com / DemoXy7!kqmn92',
+    techStack: ['React', 'Node.js', 'Express', 'Tailwind CSS', 'JWT', 'MFA/TOTP', 'Vercel'],
+    liveDemo: 'https://billxpress-eta.vercel.app/',
+    github: 'https://github.com/IbnAbubakri/billxpress',
+  },
+  {
     title: 'Vault — Secure Login System',
     description: 'A production-grade secure authentication system with React frontend and Node.js/Express backend. Features JWT rotation, MFA (TOTP), CSRF protection, rate limiting, account lockout, email verification, password reset, session management, and structured logging.',
     techStack: ['React', 'Node.js', 'Express', 'JWT', 'MFA/TOTP', 'CSRF'],
