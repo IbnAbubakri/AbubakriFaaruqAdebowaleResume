@@ -1,3 +1,6 @@
+// © 2026 Abubakri Faaruq Adebowale (IbnAbubakri). All rights reserved.
+// Faruqsuzay@gmail.com | +2349061345507
+
 import { Button as ButtonPrimitive } from "@base-ui/react/button"
 import { cva, type VariantProps } from "class-variance-authority"
 
