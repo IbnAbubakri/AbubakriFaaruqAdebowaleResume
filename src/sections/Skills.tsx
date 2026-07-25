@@ -3,9 +3,9 @@
 
 'use client'
 
-import { motion } from 'framer-motion'
 import TiltCard from '@/components/TiltCard'
-import { fadeInUp, staggerContainer, staggerItemScale } from '@/lib/animations'
+import ScrollReveal from '@/components/ScrollReveal'
+import ParallaxSection from '@/components/ParallaxSection'
 
 const accentMap = [
   'var(--accent)',
@@ -96,57 +96,51 @@ const skillCategories = [
 export default function Skills() {
   return (
     <section id="skills" className="py-24 bg-background relative section-amber">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-          variants={fadeInUp}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
-            Skills &amp; Expertise
-          </h2>
-        </motion.div>
+      <ParallaxSection speed={0.02}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <ScrollReveal direction="up" blur delay={0.1}>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
+                Skills &amp; Expertise
+              </h2>
+            </div>
+          </ScrollReveal>
 
-        <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"
-        >
-          {skillCategories.map((category, i) => (
-            <motion.div
-              key={category.title}
-              variants={staggerItemScale}
-            >
-              <TiltCard tiltDegree={6} glare={false} className="relative p-5 bg-card rounded-xl border border-border card-depth overflow-hidden">
-              <div
-                className="absolute top-0 left-0 right-0 h-1 rounded-t-xl"
-                style={{ backgroundColor: accentMap[i] }}
-              />
-              <div className="p-2 bg-muted rounded-lg w-fit mb-4">
-                {category.icon}
-              </div>
-              <h3 className="font-semibold text-foreground mb-3">
-                {category.title}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-2.5 py-1 bg-muted text-muted-foreground rounded-md text-xs font-mono"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-              </TiltCard>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {skillCategories.map((category, i) => (
+              <ScrollReveal
+                key={category.title}
+                direction="scale"
+                delay={0.1 + i * 0.06}
+                blur
+              >
+                <TiltCard tiltDegree={6} glare={false} className="relative p-5 bg-card rounded-xl border border-border card-depth overflow-hidden">
+                  <div
+                    className="absolute top-0 left-0 right-0 h-1 rounded-t-xl"
+                    style={{ backgroundColor: accentMap[i] }}
+                  />
+                  <div className="p-2 bg-muted rounded-lg w-fit mb-4">
+                    {category.icon}
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-3">
+                    {category.title}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-2.5 py-1 bg-muted text-muted-foreground rounded-md text-xs font-mono"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </TiltCard>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </ParallaxSection>
     </section>
   )
 }

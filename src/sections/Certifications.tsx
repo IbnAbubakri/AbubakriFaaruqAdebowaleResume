@@ -3,10 +3,10 @@
 
 'use client'
 
-import { motion } from 'framer-motion'
 import Link from 'next/link'
 import TiltCard from '@/components/TiltCard'
-import { fadeInUp, staggerContainer, staggerItemLeft } from '@/lib/animations'
+import ScrollReveal from '@/components/ScrollReveal'
+import ParallaxSection from '@/components/ParallaxSection'
 
 const certifications = [
   {
@@ -50,76 +50,70 @@ export default function Certifications() {
   return (
     <section id="certifications" className="py-24 bg-background relative noise-overlay">
       <div className="absolute inset-0 scan-lines-heavy pointer-events-none" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-          variants={fadeInUp}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <p className="text-sm font-medium text-accent uppercase tracking-[0.2em] mb-3 font-mono">
-            Credentials
-          </p>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
-            Certifications
-          </h2>
-        </motion.div>
+      <ParallaxSection speed={0.02}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <ScrollReveal direction="up" blur delay={0.1}>
+            <div className="text-center mb-16">
+              <p className="text-sm font-medium text-accent uppercase tracking-[0.2em] mb-3 font-mono">
+                Credentials
+              </p>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
+                Certifications
+              </h2>
+            </div>
+          </ScrollReveal>
 
-        <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"
-        >
-          {certifications.map((cert) => (
-            <motion.div
-              key={cert.title}
-              variants={staggerItemLeft}
-            >
-              <TiltCard tiltDegree={7} glare={true} className="relative p-5 bg-card rounded-xl border border-border card-depth">
-              <div className="pl-1">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="p-2 rounded-lg" style={{ backgroundColor: 'color-mix(in srgb, var(--color-cyan-token) 10%, transparent)' }}>
-                    <svg aria-hidden="true" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--color-cyan-token)' }}>
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {certifications.map((cert, i) => (
+              <ScrollReveal
+                key={cert.title}
+                direction={i % 2 === 0 ? 'left' : 'right'}
+                delay={0.15 + i * 0.08}
+                blur
+              >
+                <TiltCard tiltDegree={7} glare={true} className="relative p-5 bg-card rounded-xl border border-border card-depth">
+                  <div className="pl-1">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="p-2 rounded-lg" style={{ backgroundColor: 'color-mix(in srgb, var(--color-cyan-token) 10%, transparent)' }}>
+                        <svg aria-hidden="true" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--color-cyan-token)' }}>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                      {cert.distinction && (
+                        <span className="px-2 py-0.5 bg-accent/10 dark:bg-accent/20 text-accent rounded text-xs font-mono">
+                          Distinction
+                        </span>
+                      )}
+                    </div>
+                    <h3 className="font-semibold text-foreground mb-1 text-sm">
+                      {cert.title}
+                    </h3>
+                    <p className="text-xs text-accent mb-1">
+                      {cert.issuer} &bull; {cert.date}
+                    </p>
+                    {cert.trainingProvider && (
+                      <p className="text-xs text-muted-foreground mb-2">
+                        Trained at: {cert.trainingProvider}
+                      </p>
+                    )}
+                    <p className="text-xs text-muted-foreground mb-3 leading-relaxed">
+                      {cert.description}
+                    </p>
+                    {cert.certLink && (
+                      <Link
+                        href={cert.certLink}
+                        className="text-xs font-medium text-accent hover:text-accent/80 transition-colors"
+                      >
+                        View Certificate &rarr;
+                      </Link>
+                    )}
                   </div>
-                  {cert.distinction && (
-                    <span className="px-2 py-0.5 bg-accent/10 dark:bg-accent/20 text-accent rounded text-xs font-mono">
-                      Distinction
-                    </span>
-                  )}
-                </div>
-                <h3 className="font-semibold text-foreground mb-1 text-sm">
-                  {cert.title}
-                </h3>
-                <p className="text-xs text-accent mb-1">
-                  {cert.issuer} &bull; {cert.date}
-                </p>
-                {cert.trainingProvider && (
-                  <p className="text-xs text-muted-foreground mb-2">
-                    Trained at: {cert.trainingProvider}
-                  </p>
-                )}
-                <p className="text-xs text-muted-foreground mb-3 leading-relaxed">
-                  {cert.description}
-                </p>
-                {cert.certLink && (
-                  <Link
-                    href={cert.certLink}
-                    className="text-xs font-medium text-accent hover:text-accent/80 transition-colors"
-                  >
-                    View Certificate &rarr;
-                  </Link>
-                )}
-              </div>
-              </TiltCard>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
+                </TiltCard>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </ParallaxSection>
     </section>
   )
 }

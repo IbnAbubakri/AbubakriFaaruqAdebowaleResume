@@ -3,9 +3,9 @@
 
 'use client'
 
-import { motion } from 'framer-motion'
 import TiltCard from '@/components/TiltCard'
-import { fadeInUp, staggerContainer, staggerItemRight } from '@/lib/animations'
+import ScrollReveal from '@/components/ScrollReveal'
+import ParallaxSection from '@/components/ParallaxSection'
 
 const projects = [
   {
@@ -47,97 +47,91 @@ const projects = [
 export default function Projects() {
   return (
     <section id="projects" className="py-24 bg-background relative section-cyan noise-overlay">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-          variants={fadeInUp}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
-            Projects
-          </h2>
-        </motion.div>
+      <ParallaxSection speed={0.03}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <ScrollReveal direction="up" blur delay={0.1}>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
+                Projects
+              </h2>
+            </div>
+          </ScrollReveal>
 
-        <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-2 gap-6"
-        >
-          {projects.map((project, i) => (
-            <motion.div
-              key={project.title}
-              variants={staggerItemRight}
-            >
-              <TiltCard tiltDegree={5} glare={true} className="relative p-6 bg-card rounded-xl border border-border card-depth">
-              <div className="pl-1">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="p-2 bg-accent/10 dark:bg-accent/20 rounded-lg">
-                    <svg aria-hidden="true" className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                    </svg>
+          <div className="grid md:grid-cols-2 gap-6">
+            {projects.map((project, i) => (
+              <ScrollReveal
+                key={project.title}
+                direction={i % 2 === 0 ? 'left' : 'right'}
+                delay={0.12 + i * 0.08}
+                blur
+              >
+                <TiltCard tiltDegree={5} glare={true} className="relative p-6 bg-card rounded-xl border border-border card-depth">
+                  <div className="pl-1">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="p-2 bg-accent/10 dark:bg-accent/20 rounded-lg">
+                        <svg aria-hidden="true" className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+                        </svg>
+                      </div>
+                      <span className="text-xs font-mono text-muted-foreground">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                    </div>
+                    <h3 className="text-lg font-semibold text-foreground mb-2">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.techStack.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2.5 py-1 bg-muted text-muted-foreground rounded-md text-xs font-mono"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="flex gap-4">
+                      {project.liveDemo && (
+                        <a
+                          href={project.liveDemo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm font-medium text-accent hover:text-accent/80 transition-colors"
+                        >
+                          Live Demo &rarr;
+                        </a>
+                      )}
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                        >
+                          GitHub &rarr;
+                        </a>
+                      )}
+                      {project.backend && (
+                        <a
+                          href={project.backend}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                        >
+                          Backend &rarr;
+                        </a>
+                      )}
+                    </div>
                   </div>
-                  <span className="text-xs font-mono text-muted-foreground">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.techStack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2.5 py-1 bg-muted text-muted-foreground rounded-md text-xs font-mono"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex gap-4">
-                  {project.liveDemo && (
-                    <a
-                      href={project.liveDemo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-medium text-accent hover:text-accent/80 transition-colors"
-                    >
-                      Live Demo &rarr;
-                    </a>
-                  )}
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      GitHub &rarr;
-                    </a>
-                  )}
-                  {project.backend && (
-                    <a
-                      href={project.backend}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      Backend &rarr;
-                    </a>
-                  )}
-                </div>
-              </div>
-              </TiltCard>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
+                </TiltCard>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </ParallaxSection>
     </section>
   )
 }

@@ -3,9 +3,9 @@
 
 'use client'
 
-import { motion } from 'framer-motion'
 import TiltCard from '@/components/TiltCard'
-import { fadeInUp, staggerContainer, staggerItemScale } from '@/lib/animations'
+import ScrollReveal from '@/components/ScrollReveal'
+import ParallaxSection from '@/components/ParallaxSection'
 
 const achievements = [
   {
@@ -67,46 +67,40 @@ const achievements = [
 export default function Achievements() {
   return (
     <section id="achievements" className="py-24 bg-background relative section-amber">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          variants={fadeInUp}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
-            Achievements
-          </h2>
-        </motion.div>
+      <ParallaxSection speed={0.02}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal direction="up" blur delay={0.1}>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
+                Achievements
+              </h2>
+            </div>
+          </ScrollReveal>
 
-        <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"
-        >
-          {achievements.map((achievement) => (
-            <motion.div
-              key={achievement.title}
-              variants={staggerItemScale}
-            >
-              <TiltCard tiltDegree={5} glare={false} className="relative p-5 bg-card rounded-xl border border-border card-depth">
-              <div className={`p-2 bg-accent/10 dark:bg-accent/20 rounded-lg w-fit mb-4 text-accent`}>
-                {achievement.icon}
-              </div>
-              <h3 className="font-semibold text-foreground mb-2">
-                {achievement.title}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {achievement.description}
-              </p>
-              </TiltCard>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {achievements.map((achievement, i) => (
+              <ScrollReveal
+                key={achievement.title}
+                direction="scale"
+                delay={0.12 + i * 0.07}
+                blur
+              >
+                <TiltCard tiltDegree={5} glare={false} className="relative p-5 bg-card rounded-xl border border-border card-depth">
+                  <div className={`p-2 bg-accent/10 dark:bg-accent/20 rounded-lg w-fit mb-4 text-accent`}>
+                    {achievement.icon}
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">
+                    {achievement.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {achievement.description}
+                  </p>
+                </TiltCard>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </ParallaxSection>
     </section>
   )
 }
