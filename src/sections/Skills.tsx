@@ -3,7 +3,7 @@
 
 'use client'
 
-import TiltCard from '@/components/TiltCard'
+import FlipCard from '@/components/FlipCard'
 import ScrollReveal from '@/components/ScrollReveal'
 import ParallaxSection from '@/components/ParallaxSection'
 
@@ -27,6 +27,7 @@ const skillCategories = [
       </svg>
     ),
     skills: ['CCNA', 'Network+', 'Routing & Switching', 'VLANs', 'OSPF', 'EIGRP', 'Network Security'],
+    backText: 'Hands-on experience with Cisco enterprise routing, Layer 2/3 switching, VLAN segmentation, OSPF/EIGRP dynamic routing, and network security hardening across production environments.',
   },
   {
     title: 'Cybersecurity',
@@ -36,6 +37,7 @@ const skillCategories = [
       </svg>
     ),
     skills: ['Network Security', 'Firewall Config', 'Penetration Testing', 'Security Protocols', 'Risk Assessment'],
+    backText: 'Proficient in firewall configuration, penetration testing methodologies, risk assessment frameworks, and implementing zero-trust security protocols for enterprise networks.',
   },
   {
     title: 'Cloud Computing',
@@ -45,6 +47,7 @@ const skillCategories = [
       </svg>
     ),
     skills: ['AWS', 'Cloud Architecture', 'EC2', 'S3', 'Lambda', 'Cloud Security'],
+    backText: 'AWS certified cloud architect. Experience designing multi-AZ deployments, serverless architectures with Lambda, S3 storage strategies, and cloud-native security implementations.',
   },
   {
     title: 'Linux Administration',
@@ -54,6 +57,7 @@ const skillCategories = [
       </svg>
     ),
     skills: ['Ubuntu', 'CentOS', 'Shell Scripting', 'System Administration', 'Server Management'],
+    backText: 'Proficient in Ubuntu/CentOS server management, bash scripting for automation, systemd services, cron jobs, and hardening Linux servers for production workloads.',
   },
   {
     title: 'DevOps',
@@ -63,6 +67,7 @@ const skillCategories = [
       </svg>
     ),
     skills: ['CI/CD', 'Docker', 'Git/GitHub', 'Automation', 'Infrastructure as Code'],
+    backText: 'Building CI/CD pipelines with GitHub Actions, containerized deployments with Docker, infrastructure as code, and automated testing workflows for rapid delivery.',
   },
   {
     title: 'Frontend',
@@ -72,6 +77,7 @@ const skillCategories = [
       </svg>
     ),
     skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'HTML5', 'CSS3', 'JavaScript'],
+    backText: 'Building modern, performant UIs with React/Next.js, type-safe TypeScript, utility-first Tailwind CSS, and responsive design patterns across all breakpoints.',
   },
   {
     title: 'Backend',
@@ -81,6 +87,7 @@ const skillCategories = [
       </svg>
     ),
     skills: ['Node.js', 'Express', 'Python', 'REST APIs', 'Database Design', 'PostgreSQL', 'MongoDB'],
+    backText: 'RESTful API design with Node.js/Express, Python scripting, PostgreSQL/MongoDB database architecture, JWT auth, rate limiting, and structured logging.',
   },
   {
     title: 'Tools & Platforms',
@@ -90,6 +97,7 @@ const skillCategories = [
       </svg>
     ),
     skills: ['Cisco Packet Tracer', 'GNS3', 'Wireshark', 'Git', 'AWS Console', 'Render', 'Netlify'],
+    backText: 'Network simulation with Packet Tracer/GNS3, packet analysis with Wireshark, version control with Git, and deployment via AWS, Render, and Netlify.',
   },
 ]
 
@@ -103,39 +111,54 @@ export default function Skills() {
               <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
                 Skills &amp; Expertise
               </h2>
+              <p className="mt-3 text-sm text-muted-foreground font-mono">
+                Click a card to flip
+              </p>
             </div>
           </ScrollReveal>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {skillCategories.map((category, i) => (
-              <ScrollReveal
-                key={category.title}
-                direction="scale"
-                delay={0.1 + i * 0.06}
-                blur
-              >
-                <TiltCard tiltDegree={6} glare={false} className="relative p-5 bg-card rounded-xl border border-border card-depth overflow-hidden">
-                  <div
-                    className="absolute top-0 left-0 right-0 h-1 rounded-t-xl"
-                    style={{ backgroundColor: accentMap[i] }}
-                  />
-                  <div className="p-2 bg-muted rounded-lg w-fit mb-4">
-                    {category.icon}
+              <ScrollReveal key={category.title} direction="scale" delay={0.1 + i * 0.06} blur>
+                <FlipCard
+                  accentColor={accentMap[i]}
+                  backContent={
+                    <div
+                      className="relative p-5 rounded-xl border border-border card-depth overflow-hidden h-full flex flex-col justify-between"
+                      style={{
+                        background: `linear-gradient(135deg, color-mix(in srgb, ${accentMap[i]} 6%, var(--card)), var(--card))`,
+                      }}
+                    >
+                      <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
+                        style={{
+                          backgroundImage: `linear-gradient(${accentMap[i]} 1px, transparent 1px), linear-gradient(90deg, ${accentMap[i]} 1px, transparent 1px)`,
+                          backgroundSize: '20px 20px',
+                        }}
+                      />
+                      <div className="relative z-10">
+                        <p className="text-[10px] font-mono uppercase tracking-widest mb-3" style={{ color: accentMap[i] }}>
+                          {category.title}
+                        </p>
+                        <p className="text-xs text-muted-foreground leading-relaxed">
+                          {category.backText}
+                        </p>
+                      </div>
+                    </div>
+                  }
+                >
+                  <div className="relative p-5 bg-card rounded-xl border border-border card-depth overflow-hidden">
+                    <div className="absolute top-0 left-0 right-0 h-1 rounded-t-xl" style={{ backgroundColor: accentMap[i] }} />
+                    <div className="p-2 bg-muted rounded-lg w-fit mb-4">{category.icon}</div>
+                    <h3 className="font-semibold text-foreground mb-3">{category.title}</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map((skill) => (
+                        <span key={skill} className="px-2.5 py-1 bg-muted text-muted-foreground rounded-md text-xs font-mono">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                  <h3 className="font-semibold text-foreground mb-3">
-                    {category.title}
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {category.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="px-2.5 py-1 bg-muted text-muted-foreground rounded-md text-xs font-mono"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </TiltCard>
+                </FlipCard>
               </ScrollReveal>
             ))}
           </div>

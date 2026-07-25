@@ -4,24 +4,15 @@
 'use client'
 
 import AnimatedCounter from '@/components/AnimatedCounter'
-import TiltCard from '@/components/TiltCard'
+import FlipCard from '@/components/FlipCard'
 import ScrollReveal from '@/components/ScrollReveal'
 import ParallaxSection from '@/components/ParallaxSection'
 
 export default function About() {
   const highlights = [
-    {
-      title: 'Professional Focus',
-      desc: 'Enterprise IT, Network Security, Cloud Architecture',
-    },
-    {
-      title: 'Core Strengths',
-      desc: 'Problem Solving, System Design, Technical Leadership',
-    },
-    {
-      title: 'Current Focus',
-      desc: 'Cloud Security, DevOps, Scalable Web Applications',
-    },
+    { title: 'Professional Focus', desc: 'Enterprise IT, Network Security, Cloud Architecture' },
+    { title: 'Core Strengths', desc: 'Problem Solving, System Design, Technical Leadership' },
+    { title: 'Current Focus', desc: 'Cloud Security, DevOps, Scalable Web Applications' },
   ]
 
   const stats = [
@@ -71,12 +62,24 @@ export default function About() {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-10">
                 {stats.map((stat, i) => (
                   <ScrollReveal key={stat.label} direction="up" delay={0.3 + i * 0.08} blur>
-                    <TiltCard tiltDegree={5} glare={false} className="p-4 bg-card rounded-xl card-depth-sm">
-                      <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                      <div className="text-sm text-muted-foreground mt-1">
-                        {stat.label}
+                    <FlipCard
+                      accentColor="var(--accent)"
+                      backContent={
+                        <div className="p-4 bg-card rounded-xl card-depth-sm h-full flex items-center justify-center">
+                          <p className="text-xs text-muted-foreground text-center font-mono">
+                            {stat.label === 'Experience' && 'Over 5 years of hands-on IT infrastructure, security, and cloud management.'}
+                            {stat.label === 'Projects' && '50+ projects spanning networking labs, web apps, fintech, and enterprise systems.'}
+                            {stat.label === 'Certifications' && 'CCNA, CompTIA Network+, AWS Cloud, DevOps — all with distinction.'}
+                            {stat.label === 'Clients' && 'Served 30+ clients across enterprise, education, and freelance engagements.'}
+                          </p>
+                        </div>
+                      }
+                    >
+                      <div className="p-4 bg-card rounded-xl card-depth-sm">
+                        <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                        <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
                       </div>
-                    </TiltCard>
+                    </FlipCard>
                   </ScrollReveal>
                 ))}
               </div>
@@ -84,30 +87,63 @@ export default function About() {
 
             <div className="space-y-4">
               <ScrollReveal direction="right" delay={0.15} blur>
-                <div className="relative p-6 bg-card rounded-2xl border border-border card-depth-sm">
-                  <h4 className="text-lg font-semibold text-foreground mb-4">
-                    My Mission
-                  </h4>
-                  <p className="text-muted-foreground leading-relaxed">
-                    To leverage technology in solving complex business challenges
-                    while maintaining the highest standards of security and
-                    efficiency.
-                  </p>
-                </div>
+                <FlipCard
+                  accentColor="var(--primary)"
+                  backContent={
+                    <div className="relative p-6 bg-card rounded-2xl border border-border card-depth-sm h-full flex flex-col justify-center">
+                      <h4 className="text-lg font-semibold text-foreground mb-4">Core Values</h4>
+                      <ul className="space-y-2 text-sm text-muted-foreground">
+                        <li className="flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                          Security-first mindset in every solution
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                          Continuous learning and adaptation
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                          Clean, scalable, production-grade code
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                          Bridging infrastructure and development
+                        </li>
+                      </ul>
+                    </div>
+                  }
+                >
+                  <div className="relative p-6 bg-card rounded-2xl border border-border card-depth-sm">
+                    <h4 className="text-lg font-semibold text-foreground mb-4">My Mission</h4>
+                    <p className="text-muted-foreground leading-relaxed">
+                      To leverage technology in solving complex business challenges
+                      while maintaining the highest standards of security and efficiency.
+                    </p>
+                  </div>
+                </FlipCard>
               </ScrollReveal>
 
               {highlights.map((item, i) => (
                 <ScrollReveal key={item.title} direction="right" delay={0.25 + i * 0.1} blur>
-                  <TiltCard tiltDegree={4} glare={false} className="relative p-4 bg-card rounded-xl border border-border card-depth-sm">
-                    <div className="pl-1">
-                      <h4 className="font-medium text-foreground">
-                        {item.title}
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        {item.desc}
-                      </p>
+                  <FlipCard
+                    accentColor="var(--color-cyan-token)"
+                    backContent={
+                      <div className="relative p-4 bg-card rounded-xl border border-border card-depth-sm h-full flex items-center">
+                        <p className="text-xs text-muted-foreground font-mono">
+                          {item.title === 'Professional Focus' && 'Deep expertise in enterprise networking (CCNA), cloud architecture (AWS), and security operations across production environments.'}
+                          {item.title === 'Core Strengths' && 'Proven ability to architect complex systems, lead technical teams, and solve ambiguous problems under pressure.'}
+                          {item.title === 'Current Focus' && 'Building cloud-native, secure applications with DevOps practices. Exploring AI integration and zero-trust architectures.'}
+                        </p>
+                      </div>
+                    }
+                  >
+                    <div className="relative p-4 bg-card rounded-xl border border-border card-depth-sm">
+                      <div className="pl-1">
+                        <h4 className="font-medium text-foreground">{item.title}</h4>
+                        <p className="text-sm text-muted-foreground">{item.desc}</p>
+                      </div>
                     </div>
-                  </TiltCard>
+                  </FlipCard>
                 </ScrollReveal>
               ))}
             </div>
