@@ -84,11 +84,19 @@ export default function CertificateViewer({
             className="bg-muted rounded-xl overflow-hidden shadow-2xl border border-border"
           >
             {isPdf ? (
-              <iframe
-                src={downloadUrl}
+              <object
+                data={downloadUrl}
+                type="application/pdf"
                 className="w-full h-screen"
-                title={title}
-              />
+                aria-label={title}
+              >
+                <p className="p-8 text-center text-muted-foreground">
+                  Your browser does not support PDF embedding.
+                  <a href={downloadUrl} download className="block mt-2 text-accent underline">
+                    Download the certificate instead.
+                  </a>
+                </p>
+              </object>
             ) : imgError ? (
               <div className="flex flex-col items-center justify-center py-20 text-muted-foreground" role="alert">
                 <svg aria-hidden="true" className="w-16 h-16 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
