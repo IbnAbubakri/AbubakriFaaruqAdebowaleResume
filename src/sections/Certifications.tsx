@@ -3,6 +3,7 @@
 
 'use client'
 
+import Link from 'next/link'
 import FlipCard from '@/components/FlipCard'
 import ScrollReveal from '@/components/ScrollReveal'
 import ParallaxSection from '@/components/ParallaxSection'
@@ -95,8 +96,8 @@ export default function Certifications() {
                         <p className="text-xs text-muted-foreground leading-relaxed mb-4">
                           {cert.backText}
                         </p>
-                        <a
-                          href={`/#certifications`}
+                        <Link
+                          href={cert.certLink}
                           onClick={(e) => e.stopPropagation()}
                           className="inline-flex items-center gap-1.5 text-xs font-medium transition-colors"
                           style={{ color: cert.color }}
@@ -105,7 +106,7 @@ export default function Certifications() {
                           <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   }
