@@ -32,7 +32,7 @@ export default function About() {
   ]
 
   return (
-    <section id="about" className="py-24 bg-background relative noise-overlay">
+    <section id="about" className="py-24 bg-background relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-16 items-start">
           <motion.div
@@ -41,9 +41,6 @@ export default function About() {
             whileInView="animate"
             viewport={{ once: true }}
           >
-            <p className="text-sm font-medium text-accent uppercase tracking-[0.2em] mb-3 font-mono">
-              About Me
-            </p>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6 tracking-tight">
               IT Professional &amp; Vibecoder
             </h2>

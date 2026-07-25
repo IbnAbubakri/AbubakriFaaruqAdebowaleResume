@@ -30,14 +30,14 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://abubakrifaaruqadebowaleresume.onrender.com"),
+  metadataBase: new URL("https://abubakri-faaruq-adebowale-resume.vercel.app"),
   title: "Abubakri Faaruq Adebowale | IT Professional & Network Engineer",
   description: "Portfolio of Abubakri Faaruq Adebowale — IT Administrator, Network Engineer, Cybersecurity Specialist, and Cloud Engineer.",
   keywords: ["IT Professional", "Network Engineer", "Cybersecurity", "Cloud Engineer", "Portfolio", "Abubakri Faaruq"],
   openGraph: {
     title: "Abubakri Faaruq Adebowale | IT Professional & Network Engineer",
     description: "IT Administrator, Network Engineer, Cybersecurity Specialist, and Cloud Engineer.",
-    url: "https://abubakrifaaruqadebowaleresume.onrender.com",
+    url: "https://abubakri-faaruq-adebowale-resume.vercel.app",
     siteName: "Abubakri Faaruq Adebowale",
     locale: "en_US",
     type: "website",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     images: [{ url: "/profile.jpeg", width: 1200, height: 1200 }],
   },
   alternates: {
-    canonical: "https://abubakrifaaruqadebowaleresume.onrender.com",
+    canonical: "https://abubakri-faaruq-adebowale-resume.vercel.app",
   },
 };
 
@@ -60,7 +60,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -74,7 +74,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${archivo.variable} ${sora.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+      <body className={`${archivo.variable} ${sora.variable} ${jetbrainsMono.variable} font-sans antialiased`} suppressHydrationWarning>
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded focus:outline-none"

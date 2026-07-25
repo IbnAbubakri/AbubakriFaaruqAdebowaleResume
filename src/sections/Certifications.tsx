@@ -4,6 +4,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import TiltCard from '@/components/TiltCard'
 import { fadeInUp, staggerContainer, staggerItemLeft } from '@/lib/animations'
 
@@ -80,8 +81,8 @@ export default function Certifications() {
               <TiltCard tiltDegree={7} glare={true} className="relative p-5 bg-card rounded-xl border border-border card-depth">
               <div className="pl-1">
                 <div className="flex items-start justify-between mb-4">
-                  <div className="p-2 bg-cyan-500/10 dark:bg-cyan-500/20 rounded-lg">
-                    <svg aria-hidden="true" className="w-5 h-5 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="p-2 rounded-lg" style={{ backgroundColor: 'color-mix(in srgb, var(--color-cyan-token) 10%, transparent)' }}>
+                    <svg aria-hidden="true" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--color-cyan-token)' }}>
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
@@ -106,12 +107,12 @@ export default function Certifications() {
                   {cert.description}
                 </p>
                 {cert.certLink && (
-                  <a
+                  <Link
                     href={cert.certLink}
                     className="text-xs font-medium text-accent hover:text-accent/80 transition-colors"
                   >
                     View Certificate &rarr;
-                  </a>
+                  </Link>
                 )}
               </div>
               </TiltCard>

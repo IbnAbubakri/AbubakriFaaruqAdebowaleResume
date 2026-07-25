@@ -7,7 +7,7 @@ import CertificateViewer from '@/components/CertificateViewer'
 export const metadata: Metadata = {
   title: 'DevOps Certificate | Abubakri Faaruq Adebowale',
   description: 'DevOps professional certificate covering CI/CD, containerization, and infrastructure automation.',
-  alternates: { canonical: 'https://abubakrifaaruqadebowaleresume.onrender.com/certifications/devops' },
+  alternates: { canonical: 'https://abubakri-faaruq-adebowale-resume.vercel.app/certifications/devops' },
 }
 
 export default function DevOpsCertificate() {

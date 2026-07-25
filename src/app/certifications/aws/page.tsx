@@ -7,7 +7,7 @@ import CertificateViewer from '@/components/CertificateViewer'
 export const metadata: Metadata = {
   title: 'AWS Cloud Computing Certificate | Abubakri Faaruq Adebowale',
   description: 'Amazon Web Services Cloud Computing Certificate from ThinkCloudly covering cloud architecture, deployment, and management.',
-  alternates: { canonical: 'https://abubakrifaaruqadebowaleresume.onrender.com/certifications/aws' },
+  alternates: { canonical: 'https://abubakri-faaruq-adebowale-resume.vercel.app/certifications/aws' },
 }
 
 export default function AWSCertificate() {

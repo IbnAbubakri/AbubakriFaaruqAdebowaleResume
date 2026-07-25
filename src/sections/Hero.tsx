@@ -4,6 +4,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { scaleIn, heroStagger, heroItem } from '@/lib/animations'
 import FloatingElement from '@/components/FloatingElement'
@@ -38,7 +39,7 @@ export default function Hero() {
               IT Professional
             </motion.p>
 
-            <motion.h1 variants={heroItem} className="text-4xl sm:text-5xl md:text-7xl font-display font-bold text-foreground leading-[1.1] tracking-tight">
+            <motion.h1 variants={heroItem} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-foreground leading-[1.1] tracking-tight" style={{ textWrap: 'balance' }}>
               Abubakri{' '}
               <span className="text-accent">Faaruq</span>{' '}
               Adebowale
@@ -62,12 +63,12 @@ export default function Hero() {
             </motion.p>
 
             <motion.div variants={heroItem} className="flex flex-wrap justify-center md:justify-start gap-4 mt-8">
-              <a
+              <Link
                 href="/#contact"
                 className="px-6 py-3 bg-accent text-accent-foreground rounded-lg font-medium hover:opacity-90 active:scale-95 transition-[colors,transform] duration-200 cursor-pointer"
               >
                 Hire Me
-              </a>
+              </Link>
               <a
                 href="/abubakri-faaruq-adebowale-cv.pdf"
                 download
@@ -75,12 +76,12 @@ export default function Hero() {
               >
                 Download CV
               </a>
-              <a
+              <Link
                 href="/#projects"
                 className="px-6 py-3 text-muted-foreground font-medium hover:text-foreground active:scale-95 transition-[colors,transform] duration-200 cursor-pointer"
               >
                 View Projects &rarr;
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
 
@@ -95,11 +96,11 @@ export default function Hero() {
               <div className="absolute -inset-8 opacity-30 pointer-events-none">
                 <div className="network-node top-1/4 left-0 w-2 h-2 bg-accent node-pulse" style={{ animationDelay: '0s' }} />
                 <div className="network-node top-3/4 left-[10%] w-1.5 h-1.5 bg-primary node-pulse" style={{ animationDelay: '0.5s' }} />
-                <div className="network-node top-1/2 right-0 w-2 h-2 bg-cyan-500 node-pulse" style={{ animationDelay: '1s' }} />
-                <div className="network-node top-1/5 right-[15%] w-1.5 h-1.5 bg-emerald-500 node-pulse" style={{ animationDelay: '1.5s' }} />
+                <div className="network-node top-1/2 right-0 w-2 h-2 node-pulse" style={{ animationDelay: '1s', backgroundColor: 'var(--color-cyan-token)' }} />
+                <div className="network-node top-1/5 right-[15%] w-1.5 h-1.5 node-pulse" style={{ animationDelay: '1.5s', backgroundColor: 'var(--color-emerald-token)' }} />
                 <div className="network-line top-1/4 left-0 right-[60%] h-px bg-gradient-to-r from-accent/40 to-transparent data-flow-bar" style={{ animationDelay: '0.2s' }} />
                 <div className="network-line top-3/4 left-[10%] right-0 h-px bg-gradient-to-l from-primary/40 to-transparent data-flow-bar" style={{ animationDelay: '0.7s' }} />
-                <div className="network-line top-1/2 left-[30%] right-0 h-px bg-gradient-to-l from-cyan-500/40 to-transparent data-flow-bar" style={{ animationDelay: '1.2s' }} />
+                <div className="network-line top-1/2 left-[30%] right-0 h-px bg-gradient-to-l to-transparent data-flow-bar" style={{ animationDelay: '1.2s', backgroundImage: 'linear-gradient(to left, color-mix(in srgb, var(--color-cyan-token) 40%, transparent), transparent)' }} />
               </div>
               <div className="absolute inset-0 rounded-2xl ring-1 ring-accent/20 z-10 pointer-events-none" />
               <div className="absolute inset-0 bg-gradient-to-tr from-accent/10 via-transparent to-transparent z-10 pointer-events-none" />

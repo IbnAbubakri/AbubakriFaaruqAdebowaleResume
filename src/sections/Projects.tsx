@@ -10,14 +10,14 @@ import { fadeInUp, staggerContainer, staggerItemRight } from '@/lib/animations'
 const projects = [
   {
     title: 'BillXpress — Fintech Dashboard',
-    description: 'A full-stack fintech platform for bill payments, airtime/data purchases, wallet management, and transaction tracking. Features secure auth with JWT rotation, MFA, CSRF protection, account lockout, and real-time balance updates. Demo: demo@billxpress.com / DemoXy7!kqmn92 | Admin: admin@billxpress.com / Admin@123Xpress',
+    description: 'A full-stack fintech platform for bill payments, airtime/data purchases, wallet management, and transaction tracking. Features secure auth with JWT rotation, MFA, CSRF protection, account lockout, and real-time balance updates.',
     techStack: ['React', 'Node.js', 'Express', 'Tailwind CSS', 'JWT', 'MFA/TOTP', 'Vercel'],
     liveDemo: 'https://billxpress1.vercel.app/',
     github: 'https://github.com/IbnAbubakri/billxpress',
   },
   {
     title: 'Vault — Secure Login System',
-    description: 'A production-grade secure authentication system with React frontend and Node.js/Express backend. Features JWT rotation, MFA (TOTP), CSRF protection, rate limiting, account lockout, email verification, password reset, session management, and structured logging. Demo: demo@vault.dev / VaultXy7!kqmn92',
+    description: 'A production-grade secure authentication system with React frontend and Node.js/Express backend. Features JWT rotation, MFA (TOTP), CSRF protection, rate limiting, account lockout, email verification, password reset, session management, and structured logging.',
     techStack: ['React', 'Node.js', 'Express', 'JWT', 'MFA/TOTP', 'CSRF'],
     liveDemo: 'https://secure-login-system-f4os.onrender.com/',
     github: 'https://github.com/IbnAbubakri/secure-login-system.git',
@@ -55,9 +55,6 @@ export default function Projects() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-accent uppercase tracking-[0.2em] mb-3 font-mono">
-            Portfolio
-          </p>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
             Projects
           </h2>

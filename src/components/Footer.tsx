@@ -1,6 +1,8 @@
 // © 2026 Abubakri Faaruq Adebowale (IbnAbubakri). All rights reserved.
 // Faruqsuzay@gmail.com | +2349061345507
 
+import Link from 'next/link'
+
 export default function Footer() {
   const year = new Date().getFullYear()
 
@@ -20,13 +22,13 @@ export default function Footer() {
             <h4 className="text-sm font-semibold text-foreground mb-4">Quick Links</h4>
             <div className="space-y-2">
               {['Certifications', 'Experience', 'Education', 'Contact'].map((link) => (
-                <a
+                <Link
                   key={link}
                   href={`/#${link.toLowerCase()}`}
-                  className="block text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+                  className="block py-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                 >
                   {link}
-                </a>
+                </Link>
               ))}
             </div>
           </div>

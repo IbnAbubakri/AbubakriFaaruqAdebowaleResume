@@ -87,7 +87,7 @@ export default function Achievements() {
           viewport={{ once: true }}
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"
         >
-          {achievements.map((achievement, i) => (
+          {achievements.map((achievement) => (
             <motion.div
               key={achievement.title}
               variants={staggerItemScale}

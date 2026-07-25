@@ -3,8 +3,8 @@
 
 'use client'
 
-import { useRef, useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { useRef, useState, useEffect, useCallback } from 'react'
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 
 interface TiltCardProps {
   children: React.ReactNode
@@ -13,41 +13,55 @@ interface TiltCardProps {
   glare?: boolean
 }
 
+const springConfig = { stiffness: 200, damping: 20 }
+
 export default function TiltCard({ children, className, tiltDegree = 8, glare = true }: TiltCardProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const [rotateX, setRotateX] = useState(0)
-  const [rotateY, setRotateY] = useState(0)
-  const [glareX, setGlareX] = useState(50)
-  const [glareY, setGlareY] = useState(50)
-  const [isHovered, setIsHovered] = useState(false)
   const [isTouchDevice, setIsTouchDevice] = useState(false)
 
+  const rawRotateX = useMotionValue(0)
+  const rawRotateY = useMotionValue(0)
+  const rotateX = useSpring(rawRotateX, springConfig)
+  const rotateY = useSpring(rawRotateY, springConfig)
+
+  const glareXPct = useMotionValue(50)
+  const glareYPct = useMotionValue(50)
+  const glareOpacity = useMotionValue(0)
+
+  const glareBg = useTransform(
+    [glareXPct, glareYPct],
+    ([x, y]) => `radial-gradient(circle at ${x}% ${y}%, white 0%, transparent 60%)`
+  )
+
   useEffect(() => {
-    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0)
+    if (typeof window !== 'undefined') {
+      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0)
+    }
   }, [])
 
-  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (!ref.current || isTouchDevice) return
     const rect = ref.current.getBoundingClientRect()
     const x = (e.clientX - rect.left) / rect.width
     const y = (e.clientY - rect.top) / rect.height
-    setRotateX((y - 0.5) * -tiltDegree)
-    setRotateY((x - 0.5) * tiltDegree)
-    setGlareX(x * 100)
-    setGlareY(y * 100)
-  }
+    rawRotateX.set((y - 0.5) * -tiltDegree)
+    rawRotateY.set((x - 0.5) * tiltDegree)
+    glareXPct.set(x * 100)
+    glareYPct.set(y * 100)
+    glareOpacity.set(0.15)
+  }, [isTouchDevice, tiltDegree, rawRotateX, rawRotateY, glareXPct, glareYPct, glareOpacity])
 
-  function handleMouseEnter() {
-    if (!isTouchDevice) setIsHovered(true)
-  }
+  const handleMouseEnter = useCallback(() => {
+    if (!isTouchDevice) glareOpacity.set(0.15)
+  }, [isTouchDevice, glareOpacity])
 
-  function handleMouseLeave() {
-    setRotateX(0)
-    setRotateY(0)
-    setGlareX(50)
-    setGlareY(50)
-    setIsHovered(false)
-  }
+  const handleMouseLeave = useCallback(() => {
+    rawRotateX.set(0)
+    rawRotateY.set(0)
+    glareXPct.set(50)
+    glareYPct.set(50)
+    glareOpacity.set(0)
+  }, [rawRotateX, rawRotateY, glareXPct, glareYPct, glareOpacity])
 
   return (
     <motion.div
@@ -55,20 +69,13 @@ export default function TiltCard({ children, className, tiltDegree = 8, glare = 
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      style={{ perspective: 1200 }}
-      animate={isTouchDevice ? {} : { rotateX, rotateY }}
-      transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+      style={{ perspective: 1200, rotateX, rotateY }}
       className={`relative ${className ?? ''}`}
     >
       {children}
       {glare && !isTouchDevice && (
         <motion.div
-          initial={false}
-          animate={{
-            opacity: isHovered ? 0.15 : 0,
-            background: `radial-gradient(circle at ${glareX}% ${glareY}%, white 0%, transparent 60%)`,
-          }}
-          transition={{ duration: 0.2 }}
+          style={{ opacity: glareOpacity, background: glareBg }}
           className="absolute inset-0 rounded-[inherit] pointer-events-none z-10"
         />
       )}

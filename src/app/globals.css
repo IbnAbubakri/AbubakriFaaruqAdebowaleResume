@@ -1,5 +1,5 @@
-// © 2026 Abubakri Faaruq Adebowale (IbnAbubakri). All rights reserved.
-// Faruqsuzay@gmail.com | +2349061345507
+/* © 2026 Abubakri Faaruq Adebowale (IbnAbubakri). All rights reserved.
+   Faruqsuzay@gmail.com | +2349061345507 */
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -49,6 +49,9 @@
   --color-surface-800: #1e293b;
   --color-surface-900: #0f172a;
   --color-surface-950: #020617;
+
+  --color-cyan-token: #0891b2;
+  --color-emerald-token: #059669;
 }
 
 @layer base {
@@ -116,6 +119,8 @@
   --chart-3: #06b6d4;
   --chart-4: #10b981;
   --chart-5: #8b5cf6;
+  --color-cyan-token: #22d3ee;
+  --color-emerald-token: #34d399;
 }
 
 .hero-gradient {
@@ -220,7 +225,7 @@
 }
 
 .card-depth {
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: translate 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
 }
 .card-depth:hover {
@@ -234,7 +239,7 @@
 }
 
 .card-depth-sm {
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: translate 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
 }
 .card-depth-sm:hover {

@@ -54,15 +54,15 @@ export default function Education() {
             viewport={{ once: true }}
             className="grid md:grid-cols-3 gap-6"
           >
-            {education.map((edu, i) => (
+            {education.map((edu) => (
               <motion.div
                 key={edu.degree}
                 variants={staggerItem}
               >
                 <TiltCard tiltDegree={6} glare={false} className="relative p-6 bg-card rounded-xl border border-border card-depth">
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-cyan-500/20 border-2 border-cyan-500/40 z-10 signal-dot hidden md:block" />
-                <div className="p-2 bg-cyan-500/10 dark:bg-cyan-500/20 rounded-lg w-fit mb-4">
-                  <svg aria-hidden="true" className="w-5 h-5 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full z-10 signal-dot hidden md:block" style={{ backgroundColor: 'color-mix(in srgb, var(--color-cyan-token) 20%, transparent)', borderColor: 'color-mix(in srgb, var(--color-cyan-token) 40%, transparent)', borderWidth: 2 }} />
+                <div className="p-2 rounded-lg w-fit mb-4" style={{ backgroundColor: 'color-mix(in srgb, var(--color-cyan-token) 10%, transparent)' }}>
+                  <svg aria-hidden="true" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--color-cyan-token)' }}>
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
                   </svg>

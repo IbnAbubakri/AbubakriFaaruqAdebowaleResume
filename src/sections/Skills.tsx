@@ -10,11 +10,11 @@ import { fadeInUp, staggerContainer, staggerItemScale } from '@/lib/animations'
 const accentMap = [
   'var(--accent)',
   'var(--primary)',
-  '#06b6d4',
-  '#10b981',
+  'var(--color-cyan-token)',
+  'var(--color-emerald-token)',
   'var(--accent)',
   'var(--primary)',
-  '#06b6d4',
+  'var(--color-cyan-token)',
   'var(--muted-foreground)',
 ]
 

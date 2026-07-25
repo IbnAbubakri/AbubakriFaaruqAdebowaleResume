@@ -8,7 +8,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { toast } from 'sonner'
 import { motion } from 'framer-motion'
-import ParallaxLayer from '@/components/ParallaxLayer'
 import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -18,6 +17,7 @@ const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Please enter a valid email address'),
   message: z.string().min(10, 'Message must be at least 10 characters'),
+  website: z.string().max(0).optional(), // honeypot
 })
 
 type ContactData = z.infer<typeof contactSchema>
@@ -57,7 +57,7 @@ export default function Contact() {
 
   async function onSubmit(data: ContactData) {
     try {
-      const res = await fetch('https://formspree.io/f/xjkyqobw', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -71,10 +71,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-background relative section-amber noise-overlay">
-      <ParallaxLayer speed={0.2} className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 50%, rgba(245,158,11,0.06) 0%, transparent 60%)' }} />
-      </ParallaxLayer>
+    <section id="contact" className="py-24 bg-background relative section-amber">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial="initial"
@@ -83,9 +80,6 @@ export default function Contact() {
           variants={fadeInUp}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-accent uppercase tracking-[0.2em] mb-3 font-mono">
-            Contact
-          </p>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
             Get In Touch
           </h2>
@@ -182,6 +176,10 @@ export default function Contact() {
                 <div aria-live="polite" aria-atomic="true" className="sr-only">
                   {isSubmitting ? 'Sending your message...' : ''}
                 </div>
+              </div>
+              <div className="absolute left-[-9999px]" aria-hidden="true">
+                <label htmlFor="website">Leave this blank</label>
+                <input id="website" type="text" tabIndex={-1} autoComplete="off" {...register('website')} />
               </div>
             </form>
           </motion.div>

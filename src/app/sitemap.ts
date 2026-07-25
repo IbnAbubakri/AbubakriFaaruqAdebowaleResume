@@ -6,7 +6,7 @@ import { MetadataRoute } from 'next'
 export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = 'https://abubakrifaaruqadebowaleresume.onrender.com'
+  const base = 'https://abubakri-faaruq-adebowale-resume.vercel.app'
 
   return [
     { url: base, lastModified: new Date(), changeFrequency: 'monthly', priority: 1.0 },

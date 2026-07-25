@@ -3,7 +3,8 @@
 
 'use client'
 
-import { motion } from 'framer-motion'
+import { useRef, useState, useEffect } from 'react'
+import { motion, useInView } from 'framer-motion'
 
 interface FloatingElementProps {
   children: React.ReactNode
@@ -14,12 +15,16 @@ interface FloatingElementProps {
 }
 
 export default function FloatingElement({ children, amplitude = 12, duration = 4, rotate = 1.5, className }: FloatingElementProps) {
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { margin: '100px' })
+
   return (
     <motion.div
-      animate={{
+      ref={ref}
+      animate={isInView ? {
         y: [0, -amplitude, 0],
         rotate: [0, -rotate, 0, rotate, 0],
-      }}
+      } : { y: 0, rotate: 0 }}
       transition={{
         duration,
         repeat: Infinity,
