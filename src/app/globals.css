@@ -152,15 +152,6 @@
     radial-gradient(ellipse 70% 50% at 100% 50%, rgba(6,182,212,0.06) 0%, transparent 60%);
 }
 
-.section-blue {
-  background:
-    radial-gradient(ellipse 70% 50% at 0% 50%, rgba(59,130,246,0.04) 0%, transparent 60%);
-}
-.dark .section-blue {
-  background:
-    radial-gradient(ellipse 70% 50% at 0% 50%, rgba(59,130,246,0.06) 0%, transparent 60%);
-}
-
 .scan-lines {
   background-image: repeating-linear-gradient(
     0deg,
@@ -226,7 +217,6 @@
 
 .card-depth {
   transition: translate 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
 }
 .card-depth:hover {
   translate: 0 -2px;
@@ -240,7 +230,6 @@
 
 .card-depth-sm {
   transition: translate 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
 }
 .card-depth-sm:hover {
   translate: 0 -1px;
@@ -311,4 +300,5 @@
   html { scroll-behavior: auto; }
   .card-depth:hover { translate: none; }
   .card-depth-sm:hover { translate: none; }
+  .flip-card-interactive { transition: none !important; }
 }

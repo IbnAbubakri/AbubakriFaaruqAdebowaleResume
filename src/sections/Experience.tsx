@@ -80,7 +80,7 @@ export default function Experience() {
                     accentColor={exp.color}
                     backContent={
                       <div
-                        className="relative p-5 rounded-xl border border-border card-depth overflow-hidden"
+                        className="relative p-5 rounded-xl border border-border overflow-hidden"
                         style={{
                           background: `linear-gradient(135deg, color-mix(in srgb, ${exp.color} 6%, var(--card)), var(--card))`,
                         }}
@@ -117,7 +117,7 @@ export default function Experience() {
                       </div>
                     }
                   >
-                    <div className="p-5 bg-card rounded-xl border border-border card-depth overflow-hidden">
+                    <div className="p-5 bg-card rounded-xl border border-border overflow-hidden">
                       <div className="absolute top-0 left-0 right-0 h-1 rounded-t-xl" style={{ backgroundColor: exp.color }} />
                       <div className="pl-1 pt-1">
                         <div className="flex flex-wrap items-baseline gap-2 mb-1">

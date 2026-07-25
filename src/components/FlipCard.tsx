@@ -80,18 +80,30 @@ export default function FlipCard({
     glareOpacity.set(0)
   }, [rawRotateX, rawRotateY, rawScale, glareXPct, glareYPct, glareOpacity])
 
-  const handleClick = useCallback(() => {
+  const handleClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target instanceof HTMLElement && e.target.closest('a, button')) return
     setIsFlipped((prev) => !prev)
+  }, [])
+
+  const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      setIsFlipped((prev) => !prev)
+    }
   }, [])
 
   return (
     <div
       ref={ref}
+      role="button"
+      tabIndex={0}
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
+      onKeyDown={handleKeyDown}
       style={{ perspective: 1400 }}
+      aria-label={isFlipped ? 'Flip card back to front' : 'Flip card to reveal more details'}
       className={`relative cursor-pointer ${className}`}
     >
       <motion.div

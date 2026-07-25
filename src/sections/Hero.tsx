@@ -8,7 +8,8 @@ import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import FloatingElement from '@/components/FloatingElement'
-import ParallaxLayer from '@/components/ParallaxLayer'
+import useMediaQuery from '@/hooks/useMediaQuery'
+
 import ScrollReveal from '@/components/ScrollReveal'
 
 const titles = [
@@ -21,14 +22,16 @@ const titles = [
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null)
+  const isMobile = useMediaQuery('(max-width: 768px)')
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start start', 'end start'],
   })
 
-  const bgY = useTransform(scrollYProgress, [0, 1], [0, 200])
-  const textY = useTransform(scrollYProgress, [0, 1], [0, 120])
-  const imageY = useTransform(scrollYProgress, [0, 1], [0, 80])
+  const parallaxFactor = isMobile ? 0.3 : 1
+  const bgY = useTransform(scrollYProgress, [0, 1], [0, 200 * parallaxFactor])
+  const textY = useTransform(scrollYProgress, [0, 1], [0, 120 * parallaxFactor])
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, 80 * parallaxFactor])
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95])
 
@@ -57,7 +60,7 @@ export default function Hero() {
 
             <ScrollReveal direction="up" delay={0.2} blur>
               <h1
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-foreground leading-[1.1] tracking-tight"
+                className="text-[clamp(1.75rem,5vw,4.5rem)] font-display font-bold text-foreground leading-[1.1] tracking-tight"
                 style={{ textWrap: 'balance' }}
               >
                 Abubakri{' '}
@@ -87,7 +90,7 @@ export default function Hero() {
             </ScrollReveal>
 
             <ScrollReveal direction="up" delay={0.45} blur>
-              <p className="mt-6 text-lg text-muted-foreground max-w-2xl leading-relaxed">
+              <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
                 Dedicated IT professional with expertise in network engineering,
                 cybersecurity, cloud computing, and software development. Passionate
                 about building secure, scalable solutions for enterprise environments.

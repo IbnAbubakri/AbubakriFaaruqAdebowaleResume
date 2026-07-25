@@ -99,7 +99,7 @@ export default function Achievements() {
                   accentColor={achievement.color}
                   backContent={
                     <div
-                      className="relative p-5 rounded-xl border border-border card-depth h-full flex flex-col justify-center overflow-hidden"
+                      className="relative p-5 rounded-xl border border-border h-full flex flex-col justify-center overflow-hidden"
                       style={{
                         background: `linear-gradient(135deg, color-mix(in srgb, ${achievement.color} 6%, var(--card)), var(--card))`,
                       }}
@@ -121,7 +121,7 @@ export default function Achievements() {
                     </div>
                   }
                 >
-                  <div className="relative p-5 bg-card rounded-xl border border-border card-depth overflow-hidden">
+                  <div className="relative p-5 bg-card rounded-xl border border-border overflow-hidden">
                     <div className="absolute top-0 left-0 right-0 h-1 rounded-t-xl" style={{ backgroundColor: achievement.color }} />
                     <div className="pl-1 pt-2">
                       <div className={`p-2 bg-accent/10 dark:bg-accent/20 rounded-lg w-fit mb-4 text-accent`}>

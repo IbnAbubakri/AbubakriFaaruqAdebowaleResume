@@ -60,7 +60,7 @@ export default function Education() {
                     accentColor={edu.color}
                     backContent={
                       <div
-                        className="relative p-6 rounded-xl border border-border card-depth h-full flex flex-col justify-center overflow-hidden"
+                        className="relative p-6 rounded-xl border border-border h-full flex flex-col justify-center overflow-hidden"
                         style={{
                           background: `linear-gradient(135deg, color-mix(in srgb, ${edu.color} 6%, var(--card)), var(--card))`,
                         }}
@@ -82,7 +82,7 @@ export default function Education() {
                       </div>
                     }
                   >
-                    <div className="relative p-6 bg-card rounded-xl border border-border card-depth overflow-hidden">
+                    <div className="relative p-6 bg-card rounded-xl border border-border overflow-hidden">
                       <div className="absolute top-0 left-0 right-0 h-1 rounded-t-xl" style={{ backgroundColor: edu.color }} />
                       <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full z-10 signal-dot hidden md:block" style={{ backgroundColor: `color-mix(in srgb, ${edu.color} 20%, transparent)`, borderColor: `color-mix(in srgb, ${edu.color} 40%, transparent)`, borderWidth: 2 }} />
                       <div className="p-2 rounded-lg w-fit mb-4 mt-2" style={{ backgroundColor: `color-mix(in srgb, ${edu.color} 10%, transparent)` }}>

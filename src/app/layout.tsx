@@ -41,16 +41,20 @@ export const metadata: Metadata = {
     siteName: "Abubakri Faaruq Adebowale",
     locale: "en_US",
     type: "website",
-    images: [{ url: "/profile.jpeg", width: 1200, height: 1200 }],
+    images: [{ url: "https://abubakri-faaruq-adebowale-resume.vercel.app/profile.jpeg", width: 1200, height: 1200 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Abubakri Faaruq Adebowale | IT Professional & Network Engineer",
     description: "IT Administrator, Network Engineer, Cybersecurity Specialist, and Cloud Engineer.",
-    images: [{ url: "/profile.jpeg", width: 1200, height: 1200 }],
+    images: [{ url: "https://abubakri-faaruq-adebowale-resume.vercel.app/profile.jpeg", width: 1200, height: 1200 }],
   },
   alternates: {
     canonical: "https://abubakri-faaruq-adebowale-resume.vercel.app",
+  },
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/apple-touch-icon.png",
   },
 };
 
@@ -71,6 +75,59 @@ export default function RootLayout({
                 if (t === 'dark') document.documentElement.classList.add('dark');
               } catch(e) {}
             `,
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Abubakri Faaruq Adebowale",
+              jobTitle: "IT Administrator & Network Engineer",
+              url: "https://abubakri-faaruq-adebowale-resume.vercel.app",
+              image: "https://abubakri-faaruq-adebowale-resume.vercel.app/profile.jpeg",
+              email: "Faruqsuzay@gmail.com",
+              telephone: "+2349061345507",
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "NG",
+              },
+              sameAs: [
+                "https://github.com/IbnAbubakri",
+              ],
+              knowsAbout: [
+                "Network Engineering",
+                "Cybersecurity",
+                "Cloud Computing",
+                "AWS",
+                "DevOps",
+                "Linux Administration",
+                "Python",
+                "React",
+                "Next.js",
+              ],
+              alumniOf: {
+                "@type": "EducationalOrganization",
+                name: "HIIT Plc",
+              },
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Abubakri Faaruq Adebowale | IT Professional & Network Engineer",
+              url: "https://abubakri-faaruq-adebowale-resume.vercel.app",
+              description: "Portfolio of Abubakri Faaruq Adebowale — IT Administrator, Network Engineer, Cybersecurity Specialist, and Cloud Engineer.",
+              author: {
+                "@type": "Person",
+                name: "Abubakri Faaruq Adebowale",
+              },
+            }),
           }}
         />
       </head>

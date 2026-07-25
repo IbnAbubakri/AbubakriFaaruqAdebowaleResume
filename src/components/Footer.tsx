@@ -32,7 +32,7 @@ export default function Footer() {
                   <Link
                     key={link}
                     href={`/#${link.toLowerCase()}`}
-                    className="block py-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+                    className="block py-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                   >
                     {link}
                   </Link>

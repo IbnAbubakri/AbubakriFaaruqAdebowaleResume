@@ -124,7 +124,7 @@ export default function Skills() {
                   accentColor={accentMap[i]}
                   backContent={
                     <div
-                      className="relative p-5 rounded-xl border border-border card-depth overflow-hidden h-full flex flex-col justify-between"
+                      className="relative p-5 rounded-xl border border-border overflow-hidden h-full flex flex-col justify-between"
                       style={{
                         background: `linear-gradient(135deg, color-mix(in srgb, ${accentMap[i]} 6%, var(--card)), var(--card))`,
                       }}
@@ -146,7 +146,7 @@ export default function Skills() {
                     </div>
                   }
                 >
-                  <div className="relative p-5 bg-card rounded-xl border border-border card-depth overflow-hidden">
+                  <div className="relative p-5 bg-card rounded-xl border border-border overflow-hidden">
                     <div className="absolute top-0 left-0 right-0 h-1 rounded-t-xl" style={{ backgroundColor: accentMap[i] }} />
                     <div className="p-2 bg-muted rounded-lg w-fit mb-4">{category.icon}</div>
                     <h3 className="font-semibold text-foreground mb-3">{category.title}</h3>

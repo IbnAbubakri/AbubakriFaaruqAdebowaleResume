@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     { url: base, lastModified: new Date(), changeFrequency: 'monthly', priority: 1.0 },
+    { url: `${base}/video-resume`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${base}/certifications/ccna`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.5 },
     { url: `${base}/certifications/devops`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.5 },
     { url: `${base}/certifications/network-plus`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.5 },

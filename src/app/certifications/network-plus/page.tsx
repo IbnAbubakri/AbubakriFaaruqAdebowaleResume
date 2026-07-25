@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: 'CompTIA Network+ Certificate | Abubakri Faaruq Adebowale',
   description: 'CompTIA Network+ certification covering networking concepts, infrastructure, and troubleshooting.',
   alternates: { canonical: 'https://abubakri-faaruq-adebowale-resume.vercel.app/certifications/network-plus' },
+  openGraph: {
+    title: 'CompTIA Network+ Certificate | Abubakri Faaruq Adebowale',
+    description: 'CompTIA Network+ certification covering networking concepts, infrastructure, and troubleshooting.',
+    images: [{ url: 'https://abubakri-faaruq-adebowale-resume.vercel.app/profile.jpeg', width: 1200, height: 1200 }],
+  },
 }
 
 export default function NetworkPlusCertificate() {

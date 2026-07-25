@@ -61,9 +61,6 @@ export default function Certifications() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <ScrollReveal direction="up" blur delay={0.1}>
             <div className="text-center mb-16">
-              <p className="text-sm font-medium text-accent uppercase tracking-[0.2em] mb-3 font-mono">
-                Credentials
-              </p>
               <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
                 Certifications
               </h2>
@@ -80,7 +77,7 @@ export default function Certifications() {
                   accentColor={cert.color}
                   backContent={
                     <div
-                      className="relative p-5 rounded-xl border border-border card-depth h-full flex flex-col justify-between overflow-hidden"
+                      className="relative p-5 rounded-xl border border-border h-full flex flex-col justify-between overflow-hidden"
                       style={{
                         background: `linear-gradient(135deg, color-mix(in srgb, ${cert.color} 6%, var(--card)), var(--card))`,
                       }}
@@ -113,7 +110,7 @@ export default function Certifications() {
                     </div>
                   }
                 >
-                  <div className="relative p-5 bg-card rounded-xl border border-border card-depth overflow-hidden">
+                  <div className="relative p-5 bg-card rounded-xl border border-border overflow-hidden">
                     <div className="absolute top-0 left-0 right-0 h-1 rounded-t-xl" style={{ backgroundColor: cert.color }} />
                     <div className="pl-1 pt-2">
                       <div className="flex items-start justify-between mb-4">
@@ -128,7 +125,7 @@ export default function Certifications() {
                           </span>
                         )}
                       </div>
-                      <h3 className="font-semibold text-foreground mb-1 text-sm">{cert.title}</h3>
+                      <h3 className="font-semibold text-foreground mb-1 text-sm line-clamp-2">{cert.title}</h3>
                       <p className="text-xs mb-1" style={{ color: cert.color }}>{cert.issuer} &bull; {cert.date}</p>
                       {cert.trainingProvider && (
                         <p className="text-xs text-muted-foreground mb-2">Trained at: {cert.trainingProvider}</p>

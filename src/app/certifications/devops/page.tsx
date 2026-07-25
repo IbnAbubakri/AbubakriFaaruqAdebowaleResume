@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: 'DevOps Certificate | Abubakri Faaruq Adebowale',
   description: 'DevOps professional certificate covering CI/CD, containerization, and infrastructure automation.',
   alternates: { canonical: 'https://abubakri-faaruq-adebowale-resume.vercel.app/certifications/devops' },
+  openGraph: {
+    title: 'DevOps Certificate | Abubakri Faaruq Adebowale',
+    description: 'DevOps professional certificate covering CI/CD, containerization, and infrastructure automation.',
+    images: [{ url: 'https://abubakri-faaruq-adebowale-resume.vercel.app/profile.jpeg', width: 1200, height: 1200 }],
+  },
 }
 
 export default function DevOpsCertificate() {

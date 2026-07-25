@@ -18,6 +18,14 @@ export const metadata: Metadata = {
       "Professional video resume showcasing skills in networking, cybersecurity, cloud computing, and software development.",
     url: "https://abubakri-faaruq-adebowale-resume.vercel.app/video-resume",
     type: "website",
+    images: [{ url: "https://abubakri-faaruq-adebowale-resume.vercel.app/profile.jpeg", width: 1200, height: 1200 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Video Resume | Abubakri Faaruq Adebowale",
+    description:
+      "Professional video resume showcasing skills in networking, cybersecurity, cloud computing, and software development.",
+    images: [{ url: "https://abubakri-faaruq-adebowale-resume.vercel.app/profile.jpeg", width: 1200, height: 1200 }],
   },
 };
 
@@ -51,9 +59,6 @@ export default function VideoResumePage() {
         </Link>
 
         <div className="text-center mb-12">
-          <p className="text-sm font-medium text-accent uppercase tracking-[0.2em] mb-3 font-mono">
-            Presentation
-          </p>
           <h1 className="text-3xl md:text-5xl font-display font-bold text-foreground tracking-tight">
             Video Resume
           </h1>
@@ -65,19 +70,12 @@ export default function VideoResumePage() {
 
         <VideoResumePlayer />
 
-        <div className="mt-12 grid sm:grid-cols-3 gap-4">
-          <div className="p-5 bg-card rounded-xl border border-border card-depth text-center">
-            <div className="text-2xl font-bold text-accent mb-1">35s</div>
-            <div className="text-sm text-muted-foreground">Duration</div>
-          </div>
-          <div className="p-5 bg-card rounded-xl border border-border card-depth text-center">
-            <div className="text-2xl font-bold text-accent mb-1">1080p</div>
-            <div className="text-sm text-muted-foreground">Resolution</div>
-          </div>
-          <div className="p-5 bg-card rounded-xl border border-border card-depth text-center">
-            <div className="text-2xl font-bold text-accent mb-1">9</div>
-            <div className="text-sm text-muted-foreground">Scenes</div>
-          </div>
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-8 text-sm text-muted-foreground font-mono">
+          <span><strong className="text-accent font-semibold">35s</strong> duration</span>
+          <span className="text-border hidden sm:inline">/</span>
+          <span><strong className="text-accent font-semibold">1080p</strong> resolution</span>
+          <span className="text-border hidden sm:inline">/</span>
+          <span><strong className="text-accent font-semibold">9</strong> scenes</span>
         </div>
 
         <div className="mt-10 text-center">

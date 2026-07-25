@@ -85,7 +85,7 @@ export default function Contact() {
             </div>
           </ScrollReveal>
 
-          <div className="grid lg:grid-cols-5 gap-8 max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-5 gap-6 lg:gap-8 max-w-5xl mx-auto">
             <ScrollReveal direction="left" delay={0.15} blur className="lg:col-span-3">
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
                 <div>

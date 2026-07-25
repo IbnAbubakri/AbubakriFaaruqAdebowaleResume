@@ -52,7 +52,7 @@ const projects = [
 
 function ProjectFront({ project, index }: { project: typeof projects[number]; index: number }) {
   return (
-    <div className="relative p-6 bg-card rounded-xl border border-border card-depth overflow-hidden">
+    <div className="relative p-6 bg-card rounded-xl border border-border overflow-hidden">
       {/* Top accent stripe */}
       <div
         className="absolute top-0 left-0 right-0 h-1 rounded-t-xl"

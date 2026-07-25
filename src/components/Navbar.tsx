@@ -102,6 +102,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
+                aria-current={activeSection === item.id ? 'true' : undefined}
                 className={`text-sm transition-colors cursor-pointer ${
                   activeSection === item.id
                     ? 'text-accent font-medium'
