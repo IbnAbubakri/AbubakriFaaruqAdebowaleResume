@@ -47,7 +47,7 @@ const certifications = [
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="py-24 bg-surface-50 dark:bg-surface-900 relative noise-overlay">
+    <section id="certifications" className="py-24 bg-background relative noise-overlay">
       <div className="absolute inset-0 scan-lines-heavy pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -60,7 +60,7 @@ export default function Certifications() {
           <p className="text-sm font-medium text-accent uppercase tracking-[0.2em] mb-3 font-mono">
             Credentials
           </p>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-surface-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
             Certifications
           </h2>
         </motion.div>
@@ -77,9 +77,8 @@ export default function Certifications() {
               key={cert.title}
               variants={staggerItemLeft}
             >
-              <TiltCard tiltDegree={7} glare={true} className="relative p-5 bg-surface-50 dark:bg-surface-950 rounded-xl border border-surface-200 dark:border-surface-800 card-depth overflow-hidden">
-              <div className="absolute top-0 left-0 bottom-0 w-0.5 bg-cyan-500" />
-              <div className="pl-3">
+              <TiltCard tiltDegree={7} glare={true} className="relative p-5 bg-card rounded-xl border border-border card-depth">
+              <div className="pl-1">
                 <div className="flex items-start justify-between mb-4">
                   <div className="p-2 bg-cyan-500/10 dark:bg-cyan-500/20 rounded-lg">
                     <svg aria-hidden="true" className="w-5 h-5 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -87,29 +86,29 @@ export default function Certifications() {
                     </svg>
                   </div>
                   {cert.distinction && (
-                    <span className="px-2 py-0.5 bg-accent/10 dark:bg-accent/20 text-amber-700 dark:text-amber-300 rounded text-xs font-mono">
+                    <span className="px-2 py-0.5 bg-accent/10 dark:bg-accent/20 text-accent rounded text-xs font-mono">
                       Distinction
                     </span>
                   )}
                 </div>
-                <h3 className="font-semibold text-surface-900 dark:text-white mb-1 text-sm">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">
                   {cert.title}
                 </h3>
                 <p className="text-xs text-accent mb-1">
                   {cert.issuer} &bull; {cert.date}
                 </p>
                 {cert.trainingProvider && (
-                  <p className="text-xs text-surface-500 mb-2">
+                  <p className="text-xs text-muted-foreground mb-2">
                     Trained at: {cert.trainingProvider}
                   </p>
                 )}
-                <p className="text-xs text-surface-600 dark:text-surface-400 mb-3 leading-relaxed">
+                <p className="text-xs text-muted-foreground mb-3 leading-relaxed">
                   {cert.description}
                 </p>
                 {cert.certLink && (
                   <a
                     href={cert.certLink}
-                    className="text-xs font-medium text-accent hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
+                    className="text-xs font-medium text-accent hover:text-accent/80 transition-colors"
                   >
                     View Certificate &rarr;
                   </a>

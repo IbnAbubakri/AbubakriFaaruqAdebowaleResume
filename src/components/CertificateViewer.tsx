@@ -6,6 +6,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface CertificateViewerProps {
   title: string
@@ -60,7 +61,7 @@ export default function CertificateViewer({
               {subtitle}
             </p>
             {provider && (
-              <p className="text-sm text-amber-500 mt-2 font-mono">
+              <p className="text-sm text-accent mt-2 font-mono">
                 Training Provider: {provider}
               </p>
             )}
@@ -97,9 +98,12 @@ export default function CertificateViewer({
                 <p className="text-sm mt-2">Please place the certificate file in the public folder</p>
               </div>
             ) : (
-              <img
+              <Image
                 src={downloadUrl}
                 alt={imgAlt || title}
+                width={1200}
+                height={800}
+                unoptimized
                 className="w-full h-auto"
                 onError={() => setImgError(true)}
               />

@@ -71,7 +71,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-surface-50 dark:bg-surface-900 relative section-amber noise-overlay">
+    <section id="contact" className="py-24 bg-background relative section-amber noise-overlay">
       <ParallaxLayer speed={0.2} className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 50%, rgba(245,158,11,0.06) 0%, transparent 60%)' }} />
       </ParallaxLayer>
@@ -111,6 +111,7 @@ export default function Contact() {
                   id="name"
                   placeholder="Your name"
                   {...register('name')}
+                  aria-required="true"
                   aria-invalid={!!errors.name}
                   aria-describedby={errors.name ? 'name-error' : undefined}
                 />
@@ -130,6 +131,7 @@ export default function Contact() {
                   type="email"
                   placeholder="you@example.com"
                   {...register('email')}
+                  aria-required="true"
                   aria-invalid={!!errors.email}
                   aria-describedby={errors.email ? 'email-error' : undefined}
                 />
@@ -149,6 +151,7 @@ export default function Contact() {
                   placeholder="Your message..."
                   rows={4}
                   {...register('message')}
+                  aria-required="true"
                   aria-invalid={!!errors.message}
                   aria-describedby={errors.message ? 'message-error' : undefined}
                 />

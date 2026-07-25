@@ -46,7 +46,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 bg-white dark:bg-surface-950 relative section-cyan noise-overlay">
+    <section id="projects" className="py-24 bg-background relative section-cyan noise-overlay">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           variants={fadeInUp}
@@ -58,7 +58,7 @@ export default function Projects() {
           <p className="text-sm font-medium text-accent uppercase tracking-[0.2em] mb-3 font-mono">
             Portfolio
           </p>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-surface-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
             Projects
           </h2>
         </motion.div>
@@ -75,30 +75,29 @@ export default function Projects() {
               key={project.title}
               variants={staggerItemRight}
             >
-              <TiltCard tiltDegree={5} glare={true} className="relative p-6 bg-surface-50 dark:bg-surface-900 rounded-xl border border-surface-200 dark:border-surface-800 card-depth overflow-hidden">
-              <div className="absolute top-0 left-0 bottom-0 w-1 bg-accent" />
-              <div className="pl-4">
+              <TiltCard tiltDegree={5} glare={true} className="relative p-6 bg-card rounded-xl border border-border card-depth">
+              <div className="pl-1">
                 <div className="flex items-center justify-between mb-4">
                   <div className="p-2 bg-accent/10 dark:bg-accent/20 rounded-lg">
                     <svg aria-hidden="true" className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
                     </svg>
                   </div>
-                  <span className="text-xs font-mono text-surface-400">
+                  <span className="text-xs font-mono text-muted-foreground">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                 </div>
-                <h3 className="text-lg font-semibold text-surface-900 dark:text-white mb-2">
+                <h3 className="text-lg font-semibold text-foreground mb-2">
                   {project.title}
                 </h3>
-                <p className="text-sm text-surface-600 dark:text-surface-400 mb-4 leading-relaxed">
+                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2.5 py-1 bg-surface-100 dark:bg-surface-800 text-surface-600 dark:text-surface-400 rounded-md text-xs font-mono"
+                      className="px-2.5 py-1 bg-muted text-muted-foreground rounded-md text-xs font-mono"
                     >
                       {tech}
                     </span>
@@ -110,7 +109,7 @@ export default function Projects() {
                       href={project.liveDemo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-medium text-accent hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
+                      className="text-sm font-medium text-accent hover:text-accent/80 transition-colors"
                     >
                       Live Demo &rarr;
                     </a>
@@ -120,7 +119,7 @@ export default function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-medium text-surface-500 hover:text-surface-900 dark:hover:text-surface-300 transition-colors"
+                      className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                     >
                       GitHub &rarr;
                     </a>
@@ -130,7 +129,7 @@ export default function Projects() {
                       href={project.backend}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-medium text-surface-500 hover:text-surface-900 dark:hover:text-surface-300 transition-colors"
+                      className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                     >
                       Backend &rarr;
                     </a>

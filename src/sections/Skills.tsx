@@ -8,14 +8,14 @@ import TiltCard from '@/components/TiltCard'
 import { fadeInUp, staggerContainer, staggerItemScale } from '@/lib/animations'
 
 const accentMap = [
-  '#f59e0b',
-  '#2563eb',
+  'var(--accent)',
+  'var(--primary)',
   '#06b6d4',
   '#10b981',
-  '#f59e0b',
-  '#2563eb',
+  'var(--accent)',
+  'var(--primary)',
   '#06b6d4',
-  '#64748b',
+  'var(--muted-foreground)',
 ]
 
 const skillCategories = [
@@ -85,7 +85,7 @@ const skillCategories = [
   {
     title: 'Tools & Platforms',
     icon: (
-      <svg aria-hidden="true" className="w-5 h-5 text-surface-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg aria-hidden="true" className="w-5 h-5 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.42 15.17l-5.25 5.25a2.25 2.25 0 01-3.18-3.18l5.25-5.25m3.18 3.18l5.25-5.25a2.25 2.25 0 013.18 3.18l-5.25 5.25" />
       </svg>
     ),
@@ -95,8 +95,7 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 bg-surface-50 dark:bg-surface-900 relative section-amber">
-      <div className="absolute inset-0 scan-lines pointer-events-none" />
+    <section id="skills" className="py-24 bg-background relative section-amber">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           variants={fadeInUp}
@@ -105,10 +104,7 @@ export default function Skills() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-accent uppercase tracking-[0.2em] mb-3 font-mono">
-            Expertise
-          </p>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-surface-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
             Skills &amp; Expertise
           </h2>
         </motion.div>
@@ -125,22 +121,22 @@ export default function Skills() {
               key={category.title}
               variants={staggerItemScale}
             >
-              <TiltCard tiltDegree={6} glare={false} className="relative p-5 bg-white dark:bg-surface-950 rounded-xl border border-surface-200 dark:border-surface-800 card-depth overflow-hidden">
+              <TiltCard tiltDegree={6} glare={false} className="relative p-5 bg-card rounded-xl border border-border card-depth overflow-hidden">
               <div
                 className="absolute top-0 left-0 right-0 h-1 rounded-t-xl"
                 style={{ backgroundColor: accentMap[i] }}
               />
-              <div className="p-2 bg-surface-100 dark:bg-surface-800 rounded-lg w-fit mb-4">
+              <div className="p-2 bg-muted rounded-lg w-fit mb-4">
                 {category.icon}
               </div>
-              <h3 className="font-semibold text-surface-900 dark:text-white mb-3">
+              <h3 className="font-semibold text-foreground mb-3">
                 {category.title}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-2.5 py-1 bg-surface-100 dark:bg-surface-800 text-surface-600 dark:text-surface-400 rounded-md text-xs font-mono"
+                    className="px-2.5 py-1 bg-muted text-muted-foreground rounded-md text-xs font-mono"
                   >
                     {skill}
                   </span>

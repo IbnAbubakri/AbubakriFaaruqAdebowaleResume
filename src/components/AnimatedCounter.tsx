@@ -42,7 +42,7 @@ export default function AnimatedCounter({ value, suffix = '', duration = 2000 }:
   }, [value, duration])
 
   return (
-    <div ref={ref} className="text-2xl font-bold text-amber-500">
+    <div ref={ref} className="text-2xl font-bold text-accent">
       {count}{suffix}
     </div>
   )

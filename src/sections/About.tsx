@@ -32,7 +32,7 @@ export default function About() {
   ]
 
   return (
-    <section id="about" className="py-24 bg-surface-50 dark:bg-surface-950 relative noise-overlay">
+    <section id="about" className="py-24 bg-background relative noise-overlay">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-16 items-start">
           <motion.div
@@ -44,10 +44,10 @@ export default function About() {
             <p className="text-sm font-medium text-accent uppercase tracking-[0.2em] mb-3 font-mono">
               About Me
             </p>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-surface-900 dark:text-white mb-6 tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6 tracking-tight">
               IT Professional &amp; Vibecoder
             </h2>
-            <div className="space-y-4 text-surface-600 dark:text-surface-400 leading-relaxed">
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
                 I am a dedicated IT professional with a strong foundation in
                 network engineering, cybersecurity, cloud computing, and software
@@ -82,9 +82,9 @@ export default function About() {
                   key={stat.label}
                   variants={staggerItem}
                 >
-                  <TiltCard tiltDegree={5} glare={false} className="p-4 bg-surface-100 dark:bg-surface-900 rounded-xl card-depth-sm">
+                  <TiltCard tiltDegree={5} glare={false} className="p-4 bg-card rounded-xl card-depth-sm">
                     <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                    <div className="text-sm text-surface-500 mt-1">
+                    <div className="text-sm text-muted-foreground mt-1">
                       {stat.label}
                     </div>
                   </TiltCard>
@@ -105,13 +105,12 @@ export default function About() {
               initial="initial"
               whileInView="animate"
               viewport={{ once: true }}
-              className="relative p-6 bg-surface-100 dark:bg-surface-900 rounded-2xl overflow-hidden card-depth-sm"
+              className="relative p-6 bg-card rounded-2xl border border-border card-depth-sm"
             >
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-accent" />
-              <h4 className="text-lg font-semibold text-surface-900 dark:text-white mb-4 pl-4">
+              <h4 className="text-lg font-semibold text-foreground mb-4">
                 My Mission
               </h4>
-              <p className="text-surface-600 dark:text-surface-400 leading-relaxed pl-4">
+              <p className="text-muted-foreground leading-relaxed">
                 To leverage technology in solving complex business challenges
                 while maintaining the highest standards of security and
                 efficiency.
@@ -130,13 +129,12 @@ export default function About() {
                   key={item.title}
                   variants={staggerItem}
                 >
-                  <TiltCard tiltDegree={4} glare={false} className="relative p-4 bg-surface-100 dark:bg-surface-900 rounded-xl overflow-hidden card-depth-sm">
-                    <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-accent" />
-                    <div className="pl-4">
-                      <h4 className="font-medium text-surface-900 dark:text-white">
+                  <TiltCard tiltDegree={4} glare={false} className="relative p-4 bg-card rounded-xl border border-border card-depth-sm">
+                    <div className="pl-1">
+                      <h4 className="font-medium text-foreground">
                         {item.title}
                       </h4>
-                      <p className="text-sm text-surface-500">
+                      <p className="text-sm text-muted-foreground">
                         {item.desc}
                       </p>
                     </div>

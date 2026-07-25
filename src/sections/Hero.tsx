@@ -3,6 +3,7 @@
 
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { scaleIn, heroStagger, heroItem } from '@/lib/animations'
 import FloatingElement from '@/components/FloatingElement'
@@ -37,9 +38,9 @@ export default function Hero() {
               IT Professional
             </motion.p>
 
-            <motion.h1 variants={heroItem} className="text-4xl sm:text-5xl md:text-7xl font-display font-bold text-surface-900 dark:text-white leading-[1.1] tracking-tight">
+            <motion.h1 variants={heroItem} className="text-4xl sm:text-5xl md:text-7xl font-display font-bold text-foreground leading-[1.1] tracking-tight">
               Abubakri{' '}
-              <span className="text-amber-500">Faaruq</span>{' '}
+              <span className="text-accent">Faaruq</span>{' '}
               Adebowale
             </motion.h1>
 
@@ -47,14 +48,14 @@ export default function Hero() {
               {titles.map((title) => (
                 <span
                   key={title}
-                  className="px-3 py-1.5 bg-surface-100 dark:bg-surface-800 text-surface-600 dark:text-surface-400 rounded-md text-sm font-mono"
+                  className="px-3 py-1.5 bg-muted text-muted-foreground rounded-md text-sm font-mono"
                 >
                   {title}
                 </span>
               ))}
             </motion.div>
 
-            <motion.p variants={heroItem} className="mt-6 text-lg text-surface-600 dark:text-surface-400 max-w-2xl leading-relaxed">
+            <motion.p variants={heroItem} className="mt-6 text-lg text-muted-foreground max-w-2xl leading-relaxed">
               Dedicated IT professional with expertise in network engineering,
               cybersecurity, cloud computing, and software development. Passionate
               about building secure, scalable solutions for enterprise environments.
@@ -70,13 +71,13 @@ export default function Hero() {
               <a
                 href="/abubakri-faaruq-adebowale-cv.pdf"
                 download
-                className="px-6 py-3 border border-surface-300 dark:border-surface-700 text-surface-700 dark:text-surface-300 rounded-lg font-medium hover:border-accent hover:text-accent dark:hover:border-accent dark:hover:text-accent active:scale-95 transition-[colors,transform] duration-200 cursor-pointer"
+                className="px-6 py-3 border border-border text-foreground rounded-lg font-medium hover:border-accent hover:text-accent active:scale-95 transition-[colors,transform] duration-200 cursor-pointer"
               >
                 Download CV
               </a>
               <a
                 href="/#projects"
-                className="px-6 py-3 text-surface-500 font-medium hover:text-surface-900 dark:hover:text-surface-300 active:scale-95 transition-[colors,transform] duration-200 cursor-pointer"
+                className="px-6 py-3 text-muted-foreground font-medium hover:text-foreground active:scale-95 transition-[colors,transform] duration-200 cursor-pointer"
               >
                 View Projects &rarr;
               </a>
@@ -92,25 +93,28 @@ export default function Hero() {
             <FloatingElement amplitude={10} duration={5} rotate={1.5}>
               <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-[26rem] md:h-[26rem] rounded-2xl overflow-hidden group">
               <div className="absolute -inset-8 opacity-30 pointer-events-none">
-                <div className="network-node top-1/4 left-0 w-2 h-2 bg-amber-500 node-pulse" style={{ animationDelay: '0s' }} />
-                <div className="network-node top-3/4 left-[10%] w-1.5 h-1.5 bg-blue-500 node-pulse" style={{ animationDelay: '0.5s' }} />
+                <div className="network-node top-1/4 left-0 w-2 h-2 bg-accent node-pulse" style={{ animationDelay: '0s' }} />
+                <div className="network-node top-3/4 left-[10%] w-1.5 h-1.5 bg-primary node-pulse" style={{ animationDelay: '0.5s' }} />
                 <div className="network-node top-1/2 right-0 w-2 h-2 bg-cyan-500 node-pulse" style={{ animationDelay: '1s' }} />
                 <div className="network-node top-1/5 right-[15%] w-1.5 h-1.5 bg-emerald-500 node-pulse" style={{ animationDelay: '1.5s' }} />
-                <div className="network-line top-1/4 left-0 right-[60%] h-px bg-gradient-to-r from-amber-500/40 to-transparent data-flow-bar" style={{ animationDelay: '0.2s' }} />
-                <div className="network-line top-3/4 left-[10%] right-0 h-px bg-gradient-to-l from-blue-500/40 to-transparent data-flow-bar" style={{ animationDelay: '0.7s' }} />
+                <div className="network-line top-1/4 left-0 right-[60%] h-px bg-gradient-to-r from-accent/40 to-transparent data-flow-bar" style={{ animationDelay: '0.2s' }} />
+                <div className="network-line top-3/4 left-[10%] right-0 h-px bg-gradient-to-l from-primary/40 to-transparent data-flow-bar" style={{ animationDelay: '0.7s' }} />
                 <div className="network-line top-1/2 left-[30%] right-0 h-px bg-gradient-to-l from-cyan-500/40 to-transparent data-flow-bar" style={{ animationDelay: '1.2s' }} />
               </div>
-              <div className="absolute inset-0 rounded-2xl ring-1 ring-amber-500/20 dark:ring-amber-500/10 z-10 pointer-events-none" />
-              <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/10 via-transparent to-transparent z-10 pointer-events-none" />
-              <div className="absolute -inset-4 bg-amber-500/5 dark:bg-amber-500/10 rounded-[2rem] blur-2xl -z-10 signal-pulse" />
+              <div className="absolute inset-0 rounded-2xl ring-1 ring-accent/20 z-10 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-accent/10 via-transparent to-transparent z-10 pointer-events-none" />
+              <div className="absolute -inset-4 bg-accent/5 rounded-[2rem] blur-2xl -z-10 signal-pulse" />
               <div className="w-full h-full scan-lines-heavy rounded-2xl">
-                <img
+                <Image
                   src="/profile.jpeg"
                   alt="Abubakri Faaruq Adebowale"
+                  width={416}
+                  height={416}
+                  priority
                   className="w-full h-full object-cover rounded-2xl"
                 />
               </div>
-              <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-amber-500/5 to-transparent z-10 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-accent/5 to-transparent z-10 pointer-events-none" />
             </div>
             </FloatingElement>
           </motion.div>

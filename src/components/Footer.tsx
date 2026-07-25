@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
             <span className="text-lg font-bold text-foreground font-display">
-              AF<span className="text-amber-500">.</span>
+              AF<span className="text-accent">.</span>
             </span>
             <p className="mt-3 text-sm text-muted-foreground max-w-xs">
               IT Professional, Network Engineer, Cybersecurity Specialist, Cloud Engineer, and Vibecoder.
@@ -19,7 +19,7 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-foreground mb-4">Quick Links</h4>
             <div className="space-y-2">
-              {['About', 'Skills', 'Projects', 'Contact'].map((link) => (
+              {['Certifications', 'Experience', 'Education', 'Contact'].map((link) => (
                 <a
                   key={link}
                   href={`/#${link.toLowerCase()}`}

@@ -30,7 +30,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 bg-white dark:bg-surface-950 relative section-cyan">
+    <section id="testimonials" className="py-24 bg-background relative section-cyan">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeInUp}
@@ -39,10 +39,7 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-accent uppercase tracking-[0.2em] mb-3 font-mono">
-            Testimonials
-          </p>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-surface-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
             What People Say
           </h2>
         </motion.div>
@@ -59,27 +56,33 @@ export default function Testimonials() {
               key={t.name}
               variants={staggerItem}
             >
-              <TiltCard tiltDegree={4} glare={false} className="relative p-6 bg-surface-50 dark:bg-surface-900 rounded-xl border border-surface-200 dark:border-surface-800 card-depth overflow-hidden">
-              <div className="absolute top-0 left-0 bottom-0 w-0.5 bg-accent" />
-              <div className="pl-4">
+              <TiltCard tiltDegree={4} glare={false} className="relative p-6 bg-card rounded-xl border border-border card-depth">
+              <div className="pl-1">
                 <div className="relative">
-                  <svg aria-hidden="true" className="w-8 h-8 text-accent/20 dark:text-accent/10 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                  <svg aria-hidden="true" className="w-8 h-8 text-accent/20 mb-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                   </svg>
                   <span className="absolute top-0 right-0 text-2xl text-accent/5 font-display font-bold leading-none select-none pointer-events-none">
                     &rdquo;
                   </span>
                 </div>
-                <p className="text-sm text-surface-600 dark:text-surface-400 mb-6 leading-relaxed italic">
+                <p className="text-sm text-muted-foreground mb-6 leading-relaxed italic">
                   &ldquo;{t.content}&rdquo;
                 </p>
+                <div className="flex items-center gap-1 mb-4" role="img" aria-label={`${t.rating} out of 5 stars`}>
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <svg key={i} className={`w-4 h-4 ${i < t.rating ? 'text-accent' : 'text-muted'}`} fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-accent/10 dark:bg-accent/20 flex items-center justify-center text-amber-700 dark:text-amber-300 font-bold text-sm ring-2 ring-accent/20 shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-accent/10 dark:bg-accent/20 flex items-center justify-center text-accent font-bold text-sm ring-2 ring-accent/20 shrink-0">
                     {t.name.charAt(0)}
                   </div>
                   <div>
-                    <p className="font-medium text-surface-900 dark:text-white text-sm">{t.name}</p>
-                    <p className="text-xs text-surface-500">{t.role}</p>
+                    <p className="font-medium text-foreground text-sm">{t.name}</p>
+                    <p className="text-xs text-muted-foreground">{t.role}</p>
                   </div>
                 </div>
               </div>

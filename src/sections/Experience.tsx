@@ -47,7 +47,7 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-24 bg-white dark:bg-surface-950 relative section-amber">
+    <section id="experience" className="py-24 bg-background relative section-amber">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeInUp}
@@ -56,10 +56,7 @@ export default function Experience() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-accent uppercase tracking-[0.2em] mb-3 font-mono">
-            Career
-          </p>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-surface-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
             Work Experience
           </h2>
         </motion.div>
@@ -75,29 +72,29 @@ export default function Experience() {
             <motion.div
               key={exp.title}
               variants={staggerItem}
-              className="relative pl-8 border-l-2 border-surface-200 dark:border-surface-700"
+              className="relative pl-8 border-l-2 border-border"
             >
               <div className="absolute left-0 top-1 w-3 h-3 -translate-x-[7px] rounded-full bg-accent signal-dot" />
-              <TiltCard tiltDegree={5} glare={false} className="p-5 bg-white dark:bg-surface-950 rounded-xl border border-surface-200 dark:border-surface-800 card-depth">
+              <TiltCard tiltDegree={5} glare={false} className="p-5 bg-card rounded-xl border border-border card-depth">
                 <div className="flex flex-wrap items-baseline gap-2 mb-1">
-                  <h3 className="font-semibold text-surface-900 dark:text-white">
+                  <h3 className="font-semibold text-foreground">
                     {exp.title}
                   </h3>
                   <span className="text-sm text-accent font-medium">
                     {exp.company}
                   </span>
                 </div>
-                <p className="text-xs text-surface-500 mb-3 font-mono">
+                <p className="text-xs text-muted-foreground mb-3 font-mono">
                   {exp.period}
                 </p>
-                <p className="text-sm text-surface-600 dark:text-surface-400 mb-3 leading-relaxed">
+                <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
                   {exp.description}
                 </p>
                 <div className="flex flex-wrap gap-1.5">
                   {exp.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2.5 py-1 bg-surface-100 dark:bg-surface-800 text-surface-600 dark:text-surface-400 rounded-md text-xs font-medium"
+                      className="px-2.5 py-1 bg-muted text-muted-foreground rounded-md text-xs font-medium"
                     >
                       {tech}
                     </span>

@@ -86,7 +86,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'top-3 left-3 right-3 bg-background/80 dark:bg-surface-950/80 backdrop-blur-lg border border-border rounded-2xl shadow-sm'
+          ? 'top-3 left-3 right-3 bg-background/80 backdrop-blur-lg border border-border rounded-2xl shadow-sm'
           : 'bg-transparent'
       }`}
     >
@@ -94,7 +94,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-14">
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <span className="font-bold text-lg text-foreground font-display">
-              AF<span className="text-amber-500">.</span>
+              AF<span className="text-accent">.</span>
             </span>
           </Link>
 
@@ -105,7 +105,7 @@ export default function Navbar() {
                 href={item.href}
                 className={`text-sm transition-colors cursor-pointer ${
                   activeSection === item.id
-                    ? 'text-amber-500 font-medium'
+                    ? 'text-accent font-medium'
                     : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
@@ -116,7 +116,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm font-mono text-amber-500/80 hover:text-amber-500 transition-colors flex items-center gap-1.5"
+                className="text-sm font-mono text-accent/80 hover:text-accent transition-colors flex items-center gap-1.5"
               >
                 <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8 5v14l11-7z" />
@@ -192,7 +192,7 @@ export default function Navbar() {
                     href={item.href}
                     className={`block px-6 py-3 text-sm transition-colors cursor-pointer ${
                       activeSection === item.id
-                        ? 'text-amber-500 bg-amber-500/10 font-medium'
+                        ? 'text-accent bg-accent/10 font-medium'
                         : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
@@ -212,7 +212,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={item.href}
-                    className="block px-6 py-3 text-sm text-amber-500/80 font-mono transition-colors cursor-pointer hover:bg-amber-500/10"
+                    className="block px-6 py-3 text-sm text-accent/80 font-mono transition-colors cursor-pointer hover:bg-accent/10"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <span className="flex items-center gap-2">

@@ -30,7 +30,7 @@ const education = [
 
 export default function Education() {
   return (
-    <section id="education" className="py-24 bg-white dark:bg-surface-950 relative section-cyan">
+    <section id="education" className="py-24 bg-background relative section-cyan">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeInUp}
@@ -39,10 +39,7 @@ export default function Education() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-accent uppercase tracking-[0.2em] mb-3 font-mono">
-            Academic
-          </p>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-surface-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
             Education
           </h2>
         </motion.div>
@@ -62,8 +59,7 @@ export default function Education() {
                 key={edu.degree}
                 variants={staggerItem}
               >
-                <TiltCard tiltDegree={6} glare={false} className="relative p-6 bg-surface-50 dark:bg-surface-900 rounded-xl border border-surface-200 dark:border-surface-800 card-depth overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-cyan-500" />
+                <TiltCard tiltDegree={6} glare={false} className="relative p-6 bg-card rounded-xl border border-border card-depth">
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-cyan-500/20 border-2 border-cyan-500/40 z-10 signal-dot hidden md:block" />
                 <div className="p-2 bg-cyan-500/10 dark:bg-cyan-500/20 rounded-lg w-fit mb-4">
                   <svg aria-hidden="true" className="w-5 h-5 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -71,16 +67,16 @@ export default function Education() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
                   </svg>
                 </div>
-                <h3 className="font-semibold text-surface-900 dark:text-white mb-1">
+                <h3 className="font-semibold text-foreground mb-1">
                   {edu.degree}
                 </h3>
                 <p className="text-sm text-accent mb-1">
                   {edu.institution}
                 </p>
-                <p className="text-xs text-surface-500 mb-3 font-mono">
+                <p className="text-xs text-muted-foreground mb-3 font-mono">
                   {edu.period}
                 </p>
-                <p className="text-sm text-surface-600 dark:text-surface-400 leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {edu.description}
                 </p>
               </TiltCard>

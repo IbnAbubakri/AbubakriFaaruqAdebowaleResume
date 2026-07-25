@@ -3,7 +3,7 @@
 
 'use client'
 
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 interface TiltCardProps {
@@ -20,9 +20,14 @@ export default function TiltCard({ children, className, tiltDegree = 8, glare = 
   const [glareX, setGlareX] = useState(50)
   const [glareY, setGlareY] = useState(50)
   const [isHovered, setIsHovered] = useState(false)
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
+
+  useEffect(() => {
+    setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0)
+  }, [])
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
-    if (!ref.current) return
+    if (!ref.current || isTouchDevice) return
     const rect = ref.current.getBoundingClientRect()
     const x = (e.clientX - rect.left) / rect.width
     const y = (e.clientY - rect.top) / rect.height
@@ -33,7 +38,7 @@ export default function TiltCard({ children, className, tiltDegree = 8, glare = 
   }
 
   function handleMouseEnter() {
-    setIsHovered(true)
+    if (!isTouchDevice) setIsHovered(true)
   }
 
   function handleMouseLeave() {
@@ -51,12 +56,12 @@ export default function TiltCard({ children, className, tiltDegree = 8, glare = 
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{ perspective: 1200 }}
-      animate={{ rotateX, rotateY }}
+      animate={isTouchDevice ? {} : { rotateX, rotateY }}
       transition={{ type: 'spring', stiffness: 200, damping: 20 }}
       className={`relative ${className ?? ''}`}
     >
       {children}
-      {glare && (
+      {glare && !isTouchDevice && (
         <motion.div
           initial={false}
           animate={{

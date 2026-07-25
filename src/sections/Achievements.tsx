@@ -7,10 +7,6 @@ import { motion } from 'framer-motion'
 import TiltCard from '@/components/TiltCard'
 import { fadeInUp, staggerContainer, staggerItemScale } from '@/lib/animations'
 
-const achievementIconColors = [
-  'text-accent', 'text-accent', 'text-accent', 'text-accent', 'text-accent', 'text-accent',
-]
-
 const achievements = [
   {
     icon: (
@@ -70,7 +66,7 @@ const achievements = [
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="py-24 bg-surface-50 dark:bg-surface-900 relative section-amber">
+    <section id="achievements" className="py-24 bg-background relative section-amber">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={fadeInUp}
@@ -79,10 +75,7 @@ export default function Achievements() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-accent uppercase tracking-[0.2em] mb-3 font-mono">
-            Highlights
-          </p>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-surface-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
             Achievements
           </h2>
         </motion.div>
@@ -99,15 +92,14 @@ export default function Achievements() {
               key={achievement.title}
               variants={staggerItemScale}
             >
-              <TiltCard tiltDegree={5} glare={false} className="relative p-5 bg-white dark:bg-surface-950 rounded-xl border border-surface-200 dark:border-surface-800 card-depth overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-accent rounded-t-xl" />
-              <div className={`p-2 bg-accent/10 dark:bg-accent/20 rounded-lg w-fit mb-4 ${achievementIconColors[i]}`}>
+              <TiltCard tiltDegree={5} glare={false} className="relative p-5 bg-card rounded-xl border border-border card-depth">
+              <div className={`p-2 bg-accent/10 dark:bg-accent/20 rounded-lg w-fit mb-4 text-accent`}>
                 {achievement.icon}
               </div>
-              <h3 className="font-semibold text-surface-900 dark:text-white mb-2">
+              <h3 className="font-semibold text-foreground mb-2">
                 {achievement.title}
               </h3>
-              <p className="text-sm text-surface-600 dark:text-surface-400 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 {achievement.description}
               </p>
               </TiltCard>
