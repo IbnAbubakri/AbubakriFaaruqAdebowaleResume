@@ -102,8 +102,17 @@ export default function ProjectCard3D({
       onKeyDown={handleKeyDown}
       style={{ perspective: 1400 }}
       aria-label={isFlipped ? 'Flip card back to front' : 'Flip card to reveal more details'}
-      className={`relative cursor-pointer ${className}`}
+      className={`relative cursor-pointer overflow-hidden ${className}`}
     >
+      {/* Floating shadow — outside 3D tilt to avoid bleed */}
+      <motion.div
+        style={{
+          x: shadowX,
+          y: shadowY,
+        }}
+        className="absolute -inset-2 rounded-2xl bg-accent/8 blur-xl -z-10"
+      />
+
       <motion.div
         style={{
           rotateX,
@@ -113,15 +122,6 @@ export default function ProjectCard3D({
         }}
         className="relative"
       >
-        {/* Floating shadow */}
-        <motion.div
-          style={{
-            x: shadowX,
-            y: shadowY,
-          }}
-          className="absolute -inset-2 rounded-2xl bg-accent/8 blur-xl -z-10"
-        />
-
         {/* Front face */}
         <motion.div
           style={{

@@ -104,8 +104,17 @@ export default function FlipCard({
       onKeyDown={handleKeyDown}
       style={{ perspective: 1400 }}
       aria-label={isFlipped ? 'Flip card back to front' : 'Flip card to reveal more details'}
-      className={`relative cursor-pointer ${className}`}
+      className={`relative cursor-pointer overflow-hidden ${className}`}
     >
+      {/* Floating shadow — outside 3D tilt to avoid bleed */}
+      <motion.div
+        style={{ x: shadowX, y: shadowY }}
+        className="absolute -inset-2 rounded-2xl blur-xl -z-10"
+        animate={{ opacity: isFlipped ? 0.03 : 0.06 }}
+      >
+        <div className="w-full h-full rounded-2xl" style={{ backgroundColor: accentColor }} />
+      </motion.div>
+
       <motion.div
         style={{
           rotateX,
@@ -115,15 +124,6 @@ export default function FlipCard({
         }}
         className="relative"
       >
-        {/* Floating shadow */}
-        <motion.div
-          style={{ x: shadowX, y: shadowY }}
-          className="absolute -inset-2 rounded-2xl blur-xl -z-10"
-          animate={{ opacity: isFlipped ? 0.03 : 0.06 }}
-        >
-          <div className="w-full h-full rounded-2xl" style={{ backgroundColor: accentColor }} />
-        </motion.div>
-
         {/* Front face */}
         <motion.div
           style={{

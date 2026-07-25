@@ -130,7 +130,7 @@ export default function Hero() {
             <ScrollReveal direction="scale" delay={0.3} blur>
               <FloatingElement amplitude={10} duration={5} rotate={1.5}>
                 <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-[26rem] md:h-[26rem] rounded-2xl overflow-hidden group">
-                  <div className="absolute -inset-8 opacity-30 pointer-events-none">
+                  <div className="absolute -inset-8 opacity-30 pointer-events-none overflow-hidden">
                     <div className="network-node top-1/4 left-0 w-2 h-2 bg-accent node-pulse" style={{ animationDelay: '0s' }} />
                     <div className="network-node top-3/4 left-[10%] w-1.5 h-1.5 bg-primary node-pulse" style={{ animationDelay: '0.5s' }} />
                     <div className="network-node top-1/2 right-0 w-2 h-2 node-pulse" style={{ animationDelay: '1s', backgroundColor: 'var(--color-cyan-token)' }} />
