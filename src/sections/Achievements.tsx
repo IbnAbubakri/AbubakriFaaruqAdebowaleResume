@@ -78,7 +78,7 @@ const achievements = [
 
 export default function Achievements() {
   return (
-    <section id="achievements" className="py-24 bg-background relative section-amber">
+    <section id="achievements" className="py-24 bg-background relative overflow-hidden section-amber">
       <ParallaxSection speed={0.02}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="up" blur delay={0.1}>

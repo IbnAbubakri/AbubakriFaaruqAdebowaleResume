@@ -30,7 +30,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 bg-background relative section-cyan">
+    <section id="testimonials" className="py-24 bg-background relative overflow-hidden section-cyan">
       <ParallaxSection speed={0.02}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal direction="up" blur delay={0.1}>

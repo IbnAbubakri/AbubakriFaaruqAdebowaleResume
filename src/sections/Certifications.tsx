@@ -55,7 +55,7 @@ const certifications = [
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="py-24 bg-background relative noise-overlay">
+    <section id="certifications" className="py-24 bg-background relative overflow-hidden noise-overlay">
       <div className="absolute inset-0 scan-lines-heavy pointer-events-none" />
       <ParallaxSection speed={0.02}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
