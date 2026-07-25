@@ -120,7 +120,7 @@ export default function Navbar() {
             <button
               ref={toggleRef}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-muted-foreground"
+              className="text-muted-foreground p-2.5 -mr-1"
               aria-label="Toggle navigation"
               aria-expanded={isMobileMenuOpen}
             >
