@@ -88,7 +88,6 @@ export default function CertificateViewer({
                 src={downloadUrl}
                 className="w-full h-screen"
                 title={title}
-                sandbox="allow-same-origin"
               />
             ) : imgError ? (
               <div className="flex flex-col items-center justify-center py-20 text-muted-foreground" role="alert">
