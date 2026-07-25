@@ -77,10 +77,10 @@ export default function Hero() {
                 Download CV
               </a>
               <Link
-                href="/#projects"
+                href="/video-resume"
                 className="px-6 py-3 text-muted-foreground font-medium hover:text-foreground active:scale-95 transition-[colors,transform] duration-200 cursor-pointer"
               >
-                View Projects &rarr;
+                Watch Video &rarr;
               </Link>
             </motion.div>
           </motion.div>
