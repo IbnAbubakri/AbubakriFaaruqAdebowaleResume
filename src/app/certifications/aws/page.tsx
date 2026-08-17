@@ -7,11 +7,11 @@ import CertificateViewer from '@/components/CertificateViewer'
 export const metadata: Metadata = {
   title: 'AWS Cloud Computing Certificate | Abubakri Faaruq Adebowale',
   description: 'Amazon Web Services Cloud Computing Certificate from ThinkCloudly covering cloud architecture, deployment, and management.',
-  alternates: { canonical: 'https://abubakri-faaruq-adebowale-resume.vercel.app/certifications/aws' },
+  alternates: { canonical: 'https://abubakrifaaruqadebowaleresume.vercel.app/certifications/aws' },
   openGraph: {
     title: 'AWS Cloud Computing Certificate | Abubakri Faaruq Adebowale',
     description: 'Amazon Web Services Cloud Computing Certificate from ThinkCloudly covering cloud architecture, deployment, and management.',
-    images: [{ url: 'https://abubakri-faaruq-adebowale-resume.vercel.app/profile.jpeg', width: 1200, height: 1200 }],
+    images: [{ url: 'https://abubakrifaaruqadebowaleresume.vercel.app/profile.jpeg', width: 1200, height: 1200 }],
   },
 }
 

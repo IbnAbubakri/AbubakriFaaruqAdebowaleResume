@@ -10,22 +10,22 @@ export const metadata: Metadata = {
   description:
     "Watch the professional video resume of Abubakri Faaruq Adebowale — IT Administrator, Network Engineer, Cybersecurity Specialist, and Cloud Engineer.",
   alternates: {
-    canonical: "https://abubakri-faaruq-adebowale-resume.vercel.app/video-resume",
+    canonical: "https://abubakrifaaruqadebowaleresume.vercel.app/video-resume",
   },
   openGraph: {
     title: "Video Resume | Abubakri Faaruq Adebowale",
     description:
       "Professional video resume showcasing skills in networking, cybersecurity, cloud computing, and software development.",
-    url: "https://abubakri-faaruq-adebowale-resume.vercel.app/video-resume",
+    url: "https://abubakrifaaruqadebowaleresume.vercel.app/video-resume",
     type: "website",
-    images: [{ url: "https://abubakri-faaruq-adebowale-resume.vercel.app/profile.jpeg", width: 1200, height: 1200 }],
+    images: [{ url: "https://abubakrifaaruqadebowaleresume.vercel.app/profile.jpeg", width: 1200, height: 1200 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Video Resume | Abubakri Faaruq Adebowale",
     description:
       "Professional video resume showcasing skills in networking, cybersecurity, cloud computing, and software development.",
-    images: [{ url: "https://abubakri-faaruq-adebowale-resume.vercel.app/profile.jpeg", width: 1200, height: 1200 }],
+    images: [{ url: "https://abubakrifaaruqadebowaleresume.vercel.app/profile.jpeg", width: 1200, height: 1200 }],
   },
 };
 

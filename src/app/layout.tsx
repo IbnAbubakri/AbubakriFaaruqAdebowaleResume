@@ -30,27 +30,27 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://abubakri-faaruq-adebowale-resume.vercel.app"),
+  metadataBase: new URL("https://abubakrifaaruqadebowaleresume.vercel.app"),
   title: "Abubakri Faaruq Adebowale | IT Professional & Network Engineer",
   description: "Portfolio of Abubakri Faaruq Adebowale — IT Administrator, Network Engineer, Cybersecurity Specialist, and Cloud Engineer.",
   keywords: ["IT Professional", "Network Engineer", "Cybersecurity", "Cloud Engineer", "Portfolio", "Abubakri Faaruq"],
   openGraph: {
     title: "Abubakri Faaruq Adebowale | IT Professional & Network Engineer",
     description: "IT Administrator, Network Engineer, Cybersecurity Specialist, and Cloud Engineer.",
-    url: "https://abubakri-faaruq-adebowale-resume.vercel.app",
+    url: "https://abubakrifaaruqadebowaleresume.vercel.app",
     siteName: "Abubakri Faaruq Adebowale",
     locale: "en_US",
     type: "website",
-    images: [{ url: "https://abubakri-faaruq-adebowale-resume.vercel.app/profile.jpeg", width: 1200, height: 1200 }],
+    images: [{ url: "https://abubakrifaaruqadebowaleresume.vercel.app/profile.jpeg", width: 1200, height: 1200 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Abubakri Faaruq Adebowale | IT Professional & Network Engineer",
     description: "IT Administrator, Network Engineer, Cybersecurity Specialist, and Cloud Engineer.",
-    images: [{ url: "https://abubakri-faaruq-adebowale-resume.vercel.app/profile.jpeg", width: 1200, height: 1200 }],
+    images: [{ url: "https://abubakrifaaruqadebowaleresume.vercel.app/profile.jpeg", width: 1200, height: 1200 }],
   },
   alternates: {
-    canonical: "https://abubakri-faaruq-adebowale-resume.vercel.app",
+    canonical: "https://abubakrifaaruqadebowaleresume.vercel.app",
   },
   icons: {
     icon: "/favicon.svg",
@@ -88,8 +88,8 @@ export default function RootLayout({
               "@type": "Person",
               name: "Abubakri Faaruq Adebowale",
               jobTitle: "IT Administrator & Network Engineer",
-              url: "https://abubakri-faaruq-adebowale-resume.vercel.app",
-              image: "https://abubakri-faaruq-adebowale-resume.vercel.app/profile.jpeg",
+              url: "https://abubakrifaaruqadebowaleresume.vercel.app",
+              image: "https://abubakrifaaruqadebowaleresume.vercel.app/profile.jpeg",
               email: "Faruqsuzay@gmail.com",
               telephone: "+2349061345507",
               address: {
@@ -124,7 +124,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "Abubakri Faaruq Adebowale | IT Professional & Network Engineer",
-              url: "https://abubakri-faaruq-adebowale-resume.vercel.app",
+              url: "https://abubakrifaaruqadebowaleresume.vercel.app",
               description: "Portfolio of Abubakri Faaruq Adebowale — IT Administrator, Network Engineer, Cybersecurity Specialist, and Cloud Engineer.",
               author: {
                 "@type": "Person",
