@@ -40,6 +40,20 @@ const projects = [
     color: 'var(--color-emerald-token)',
   },
   {
+    title: 'QuizApp — Exam Practice Platform',
+    description: 'A full-stack exam practice platform with server-side grading via Supabase RPC, student/admin dashboards, persistent draft recovery, and ARIA-compliant UI. Features timed quizzes, result tracking, and a built-in scientific calculator.',
+    techStack: ['React', 'Supabase', 'PostgreSQL', 'Vite', 'Vitest', 'Tailwind CSS'],
+    github: 'https://github.com/IbnAbubakri/QuizApp',
+    color: 'var(--color-cyan-token)',
+  },
+  {
+    title: 'Scientific & Base-N Calculator',
+    description: 'A scientific calculator supporting standard, scientific, and binary (Base-N) modes with 40+ operations including trig, log, permutations/combinations, and hex/oct/bin conversions. Keyboard-driven input with compact responsive layout.',
+    techStack: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Vitest'],
+    github: 'https://github.com/IbnAbubakri/calculator',
+    color: 'var(--primary)',
+  },
+  {
     title: 'FlowDesk AI — WhatsApp Business OS',
     description: 'Built an AI-powered WhatsApp Business OS with a Next.js dashboard and FastAPI backend. Integrated Gemini AI for smart replies and a Node.js WhatsApp bridge for real-time messaging.',
     techStack: ['Next.js', 'TypeScript', 'FastAPI', 'Gemini AI', 'Tailwind CSS', 'WhatsApp API'],
