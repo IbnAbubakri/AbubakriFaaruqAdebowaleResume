@@ -16,6 +16,9 @@ interface CertificateViewerProps {
   isPdf?: boolean
   imgAlt?: string
   backLabel?: string
+  intro?: string
+  highlights?: string[]
+  sections?: { heading: string; body: string }[]
 }
 
 export default function CertificateViewer({
@@ -26,6 +29,9 @@ export default function CertificateViewer({
   isPdf,
   imgAlt,
   backLabel = 'Back to Certifications',
+  intro,
+  highlights = [],
+  sections = [],
 }: CertificateViewerProps) {
   const [imgError, setImgError] = useState(false)
 
@@ -118,6 +124,54 @@ export default function CertificateViewer({
           </motion.div>
         </div>
       </section>
+
+      {(intro || highlights.length > 0 || sections.length > 0) && (
+        <section className="pb-20">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            {intro && (
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-muted-foreground leading-relaxed mb-8"
+              >
+                {intro}
+              </motion.p>
+            )}
+
+            {highlights.length > 0 && (
+              <motion.ul
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="grid sm:grid-cols-2 gap-3 mb-10"
+              >
+                {highlights.map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-muted-foreground">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </motion.ul>
+            )}
+
+            {sections.map((section, i) => (
+              <motion.div
+                key={section.heading}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 + i * 0.08 }}
+                className="mb-8"
+              >
+                <h2 className="text-xl font-semibold text-foreground mb-3">
+                  {section.heading}
+                </h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  {section.body}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+      )}
     </main>
   )
 }

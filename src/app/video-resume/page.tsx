@@ -100,6 +100,47 @@ export default function VideoResumePage() {
             Download MP4
           </a>
         </div>
+
+        <div className="mt-16 grid md:grid-cols-2 gap-8">
+          <div>
+            <h2 className="text-xl font-semibold text-foreground mb-3">
+              What I Do
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              I am an IT professional working across network engineering,
+              cybersecurity, cloud computing, and software development. I am
+              currently a CompTIA Network+ and A+ instructor at HIIT Plc, where
+              I have mentored over 200 students toward certification success.
+              I previously served as an IT Administrator at 1791 LLC, managing
+              enterprise infrastructure, network security, and AWS cloud
+              migration.
+            </p>
+          </div>
+          <div>
+            <h2 className="text-xl font-semibold text-foreground mb-3">
+              Certifications &amp; Education
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              I hold the Cisco CCNA, CompTIA Network+, AWS Cloud Computing, and
+              DevOps certifications — earned with distinction. I am currently
+              pursuing a BSc in Cyber Security at the National Open University
+              of Nigeria, deepening my expertise in penetration testing,
+              digital forensics, and security operations.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-8">
+          <h2 className="text-xl font-semibold text-foreground mb-3">
+            Get in Touch
+          </h2>
+          <p className="text-muted-foreground leading-relaxed">
+            This video resume offers a quick overview of my experience, skills,
+            and certifications. To see my full work, projects, and detailed
+            background, visit my portfolio or reach out by email at
+            faruqsuzay@gmail.com or phone at +234 906 134 5507.
+          </p>
+        </div>
       </div>
     </main>
   );
