@@ -4,6 +4,7 @@
 'use client'
 
 import Link from 'next/link'
+import FlipHint from '@/components/FlipHint'
 import ProjectCard3D from '@/components/ProjectCard3D'
 import ScrollReveal from '@/components/ScrollReveal'
 import ParallaxSection from '@/components/ParallaxSection'
@@ -217,9 +218,7 @@ export default function Projects() {
               <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
                 Projects
               </h2>
-              <p className="mt-3 text-sm text-muted-foreground font-mono">
-                Click a card to flip &amp; see links
-              </p>
+              <FlipHint>Click a card to flip &amp; see links</FlipHint>
             </div>
           </ScrollReveal>
 

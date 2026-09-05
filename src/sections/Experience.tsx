@@ -4,6 +4,7 @@
 'use client'
 
 import FlipCard from '@/components/FlipCard'
+import FlipHint from '@/components/FlipHint'
 import ScrollReveal from '@/components/ScrollReveal'
 import ParallaxSection from '@/components/ParallaxSection'
 
@@ -65,9 +66,7 @@ export default function Experience() {
               <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
                 Work Experience
               </h2>
-              <p className="mt-3 text-sm text-muted-foreground font-mono">
-                Click a card to flip
-              </p>
+              <FlipHint />
             </div>
           </ScrollReveal>
 

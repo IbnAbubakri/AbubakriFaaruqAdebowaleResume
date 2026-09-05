@@ -157,8 +157,8 @@ export default function FlipCard({
 
       {/* Flip hint */}
       <div className="absolute bottom-2 right-3 z-30 pointer-events-none">
-        <span className="text-[9px] text-muted-foreground/40 font-mono select-none">
-          {isFlipped ? '← back' : 'click →'}
+        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-muted/80 text-[11px] text-muted-foreground font-mono select-none border border-border/60">
+          {isFlipped ? 'back' : 'click'}
         </span>
       </div>
     </div>
