@@ -10,6 +10,22 @@ import ParallaxSection from '@/components/ParallaxSection'
 
 const projects = [
   {
+    title: 'Illuminate Engineering — Corporate Power Solutions',
+    description: 'Corporate website for a Nigerian power engineering company. Features an interactive generator sizing calculator (59+ appliances, surge-aware kVA sizing with 25% headroom), multi-step booking wizards for generator rental and maintenance, a Leaflet map picker with state/LGA reverse geocoding, Web3Forms + WhatsApp fallback lead capture, and a full blogging platform. Delivered with per-route SEO, JSON-LD structured data, programmatic OG images, and an accessibility-first, animation-rich UI.',
+    techStack: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'Leaflet', 'Web3Forms', 'Vitest', 'Vercel'],
+    liveDemo: 'https://www.illuminateengineeringlimited.com',
+    github: 'https://github.com/IbnAbubakri/illuminate-engineering',
+    color: 'var(--accent)',
+  },
+  {
+    title: 'Bolton Engineering — Power Solutions & Generator Website',
+    description: 'Client website for a Nigerian electromechanical power solutions company. Includes an interactive multi-step generator sizing estimator, a searchable/filterable product catalog (19 generator products) with pagination, a WhatsApp-integrated quote form with Zod validation, a floating WhatsApp chat widget, project case studies, and a partner program. Built around lead generation for the Nigerian SME market with full SEO and legal pages.',
+    techStack: ['Next.js 15', 'React 19', 'TypeScript', 'shadcn/ui', 'Tailwind CSS v4', 'react-hook-form', 'Zod', 'Radix UI'],
+    liveDemo: 'https://www.bolton-engineering.com',
+    github: 'https://github.com/Teea-dev/boltonengineering',
+    color: 'var(--color-cyan-token)',
+  },
+  {
     title: 'BillXpress — Fintech Dashboard',
     description: 'A full-stack fintech platform for bill payments, airtime/data purchases, wallet management, and transaction tracking. Features secure auth with JWT rotation, MFA, CSRF protection, account lockout, and real-time balance updates.',
     techStack: ['React', 'Node.js', 'Express', 'Tailwind CSS', 'JWT', 'MFA/TOTP', 'Vercel'],
