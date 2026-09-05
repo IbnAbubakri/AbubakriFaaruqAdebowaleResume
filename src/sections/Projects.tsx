@@ -19,7 +19,7 @@ const projects = [
   },
   {
     title: 'Bolton Engineering — Power Solutions & Generator Website',
-    description: 'Client website for a Nigerian electromechanical power solutions company. Includes an interactive multi-step generator sizing estimator, a searchable/filterable product catalog (19 generator products) with pagination, a WhatsApp-integrated quote form with Zod validation, a floating WhatsApp chat widget, project case studies, and a partner program. Built around lead generation for the Nigerian SME market with full SEO and legal pages.',
+    description: 'Client website for a Nigerian electromechanical power solutions company — developed in collaboration with a fellow developer. I contributed the interactive multi-step generator sizing estimator, the searchable/filterable product catalog (19 generator products) with pagination, and the WhatsApp-integrated quote form with Zod validation. Includes project case studies, a partner program, and full SEO plus legal pages, built around lead generation for the Nigerian SME market.',
     techStack: ['Next.js 15', 'React 19', 'TypeScript', 'shadcn/ui', 'Tailwind CSS v4', 'react-hook-form', 'Zod', 'Radix UI'],
     liveDemo: 'https://www.bolton-engineering.com',
     github: 'https://github.com/Teea-dev/boltonengineering',
