@@ -1,7 +1,7 @@
 {
   "version": 1,
   "project": {
-    "name": "web-cv-fresh",
+    "name": "abubakri-faaruq-portfolio",
     "productType": null,
     "stack": [
       "nextjs",
@@ -294,10 +294,38 @@
     "patterns": []
   },
   "constraints": {
-    "must": [],
-    "avoid": []
+    "must": [
+      "Amber accent system: --accent / --primary are amber (#f59e0b dark, #b45309 light) with near-black accent-foreground in dark mode",
+      "Slate background: --background is slate-950 (#020617) dark / slate-50 (#f8fafc) light",
+      "Cyan (--color-cyan-token #22d3ee / #0e7490) and emerald (--color-emerald-token #34d399 / #047857) are the only secondary accents, reserved for skill/topic chips",
+      "Route ALL accent colors through tokens (var(--accent), var(--primary), var(--color-cyan-token), var(--color-emerald-token)) — never raw Tailwind color utilities",
+      "Flip-card interaction grammar: cards flip on click and Enter/Space via preserve-3d + backface-visibility:hidden, 0.6s cubic-bezier(0.22, 1, 0.36, 1); the floating shadow is a sibling of the clipped 3D container",
+      "Typography: Sora for sans, Archivo for display/headings, JetBrains Mono for labels and mono accents",
+      "Icons are thin stroke SVGs (1.5px stroke, currentColor), wrapped in a muted rounded tile",
+      "Radii use --radius (0.625rem); sections breathe with py-24 spacing",
+      "Cards/CTAs keep a hover scale lift (1.02-1.03) plus a soft, offset accent-colored shadow"
+    ],
+    "avoid": [
+      "Do not use blue as the primary or accent color — the identity is amber",
+      "Do not use stock Tailwind accent utilities like text-cyan-500, text-emerald-500, bg-blue-500",
+      "Do not clip or drop card shadows (no overflow-hidden on 3D-rotated parents that would cut the glow)",
+      "Do not use hard-coded gradients for accent fills — use color-mix(in srgb, <token> N%, var(--card))",
+      "Do not blur scroll reveals beyond 4-8px",
+      "Do not add new accent hues beyond amber, cyan, emerald and violet chart tokens",
+      "Do not use filled or emoji icon sets",
+      "Do not use grid gradients or noise overlays heavier than 3% opacity"
+    ]
   },
-  "decisions": [],
+  "decisions": [
+    {
+      "decided": "Single amber accent system: --primary and --accent unified to amber so the shadcn/ui layer and the hand-rolled accent layer stay interchangeable",
+      "reason": "Audit found --primary was stock blue while the site identity was amber; unifying removes double-skin risk (e.g. blue focus rings vs amber buttons)"
+    },
+    {
+      "decided": "Apple-touch icon monogram (FA) switched from cyan to amber on near-black",
+      "reason": "Brand assets should match the amber identity; cyan was left over from an earlier draft"
+    }
+  ],
   "evidence": [
     {
       "fact": "components.installed",
