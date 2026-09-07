@@ -55,7 +55,7 @@ export default function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1.5 text-sm text-muted-foreground bg-muted rounded-md hover:text-foreground hover:bg-accent transition-colors cursor-pointer"
+                    className="inline-flex items-center px-3.5 py-2 text-sm text-muted-foreground bg-muted rounded-md hover:text-accent-foreground hover:bg-accent transition-colors cursor-pointer"
                   >
                     {social.label}
                   </a>

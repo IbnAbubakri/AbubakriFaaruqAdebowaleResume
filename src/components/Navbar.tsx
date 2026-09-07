@@ -180,7 +180,7 @@ export default function Navbar() {
                     href={item.href}
                     className={`block px-6 py-3 text-sm transition-colors cursor-pointer ${
                       activeSection === item.id
-                        ? 'text-accent bg-accent/10 font-medium'
+                        ? 'text-accent-foreground bg-accent font-medium'
                         : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}

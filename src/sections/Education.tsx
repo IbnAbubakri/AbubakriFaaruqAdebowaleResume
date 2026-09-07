@@ -50,7 +50,14 @@ export default function Education() {
           </ScrollReveal>
 
           <div className="relative max-w-5xl mx-auto">
-            <div className="hidden md:block absolute top-12 bottom-12 left-1/2 -translate-x-px w-px bg-gradient-to-b from-cyan-500/30 via-cyan-500/10 to-cyan-500/30 pointer-events-none" />
+            <div
+              aria-hidden="true"
+              className="hidden md:block absolute top-12 bottom-12 left-1/2 -translate-x-px w-px pointer-events-none"
+              style={{
+                backgroundImage:
+                  'linear-gradient(to bottom, color-mix(in srgb, var(--color-cyan-token) 35%, transparent), color-mix(in srgb, var(--color-cyan-token) 12%, transparent), color-mix(in srgb, var(--color-cyan-token) 35%, transparent))',
+              }}
+            />
 
             <div className="grid md:grid-cols-3 gap-6">
               {education.map((edu, i) => (

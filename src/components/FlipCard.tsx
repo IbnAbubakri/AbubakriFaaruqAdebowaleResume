@@ -11,6 +11,8 @@ interface FlipCardProps {
   backContent: React.ReactNode
   className?: string
   accentColor?: string
+  tiltDeg?: number
+  glare?: boolean
 }
 
 const springConfig = { stiffness: 180, damping: 22 }
@@ -20,6 +22,8 @@ export default function FlipCard({
   backContent,
   className = '',
   accentColor = 'var(--accent)',
+  tiltDeg = 10,
+  glare = true,
 }: FlipCardProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [isTouchDevice, setIsTouchDevice] = useState(false)
@@ -42,8 +46,8 @@ export default function FlipCard({
     ([x, y]) => `radial-gradient(circle at ${x}% ${y}%, rgba(255,255,255,0.2) 0%, transparent 50%)`
   )
 
-  const shadowX = useTransform(rotateY, [-12, 12], [-16, 16])
-  const shadowY = useTransform(rotateX, [-12, 12], [16, -16])
+  const shadowX = useTransform(rotateY, [-tiltDeg, tiltDeg], [-16, 16])
+  const shadowY = useTransform(rotateX, [-tiltDeg, tiltDeg], [16, -16])
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -56,13 +60,13 @@ export default function FlipCard({
     const rect = ref.current.getBoundingClientRect()
     const x = (e.clientX - rect.left) / rect.width
     const y = (e.clientY - rect.top) / rect.height
-    rawRotateX.set((y - 0.5) * -10)
-    rawRotateY.set((x - 0.5) * 10)
+    rawRotateX.set((y - 0.5) * -tiltDeg)
+    rawRotateY.set((x - 0.5) * tiltDeg)
     rawScale.set(1.03)
     glareXPct.set(x * 100)
     glareYPct.set(y * 100)
     glareOpacity.set(1)
-  }, [isTouchDevice, rawRotateX, rawRotateY, rawScale, glareXPct, glareYPct, glareOpacity])
+  }, [isTouchDevice, tiltDeg, rawRotateX, rawRotateY, rawScale, glareXPct, glareYPct, glareOpacity])
 
   const handleMouseEnter = useCallback(() => {
     if (!isTouchDevice) {
@@ -93,73 +97,78 @@ export default function FlipCard({
   }, [])
 
   return (
-    <div
-      ref={ref}
-      role="button"
-      tabIndex={0}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onClick={handleClick}
-      onKeyDown={handleKeyDown}
-      style={{ perspective: 1400 }}
-      aria-label={isFlipped ? 'Flip card back to front' : 'Flip card to reveal more details'}
-      className={`relative cursor-pointer overflow-hidden ${className}`}
-    >
-      {/* Floating shadow — outside 3D tilt to avoid bleed */}
+    <div className={`relative ${className}`}>
+      {/* Floating shadow — a sibling of the clipped, 3D-rotated container so it is never cut off */}
       <motion.div
+        aria-hidden="true"
         style={{ x: shadowX, y: shadowY }}
-        className="absolute -inset-2 rounded-2xl blur-xl -z-10"
-        animate={{ opacity: isFlipped ? 0.03 : 0.06 }}
+        className="absolute -inset-2 rounded-2xl blur-xl -z-10 pointer-events-none"
+        animate={{ opacity: isFlipped ? 0.03 : 0.08 }}
       >
         <div className="w-full h-full rounded-2xl" style={{ backgroundColor: accentColor }} />
       </motion.div>
 
-      <motion.div
-        style={{
-          rotateX,
-          rotateY,
-          scale,
-          transformStyle: 'preserve-3d',
-        }}
-        className="relative"
+      <div
+        ref={ref}
+        role="button"
+        tabIndex={0}
+        onMouseMove={handleMouseMove}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onClick={handleClick}
+        onKeyDown={handleKeyDown}
+        style={{ perspective: 1400 }}
+        aria-label={isFlipped ? 'Flip card back to front' : 'Flip card to reveal more details'}
+        className="relative cursor-pointer overflow-hidden"
       >
-        {/* Front face */}
         <motion.div
           style={{
-            backfaceVisibility: 'hidden',
-            rotateY: isFlipped ? 180 : 0,
-            transition: 'rotateY 0.6s cubic-bezier(0.22, 1, 0.36, 1)',
+            rotateX,
+            rotateY,
+            scale,
+            transformStyle: 'preserve-3d',
           }}
           className="relative"
         >
-          {children}
+          {/* Front face */}
+          <motion.div
+            style={{
+              backfaceVisibility: 'hidden',
+              rotateY: isFlipped ? 180 : 0,
+              transition: 'rotateY 0.6s cubic-bezier(0.22, 1, 0.36, 1)',
+            }}
+            className="relative"
+          >
+            {children}
+          </motion.div>
+
+          {/* Back face */}
+          <motion.div
+            style={{
+              backfaceVisibility: 'hidden',
+              rotateY: isFlipped ? 0 : -180,
+              transition: 'rotateY 0.6s cubic-bezier(0.22, 1, 0.36, 1)',
+            }}
+            className="absolute inset-0"
+          >
+            {backContent}
+          </motion.div>
+
+          {/* Glare */}
+          {glare && (
+            <motion.div
+              style={{ opacity: glareOpacity, background: glareBg }}
+              className="absolute inset-0 rounded-xl pointer-events-none z-20"
+            />
+          )}
         </motion.div>
 
-        {/* Back face */}
-        <motion.div
-          style={{
-            backfaceVisibility: 'hidden',
-            rotateY: isFlipped ? 0 : -180,
-            transition: 'rotateY 0.6s cubic-bezier(0.22, 1, 0.36, 1)',
-          }}
-          className="absolute inset-0"
-        >
-          {backContent}
-        </motion.div>
-
-        {/* Glare */}
-        <motion.div
-          style={{ opacity: glareOpacity, background: glareBg }}
-          className="absolute inset-0 rounded-xl pointer-events-none z-20"
-        />
-      </motion.div>
-
-      {/* Flip hint */}
-      <div className="absolute bottom-2 right-3 z-30 pointer-events-none">
-        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-muted/80 text-[11px] text-muted-foreground font-mono select-none border border-border/60">
-          {isFlipped ? 'back' : 'click'}
-        </span>
+        {/* Flip hint */}
+        <div className="absolute bottom-2 right-3 z-30 pointer-events-none">
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-muted/80 text-[11px] text-muted-foreground font-mono select-none border border-border/60">
+            {isFlipped ? 'back' : 'click'}
+          </span>
+        </div>
       </div>
     </div>
   )

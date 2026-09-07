@@ -4,7 +4,7 @@ export default function FlipHint({
   children?: React.ReactNode
 }) {
   return (
-    <p className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/30 bg-accent/10 text-accent text-sm font-mono">
+    <p className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent text-accent-foreground text-sm font-mono shadow-sm">
       <svg
         aria-hidden="true"
         className="w-4 h-4 shrink-0"

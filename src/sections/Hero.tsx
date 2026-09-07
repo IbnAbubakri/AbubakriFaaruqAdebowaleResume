@@ -149,6 +149,7 @@ export default function Hero() {
                       width={416}
                       height={416}
                       priority
+                      sizes="(max-width: 640px) 288px, (max-width: 768px) 320px, 416px"
                       className="w-full h-full object-cover rounded-2xl"
                     />
                   </div>

@@ -120,7 +120,7 @@ export default function Certifications() {
                           </svg>
                         </div>
                         {cert.distinction && (
-                          <span className="px-2 py-0.5 bg-accent/10 dark:bg-accent/20 text-accent rounded text-xs font-mono">
+                          <span className="px-2 py-0.5 bg-accent text-accent-foreground rounded text-xs font-mono">
                             Distinction
                           </span>
                         )}

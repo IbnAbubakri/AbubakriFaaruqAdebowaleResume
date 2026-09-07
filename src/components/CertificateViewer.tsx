@@ -117,6 +117,7 @@ export default function CertificateViewer({
                 alt={imgAlt || title}
                 width={1200}
                 height={800}
+                sizes="(max-width: 768px) 93vw, (max-width: 1024px) 85vw, 1000px"
                 className="w-full h-auto"
                 onError={() => setImgError(true)}
               />

@@ -56,7 +56,7 @@ export default function ScrollReveal({
       x,
       y,
       scale: s,
-      filter: blur ? 'blur(8px)' : 'blur(0px)',
+      filter: blur ? 'blur(4px)' : 'blur(0px)',
       rotateX: direction === 'up' || direction === 'down' ? -8 : 0,
       rotateY: direction === 'left' || direction === 'right' ? -8 : 0,
     },
