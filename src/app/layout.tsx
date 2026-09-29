@@ -31,12 +31,12 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://abubakrifaaruqadebowaleresume.vercel.app"),
-  title: "Abubakri Faaruq Adebowale | IT Professional & Network Engineer",
-  description: "Portfolio of Abubakri Faaruq Adebowale — IT Administrator, Network Engineer, Cybersecurity Specialist, and Cloud Engineer.",
-  keywords: ["IT Professional", "Network Engineer", "Cybersecurity", "Cloud Engineer", "Portfolio", "Abubakri Faaruq"],
+  title: "Abubakri Faaruq Adebowale | IT Professional, Network Engineer & Software Developer",
+  description: "Portfolio of Abubakri Faaruq Adebowale — IT Administrator, Network Engineer, Cybersecurity Specialist, Cloud Engineer, and Software Developer based in Lagos, Nigeria.",
+  keywords: ["IT Professional", "Network Engineer", "Cybersecurity", "Cloud Engineer", "Software Developer", "AWS", "CompTIA Network+", "CCNA", "Portfolio", "Abubakri Faaruq"],
   openGraph: {
-    title: "Abubakri Faaruq Adebowale | IT Professional & Network Engineer",
-    description: "IT Administrator, Network Engineer, Cybersecurity Specialist, and Cloud Engineer.",
+    title: "Abubakri Faaruq Adebowale | IT Professional, Network Engineer & Software Developer",
+    description: "IT Administrator, Network Engineer, Cybersecurity Specialist, Cloud Engineer, and Software Developer.",
     url: "https://abubakrifaaruqadebowaleresume.vercel.app",
     siteName: "Abubakri Faaruq Adebowale",
     locale: "en_US",
@@ -45,8 +45,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Abubakri Faaruq Adebowale | IT Professional & Network Engineer",
-    description: "IT Administrator, Network Engineer, Cybersecurity Specialist, and Cloud Engineer.",
+    title: "Abubakri Faaruq Adebowale | IT Professional, Network Engineer & Software Developer",
+    description: "IT Administrator, Network Engineer, Cybersecurity Specialist, Cloud Engineer, and Software Developer.",
     images: [{ url: "https://abubakrifaaruqadebowaleresume.vercel.app/profile.jpeg", width: 1200, height: 1200 }],
   },
   alternates: {
@@ -94,6 +94,7 @@ export default function RootLayout({
               telephone: "+2349061345507",
               address: {
                 "@type": "PostalAddress",
+                addressLocality: "Lagos",
                 addressCountry: "NG",
               },
               sameAs: [
@@ -109,11 +110,24 @@ export default function RootLayout({
                 "Python",
                 "React",
                 "Next.js",
+                "Systems Administration",
+                "Software Development",
               ],
               alumniOf: {
                 "@type": "EducationalOrganization",
+                name: "National Open University of Nigeria",
+              },
+              worksFor: {
+                "@type": "Organization",
                 name: "HIIT Plc",
               },
+              hasCredential: [
+                { "@type": "EducationalOccupationalCredential", "name": "Cisco Certified Network Associate (CCNA)", "credentialCategory": "certification" },
+                { "@type": "EducationalOccupationalCredential", "name": "CompTIA Network+", "credentialCategory": "certification" },
+                { "@type": "EducationalOccupationalCredential", "name": "CompTIA A+", "credentialCategory": "certification" },
+                { "@type": "EducationalOccupationalCredential", "name": "AWS Cloud Computing", "credentialCategory": "certification" },
+                { "@type": "EducationalOccupationalCredential", "name": "DevOps Certification", "credentialCategory": "certification" },
+              ],
             }),
           }}
         />
@@ -123,9 +137,9 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              name: "Abubakri Faaruq Adebowale | IT Professional & Network Engineer",
+              name: "Abubakri Faaruq Adebowale | IT Professional, Network Engineer & Software Developer",
               url: "https://abubakrifaaruqadebowaleresume.vercel.app",
-              description: "Portfolio of Abubakri Faaruq Adebowale — IT Administrator, Network Engineer, Cybersecurity Specialist, and Cloud Engineer.",
+              description: "Portfolio of Abubakri Faaruq Adebowale — IT Administrator, Network Engineer, Cybersecurity Specialist, Cloud Engineer, and Software Developer based in Lagos, Nigeria.",
               author: {
                 "@type": "Person",
                 name: "Abubakri Faaruq Adebowale",

@@ -33,6 +33,16 @@ const certifications = [
     backText: 'Vendor-neutral certification covering networking concepts, infrastructure, operations, security, and troubleshooting. Applicable across all major platforms.',
   },
   {
+    title: 'CompTIA A+',
+    issuer: 'CompTIA',
+    trainingProvider: 'HIIT Plc',
+    date: '2025',
+    description: 'IT fundamentals certification covering hardware, software, operating systems, security, and technical support.',
+    distinction: false,
+    color: 'var(--primary)',
+    backText: 'Covers hardware installation, mobile devices, operating systems, security fundamentals, operational procedures, and troubleshooting. Currently delivered as part of my CompTIA A+ instruction role at HIIT Plc.',
+  },
+  {
     title: 'AWS Cloud Computing',
     issuer: 'Amazon Web Services',
     trainingProvider: 'ThinkCloudly',
@@ -70,7 +80,7 @@ export default function Certifications() {
             </div>
           </ScrollReveal>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {certifications.map((cert, i) => (
               <ScrollReveal key={cert.title} direction={i % 2 === 0 ? 'left' : 'right'} delay={0.15 + i * 0.08} blur>
                 <FlipCard
@@ -95,17 +105,26 @@ export default function Certifications() {
                         <p className="text-xs text-muted-foreground leading-relaxed mb-4">
                           {cert.backText}
                         </p>
-                        <Link
-                          href={cert.certLink}
-                          onClick={(e) => e.stopPropagation()}
-                          className="inline-flex items-center gap-1.5 text-xs font-medium transition-colors"
-                          style={{ color: cert.color }}
-                        >
-                          View Certificate
-                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </Link>
+                        {cert.certLink ? (
+                          <Link
+                            href={cert.certLink}
+                            onClick={(e) => e.stopPropagation()}
+                            className="inline-flex items-center gap-1.5 text-xs font-medium transition-colors"
+                            style={{ color: cert.color }}
+                          >
+                            View Certificate
+                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          </Link>
+                        ) : (
+                          <span className="inline-flex items-center gap-1.5 text-xs font-medium opacity-60">
+                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            Verification available on request
+                          </span>
+                        )}
                       </div>
                     </div>
                   }

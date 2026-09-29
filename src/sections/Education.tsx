@@ -12,9 +12,9 @@ const education = [
   {
     degree: 'BSc Cyber Security',
     institution: 'National Open University of Nigeria',
-    period: '2026 - Present',
-    description: 'Comprehensive cybersecurity program covering network security, cryptography, ethical hacking, and risk management.',
-    backText: 'Studying advanced topics: penetration testing, digital forensics, security operations center (SOC) workflows, compliance frameworks (ISO 27001, NIST), and incident response.',
+    period: 'Currently Pursuing',
+    description: 'Undergraduate cybersecurity degree with coursework in penetration testing, digital forensics, SOC operations, information security, and risk management.',
+    backText: 'Relevant coursework: Cybersecurity, Penetration Testing, Digital Forensics, Security Operations Center (SOC) Operations, Information Security, Risk Management, ISO 27001, NIST Cybersecurity Framework, and Security and Compliance.',
     color: 'var(--color-cyan-token)',
   },
   {

@@ -12,7 +12,7 @@ export default function About() {
   const highlights = [
     { title: 'Professional Focus', desc: 'Enterprise IT, Network Security, Cloud Architecture' },
     { title: 'Core Strengths', desc: 'Problem Solving, System Design, Technical Leadership' },
-    { title: 'Current Focus', desc: 'Cloud Security, DevOps, Scalable Web Applications' },
+    { title: 'Current Focus', desc: 'BSc Cyber Security — Pen Testing, Forensics, SOC' },
   ]
 
   const stats = [
@@ -30,31 +30,36 @@ export default function About() {
             <div>
               <ScrollReveal direction="left" blur delay={0.1}>
                 <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6 tracking-tight">
-                  IT Professional &amp; Vibecoder
+                  IT Professional &amp; Software Developer
                 </h2>
               </ScrollReveal>
 
               <ScrollReveal direction="left" delay={0.2}>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    I am a dedicated IT professional with a strong foundation in
-                    network engineering, cybersecurity, cloud computing, and software
-                    development. My journey in technology began with a passion for
-                    understanding how systems communicate and has evolved into
-                    expertise across multiple domains.
+                    I am an IT Administrator, Network Engineer, Cybersecurity Specialist,
+                    Cloud Engineer, and Software Developer with 5+ years of hands-on
+                    experience in IT infrastructure, enterprise networking, cybersecurity,
+                    cloud computing, systems administration, and full-stack software
+                    development.
                   </p>
                   <p>
-                    As an IT Administrator at 1791 LLC, I manage enterprise
-                    infrastructure, ensuring optimal performance and security. My
-                    experience as a CompTIA Network+ Instructor at HIIT Plc has honed
-                    my ability to communicate complex technical concepts effectively.
+                    I administer Windows and Linux environments, Active Directory,
+                    firewalls, VPNs, backup and disaster recovery systems, and AWS cloud
+                    services. My networking background is built on Cisco routing and
+                    switching, TCP/IP, IPv4/IPv6, VLANs, 802.1Q trunking, inter-VLAN
+                    routing, OSPF, EIGRP, IP addressing, subnetting, and network
+                    troubleshooting.
                   </p>
                   <p>
-                    I combine my networking and security expertise with vibecoding
-                    skills to build comprehensive, secure, and scalable solutions.
-                    Whether it&apos;s designing enterprise networks, implementing
-                    security protocols, or developing web applications, I bring a
-                    holistic approach to technology.
+                    As a CompTIA Network+ and A+ Instructor at HIIT Plc, I teach in
+                    both physical classroom and live online formats, training and
+                    mentoring 200+ students in networking, IT infrastructure, and
+                    professional certification preparation through hands-on laboratory
+                    environments. I currently pursue a BSc in Cyber Security at the
+                    National Open University of Nigeria, with academic focus on penetration
+                    testing, digital forensics, SOC operations, risk management, ISO 27001,
+                    and the NIST cybersecurity framework.
                   </p>
                 </div>
               </ScrollReveal>
@@ -69,7 +74,7 @@ export default function About() {
                           <p className="text-xs text-muted-foreground text-center font-mono">
                             {stat.label === 'Experience' && 'Over 5 years of hands-on IT infrastructure, security, and cloud management.'}
                             {stat.label === 'Projects' && '50+ projects spanning networking labs, web apps, fintech, and enterprise systems.'}
-                            {stat.label === 'Certifications' && 'CCNA, CompTIA Network+, AWS Cloud, DevOps — all with distinction.'}
+                            {stat.label === 'Certifications' && 'CCNA, CompTIA Network+, CompTIA A+, AWS Cloud, and DevOps.'}
                             {stat.label === 'Clients' && 'Served 30+ clients across enterprise, education, and freelance engagements.'}
                           </p>
                         </div>
@@ -132,7 +137,7 @@ export default function About() {
                         <p className="text-xs text-muted-foreground font-mono">
                           {item.title === 'Professional Focus' && 'Deep expertise in enterprise networking (CCNA), cloud architecture (AWS), and security operations across production environments.'}
                           {item.title === 'Core Strengths' && 'Proven ability to architect complex systems, lead technical teams, and solve ambiguous problems under pressure.'}
-                          {item.title === 'Current Focus' && 'Building cloud-native, secure applications with DevOps practices. Exploring AI integration and zero-trust architectures.'}
+                          {item.title === 'Current Focus' && 'Pursuing a BSc in Cyber Security at NOUN, focused on penetration testing, digital forensics, SOC operations, risk management, ISO 27001, and the NIST framework.'}
                         </p>
                       </div>
                     }

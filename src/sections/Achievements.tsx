@@ -38,8 +38,8 @@ const achievements = [
       </svg>
     ),
     title: 'Instructor Role',
-    description: 'Served as CompTIA Network+ Instructor at HIIT Plc, mentoring students to certification success.',
-    backText: 'Mentored 50+ students with a high pass rate. Designed hands-on lab exercises and simplified complex networking topics through real-world analogies.',
+    description: 'Serves as CompTIA Network+ and A+ Instructor at HIIT Plc, training and mentoring 200+ students across physical classroom and live online cohorts.',
+    backText: 'Mentored 200+ students with a high pass rate across physical and online delivery. Designed hands-on laboratory exercises and simplified complex networking topics through real-world analogies, simulations, and structured labs.',
     color: 'var(--primary)',
   },
   {
@@ -60,7 +60,7 @@ const achievements = [
       </svg>
     ),
     title: 'Software Deployments',
-    description: 'Successfully deployed multiple vibecoded applications with cloud integration and CI/CD pipelines.',
+    description: 'Developed and deployed 10+ software applications with cloud integration and CI/CD pipelines.',
     backText: 'Deployed 10+ production applications with automated CI/CD pipelines, containerized environments, and cloud-native architectures on Vercel, Render, and AWS.',
     color: 'var(--accent)',
   },
@@ -72,7 +72,7 @@ const achievements = [
     ),
     title: 'Continuous Learning',
     description: 'Currently pursuing BSc in Cyber Security while maintaining professional certifications and skills.',
-    backText: 'Actively pursuing BSc in Cyber Security at NOUN, maintaining CCNA/Network+ certs, and exploring AI integration, zero-trust architectures, and cloud-native security.',
+    backText: 'Actively pursuing a BSc in Cyber Security at the National Open University of Nigeria, maintaining CCNA, CompTIA Network+, and CompTIA A+ credentials alongside AI-assisted development practice.',
     color: 'var(--color-cyan-token)',
   },
 ]

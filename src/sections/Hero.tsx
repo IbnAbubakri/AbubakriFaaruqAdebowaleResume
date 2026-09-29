@@ -17,7 +17,7 @@ const titles = [
   'Network Engineer',
   'Cybersecurity Specialist',
   'Cloud Engineer',
-  'Vibecoder',
+  'Software Developer',
 ]
 
 export default function Hero() {
@@ -91,9 +91,10 @@ export default function Hero() {
 
             <ScrollReveal direction="up" delay={0.45} blur>
               <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-2xl leading-relaxed">
-                Dedicated IT professional with expertise in network engineering,
-                cybersecurity, cloud computing, and software development. Passionate
-                about building secure, scalable solutions for enterprise environments.
+                IT Administrator, Network Engineer, Cybersecurity Specialist, Cloud
+                Engineer, and Software Developer with 5+ years of hands-on experience
+                across IT infrastructure, enterprise networking, cloud computing, and
+                full-stack development.
               </p>
             </ScrollReveal>
 

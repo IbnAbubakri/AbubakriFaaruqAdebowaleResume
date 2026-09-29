@@ -39,7 +39,7 @@ export default function NetworkPlusCertificate() {
           },
           {
             heading: 'Teaching It Changed How I Use It',
-            body: 'I teach combined CompTIA Network+ and A+ courses at HIIT Plc, mentoring over 200 students toward certification success. Teaching forced me to master the material at a deeper level and to translate abstract concepts into hands-on labs students can actually grasp — a skill I now apply directly in my own network engineering work.',
+            body: 'I teach combined CompTIA Network+ and A+ courses at HIIT Plc in both physical classroom and live online formats, mentoring over 200 students toward certification success. Teaching across both settings forced me to master the material at a deeper level and to translate abstract concepts into hands-on labs students can actually grasp — a skill I now apply directly in my own network engineering work.',
           },
           {
             heading: 'Operational Readiness',

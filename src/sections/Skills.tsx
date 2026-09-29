@@ -27,8 +27,8 @@ const skillCategories = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c0 4.97-1.343 9-3 9m0-18c1.657 0 3 4.03 3 9s-1.343 9-3 9M3 12c0 4.97 1.343 9 3 9s3-4.03 3-9-1.343-9-3-9-3 4.03-3 9z" />
       </svg>
     ),
-    skills: ['CCNA', 'Network+', 'Routing & Switching', 'VLANs', 'OSPF', 'EIGRP', 'Network Security'],
-    backText: 'Hands-on experience with Cisco enterprise routing, Layer 2/3 switching, VLAN segmentation, OSPF/EIGRP dynamic routing, and network security hardening across production environments.',
+    skills: ['CCNA', 'Network+', 'A+', 'TCP/IP', 'IPv4/IPv6', '802.1Q Trunking', 'Inter-VLAN Routing', 'OSPF', 'EIGRP', 'Subnetting'],
+    backText: 'Hands-on experience with Cisco enterprise routing, Layer 2/3 switching, VLAN segmentation, 802.1Q trunking, inter-VLAN routing, OSPF/EIGRP dynamic routing, IP addressing, subnetting, and network security hardening across production environments.',
   },
   {
     title: 'Cybersecurity',
@@ -37,8 +37,8 @@ const skillCategories = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
       </svg>
     ),
-    skills: ['Network Security', 'Firewall Config', 'Penetration Testing', 'Security Protocols', 'Risk Assessment'],
-    backText: 'Proficient in firewall configuration, penetration testing methodologies, risk assessment frameworks, and implementing zero-trust security protocols for enterprise networks.',
+    skills: ['Network Security', 'Firewall Config', 'Penetration Testing', 'SOC Operations', 'Security Monitoring', 'Risk Assessment', 'ISO 27001', 'NIST'],
+    backText: 'Proficient in firewall configuration, penetration testing methodologies, risk assessment frameworks, security monitoring, and SOC operations — with academic grounding in ISO 27001 and the NIST Cybersecurity Framework.',
   },
   {
     title: 'Cloud Computing',
@@ -57,8 +57,8 @@ const skillCategories = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2z" />
       </svg>
     ),
-    skills: ['Ubuntu', 'CentOS', 'Shell Scripting', 'System Administration', 'Server Management'],
-    backText: 'Proficient in Ubuntu/CentOS server management, bash scripting for automation, systemd services, cron jobs, and hardening Linux servers for production workloads.',
+    skills: ['Ubuntu', 'CentOS', 'Shell Scripting', 'Active Directory', 'Backup & Disaster Recovery', 'Infrastructure Monitoring'],
+    backText: 'Proficient in Ubuntu/CentOS server management, bash scripting for automation, Windows and Linux administration, Active Directory, and backup and disaster recovery procedures for production workloads.',
   },
   {
     title: 'DevOps',
@@ -87,8 +87,8 @@ const skillCategories = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
       </svg>
     ),
-    skills: ['Node.js', 'Express', 'Python', 'REST APIs', 'Database Design', 'PostgreSQL', 'MongoDB'],
-    backText: 'RESTful API design with Node.js/Express, Python scripting, PostgreSQL/MongoDB database architecture, JWT auth, rate limiting, and structured logging.',
+    skills: ['Node.js', 'Python', 'FastAPI', 'REST APIs', 'PostgreSQL', 'MongoDB', 'Supabase'],
+    backText: 'RESTful API design with Node.js and FastAPI, PostgreSQL/MongoDB/Supabase database architecture, JWT auth, MFA, rate limiting, and structured logging.',
   },
   {
     title: 'Tools & Platforms',

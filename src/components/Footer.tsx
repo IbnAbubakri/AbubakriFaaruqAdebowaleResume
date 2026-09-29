@@ -19,7 +19,7 @@ export default function Footer() {
                 AF<span className="text-accent">.</span>
               </span>
               <p className="mt-3 text-sm text-muted-foreground max-w-xs">
-                IT Professional, Network Engineer, Cybersecurity Specialist, Cloud Engineer, and Vibecoder.
+                IT Administrator, Network Engineer, Cybersecurity Specialist, Cloud Engineer, and Software Developer.
               </p>
             </div>
           </ScrollReveal>

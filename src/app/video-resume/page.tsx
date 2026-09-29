@@ -109,7 +109,8 @@ export default function VideoResumePage() {
             <p className="text-muted-foreground leading-relaxed">
               I am an IT professional working across network engineering,
               cybersecurity, cloud computing, and software development. I am
-              currently a CompTIA Network+ and A+ instructor at HIIT Plc, where
+              currently a CompTIA Network+ and A+ instructor at HIIT Plc, teaching
+              in both physical classroom and live online formats, where
               I have mentored over 200 students toward certification success.
               I previously served as an IT Administrator at 1791 LLC, managing
               enterprise infrastructure, network security, and AWS cloud
@@ -121,10 +122,10 @@ export default function VideoResumePage() {
               Certifications &amp; Education
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              I hold the Cisco CCNA, CompTIA Network+, AWS Cloud Computing, and
-              DevOps certifications — earned with distinction. I am currently
-              pursuing a BSc in Cyber Security at the National Open University
-              of Nigeria, deepening my expertise in penetration testing,
+              I hold the Cisco CCNA, CompTIA Network+, CompTIA A+, AWS Cloud
+              Computing, and DevOps certifications — earned with distinction. I am
+              currently pursuing a BSc in Cyber Security at the National Open
+              University of Nigeria, deepening my expertise in penetration testing,
               digital forensics, and security operations.
             </p>
           </div>
