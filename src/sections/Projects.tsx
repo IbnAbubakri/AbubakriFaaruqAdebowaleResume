@@ -119,6 +119,46 @@ function ProjectFront({ project, index }: { project: typeof projects[number]; in
             </span>
           ))}
         </div>
+        {(project.liveDemo || project.github || project.backend) && (
+          <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-border">
+            {project.liveDemo && (
+              <a
+                href={project.liveDemo}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${project.title} — live demo`}
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-mono border border-accent/30 text-accent hover:border-accent hover:bg-accent/10 transition-colors cursor-pointer"
+              >
+                Live
+                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            )}
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${project.title} — source code`}
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-mono border border-border text-muted-foreground hover:text-foreground hover:border-foreground/40 transition-colors cursor-pointer"
+              >
+                Source
+              </a>
+            )}
+            {project.backend && (
+              <a
+                href={project.backend}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${project.title} — backend repository`}
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-mono border border-border text-muted-foreground hover:text-foreground hover:border-foreground/40 transition-colors cursor-pointer"
+              >
+                Backend
+              </a>
+            )}
+          </div>
+        )}
       </div>
     </div>
   )
@@ -230,7 +270,6 @@ export default function Projects() {
                 key={project.title}
                 direction={i % 2 === 0 ? 'left' : 'right'}
                 delay={0.12 + i * 0.08}
-                blur
               >
                 <FlipCard
                   backContent={<ProjectBack project={project} />}

@@ -5,7 +5,6 @@
 
 import Link from 'next/link'
 import FlipCard from '@/components/FlipCard'
-import FlipHint from '@/components/FlipHint'
 import ScrollReveal from '@/components/ScrollReveal'
 import ParallaxSection from '@/components/ParallaxSection'
 
@@ -76,13 +75,12 @@ export default function Certifications() {
               <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
                 Certifications
               </h2>
-              <FlipHint />
             </div>
           </ScrollReveal>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {certifications.map((cert, i) => (
-              <ScrollReveal key={cert.title} direction={i % 2 === 0 ? 'left' : 'right'} delay={0.15 + i * 0.08} blur>
+              <ScrollReveal key={cert.title} direction={i % 2 === 0 ? 'left' : 'right'} delay={0.15 + i * 0.08}>
                 <FlipCard
                   accentColor={cert.color}
                   backContent={
@@ -139,7 +137,10 @@ export default function Certifications() {
                           </svg>
                         </div>
                         {cert.distinction && (
-                          <span className="px-2 py-0.5 bg-accent text-accent-foreground rounded text-xs font-mono">
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full border border-accent/40 bg-accent/10 text-accent text-[11px] font-mono">
+                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12l2 2 4-4" />
+                            </svg>
                             Distinction
                           </span>
                         )}
@@ -150,6 +151,18 @@ export default function Certifications() {
                         <p className="text-xs text-muted-foreground mb-2">Trained at: {cert.trainingProvider}</p>
                       )}
                       <p className="text-xs text-muted-foreground leading-relaxed">{cert.description}</p>
+                      {cert.certLink && (
+                        <Link
+                          href={cert.certLink}
+                          className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium transition-colors group/link"
+                          style={{ color: cert.color }}
+                        >
+                          View Certificate
+                          <svg className="w-3 h-3 transition-transform group-hover/link:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </FlipCard>

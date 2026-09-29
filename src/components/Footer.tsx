@@ -38,6 +38,23 @@ export default function Footer() {
                   </Link>
                 ))}
               </div>
+              <h4 className="text-sm font-semibold text-foreground mt-6 mb-4">Certificates</h4>
+              <div className="space-y-2">
+                {[
+                  { label: 'CCNA', href: '/certifications/ccna' },
+                  { label: 'CompTIA Network+', href: '/certifications/network-plus' },
+                  { label: 'AWS Cloud Computing', href: '/certifications/aws' },
+                  { label: 'DevOps', href: '/certifications/devops' },
+                ].map((cert) => (
+                  <Link
+                    key={cert.href}
+                    href={cert.href}
+                    className="block py-2.5 text-sm text-muted-foreground hover:text-accent transition-colors cursor-pointer"
+                  >
+                    {cert.label}
+                  </Link>
+                ))}
+              </div>
             </div>
           </ScrollReveal>
 

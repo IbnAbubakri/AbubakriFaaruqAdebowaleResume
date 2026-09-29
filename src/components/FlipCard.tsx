@@ -132,6 +132,7 @@ export default function FlipCard({
         >
           {/* Front face */}
           <motion.div
+            inert={isFlipped}
             style={{
               backfaceVisibility: 'hidden',
               rotateY: isFlipped ? 180 : 0,
@@ -144,6 +145,7 @@ export default function FlipCard({
 
           {/* Back face */}
           <motion.div
+            inert={!isFlipped}
             style={{
               backfaceVisibility: 'hidden',
               rotateY: isFlipped ? 0 : -180,

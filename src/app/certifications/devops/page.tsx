@@ -8,16 +8,35 @@ export const metadata: Metadata = {
   title: 'DevOps Certificate | Abubakri Faaruq Adebowale',
   description: 'DevOps professional certificate covering CI/CD, containerization, and infrastructure automation.',
   alternates: { canonical: 'https://abubakrifaaruqadebowaleresume.vercel.app/certifications/devops' },
-  openGraph: {
-    title: 'DevOps Certificate | Abubakri Faaruq Adebowale',
-    description: 'DevOps professional certificate covering CI/CD, containerization, and infrastructure automation.',
-    images: [{ url: 'https://abubakrifaaruqadebowaleresume.vercel.app/profile.jpeg', width: 1200, height: 1200 }],
-  },
 }
 
 export default function DevOpsCertificate() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            name: 'DevOps Certificate | Abubakri Faaruq Adebowale',
+            url: 'https://abubakrifaaruqadebowaleresume.vercel.app/certifications/devops',
+            about: {
+              '@type': 'EducationalOccupationalCredential',
+              name: 'DevOps Certification',
+              credentialCategory: 'certification',
+              educationalLevel: 'Professional',
+              awardedBy: { '@type': 'Organization', name: 'Udemy' },
+              description: 'Comprehensive DevOps training covering CI/CD pipelines, Docker containerization, Kubernetes orchestration, infrastructure as code, and cloud deployment strategies.',
+            },
+            author: {
+              '@type': 'Person',
+              name: 'Abubakri Faaruq Adebowale',
+              url: 'https://abubakrifaaruqadebowaleresume.vercel.app',
+            },
+          }),
+        }}
+      />
       <CertificateViewer
         title="DevOps Certificate"
         subtitle="DevOps Engineering - CI/CD, Containerization, and Automation"

@@ -66,7 +66,7 @@ export default function About() {
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-10">
                 {stats.map((stat, i) => (
-                  <ScrollReveal key={stat.label} direction="up" delay={0.3 + i * 0.08} blur>
+                  <ScrollReveal key={stat.label} direction="up" delay={0.3 + i * 0.08}>
                     <FlipCard
                       accentColor="var(--accent)"
                       backContent={
@@ -91,7 +91,7 @@ export default function About() {
             </div>
 
             <div className="space-y-4">
-              <ScrollReveal direction="right" delay={0.15} blur>
+              <ScrollReveal direction="right" delay={0.15}>
                 <FlipCard
                   accentColor="var(--primary)"
                   backContent={
@@ -129,7 +129,7 @@ export default function About() {
               </ScrollReveal>
 
               {highlights.map((item, i) => (
-                <ScrollReveal key={item.title} direction="right" delay={0.25 + i * 0.1} blur>
+                <ScrollReveal key={item.title} direction="right" delay={0.25 + i * 0.1}>
                   <FlipCard
                     accentColor="var(--color-cyan-token)"
                     backContent={

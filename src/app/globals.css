@@ -126,13 +126,13 @@
 
 .hero-gradient {
   background:
-    radial-gradient(ellipse 80% 60% at 50% -20%, rgba(59,130,246,0.12) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 80% 80%, rgba(6,182,212,0.06) 0%, transparent 50%);
+    radial-gradient(ellipse 80% 60% at 50% -20%, color-mix(in srgb, var(--accent) 12%, transparent) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 80%, color-mix(in srgb, var(--color-cyan-token) 8%, transparent) 0%, transparent 50%);
 }
 .dark .hero-gradient {
   background:
-    radial-gradient(ellipse 80% 60% at 50% -20%, rgba(59,130,246,0.15) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 80% 80%, rgba(6,182,212,0.08) 0%, transparent 50%);
+    radial-gradient(ellipse 80% 60% at 50% -20%, color-mix(in srgb, var(--accent) 16%, transparent) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 80%, color-mix(in srgb, var(--color-cyan-token) 10%, transparent) 0%, transparent 50%);
 }
 
 .section-amber {

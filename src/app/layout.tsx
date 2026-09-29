@@ -41,20 +41,14 @@ export const metadata: Metadata = {
     siteName: "Abubakri Faaruq Adebowale",
     locale: "en_US",
     type: "website",
-    images: [{ url: "https://abubakrifaaruqadebowaleresume.vercel.app/profile.jpeg", width: 1200, height: 1200 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Abubakri Faaruq Adebowale | IT Professional, Network Engineer & Software Developer",
     description: "IT Administrator, Network Engineer, Cybersecurity Specialist, Cloud Engineer, and Software Developer.",
-    images: [{ url: "https://abubakrifaaruqadebowaleresume.vercel.app/profile.jpeg", width: 1200, height: 1200 }],
   },
   alternates: {
     canonical: "https://abubakrifaaruqadebowaleresume.vercel.app",
-  },
-  icons: {
-    icon: "/favicon.svg",
-    apple: "/apple-touch-icon.png",
   },
   verification: {
     google: "lUDFm7baDbaaSlMR6x-ti6FPFZA__rA0gSsKrNxvzD0",

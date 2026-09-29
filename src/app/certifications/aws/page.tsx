@@ -8,16 +8,35 @@ export const metadata: Metadata = {
   title: 'AWS Cloud Computing Certificate | Abubakri Faaruq Adebowale',
   description: 'Amazon Web Services Cloud Computing Certificate from ThinkCloudly covering cloud architecture, deployment, and management.',
   alternates: { canonical: 'https://abubakrifaaruqadebowaleresume.vercel.app/certifications/aws' },
-  openGraph: {
-    title: 'AWS Cloud Computing Certificate | Abubakri Faaruq Adebowale',
-    description: 'Amazon Web Services Cloud Computing Certificate from ThinkCloudly covering cloud architecture, deployment, and management.',
-    images: [{ url: 'https://abubakrifaaruqadebowaleresume.vercel.app/profile.jpeg', width: 1200, height: 1200 }],
-  },
 }
 
 export default function AWSCertificate() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            name: 'AWS Cloud Computing Certificate | Abubakri Faaruq Adebowale',
+            url: 'https://abubakrifaaruqadebowaleresume.vercel.app/certifications/aws',
+            about: {
+              '@type': 'EducationalOccupationalCredential',
+              name: 'AWS Cloud Computing',
+              credentialCategory: 'certification',
+              educationalLevel: 'Professional',
+              awardedBy: { '@type': 'Organization', name: 'Amazon Web Services' },
+              description: 'Cloud architecture, deployment, and management certification covering EC2, S3, Lambda, VPC, IAM, and deployment best practices.',
+            },
+            author: {
+              '@type': 'Person',
+              name: 'Abubakri Faaruq Adebowale',
+              url: 'https://abubakrifaaruqadebowaleresume.vercel.app',
+            },
+          }),
+        }}
+      />
       <CertificateViewer
         title="AWS Cloud Computing Certificate"
         subtitle="Amazon Web Services - Cloud Architecture, Deployment, and Management"

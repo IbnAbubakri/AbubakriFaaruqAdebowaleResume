@@ -84,6 +84,7 @@ export default function ScrollReveal({
       animate={isInView ? 'visible' : 'hidden'}
       className={className}
       style={{
+        willChange: blur ? 'transform, opacity, filter' : 'transform, opacity',
         perspective: (direction === 'left' || direction === 'right' || direction === 'up' || direction === 'down')
           ? '1000px'
           : undefined,

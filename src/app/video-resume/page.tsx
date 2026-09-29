@@ -18,14 +18,12 @@ export const metadata: Metadata = {
       "Professional video resume showcasing skills in networking, cybersecurity, cloud computing, and software development.",
     url: "https://abubakrifaaruqadebowaleresume.vercel.app/video-resume",
     type: "website",
-    images: [{ url: "https://abubakrifaaruqadebowaleresume.vercel.app/profile.jpeg", width: 1200, height: 1200 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Video Resume | Abubakri Faaruq Adebowale",
     description:
       "Professional video resume showcasing skills in networking, cybersecurity, cloud computing, and software development.",
-    images: [{ url: "https://abubakrifaaruqadebowaleresume.vercel.app/profile.jpeg", width: 1200, height: 1200 }],
   },
 };
 

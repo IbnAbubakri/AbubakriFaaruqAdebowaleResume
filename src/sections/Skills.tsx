@@ -4,7 +4,6 @@
 'use client'
 
 import FlipCard from '@/components/FlipCard'
-import FlipHint from '@/components/FlipHint'
 import ScrollReveal from '@/components/ScrollReveal'
 import ParallaxSection from '@/components/ParallaxSection'
 
@@ -112,13 +111,12 @@ export default function Skills() {
               <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
                 Skills &amp; Expertise
               </h2>
-              <FlipHint />
             </div>
           </ScrollReveal>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {skillCategories.map((category, i) => (
-              <ScrollReveal key={category.title} direction="scale" delay={0.1 + i * 0.06} blur>
+              <ScrollReveal key={category.title} direction="scale" delay={0.1 + i * 0.06}>
                 <FlipCard
                   accentColor={accentMap[i]}
                   backContent={

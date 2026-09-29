@@ -4,7 +4,6 @@
 'use client'
 
 import FlipCard from '@/components/FlipCard'
-import FlipHint from '@/components/FlipHint'
 import ScrollReveal from '@/components/ScrollReveal'
 import ParallaxSection from '@/components/ParallaxSection'
 
@@ -45,7 +44,6 @@ export default function Education() {
               <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
                 Education
               </h2>
-              <FlipHint />
             </div>
           </ScrollReveal>
 
@@ -61,7 +59,7 @@ export default function Education() {
 
             <div className="grid md:grid-cols-3 gap-6">
               {education.map((edu, i) => (
-                <ScrollReveal key={edu.degree} direction="up" delay={0.15 + i * 0.12} blur>
+                <ScrollReveal key={edu.degree} direction="up" delay={0.15 + i * 0.12}>
                   <FlipCard
                     accentColor={edu.color}
                     backContent={

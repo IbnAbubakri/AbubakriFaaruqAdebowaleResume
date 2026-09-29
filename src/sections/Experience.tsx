@@ -72,7 +72,7 @@ export default function Experience() {
 
           <div className="max-w-3xl mx-auto space-y-6">
             {experiences.map((exp, i) => (
-              <ScrollReveal key={exp.title} direction={i % 2 === 0 ? 'left' : 'right'} delay={0.1 + i * 0.08} blur>
+              <ScrollReveal key={exp.title} direction={i % 2 === 0 ? 'left' : 'right'} delay={0.1 + i * 0.08}>
                 <div className="relative pl-8 border-l-2 border-border">
                   <div className="absolute left-0 top-1 w-3 h-3 -translate-x-[7px] rounded-full bg-accent signal-dot" />
                   <FlipCard

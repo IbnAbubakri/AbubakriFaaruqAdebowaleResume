@@ -4,7 +4,6 @@
 'use client'
 
 import FlipCard from '@/components/FlipCard'
-import FlipHint from '@/components/FlipHint'
 import ScrollReveal from '@/components/ScrollReveal'
 import ParallaxSection from '@/components/ParallaxSection'
 
@@ -87,13 +86,12 @@ export default function Achievements() {
               <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground tracking-tight">
                 Achievements
               </h2>
-              <FlipHint />
             </div>
           </ScrollReveal>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {achievements.map((achievement, i) => (
-              <ScrollReveal key={achievement.title} direction="scale" delay={0.12 + i * 0.07} blur>
+              <ScrollReveal key={achievement.title} direction="scale" delay={0.12 + i * 0.07}>
                 <FlipCard
                   accentColor={achievement.color}
                   backContent={

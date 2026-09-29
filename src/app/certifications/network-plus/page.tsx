@@ -8,16 +8,35 @@ export const metadata: Metadata = {
   title: 'CompTIA Network+ Certificate | Abubakri Faaruq Adebowale',
   description: 'CompTIA Network+ certification covering networking concepts, infrastructure, and troubleshooting.',
   alternates: { canonical: 'https://abubakrifaaruqadebowaleresume.vercel.app/certifications/network-plus' },
-  openGraph: {
-    title: 'CompTIA Network+ Certificate | Abubakri Faaruq Adebowale',
-    description: 'CompTIA Network+ certification covering networking concepts, infrastructure, and troubleshooting.',
-    images: [{ url: 'https://abubakrifaaruqadebowaleresume.vercel.app/profile.jpeg', width: 1200, height: 1200 }],
-  },
 }
 
 export default function NetworkPlusCertificate() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            name: 'CompTIA Network+ Certificate | Abubakri Faaruq Adebowale',
+            url: 'https://abubakrifaaruqadebowaleresume.vercel.app/certifications/network-plus',
+            about: {
+              '@type': 'EducationalOccupationalCredential',
+              name: 'CompTIA Network+',
+              credentialCategory: 'certification',
+              educationalLevel: 'Professional',
+              awardedBy: { '@type': 'Organization', name: 'CompTIA' },
+              description: 'Vendor-neutral networking certification covering networking concepts, infrastructure, operations, security, and troubleshooting.',
+            },
+            author: {
+              '@type': 'Person',
+              name: 'Abubakri Faaruq Adebowale',
+              url: 'https://abubakrifaaruqadebowaleresume.vercel.app',
+            },
+          }),
+        }}
+      />
       <CertificateViewer
         title="CompTIA Network+ Certificate"
         subtitle="CompTIA Network+ - Networking Concepts and Infrastructure"

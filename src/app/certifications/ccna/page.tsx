@@ -8,16 +8,35 @@ export const metadata: Metadata = {
   title: 'CCNA Certificate | Abubakri Faaruq Adebowale',
   description: 'Cisco Certified Network Associate certificate with Distinction from HIIT Plc.',
   alternates: { canonical: 'https://abubakrifaaruqadebowaleresume.vercel.app/certifications/ccna' },
-  openGraph: {
-    title: 'CCNA Certificate | Abubakri Faaruq Adebowale',
-    description: 'Cisco Certified Network Associate certificate with Distinction from HIIT Plc.',
-    images: [{ url: 'https://abubakrifaaruqadebowaleresume.vercel.app/profile.jpeg', width: 1200, height: 1200 }],
-  },
 }
 
 export default function CCNACertificate() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            name: 'CCNA Certificate | Abubakri Faaruq Adebowale',
+            url: 'https://abubakrifaaruqadebowaleresume.vercel.app/certifications/ccna',
+            about: {
+              '@type': 'EducationalOccupationalCredential',
+              name: 'Cisco Certified Network Associate (CCNA)',
+              credentialCategory: 'certification',
+              educationalLevel: 'Professional',
+              awardedBy: { '@type': 'Organization', name: 'Cisco' },
+              description: 'Cisco Certified Network Associate certificate earned with distinction, covering network fundamentals, IP connectivity, security fundamentals, automation, and programmability.',
+            },
+            author: {
+              '@type': 'Person',
+              name: 'Abubakri Faaruq Adebowale',
+              url: 'https://abubakrifaaruqadebowaleresume.vercel.app',
+            },
+          }),
+        }}
+      />
       <CertificateViewer
         title="CCNA Certificate"
         subtitle="Cisco Certified Network Associate - Distinction"
