@@ -2,6 +2,7 @@
 // Faruqsuzay@gmail.com | +2349061345507
 
 import Link from 'next/link'
+import { buttonVariants } from '@/components/ui/button'
 
 export default function NotFound() {
   return (
@@ -16,7 +17,9 @@ export default function NotFound() {
         </p>
         <Link
           href="/"
-          className="inline-flex px-6 py-3 bg-accent text-accent-foreground rounded-lg font-medium hover:opacity-90 transition-opacity cursor-pointer"
+          className={buttonVariants({
+            className: 'bg-accent text-accent-foreground hover:bg-accent hover:opacity-90 h-11 px-6',
+          })}
         >
           Back to Home
         </Link>

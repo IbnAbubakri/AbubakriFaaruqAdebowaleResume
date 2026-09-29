@@ -5,6 +5,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { ChevronUp } from 'lucide-react'
 
 export default function BackToTop() {
   const [show, setShow] = useState(false)
@@ -27,9 +28,7 @@ export default function BackToTop() {
           aria-label="Back to top"
           className="fixed bottom-6 right-6 z-40 p-3.5 bg-accent text-accent-foreground rounded-full shadow-lg hover:opacity-90 active:scale-90 transition-[colors,transform] duration-200 cursor-pointer"
         >
-          <svg aria-hidden="true" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-          </svg>
+          <ChevronUp aria-hidden="true" className="w-5 h-5" />
         </motion.button>
       )}
     </AnimatePresence>

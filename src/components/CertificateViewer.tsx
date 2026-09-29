@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
+import { ArrowLeft, Download, FileText } from 'lucide-react'
 
 interface CertificateViewerProps {
   title: string
@@ -48,9 +49,7 @@ export default function CertificateViewer({
               href="/#certifications"
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors font-mono cursor-pointer"
             >
-              <svg aria-hidden="true" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
+              <ArrowLeft aria-hidden="true" className="w-4 h-4" />
               {backLabel}
             </Link>
           </motion.div>
@@ -76,9 +75,7 @@ export default function CertificateViewer({
               download
               className="inline-flex items-center gap-2 mt-4 px-6 py-2 bg-accent text-accent-foreground rounded-lg hover:opacity-90 transition-opacity font-medium cursor-pointer"
             >
-              <svg aria-hidden="true" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
+              <Download aria-hidden="true" className="w-4 h-4" />
               Download Certificate
             </a>
           </motion.div>
@@ -105,9 +102,7 @@ export default function CertificateViewer({
               </object>
             ) : imgError ? (
               <div className="flex flex-col items-center justify-center py-20 text-muted-foreground" role="alert">
-                <svg aria-hidden="true" className="w-16 h-16 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
+                <FileText aria-hidden="true" className="w-16 h-16 mb-4" />
                 <p className="text-lg font-semibold">Certificate image not found</p>
                 <p className="text-sm mt-2">Please place the certificate file in the public folder</p>
               </div>

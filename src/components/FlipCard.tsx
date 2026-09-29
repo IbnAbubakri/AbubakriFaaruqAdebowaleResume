@@ -89,13 +89,6 @@ export default function FlipCard({
     setIsFlipped((prev) => !prev)
   }, [])
 
-  const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault()
-      setIsFlipped((prev) => !prev)
-    }
-  }, [])
-
   return (
     <div className={`relative ${className}`}>
       {/* Floating shadow — a sibling of the clipped, 3D-rotated container so it is never cut off */}
@@ -110,15 +103,11 @@ export default function FlipCard({
 
       <div
         ref={ref}
-        role="button"
-        tabIndex={0}
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onClick={handleClick}
-        onKeyDown={handleKeyDown}
         style={{ perspective: 1400 }}
-        aria-label={isFlipped ? 'Flip card back to front' : 'Flip card to reveal more details'}
         className="relative cursor-pointer overflow-hidden"
       >
         <motion.div
