@@ -17,16 +17,18 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 const THEME_STORAGE_KEY = 'theme'
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>(() => {
-    if (typeof window !== 'undefined') {
-      try {
-        const stored = localStorage.getItem(THEME_STORAGE_KEY)
-        if (stored === 'light' || stored === 'dark') return stored
-      } catch {}
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-    }
-    return 'dark'
-  })
+  const [theme, setThemeState] = useState<Theme>('dark')
+
+  useEffect(() => {
+    const root = document.documentElement
+    const applied = root.classList.contains('dark') ? 'dark' : 'light'
+    root.classList.remove('light', 'dark')
+    root.classList.add(applied)
+    setThemeState(applied)
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, applied)
+    } catch {}
+  }, [])
 
   useEffect(() => {
     const root = document.documentElement
