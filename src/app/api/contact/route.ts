@@ -5,10 +5,11 @@ const contactSchema = z.object({
   name: z.string().min(2),
   email: z.string().email(),
   message: z.string().min(10),
-  website: z.string().max(0), // honeypot — must be empty
+  website: z.string().optional(), // honeypot — must be empty
 })
 
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xjkyqobw'
+const FORMSPREE_ENDPOINT =
+  process.env.CONTACT_FORM_ENDPOINT ?? 'https://formspree.io/f/xoevrnjk'
 
 export async function POST(req: NextRequest) {
   try {
