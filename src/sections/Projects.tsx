@@ -6,6 +6,7 @@
 import Link from 'next/link'
 import FlipHint from '@/components/FlipHint'
 import FlipCard from '@/components/FlipCard'
+import LivePreview, { PreviewUnavailable } from '@/components/LivePreview'
 import ScrollReveal from '@/components/ScrollReveal'
 import ParallaxSection from '@/components/ParallaxSection'
 
@@ -15,6 +16,7 @@ const projects = [
     description: 'Corporate website for a Nigerian power engineering company. Features an interactive generator sizing calculator (59+ appliances, surge-aware kVA sizing with 25% headroom), multi-step booking wizards for generator rental and maintenance, a Leaflet map picker with state/LGA reverse geocoding, Web3Forms + WhatsApp fallback lead capture, and a full blogging platform. Delivered with per-route SEO, JSON-LD structured data, programmatic OG images, and an accessibility-first, animation-rich UI.',
     techStack: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'Leaflet', 'Web3Forms', 'Vitest', 'Vercel'],
     liveDemo: 'https://www.illuminateengineeringlimited.com',
+    preview: 'https://www.illuminateengineeringlimited.com',
     github: 'https://github.com/IbnAbubakri/illuminate-engineering',
     color: 'var(--accent)',
   },
@@ -23,6 +25,7 @@ const projects = [
     description: 'Client website for a Nigerian electromechanical power solutions company — developed in collaboration with a fellow developer. I contributed the interactive multi-step generator sizing estimator, the searchable/filterable product catalog (19 generator products) with pagination, and the WhatsApp-integrated quote form with Zod validation. Includes project case studies, a partner program, and full SEO plus legal pages, built around lead generation for the Nigerian SME market.',
     techStack: ['Next.js 15', 'React 19', 'TypeScript', 'shadcn/ui', 'Tailwind CSS v4', 'react-hook-form', 'Zod', 'Radix UI'],
     liveDemo: 'https://bolton-duplicate.vercel.app/',
+    preview: 'https://bolton-duplicate.vercel.app/',
     github: 'https://github.com/Teea-dev/boltonengineering',
     color: 'var(--color-cyan-token)',
   },
@@ -31,6 +34,7 @@ const projects = [
     description: 'Production WhatsApp-first storefront for a Nigerian retail business, serving 1,000+ products across nine categories with naira pricing. A build-time sync pipeline pulls the catalogue from the storefront API, tags every item through a classifier, and emits an ~8 KB summary with per-category counts and featured in-stock products, so the landing page never ships the full 1.4 MB catalogue. Cart state runs on a reducer with localStorage persistence, and checkout composes the order into a wa.me deep link rather than window.open, so popup blockers cannot swallow an order. Includes routed category shops, a native dialog product lightbox, and a floating cart that survives navigation.',
     techStack: ['React 18', 'Vite 6', 'Tailwind CSS v4', 'React Router 7', 'Radix UI', 'Vercel'],
     liveDemo: 'https://www.fayfashioncart.com.ng/',
+    preview: 'https://www.fayfashioncart.com.ng/',
     color: 'var(--primary)',
   },
   {
@@ -38,6 +42,7 @@ const projects = [
     description: 'A full-stack fintech platform for bill payments, airtime and data bundles, electricity payments, TV subscriptions, wallet management, and transaction tracking. Features JWT-based authentication, MFA via TOTP, CSRF protection, account lockout, and real-time balance and transaction updates.',
     techStack: ['Next.js', 'React', 'TypeScript', 'Node.js', 'PostgreSQL', 'JWT', 'TOTP/MFA', 'CSRF'],
     liveDemo: 'https://billxpress1.vercel.app/',
+    previewNote: 'This site sends X-Frame-Options: DENY, so browsers refuse to display it in a frame.',
     github: 'https://github.com/IbnAbubakri/billxpress',
     color: 'var(--accent)',
   },
@@ -46,6 +51,7 @@ const projects = [
     description: 'A production-oriented secure authentication and identity management system. Features JWT token rotation and secure session management, multi-factor authentication, email verification and password reset workflows, rate limiting, account protection against suspicious activity, and structured logging for authentication and security events.',
     techStack: ['Next.js', 'React', 'Node.js', 'JWT', 'MFA', 'Email Verification', 'Rate Limiting', 'Structured Logging'],
     liveDemo: 'https://secureloginsystem.vercel.app/',
+    previewNote: 'This app opens at its sign-in screen, so there is nothing to preview without an account.',
     github: 'https://github.com/IbnAbubakri/secure-login-system.git',
     color: 'var(--primary)',
   },
@@ -54,6 +60,7 @@ const projects = [
     description: 'Developed and deployed a weather forecasting web application integrating external REST APIs for real-time weather information, with client-side data handling and a responsive interface for displaying conditions.',
     techStack: ['React', 'JavaScript', 'REST APIs'],
     liveDemo: 'https://weatherbyibnabubakri.onrender.com/',
+    preview: 'https://weatherbyibnabubakri.onrender.com/',
     github: 'https://github.com/IbnAbubakri/WeatherForecast.git',
     color: 'var(--color-cyan-token)',
   },
@@ -68,6 +75,7 @@ const projects = [
     description: 'A full-stack exam practice platform with server-side grading via Supabase RPC, student/admin dashboards, persistent draft recovery, and ARIA-compliant UI. Features timed quizzes, result tracking, and a built-in scientific calculator.',
     techStack: ['React', 'Supabase', 'PostgreSQL', 'Vite', 'Vitest', 'Tailwind CSS'],
     liveDemo: 'https://nelsonquizapp.vercel.app/',
+    previewNote: "This site sends X-Frame-Options: DENY plus CSP frame-ancestors 'none', so browsers refuse to display it in a frame.",
     github: 'https://github.com/IbnAbubakri/QuizApp',
     color: 'var(--color-cyan-token)',
   },
@@ -76,6 +84,7 @@ const projects = [
     description: 'A scientific calculator supporting 40+ mathematical operations including trig, log, permutations/combinations, and base conversions. Features keyboard-driven input and a responsive interface optimized for desktop and keyboard-based use.',
     techStack: ['React', 'JavaScript', 'TypeScript'],
     liveDemo: 'https://calculator234.vercel.app/',
+    preview: 'https://calculator234.vercel.app/',
     github: 'https://github.com/IbnAbubakri/calculator',
     color: 'var(--primary)',
   },
@@ -84,6 +93,7 @@ const projects = [
     description: 'Built an AI-powered WhatsApp Business OS with a Next.js dashboard and FastAPI backend. Integrated Gemini AI for smart replies and a Node.js WhatsApp bridge for real-time messaging.',
     techStack: ['Next.js', 'TypeScript', 'FastAPI', 'Gemini AI', 'Tailwind CSS', 'WhatsApp API'],
     liveDemo: 'https://flowdeskapp.onrender.com/',
+    previewNote: 'This demo sleeps on a free tier and can take a minute to wake, so the frame is often blank.',
     github: 'https://github.com/IbnAbubakri/Flowdesk.git',
     backend: 'https://github.com/IbnAbubakri/Flowdesk-backend.git',
     color: 'var(--accent)',
@@ -100,6 +110,23 @@ function ProjectFront({ project, index }: { project: typeof projects[number]; in
       />
 
       <div className="pl-1 pt-2">
+        {project.preview ? (
+          <LivePreview
+            url={project.preview}
+            title={project.title}
+            accent={project.color}
+            className="mb-4"
+          />
+        ) : project.previewNote ? (
+          <PreviewUnavailable
+            url={project.liveDemo}
+            title={project.title}
+            reason={project.previewNote}
+            accent={project.color}
+            className="mb-4"
+          />
+        ) : null}
+
         <div className="flex items-center justify-between mb-4">
           <div className="p-2 bg-accent/10 dark:bg-accent/20 rounded-lg">
             <svg aria-hidden="true" className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
