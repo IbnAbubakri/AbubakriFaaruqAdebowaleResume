@@ -27,6 +27,13 @@ const projects = [
     color: 'var(--color-cyan-token)',
   },
   {
+    title: 'FayFashionCart — WhatsApp Commerce Storefront',
+    description: 'Production WhatsApp-first storefront for a Nigerian retail business, serving 1,000+ products across nine categories with naira pricing. A build-time sync pipeline pulls the catalogue from the storefront API, tags every item through a classifier, and emits an ~8 KB summary with per-category counts and featured in-stock products, so the landing page never ships the full 1.4 MB catalogue. Cart state runs on a reducer with localStorage persistence, and checkout composes the order into a wa.me deep link rather than window.open, so popup blockers cannot swallow an order. Includes routed category shops, a native dialog product lightbox, and a floating cart that survives navigation.',
+    techStack: ['React 18', 'Vite 6', 'Tailwind CSS v4', 'React Router 7', 'Radix UI', 'Vercel'],
+    liveDemo: 'https://www.fayfashioncart.com.ng/',
+    color: 'var(--primary)',
+  },
+  {
     title: 'BillXpress — Fintech Dashboard',
     description: 'A full-stack fintech platform for bill payments, airtime and data bundles, electricity payments, TV subscriptions, wallet management, and transaction tracking. Features JWT-based authentication, MFA via TOTP, CSRF protection, account lockout, and real-time balance and transaction updates.',
     techStack: ['Next.js', 'React', 'TypeScript', 'Node.js', 'PostgreSQL', 'JWT', 'TOTP/MFA', 'CSRF'],
