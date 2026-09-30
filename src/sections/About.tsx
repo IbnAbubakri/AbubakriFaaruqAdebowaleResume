@@ -23,7 +23,7 @@ export default function About() {
   ]
 
   return (
-    <section id="about" className="py-24 bg-background relative overflow-hidden">
+    <section id="about" className="py-24 bg-transparent relative overflow-hidden section-amber">
       <ParallaxSection speed={0.03}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-16 items-start">
@@ -70,7 +70,7 @@ export default function About() {
                     <FlipCard
                       accentColor="var(--accent)"
                       backContent={
-                        <div className="p-4 bg-card rounded-xl h-full flex items-center justify-center">
+                        <div className="p-4 glass-card rounded-xl h-full flex items-center justify-center">
                           <p className="text-xs text-muted-foreground text-center font-mono">
                             {stat.label === 'Experience' && 'Over 5 years of hands-on IT infrastructure, security, and cloud management.'}
                             {stat.label === 'Projects' && '50+ projects spanning networking labs, web apps, fintech, and enterprise systems.'}
@@ -80,7 +80,7 @@ export default function About() {
                         </div>
                       }
                     >
-                      <div className="p-4 bg-card rounded-xl">
+                      <div className="p-4 glass-card rounded-xl">
                         <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                         <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
                       </div>
@@ -95,7 +95,7 @@ export default function About() {
                 <FlipCard
                   accentColor="var(--primary)"
                   backContent={
-                    <div className="relative p-6 bg-card rounded-2xl border border-border h-full flex flex-col justify-center">
+                    <div className="relative p-6 glass-card rounded-2xl border border-border h-full flex flex-col justify-center">
                       <h3 className="text-lg font-semibold text-foreground mb-4">Core Values</h3>
                       <ul className="space-y-2 text-sm text-muted-foreground">
                         <li className="flex items-center gap-2">
@@ -118,7 +118,7 @@ export default function About() {
                     </div>
                   }
                 >
-                    <div className="relative p-6 bg-card rounded-2xl border border-border">
+                    <div className="relative p-6 glass-card rounded-2xl border border-border">
                       <h3 className="text-lg font-semibold text-foreground mb-4">My Mission</h3>
                     <p className="text-muted-foreground leading-relaxed">
                       To leverage technology in solving complex business challenges
@@ -133,7 +133,7 @@ export default function About() {
                   <FlipCard
                     accentColor="var(--color-cyan-token)"
                     backContent={
-                      <div className="relative p-4 bg-card rounded-xl border border-border h-full flex items-center">
+                      <div className="relative p-4 glass-card rounded-xl border border-border h-full flex items-center">
                         <p className="text-xs text-muted-foreground font-mono">
                           {item.title === 'Professional Focus' && 'Deep expertise in enterprise networking (CCNA), cloud architecture (AWS), and security operations across production environments.'}
                           {item.title === 'Core Strengths' && 'Proven ability to architect complex systems, lead technical teams, and solve ambiguous problems under pressure.'}
@@ -142,7 +142,7 @@ export default function About() {
                       </div>
                     }
                   >
-                    <div className="relative p-4 bg-card rounded-xl border border-border">
+                    <div className="relative p-4 glass-card rounded-xl border border-border">
                       <div className="pl-1">
                         <h3 className="font-medium text-foreground">{item.title}</h3>
                         <p className="text-sm text-muted-foreground">{item.desc}</p>

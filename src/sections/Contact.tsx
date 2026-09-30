@@ -208,12 +208,12 @@ export default function Contact() {
                         href={item.href}
                         target={item.href.startsWith('http') && !item.href.includes('wa.me') ? '_blank' : undefined}
                         rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                        className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border card-depth-sm"
+                        className="flex items-center gap-4 p-4 glass-card rounded-xl border border-border card-depth-sm"
                       >
                         {body}
                       </a>
                     ) : (
-                      <div className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border card-depth-sm">
+                      <div className="flex items-center gap-4 p-4 glass-card rounded-xl border border-border card-depth-sm">
                         {body}
                       </div>
                     )}

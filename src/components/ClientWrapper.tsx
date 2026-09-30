@@ -3,6 +3,7 @@
 
 'use client'
 
+import dynamic from 'next/dynamic'
 import Navbar from '@/components/Navbar'
 import Hero from '@/sections/Hero'
 import About from '@/sections/About'
@@ -16,9 +17,15 @@ import Testimonials from '@/sections/Testimonials'
 import Contact from '@/sections/Contact'
 import Footer from '@/components/Footer'
 
+const SiteScene = dynamic(() => import('@/components/three/SiteScene'), {
+  ssr: false,
+  loading: () => null,
+})
+
 export default function ClientWrapper() {
   return (
     <main id="main-content">
+      <SiteScene />
       <Navbar />
       <Hero />
       <About />

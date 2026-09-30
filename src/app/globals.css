@@ -135,6 +135,27 @@
     radial-gradient(ellipse 60% 50% at 80% 80%, color-mix(in srgb, var(--color-cyan-token) 10%, transparent) 0%, transparent 50%);
 }
 
+/**
+ * The page-wide 3D field sits behind every section, so section cards are frosted
+ * instead of solid. The field reads through the surfaces, and the backdrop blur
+ * keeps body copy sitting on a near-uniform backdrop instead of crisp geometry.
+ * Nav, footer and overlays stay opaque on purpose: they float above content and
+ * must never turn translucent.
+ */
+.glass-card {
+  background-color: color-mix(in srgb, var(--color-card) 86%, transparent);
+  backdrop-filter: blur(10px) saturate(1.04);
+  -webkit-backdrop-filter: blur(10px) saturate(1.04);
+}
+
+/* Phones have almost no gutter beside the content, so the cards stay closer to
+   opaque there and the field reads as a wash rather than through glass. */
+@media (max-width: 768px) {
+  .glass-card {
+    background-color: color-mix(in srgb, var(--color-card) 93%, transparent);
+  }
+}
+
 .section-amber {
   background:
     radial-gradient(ellipse 70% 50% at 0% 50%, rgba(245,158,11,0.04) 0%, transparent 60%);

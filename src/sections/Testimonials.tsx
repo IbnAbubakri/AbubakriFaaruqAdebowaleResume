@@ -49,7 +49,7 @@ export default function Testimonials() {
                 delay={0.15 + i * 0.1}
                 blur
               >
-                <TiltCard tiltDegree={4} glare={false} className="relative p-6 bg-card rounded-xl border border-border card-depth">
+                <TiltCard tiltDegree={4} glare={false} className="relative p-6 glass-card rounded-xl border border-border card-depth">
                   <div className="pl-1">
                     <div className="relative">
                       <svg aria-hidden="true" className="w-8 h-8 text-accent/20 mb-4" fill="currentColor" viewBox="0 0 24 24">

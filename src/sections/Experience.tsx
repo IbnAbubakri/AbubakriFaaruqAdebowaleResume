@@ -116,7 +116,7 @@ export default function Experience() {
                       </div>
                     }
                   >
-                    <div className="p-5 bg-card rounded-xl border border-border overflow-hidden">
+                    <div className="p-5 glass-card rounded-xl border border-border overflow-hidden">
                       <div className="absolute top-0 left-0 right-0 h-1 rounded-t-xl" style={{ backgroundColor: exp.color }} />
                       <div className="pl-1 pt-1">
                         <div className="flex flex-wrap items-baseline gap-2 mb-1">

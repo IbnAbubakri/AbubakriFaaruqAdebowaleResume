@@ -66,7 +66,7 @@ const certifications = [
 
 export default function Certifications() {
   return (
-    <section id="certifications" className="py-24 bg-background relative overflow-hidden noise-overlay">
+    <section id="certifications" className="py-24 bg-transparent relative overflow-hidden section-amber noise-overlay">
       <div className="absolute inset-0 scan-lines-heavy pointer-events-none" />
       <ParallaxSection speed={0.02}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -127,7 +127,7 @@ export default function Certifications() {
                     </div>
                   }
                 >
-                  <div className="relative p-5 bg-card rounded-xl border border-border overflow-hidden">
+                  <div className="relative p-5 glass-card rounded-xl border border-border overflow-hidden">
                     <div className="absolute top-0 left-0 right-0 h-1 rounded-t-xl" style={{ backgroundColor: cert.color }} />
                     <div className="pl-1 pt-2">
                       <div className="flex items-start justify-between mb-4">
