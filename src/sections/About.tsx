@@ -67,24 +67,10 @@ export default function About() {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-10">
                 {stats.map((stat, i) => (
                   <ScrollReveal key={stat.label} direction="up" delay={0.3 + i * 0.08}>
-                    <FlipCard
-                      accentColor="var(--accent)"
-                      backContent={
-                        <div className="p-4 glass-card rounded-xl h-full flex items-center justify-center">
-                          <p className="text-xs text-muted-foreground text-center font-mono">
-                            {stat.label === 'Experience' && 'Over 5 years of hands-on IT infrastructure, security, and cloud management.'}
-                            {stat.label === 'Projects' && '50+ projects spanning networking labs, web apps, fintech, and enterprise systems.'}
-                            {stat.label === 'Certifications' && 'CCNA, CompTIA Network+, CompTIA A+, AWS Cloud, and DevOps.'}
-                            {stat.label === 'Clients' && 'Served 30+ clients across enterprise, education, and freelance engagements.'}
-                          </p>
-                        </div>
-                      }
-                    >
-                      <div className="p-4 glass-card rounded-xl">
-                        <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                        <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
-                      </div>
-                    </FlipCard>
+                    <div className="p-4 glass-card rounded-xl border border-border">
+                      <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                      <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
+                    </div>
                   </ScrollReveal>
                 ))}
               </div>
